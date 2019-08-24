@@ -1,0 +1,924 @@
+---
+title: "Stephen & Amelia Bothfeld Property"
+author: "Forest Management Plan"
+date: "`r lubridate::today()`"
+output:
+  tufte::tufte_handout: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 3.75)
+```
+
+```{r wrangling_cruise, include=FALSE}
+property <- "bothfeld-s"
+year <- 2019
+
+load(file = paste("C:/Users/Neal/projects/cruise/rda/", property, "-cruise-", year, ".rda", sep = ""))
+
+library(tidyverse)
+library(ggthemes)
+library(stargazer)
+library(knitr)
+library(extrafont)
+loadfonts("win", quiet = TRUE)
+```
+
+```{r pbf_logo, fig.margin=TRUE, out.width='30%', out.height='30%', fig.align='center'}
+knitr::include_graphics("C:/Users/Neal/projects/cruise/logo-small.png")
+```
+
+\begin{marginfigure}
+\noindent \textit{\large Prepared by} 
+\newline\indent Neal F. Maker and John D. Foppert  
+\newline\indent Pekin Branch Forestry  
+\newline\indent 1324 West County Road  
+\newline\indent Calais, VT 05648  
+\newline\indent (802) 229-9757  
+\end{marginfigure}
+
+\begin{marginfigure}
+\noindent \textit{\large Owner}
+\newline\indent `r owners`  
+\newline\indent `r addressline1`
+`r ifelse(is.na(addressline2), "", "\newline")`\indent `r if_else(is.na(addressline2), "", addressline2)`
+\newline\indent `r citystatezip`  
+\end{marginfigure}
+
+\begin{marginfigure}
+\noindent \textit{\large Property}   
+\newline\indent `r paste(glacres, "acres", gldescrip, sep = " ")`   
+\newline\indent `r paste(town, ", VT", sep = "")`  
+\newline\indent SPAN `r span`  
+\newline\indent Map delineation based on VMP  
+\newline\indent Photo(s) `r photo`  
+\end{marginfigure}
+
+\begin{marginfigure}
+\noindent \textit{\large Effective date of plan}  
+\newline\indent April 1, `r if_else(month < 4, year, year+1)`  
+\end{marginfigure}
+
+\vspace{30pt}
+\indent This forest management plan is a blueprint for responsible land stewardship.  It is the result of a planning process that incorporated an assessment of the history and current conditions on the property, consideration of the various courses of future development that the forest could follow, and discernment as to which outcomes best suit my particular objectives.
+
+\vspace{5pt}
+By signing below, I certify that I approve of---and agree to manage my forestland according to---the following management plan. I further certify that any of my forestland that is enrolled in Vermont's Use Value Appraisal program is under active long-term forest management in accordance with the state's minimum acceptable standards for forest management. These standards include following Acceptable Management Practices to maintain water quality on logging operations.  
+
+\vspace{38pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}  
+
+\noindent Landowner \rule{7.7cm}{0pt} Date						
+
+\vspace{18pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}  
+
+\noindent Landowner \rule{7.7cm}{0pt} Date	 
+
+\vspace{18pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}  
+
+\noindent Landowner \rule{7.7cm}{0pt} Date	 
+
+\vspace{18pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}  
+
+\noindent Landowner \rule{7.7cm}{0pt} Date  
+
+\vspace{24pt}
+
+This forest management plan meets the standards promulgated by the Vermont Department of Forests, Parks and Recreation as required for eligibility in the Use Value Appraisal Program.  
+
+\vspace{22pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}  
+
+\noindent County Forester \rule{7cm}{0pt} Date
+
+\pagebreak
+
+#Introduction
+
+This plan Covers the ten year period from `r if_else(month < 4, year, year+1)` to `r if_else(month < 4, year+9, year+10)`. It lays out the near- and medium-term actions that should guide the development of the `r forestname` Forest.  It also qualifies portions of the property for Use Value Appraisal (UVA) and commensurate reduction in property taxes.^[Further information about UVA and current valuations can be found at the Vermont Tax Department's website: https://tax.vermont.gov/property-owners/current-use. \vspace{20pt}]  Owners participating in the Use Value Appraisal program are obliged to manage enrolled portions of their property according to the plan and to make any reasonable investments for improvement that the plan recommends.^[UVA management plan standards are determined by the Department of Forests, Parks, & Recreation and are available at https://fpr.vermont.gov/forest/your_woods/use_value_appraisal or through a County Forester.]  Its recommendations were developed in accordance with the principles and practices of scientifically sound forestry, as described in the relevant management guidelines, textbooks and academic journals.
+
+#Property Description
+
+`r if_else(sum(stands$acres_legal) == glacres, "All", paste("Some", round(100*sum(stands$acres_legal)/glacres), "percent", sep = " "))` of the `r glacres` acre `r forestname` property is productive forestland that will be managed according to this plan. Its elevations range from `r elevationmin` to `r elevationmax` feet above mean sea level. `r watertext` `r boundariestext` Soils, forest health, and other pertinent topics are discussed in the individual stand area descriptions that follow.
+
+#Principles, Goals & Strategies For Forest Management
+
+`r paste(objectives)`
+
+\begin{marginfigure}
+\noindent \textit{\LARGE Management Schedule}
+\vspace{10pt}
+
+\noindent \textit{\large `r if_else(month < 4, year+9, year+10)`}  
+
+\begin{itemize}
+  \item Reinventory property
+\end{itemize}
+\end{marginfigure}
+
+#Stand Descriptions & Management Recommendations
+
+Presented below are detailed stand-by-stand descriptions of the forest, the long-term structural, compositional and functional goals for each stand, and the near-term silvicultural treatments or management activities that have been prescribed to advance each stand toward those goals.  The data presented in the following pages was obtained from a field examination of the property in `r lubridate::month(month, label = TRUE, abbr = FALSE)` of `r year`.  General conditions were assessed qualitatively in conjunction with quantitative sampling.  Observational notes and sample summary statistics together provide the basis for the area descriptions and management recommendations. All sampling was done using a systematic sample and variable radius plots. In stands with uneven-aged structures, all trees 6" dbh and larger were measured in each plot. In stands with even-aged structures, all main-canopy trees were measured in each plot.
+
+When contractors are used to implement silvicultural prescriptions, they should be highly skilled, properly equipped, fully insured, and closely supervised.  A professional forester should prepare and administer commercial treatments, and logging operations should be timed to coincide with favorable weather conditions (working on wet soils only when they are frozen, for instance) and favorable timber markets.  Use Value Appraisal program guidelines allow any management activities prescribed in this plan to be carried out up to three years before or after the date indicated.  Landowners in the Use Value Appraisal program must file a Forest Management Activity Report with the County Forester by February 1^st^ if any commercial logging occurred in the previous year. 
+
+The property should be reinventoried in `r if_else(month < 4, year+9, year+10)` and the findings brought to bear on a reassessment of the goals and strategies proposed in this plan, leading to a formal management plan update.  At any point over the course of this management period, this plan may be updated to incorporate new information and to reflect any new thoughts, concerns or considerations on the part of the family or the foresters helping to manage their land.
+
+\newpage
+
+```{r set1}
+std <- 1
+```
+
+#Area `r std` 
+`r (stands %>% filter(stand == std))$type`    
+\noindent `r sprintf("%.2f", (stands %>% filter(stand == std))$acres_legal)` legal acres | `r sprintf("%.2f", (stands %>% filter(stand == std))$acres_calc)` measured acres    
+
+##Site-specific information
+
+> - __Soils:__   
+\indent\indent `r paste((soils %>% filter(stand == std))$text, collapse = " ") %>% str_replace_all("START", "\n") %>% str_replace_all("END", "  ")` 
+
+> - __Site Class:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$site_class` (determined from soil mapping and field assessment)   
+
+> - __Access:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$access` 
+
+> - __Stand history:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$history` 
+
+##Current forest information
+
+> - __Age Class Structure:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$structure.1`  
+```{r diam_dist1, fig.margin=TRUE, fig.width=2, fig.height=6, fig.cap="Distributions are approximated with kernel density estimation. Common species are those that account for at least 8 percent of the total stocking and areas under each curve represent species basal areas."}
+
+# diameter dist of main spp in a specific stand ----
+
+trees %>% filter(stand == std, live == 1, dbh >= 6) %>%
+  group_by(spp) %>%
+  mutate(spp_sum = sum(live)) %>%
+  ungroup() %>%
+  mutate(spp = reorder(spp, -live, FUN = sum)) %>%
+  filter(spp_sum/n()>=.08) %>% 
+  ggplot(aes(dbh, y = ..count..)) +
+  geom_density(alpha = .6, position = "identity", fill = "grey", col = "dark grey") +
+  theme(text = element_text(family = "Perpetua"), 
+        legend.position = "none") +
+  facet_wrap(~spp, ncol = 1) +
+  scale_y_continuous("relative basal area", labels = NULL, 
+                     breaks = NULL) +
+  scale_x_continuous("dbh") +
+  labs(title = "Diameter distributions", 
+       subtitle = "for common species")
+```
+
+```{r spp1}
+x <- trees %>% 
+  filter(stand == std, live == 1, dbh >= 6) %>% 
+  group_by(spp) %>% 
+  summarize(spp_sum = sum(live)) %>%
+  mutate(pct = spp_sum / sum(spp_sum)) %>%
+  select(spp, pct) %>%
+  arrange(-pct)
+```
+
+> - __Species (% stocking):__   
+\vspace{2pt}
+`r if_else(nrow(x)>0, paste(x$spp, " (", round(x$pct*100), '%)', sep = '', collapse = ", "), "none")`  
+
+> - __Regeneration:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$regen`  
+
+> - __Forest health:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$health`  
+
+> - __Volume/ac:__   
+\vspace{2pt}
+`r round(stands %>% filter(stand == std) %>% .$veneer_vol/1000,1)` MBF veneer, `r round(stands %>% filter(stand == std) %>% .$saw_vol/1000,1)` MBF sawtimber, `r round(stands %>% filter(stand == std) %>% .$tie_vol/1000,1)` MBF tie logs,   
+`r round(stands %>% filter(stand == std) %>% .$cord_vol)` cds pulp   
+
+> - __Size class structure (%BA):__  	 
+\vspace{2pt}
+\indent 6-10”: `r round(sum(trees$stand == std & trees$dbh >= 6 & trees$dbh <= 10 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`% | 11-16”: `r round(sum(trees$stand == std & trees$dbh > 10 & trees$dbh <=16 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`%	| 17-22”: `r round(sum(trees$stand == std & trees$dbh > 16 & trees$dbh <= 22 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`% |	23+”: `r round(sum(trees$stand == std & trees$dbh > 22 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`%  
+
+##Inventory information
+
+> - `r stands %>% filter(stand == std) %>% .$plots` points, `r baf` BAF, `r paste(lubridate::month(month, label = TRUE, abbr = FALSE), year, sep = ", ")`
+
+```{r stockingchart1, fig.cap="Points represent individual plots. Asterisk represnts stand average. Radial lines are quadratic stand diameters.", echo=FALSE, results='hide'}
+this_stand <- stands %>%
+  filter(stand == std)
+
+# qsd lines --------------
+
+dbhbold <- seq(2, 26, 2)
+dbhlight <- seq(1, 25, 2)
+
+# qsd labels -------------
+
+dbhlabs <- paste(c(4,6,8,10,12,14,16,20), '"', sep = "")
+
+dbhlabstop <- tibble(y = rep(max(this_stand$ay1, 
+                             max((plots %>% 
+                                    filter(stand == std))$ba_live))+5, 
+                             times = 8)) %>% 
+  mutate(x = y/(.005454*c(4,6,8,10,12,14,16,20)^2))
+
+dbhlabsright <- tibble(x = rep(max(this_stand$ax2,
+                                   max((plots %>%
+                                          filter(stand == std))$tpa_live))+50,
+                               times = 8))
+dbhlabsright <- dbhlabsright %>%
+  mutate(y = x*.005454*c(4,6,8,10,12,14,16,20)^2)
+
+# plot with a b & c curves -----------
+
+curveplot <- plots %>% filter(stand == std) %>%
+  ggplot(aes(tpa_live, ba_live)) +
+  geom_abline(slope = .005454*dbhbold^2, col = "dark gray") +
+  geom_abline(slope = .005454*dbhlight^2, col = "gray") +
+  annotate("text", x = dbhlabstop$x, 
+           y = dbhlabstop$y, 
+           label = dbhlabs,
+           color = "gray55",
+           family = "Perpetua") +
+  annotate("text", x = dbhlabsright$x, 
+           y = dbhlabsright$y, 
+           label = dbhlabs,
+           color = "gray55",
+           family = "Perpetua") +
+  geom_curve(aes(x = this_stand$ax1,
+                 y = this_stand$ay1,
+                 xend = this_stand$ax2,
+                 yend = this_stand$ay2),
+             curvature = this_stand$acurv,
+             angle = this_stand$aangle) + 
+  geom_curve(aes(x = this_stand$bx1,
+                 y = this_stand$by1,
+                 xend = this_stand$bx2,
+                 yend = this_stand$by2),
+             curvature = this_stand$bcurv,
+             angle = this_stand$bangle) + 
+  geom_curve(aes(x = this_stand$cx1,
+                 y = this_stand$cy1,
+                 xend = this_stand$cx2,
+                 yend = this_stand$cy2),
+             curvature = this_stand$ccurv,
+             angle = this_stand$cangle) +
+  geom_text(aes(this_stand$ax2, 
+                this_stand$ay2, 
+                label = this_stand$alab),
+            nudge_x = this_stand$anudge,
+            family = "Perpetua") +
+  geom_text(aes(this_stand$bx2, 
+                this_stand$by2, 
+                label = this_stand$blab),
+            nudge_x = this_stand$bnudge,
+            family = "Perpetua") +
+  geom_text(aes(this_stand$cx2, 
+                this_stand$cy2, 
+                label = this_stand$clab),
+            nudge_x = this_stand$cnudge,
+            family = "Perpetua") +
+  geom_point() +
+  geom_point(aes(this_stand$tpa, 
+                 this_stand$mean_ba),
+             size = 3, 
+             shape = 8, 
+             stroke = 1.5) +
+  theme(text = element_text(family = "Perpetua"), 
+        legend.position = "right") +
+  scale_x_continuous(name = "trees per acre",
+                     limits = c(min(this_stand$cx1, 
+                                    min((plots %>% 
+                                           filter(stand == std))$tpa_live)),
+                                max(this_stand$ax2,
+                                    max((plots %>% 
+                                           filter(stand == std))$tpa_live))+50)) +
+  scale_y_continuous(name = "basal area per acre (sq ft)",
+                     limits = c(min(this_stand$cy2, 
+                                    min((plots %>% 
+                                           filter(stand == std))$ba_live)),
+                                max(this_stand$ay1,
+                                    max((plots %>% 
+                                           filter(stand == std))$ba_live))+5)) +
+  labs(title = "Stocking chart",
+       caption = paste("Reproduced from ", this_stand$name, 
+                       " stocking guide: ", this_stand$author,
+                       ". ", this_stand$source, sep = ""))
+
+# plot w/o curves -----------------
+
+dbhlabstop <- tibble(y = rep(max((plots %>% 
+                                    filter(stand == std))$ba_live)+20, 
+                             times = 8)) %>% 
+  mutate(x = y/(.005454*c(4,6,8,10,12,14,16,20)^2))
+
+dbhlabsright <- tibble(x = rep(max((plots %>%
+                                          filter(stand == std))$tpa_live)+100,
+                               times = 8)) %>%
+  mutate(y = x*.005454*c(4,6,8,10,12,14,16,20)^2)
+  
+curvelessplot <- plots %>% filter(stand == std) %>%
+  ggplot(aes(tpa_live, ba_live)) +
+  geom_abline(slope = .005454*dbhbold^2, col = "dark gray") +
+  geom_abline(slope = .005454*dbhlight^2, col = "gray") +
+  annotate("text", x = dbhlabstop$x, 
+           y = dbhlabstop$y, 
+           label = dbhlabs,
+           color = "gray55",
+           family = "Perpetua") +
+  annotate("text", x = dbhlabsright$x, 
+           y = dbhlabsright$y, 
+           label = dbhlabs,
+           color = "gray55",
+           family = "Perpetua") +
+  geom_point() +
+  geom_point(aes(this_stand$tpa, 
+                 this_stand$mean_ba),
+             size = 3, 
+             shape = 8, 
+             stroke = 1.5) +
+  theme(text = element_text(family = "Perpetua"), 
+        legend.position = "right") +
+  scale_x_continuous(name = "trees per acre",
+                     limits = c(min((plots %>% 
+                                           filter(stand == std))$tpa_live)-100,
+                                max((plots %>% 
+                                           filter(stand == std))$tpa_live)+100)) +
+  scale_y_continuous(name = "basal area per acre (sq ft)",
+                     limits = c(min((plots %>% 
+                                           filter(stand == std))$ba_live)-20,
+                                max((plots %>% 
+                                           filter(stand == std))$ba_live)+20)) +
+  labs(title = "Stocking chart")
+
+ifelse(this_stand$structure.1[1] == "Even-aged", print(curveplot),
+       print(curvelessplot))
+```
+
+```{r ags_ugs_table1, results="asis"}
+temp1 <- stands %>% filter(stand == std)
+temp2 <- c(temp1$mean_ba, temp1$qsd, temp1$tpa)
+temp3 <- c(temp1$ba_ags, temp1$qsd_ags, temp1$tpa_ags)
+temp4 <- c(temp1$ba_inv, temp1$qsd_in, temp1$tpa_inv)
+temp0 <- c('Basal area (sqft/ac)', 'QSD (in)', 'Stems/ac')
+temp5 <- data.frame(temp0, temp2, temp3, temp4)
+
+kable(temp5, digits = 0, col.names = c(' ', 'Total', 'Acceptable', 'Investment-grade'), caption = "Measures of stocking for all live trees (total), acceptable growing stock, and investment-grade growing stock (which is a subset of acceptable growing stock).")
+```
+
+##Long-term management system
+
+**Hybrid selection system**^[Nyland, R.D. 2002. Silviculture: Concepts and Applications. 2nd edition. Waveland Press Inc., Long Grove, IL. p. 248;  Leak, W.B., M.Yamasaki, and R. Holleran. 2014. Silvicultural Guide for Northern Hardwoods in the Northeast. USDA For. Serv. Gen. Tech. Rep. NRS-132.]   
+
+The stand structure should largely follow that of a typical single tree selection system, with trees of different ages intermixed, but canopy openings may exceed the 1/10 acre upper limit called for in single tree selection systems, or, more often, larger, low density patches and edges may be used to create the desired growth environment. This will help to overcome the diseased beech that is present.
+
+\newpage
+
+Eventually, we will create a structure in which roughly 30% of the basal area is poles, 30% is small sawtimber, and 40% is large and very large sawtimber.  Logging will take place about every 10 years, reducing the overstory stocking to some 70 square feet per acre.  In each entry mature crop trees will be harvested, immature trees will be tended to focus growth on the best stems, and new regeneration will be initiated or released.  This system will allow for the efficient establishment of new regeneration while maximizing the stocking of desirable trees that are carried to the end of their rotation.  Target diameters for crop trees will be specific to individual species as follows: 24 inches for sugar maple, yellow birch, and black cherry; 18 inches for other commercial hardwoods (with exceptions allowed for all veneer quality hardwood stems); and 14 inches for fir.  Any disease resistant beech stems should be identified and retained indefinitely to encourage the development of a disease resistant beech population.  Some exceptionally old and large stems may be retained for their value to wildlife and contribution to structural complexity in the stand.
+
+##Silvicultural prescription
+
+No work needs to happen over the next decade. This small stand will need to be logged in conjunction with Area 2 to be economically feasible.
+
+
+\newpage
+
+```{r set2}
+std <- 2
+```
+
+#Area `r std` 
+`r (stands %>% filter(stand == std))$type`    
+\noindent `r sprintf("%.2f", (stands %>% filter(stand == std))$acres_legal)` legal acres | `r sprintf("%.2f", (stands %>% filter(stand == std))$acres_calc)` measured acres    
+
+##Site-specific information
+
+> - __Soils:__   
+\indent\indent `r paste((soils %>% filter(stand == std))$text, collapse = " ") %>% str_replace_all("START", "\n") %>% str_replace_all("END", "  ")` 
+
+> - __Site Class:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$site_class` (determined from soil mapping and field assessment)   
+
+> - __Access:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$access` 
+
+> - __Stand history:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$history` 
+
+##Current forest information
+
+> - __Age Class Structure:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$structure.1`  
+```{r diam_dist2, fig.margin=TRUE, fig.width=2, fig.height=6, fig.cap="Distributions are approximated with kernel density estimation. Common species are those that account for at least 8 percent of the total stocking and areas under each curve represent species basal areas."}
+
+# diameter dist of main spp in a specific stand ----
+
+trees %>% filter(stand == std, live == 1, dbh >= 6) %>%
+  group_by(spp) %>%
+  mutate(spp_sum = sum(live)) %>%
+  ungroup() %>%
+  mutate(spp = reorder(spp, -live, FUN = sum)) %>%
+  filter(spp_sum/n()>=.08) %>% 
+  ggplot(aes(dbh, y = ..count..)) +
+  geom_density(alpha = .6, position = "identity", fill = "grey", col = "dark grey") +
+  theme(text = element_text(family = "Perpetua"), 
+        legend.position = "none") +
+  facet_wrap(~spp, ncol = 1) +
+  scale_y_continuous("relative basal area", labels = NULL, 
+                     breaks = NULL) +
+  scale_x_continuous("dbh") +
+  labs(title = "Diameter distributions", 
+       subtitle = "for common species")
+```
+
+```{r spp2}
+x <- trees %>% 
+  filter(stand == std, live == 1, dbh >= 6) %>% 
+  group_by(spp) %>% 
+  summarize(spp_sum = sum(live)) %>%
+  mutate(pct = spp_sum / sum(spp_sum)) %>%
+  select(spp, pct) %>%
+  arrange(-pct)
+```
+
+> - __Species (% stocking):__   
+\vspace{2pt}
+`r if_else(nrow(x)>0, paste(x$spp, " (", round(x$pct*100), '%)', sep = '', collapse = ", "), "none")`  
+
+> - __Regeneration:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$regen`  
+
+> - __Forest health:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$health`  
+
+> - __Volume/ac:__   
+\vspace{2pt}
+`r round(stands %>% filter(stand == std) %>% .$veneer_vol/1000,1)` MBF veneer, `r round(stands %>% filter(stand == std) %>% .$saw_vol/1000,1)` MBF sawtimber, `r round(stands %>% filter(stand == std) %>% .$tie_vol/1000,1)` MBF tie logs,   
+`r round(stands %>% filter(stand == std) %>% .$cord_vol)` cds pulp   
+
+> - __Size class structure (%BA):__  	 
+\vspace{2pt}
+\indent 6-10”: `r round(sum(trees$stand == std & trees$dbh >= 6 & trees$dbh <= 10 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`% | 11-16”: `r round(sum(trees$stand == std & trees$dbh > 10 & trees$dbh <=16 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`%	| 17-22”: `r round(sum(trees$stand == std & trees$dbh > 16 & trees$dbh <= 22 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`% |	23+”: `r round(sum(trees$stand == std & trees$dbh > 22 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`%  
+
+##Inventory information
+
+> - `r stands %>% filter(stand == std) %>% .$plots` points, `r baf` BAF, `r paste(lubridate::month(month, label = TRUE, abbr = FALSE), year, sep = ", ")` (Trees tallied from both cohorts)
+
+```{r stockingchart2, fig.cap="Points represent individual plots. Asterisk represnts stand average. Radial lines are quadratic stand diameters.", echo=FALSE, results='hide'}
+this_stand <- stands %>%
+  filter(stand == std)
+
+# qsd lines --------------
+
+dbhbold <- seq(2, 26, 2)
+dbhlight <- seq(1, 25, 2)
+
+# qsd labels -------------
+
+dbhlabs <- paste(c(4,6,8,10,12,14,16,20), '"', sep = "")
+
+dbhlabstop <- tibble(y = rep(max(this_stand$ay1, 
+                             max((plots %>% 
+                                    filter(stand == std))$ba_live))+5, 
+                             times = 8)) %>% 
+  mutate(x = y/(.005454*c(4,6,8,10,12,14,16,20)^2))
+
+dbhlabsright <- tibble(x = rep(max(this_stand$ax2,
+                                   max((plots %>%
+                                          filter(stand == std))$tpa_live))+50,
+                               times = 8))
+dbhlabsright <- dbhlabsright %>%
+  mutate(y = x*.005454*c(4,6,8,10,12,14,16,20)^2)
+
+# plot with a b & c curves -----------
+
+curveplot <- plots %>% filter(stand == std) %>%
+  ggplot(aes(tpa_live, ba_live)) +
+  geom_abline(slope = .005454*dbhbold^2, col = "dark gray") +
+  geom_abline(slope = .005454*dbhlight^2, col = "gray") +
+  annotate("text", x = dbhlabstop$x, 
+           y = dbhlabstop$y, 
+           label = dbhlabs,
+           color = "gray55",
+           family = "Perpetua") +
+  annotate("text", x = dbhlabsright$x, 
+           y = dbhlabsright$y, 
+           label = dbhlabs,
+           color = "gray55",
+           family = "Perpetua") +
+  geom_curve(aes(x = this_stand$ax1,
+                 y = this_stand$ay1,
+                 xend = this_stand$ax2,
+                 yend = this_stand$ay2),
+             curvature = this_stand$acurv,
+             angle = this_stand$aangle) + 
+  geom_curve(aes(x = this_stand$bx1,
+                 y = this_stand$by1,
+                 xend = this_stand$bx2,
+                 yend = this_stand$by2),
+             curvature = this_stand$bcurv,
+             angle = this_stand$bangle) + 
+  geom_curve(aes(x = this_stand$cx1,
+                 y = this_stand$cy1,
+                 xend = this_stand$cx2,
+                 yend = this_stand$cy2),
+             curvature = this_stand$ccurv,
+             angle = this_stand$cangle) +
+  geom_text(aes(this_stand$ax2, 
+                this_stand$ay2, 
+                label = this_stand$alab),
+            nudge_x = this_stand$anudge,
+            family = "Perpetua") +
+  geom_text(aes(this_stand$bx2, 
+                this_stand$by2, 
+                label = this_stand$blab),
+            nudge_x = this_stand$bnudge,
+            family = "Perpetua") +
+  geom_text(aes(this_stand$cx2, 
+                this_stand$cy2, 
+                label = this_stand$clab),
+            nudge_x = this_stand$cnudge,
+            family = "Perpetua") +
+  geom_point() +
+  geom_point(aes(this_stand$tpa, 
+                 this_stand$mean_ba),
+             size = 3, 
+             shape = 8, 
+             stroke = 1.5) +
+  theme(text = element_text(family = "Perpetua"), 
+        legend.position = "right") +
+  scale_x_continuous(name = "trees per acre",
+                     limits = c(min(this_stand$cx1, 
+                                    min((plots %>% 
+                                           filter(stand == std))$tpa_live)),
+                                max(this_stand$ax2,
+                                    max((plots %>% 
+                                           filter(stand == std))$tpa_live))+50)) +
+  scale_y_continuous(name = "basal area per acre (sq ft)",
+                     limits = c(min(this_stand$cy2, 
+                                    min((plots %>% 
+                                           filter(stand == std))$ba_live)),
+                                max(this_stand$ay1,
+                                    max((plots %>% 
+                                           filter(stand == std))$ba_live))+5)) +
+  labs(title = "Stocking chart",
+       caption = paste("Reproduced from ", this_stand$name, 
+                       " stocking guide: ", this_stand$author,
+                       ". ", this_stand$source, sep = ""))
+
+# plot w/o curves -----------------
+
+dbhlabstop <- tibble(y = rep(max((plots %>% 
+                                    filter(stand == std))$ba_live)+20, 
+                             times = 8)) %>% 
+  mutate(x = y/(.005454*c(4,6,8,10,12,14,16,20)^2))
+
+dbhlabsright <- tibble(x = rep(max((plots %>%
+                                          filter(stand == std))$tpa_live)+100,
+                               times = 8)) %>%
+  mutate(y = x*.005454*c(4,6,8,10,12,14,16,20)^2)
+  
+curvelessplot <- plots %>% filter(stand == std) %>%
+  ggplot(aes(tpa_live, ba_live)) +
+  geom_abline(slope = .005454*dbhbold^2, col = "dark gray") +
+  geom_abline(slope = .005454*dbhlight^2, col = "gray") +
+  annotate("text", x = dbhlabstop$x, 
+           y = dbhlabstop$y, 
+           label = dbhlabs,
+           color = "gray55",
+           family = "Perpetua") +
+  annotate("text", x = dbhlabsright$x, 
+           y = dbhlabsright$y, 
+           label = dbhlabs,
+           color = "gray55",
+           family = "Perpetua") +
+  geom_point() +
+  geom_point(aes(this_stand$tpa, 
+                 this_stand$mean_ba),
+             size = 3, 
+             shape = 8, 
+             stroke = 1.5) +
+  theme(text = element_text(family = "Perpetua"), 
+        legend.position = "right") +
+  scale_x_continuous(name = "trees per acre",
+                     limits = c(min((plots %>% 
+                                           filter(stand == std))$tpa_live)-100,
+                                max((plots %>% 
+                                           filter(stand == std))$tpa_live)+100)) +
+  scale_y_continuous(name = "basal area per acre (sq ft)",
+                     limits = c(min((plots %>% 
+                                           filter(stand == std))$ba_live)-20,
+                                max((plots %>% 
+                                           filter(stand == std))$ba_live)+20)) +
+  labs(title = "Stocking chart")
+
+ifelse(this_stand$structure.1[1] == "Even-aged", print(curveplot),
+       print(curvelessplot))
+```
+
+```{r ags_ugs_table2, results="asis"}
+temp1 <- stands %>% filter(stand == std)
+temp2 <- c(temp1$mean_ba, temp1$qsd, temp1$tpa)
+temp3 <- c(temp1$ba_ags, temp1$qsd_ags, temp1$tpa_ags)
+temp4 <- c(temp1$ba_inv, temp1$qsd_in, temp1$tpa_inv)
+temp0 <- c('Basal area (sqft/ac)', 'QSD (in)', 'Stems/ac')
+temp5 <- data.frame(temp0, temp2, temp3, temp4)
+
+kable(temp5, digits = 0, col.names = c(' ', 'Total', 'Acceptable', 'Investment-grade'), caption = "Measures of stocking for all live trees (total), acceptable growing stock, and investment-grade growing stock (which is a subset of acceptable growing stock).")
+```
+
+##Long-term management system
+
+**Even-aged management**^[Leak, W.B., M.Yamasaki, and R. Holleran. 2014. Silvicultural Guide for Northern Hardwoods in the Northeast. USDA For. Serv. Gen. Tech. Rep. NRS-132.] 
+
+The vigorous young cohort that has become established should be maintained and grown to an age of about 110 before being regenerated again (it's 40 years old now). Tending operations can commence when crop trees have developed clear lower boles, in a decade or so. Thereafter they should be carried out about once a decade. The remaining older overstory accounts for about 55 ft^2^/acre of basal area, and is not appreciably hindering the younger trees. It can be removed when the first tending operation is carried out.
+
+##Silvicultural prescription
+
+No logging should occur until crop trees have developed clear lower boles, in about 10 years. 
+
+\newpage
+
+```{r set3}
+std <- 3
+```
+
+#Area `r std` 
+`r (stands %>% filter(stand == std))$type`    
+\noindent `r sprintf("%.2f", (stands %>% filter(stand == std))$acres_legal)` legal acres | `r sprintf("%.2f", (stands %>% filter(stand == std))$acres_calc)` measured acres    
+
+##Site-specific information
+
+> - __Soils:__   
+\indent\indent `r paste((soils %>% filter(stand == std))$text, collapse = " ") %>% str_replace_all("START", "\n") %>% str_replace_all("END", "  ")` 
+
+> - __Site Class:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$site_class` (determined from soil mapping and field assessment)   
+
+> - __Access:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$access` 
+
+> - __Stand history:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$history` 
+
+##Current forest information
+
+> - __Age Class Structure:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$structure.1`  
+```{r diam_dist3, fig.margin=TRUE, fig.width=2, fig.height=6, fig.cap="Distributions are approximated with kernel density estimation. Common species are those that account for at least 8 percent of the total stocking and areas under each curve represent species basal areas."}
+
+# diameter dist of main spp in a specific stand ----
+
+trees %>% filter(stand == std, live == 1, dbh >= 6) %>%
+  group_by(spp) %>%
+  mutate(spp_sum = sum(live)) %>%
+  ungroup() %>%
+  mutate(spp = reorder(spp, -live, FUN = sum)) %>%
+  filter(spp_sum/n()>=.08) %>% 
+  ggplot(aes(dbh, y = ..count..)) +
+  geom_density(alpha = .6, position = "identity", fill = "grey", col = "dark grey") +
+  theme(text = element_text(family = "Perpetua"), 
+        legend.position = "none") +
+  facet_wrap(~spp, ncol = 1) +
+  scale_y_continuous("relative basal area", labels = NULL, 
+                     breaks = NULL) +
+  scale_x_continuous("dbh") +
+  labs(title = "Diameter distributions", 
+       subtitle = "for common species")
+```
+
+```{r spp3}
+x <- trees %>% 
+  filter(stand == std, live == 1, dbh >= 6) %>% 
+  group_by(spp) %>% 
+  summarize(spp_sum = sum(live)) %>%
+  mutate(pct = spp_sum / sum(spp_sum)) %>%
+  select(spp, pct) %>%
+  arrange(-pct)
+```
+
+> - __Species (% stocking):__   
+\vspace{2pt}
+`r if_else(nrow(x)>0, paste(x$spp, " (", round(x$pct*100), '%)', sep = '', collapse = ", "), "none")`  
+
+> - __Regeneration:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$regen`  
+
+> - __Forest health:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == std))$health`  
+
+> - __Volume/ac:__   
+\vspace{2pt}
+`r round(stands %>% filter(stand == std) %>% .$veneer_vol/1000,1)` MBF veneer, `r round(stands %>% filter(stand == std) %>% .$saw_vol/1000,1)` MBF sawtimber, `r round(stands %>% filter(stand == std) %>% .$tie_vol/1000,1)` MBF tie logs,   
+`r round(stands %>% filter(stand == std) %>% .$cord_vol)` cds pulp   
+
+> - __Size class structure (%BA):__  	 
+\vspace{2pt}
+\indent 6-10”: `r round(sum(trees$stand == std & trees$dbh >= 6 & trees$dbh <= 10 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`% | 11-16”: `r round(sum(trees$stand == std & trees$dbh > 10 & trees$dbh <=16 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`%	| 17-22”: `r round(sum(trees$stand == std & trees$dbh > 16 & trees$dbh <= 22 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`% |	23+”: `r round(sum(trees$stand == std & trees$dbh > 22 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`%  
+
+##Inventory information
+
+> - `r stands %>% filter(stand == std) %>% .$plots` points, `r baf` BAF, `r paste(lubridate::month(month, label = TRUE, abbr = FALSE), year, sep = ", ")`
+
+```{r stockingchart3, fig.cap="Points represent individual plots. Asterisk represnts stand average. Radial lines are quadratic stand diameters.", echo=FALSE, results='hide'}
+this_stand <- stands %>%
+  filter(stand == std)
+
+# qsd lines --------------
+
+dbhbold <- seq(2, 26, 2)
+dbhlight <- seq(1, 25, 2)
+
+# qsd labels -------------
+
+dbhlabs <- paste(c(4,6,8,10,12,14,16,20), '"', sep = "")
+
+dbhlabstop <- tibble(y = rep(max(this_stand$ay1, 
+                             max((plots %>% 
+                                    filter(stand == std))$ba_live))+5, 
+                             times = 8)) %>% 
+  mutate(x = y/(.005454*c(4,6,8,10,12,14,16,20)^2))
+
+dbhlabsright <- tibble(x = rep(max(this_stand$ax2,
+                                   max((plots %>%
+                                          filter(stand == std))$tpa_live))+50,
+                               times = 8))
+dbhlabsright <- dbhlabsright %>%
+  mutate(y = x*.005454*c(4,6,8,10,12,14,16,20)^2)
+
+# plot with a b & c curves -----------
+
+curveplot <- plots %>% filter(stand == std) %>%
+  ggplot(aes(tpa_live, ba_live)) +
+  geom_abline(slope = .005454*dbhbold^2, col = "dark gray") +
+  geom_abline(slope = .005454*dbhlight^2, col = "gray") +
+  annotate("text", x = dbhlabstop$x, 
+           y = dbhlabstop$y, 
+           label = dbhlabs,
+           color = "gray55",
+           family = "Perpetua") +
+  annotate("text", x = dbhlabsright$x, 
+           y = dbhlabsright$y, 
+           label = dbhlabs,
+           color = "gray55",
+           family = "Perpetua") +
+  geom_curve(aes(x = this_stand$ax1,
+                 y = this_stand$ay1,
+                 xend = this_stand$ax2,
+                 yend = this_stand$ay2),
+             curvature = this_stand$acurv,
+             angle = this_stand$aangle) + 
+  geom_curve(aes(x = this_stand$bx1,
+                 y = this_stand$by1,
+                 xend = this_stand$bx2,
+                 yend = this_stand$by2),
+             curvature = this_stand$bcurv,
+             angle = this_stand$bangle) + 
+  geom_curve(aes(x = this_stand$cx1,
+                 y = this_stand$cy1,
+                 xend = this_stand$cx2,
+                 yend = this_stand$cy2),
+             curvature = this_stand$ccurv,
+             angle = this_stand$cangle) +
+  geom_text(aes(this_stand$ax2, 
+                this_stand$ay2, 
+                label = this_stand$alab),
+            nudge_x = this_stand$anudge,
+            family = "Perpetua") +
+  geom_text(aes(this_stand$bx2, 
+                this_stand$by2, 
+                label = this_stand$blab),
+            nudge_x = this_stand$bnudge,
+            family = "Perpetua") +
+  geom_text(aes(this_stand$cx2, 
+                this_stand$cy2, 
+                label = this_stand$clab),
+            nudge_x = this_stand$cnudge,
+            family = "Perpetua") +
+  geom_point() +
+  geom_point(aes(this_stand$tpa, 
+                 this_stand$mean_ba),
+             size = 3, 
+             shape = 8, 
+             stroke = 1.5) +
+  theme(text = element_text(family = "Perpetua"), 
+        legend.position = "right") +
+  scale_x_continuous(name = "trees per acre",
+                     limits = c(min(this_stand$cx1, 
+                                    min((plots %>% 
+                                           filter(stand == std))$tpa_live)),
+                                max(this_stand$ax2,
+                                    max((plots %>% 
+                                           filter(stand == std))$tpa_live))+50)) +
+  scale_y_continuous(name = "basal area per acre (sq ft)",
+                     limits = c(min(this_stand$cy2, 
+                                    min((plots %>% 
+                                           filter(stand == std))$ba_live)),
+                                max(this_stand$ay1,
+                                    max((plots %>% 
+                                           filter(stand == std))$ba_live))+5)) +
+  labs(title = "Stocking chart",
+       caption = paste("Reproduced from ", this_stand$name, 
+                       " stocking guide: ", this_stand$author,
+                       ". ", this_stand$source, sep = ""))
+
+# plot w/o curves -----------------
+
+dbhlabstop <- tibble(y = rep(max((plots %>% 
+                                    filter(stand == std))$ba_live)+20, 
+                             times = 8)) %>% 
+  mutate(x = y/(.005454*c(4,6,8,10,12,14,16,20)^2))
+
+dbhlabsright <- tibble(x = rep(max((plots %>%
+                                          filter(stand == std))$tpa_live)+100,
+                               times = 8)) %>%
+  mutate(y = x*.005454*c(4,6,8,10,12,14,16,20)^2)
+  
+curvelessplot <- plots %>% filter(stand == std) %>%
+  ggplot(aes(tpa_live, ba_live)) +
+  geom_abline(slope = .005454*dbhbold^2, col = "dark gray") +
+  geom_abline(slope = .005454*dbhlight^2, col = "gray") +
+  annotate("text", x = dbhlabstop$x, 
+           y = dbhlabstop$y, 
+           label = dbhlabs,
+           color = "gray55",
+           family = "Perpetua") +
+  annotate("text", x = dbhlabsright$x, 
+           y = dbhlabsright$y, 
+           label = dbhlabs,
+           color = "gray55",
+           family = "Perpetua") +
+  geom_point() +
+  geom_point(aes(this_stand$tpa, 
+                 this_stand$mean_ba),
+             size = 3, 
+             shape = 8, 
+             stroke = 1.5) +
+  theme(text = element_text(family = "Perpetua"), 
+        legend.position = "right") +
+  scale_x_continuous(name = "trees per acre",
+                     limits = c(min((plots %>% 
+                                           filter(stand == std))$tpa_live)-100,
+                                max((plots %>% 
+                                           filter(stand == std))$tpa_live)+100)) +
+  scale_y_continuous(name = "basal area per acre (sq ft)",
+                     limits = c(min((plots %>% 
+                                           filter(stand == std))$ba_live)-20,
+                                max((plots %>% 
+                                           filter(stand == std))$ba_live)+20)) +
+  labs(title = "Stocking chart")
+
+ifelse(this_stand$structure.1[1] == "Even-aged", print(curveplot),
+       print(curvelessplot))
+```
+
+```{r ags_ugs_table3, results="asis"}
+temp1 <- stands %>% filter(stand == std)
+temp2 <- c(temp1$mean_ba, temp1$qsd, temp1$tpa)
+temp3 <- c(temp1$ba_ags, temp1$qsd_ags, temp1$tpa_ags)
+temp4 <- c(temp1$ba_inv, temp1$qsd_in, temp1$tpa_inv)
+temp0 <- c('Basal area (sqft/ac)', 'QSD (in)', 'Stems/ac')
+temp5 <- data.frame(temp0, temp2, temp3, temp4)
+
+kable(temp5, digits = 0, col.names = c(' ', 'Total', 'Acceptable', 'Investment-grade'), caption = "Measures of stocking for all live trees (total), acceptable growing stock, and investment-grade growing stock (which is a subset of acceptable growing stock).")
+```
+
+##Long-term management system
+
+**Even-aged management**^[Leak, W.B., M.Yamasaki, and R. Holleran. 2014. Silvicultural Guide for Northern Hardwoods in the Northeast. USDA For. Serv. Gen. Tech. Rep. NRS-132.] 
+
+The young cohort that has become established should be maintained and grown to an age of about 110 before being regenerated again (it's 37 years old now). Tending operations can commence when crop trees have developed clear lower boles, in a decade or so. Thereafter they should be carried out about once a decade. The poorer quality, older pine that remains should be removed, but there is not enough of it to warrant a logging job. It can be removed when the first tending operation is done.
+
+##Silvicultural prescription
+
+No logging should occur until crop trees have developed clear lower boles, in about 10 years. 

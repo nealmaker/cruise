@@ -1,0 +1,429 @@
+---
+title: "Bothfeld 100ac Property Forest Management Plan"
+author: "Pekin Branch Forestry"
+date: "February 15, 2019"
+documentclass: article
+output: 
+  odt_document:
+    reference_odt: fmp-formatting-template.odt
+    fig_caption: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 3.75)
+```
+
+```{r wrangling_cruise, include=FALSE}
+property <- "bothfeld100"
+year <- "2018"
+
+load(file = paste("C:/Users/Neal/projects/cruise/rda/", property, "-cruise-", year, ".rda", sep = ""))
+library(tidyverse)
+library(ggthemes)
+library(stargazer)
+library(knitr)
+library(extrafont)
+loadfonts("win", quiet = TRUE)
+```
+
+#Signature Page
+
+**Owner:**  
+  Rose & Walter Bothfeld  
+  1042 Bothfeld Hill Road  
+  Cabot, VT 05647
+
+
+**Property:**  
+  100 acres, Blodgett Road, Cabot   
+  SPAN # 117-036-10263   
+  Map delineation based on VMP Photos # 160208 & 164208
+
+**Plan preparer:**  
+  Neal F. Maker & John D. Foppert  
+  Pekin Branch Forestry  
+  1324 West County Road  
+  Calais, VT 05648   
+  (802) 229-9757
+
+**Effective date of plan:** April 1, 2019
+
+######line
+
+######line
+
+I certify that the herein described forest land, exclusive of any house site or other developed portion, is at least 25 acres in size and is under active long-term forest management for the purpose of growing and harvesting repeated forest crops in accordance with minimum acceptable standards for forest management.  These management standards include following the practices outlined in the booklet “Acceptable Management Practices for Maintaining Water Quality on Logging Jobs in Vermont” in order to control stream siltation and soil erosion.
+
+By signing below, I agree to manage my forestland according to the current, approved plan.
+
+######line
+
+________________________________		Date: ______________  
+  Rose Bothfeld						
+
+######line
+
+________________________________		Date: ______________  
+  Walter Bothfeld Jr.					
+
+######line
+
+######line
+
+This ten year forest management plan for the aforementioned property meets the standards promulgated by the Vermont Department of Forests, Parks and Recreation as required for eligibility in the Use Value Appraisal Program.
+
+######line
+
+________________________________		Date: ______________  
+  Washington County Forester	
+  
+#####pagebreak
+
+#Introduction
+
+A forest management plan is a blueprint for responsible land stewardship.  It is the result of a planning process that incorporates an assessment of the history and current conditions on the property, consideration of the various courses of future development that the forest could follow, and discernment with the landowners as to which outcomes best suit their particular objectives.  This management plan is organized to reflect that process.  It begins with a description of the property and its setting, focusing on attributes that should be considered in the course of planning.  It then outlines the landowners' specific objectives for the property before recommending management actions that will help achieve those objectives.
+
+Covering the ten year period from 2019-2028, this management plan is a blueprint for the near- and medium-term actions that should guide the development of the Bothfeld forest.  This management plan also qualifies the property for Use Value Appraisal and commensurate reduction in property taxes.  Owners participating in the Use Value Appraisal program are obliged to manage their property according to the plan and to make any reasonable investments for improvement that the plan recommends.  Its recommendations were developed in accordance with the principles and practices of scientifically sound forestry, as described in the relevant management guidelines, textbooks and academic journals.  
+
+#Location & Description
+
+The Bothfeld property is located in the western part of Cabot, south of Jug Brook along Blodgett Road.  Approximately 1/2 of the property is managed forestland. The remainder, closer to the road, is used as pasture. Elevations on the property range from about 1220 feet in the northeast at the far side of stand area 2, to 1500 feet along the road in the south. The forested nothern half of the property is divided into two distinct stand areas, defined by their site conditions, forest structures, and species compositions.
+
+#Physical Geography & Environment
+
+##Bedrock geology
+
+The underlying geology of Vermont is naturally organized into several north-northeast trending bedrock belts.  Each belt is made up of rocks generally of the same age and formed by similar processes.  The Bothfeld property lies within the Waits River formation, which runs through the broad Connecticut Valley Trough, east of the Green Mountains.  Rocks of the Waits River formation were originally formed in the bed of the warm, shallow Iapetus Ocean, which was teeming with life.  The shells of marine animals were mixed with sediments on the ocean floor and compressed to form calcium rich limestone, which was later metamorphosed when the microcontinent Avalonia collided with the Laurasian supercontinent during the Acadian Orogeny, some 325-375 million years ago.  Intermixed mudstones were also metamorphosed and upended at that time, becoming flaky phyllite bands amid the crumbly limestones.  As these rocks have since weathered and been broken up, their mineralogy has greatly influenced the region’s soils and waters, and has largely defined the natural and human communities that we now see. 
+
+##Glaciation
+
+For hundreds of millions of years following the Avalonian collision, not-yet-Vermont’s rugged terrain was washed with rain and wind and worn down to gentle, rolling hills and mountains.  The weathered rock and organic deposits collected under the force of water, wind and gravity to form deep, well developed soils like those still common in the Southeastern US.  But some two million years ago a long episode of frigid temperatures began, which led to massive accumulations of snow in the north.  The snow’s increasing weight compressed lower (older) layers into crystalline ice and, eventually, to a deformed, plasma-like ice material, which grew to over a mile thick and spread under its own weight like pancake batter.  Four of these glaciers developed in succession, each spreading south, then melting down when the weather warmed, only to build up again as it cooled.  The glaciers slid over, scraped across, or ground down the bedrock and soil in front of and beneath them, thoroughly removing and mixing the existing soils.  
+
+As the most recent glacier (the Wisconsin) melted and retreated north, the unsorted silts, sands, gravel, and boulders that it had picked up and mixed together were dumped in place, blanketing the land in glacial till.  These are the soils that remain on the Bothfeld property, and across much of Cabot.  
+
+##Soils
+
+Today’s soils owe much of their chemical makeup to the underlying bedrock; and much of their structure, depth, and texture to the glacial processes that laid them down.  The calcium rich mineral content of the region’s limestones buffers acidity well, and is largely responsible for the rich northern hardwood forests and fens for which the Vermont Piedmont region is famous. 
+
+Downslope (northern) portions of the property are underlain by Buckland silt loams, which are considered dense glacial tills. Higher up, soils are in the Vershire-Dummerston complex, which includes a mix of intermingled, looser tills. Vershire soils are found on convex summits and shoulders, and Dummerston soils are found lower down, on shoulders and backslopes.
+
+Tree growth depends on many factors, including micro-site conditions, nearby vegetation, and light availability; but soil classification is still one of the best ways to broadly predict growth, productivity, and suitability of a site for certain species.  On the Bothfeld property, the Dummerston soils are generally the most productive, and support our ‘pickier’ trees like basswood and white ash. Their looser upper strata are very deep, allowing for good rooting, and they provide plenty of water without depriving trees of soil oxygen.  
+
+Vershire and Buckland soils don't provide as much rooting depth, but they support a broad range of tree species. While ash and basswood are not as competitive on them, they can still grow diverse hardwood and mixedwood forests.
+
+##Hydrology
+
+One unnamed stream originates on the property in area 1. It flows north, along with all the other surface water on the property, into Jug Brook, which is a tributary of the Winooski River.
+
+#Ecologic & Anthropogenic History
+
+##Historic ecological context
+
+Immediately after deglaciation, the bare landscape that was to become Vermont was colonized, if only sparsely, by tundra lichens, grasses, sedges, and forbs.  Within a few hundred years, this vegetative ground cover was probably close to continuous, with some shrub willows and dwarf birches scattered around.  Over the next few hundred years the shrub component grew denser, with alder migrating onto the landscape and patches of white and black spruce and tree-sized birch becoming established.  This tundra-forest transition zone provided habitat for—and was probably partly maintained by—muskoxen, mastodons, caribou, giant beavers, and other megafauna.
+
+Over the course of centuries, the transition from open tundra to closed boreal forest continued.  For the millennium or two that boreal forests dominated the landscape, species composition was continually shifting as the climate warmed and then cooled and as patterns of rainfall fluctuated, with competitive dynamics and disturbance regimes changing in response.  Fire-maintained jack pine forests expanded and then declined relative to spruce; tamarack and, later, balsam fir became increasingly important; and, by around 10,000 years ago, white pine, hemlock, and various hardwoods were becoming more common, marking the start of a transition to a temperate mixedwoods forest.  By this time, many of the easily quarried megafauna had already been hunted to extinction.
+
+By 9,000 years ago elm, ash, birch, beech, maple, and apparently oak were well established; with white pine and hemlock, these hardwoods marked the full transition from boreal to mixedwoods.  Spruce (mostly red spruce) and balsam fir were still present on the landscape, but were restricted to colder or wetter sites where other species were uncompetitive.  The fauna then were broadly similar to those we are familiar with today: moose, deer, black bears, beavers, wolves, mountain lions, and most of the birds, amphibians, and small mammals now associated with northern mixed forests.
+
+By around 7,000 years ago, biomes—the most general level of ecological classification (e.g. tundra, boreal forest, temperate forest)—had arrived at or very near their modern distributions.  Nevertheless, species composition and arrangement at finer spatial scales remained dynamic.  The following few thousand years continued to see change in the forest: white pine, which had once been the most widespread species, became increasingly less prevalent as maple, yellow birch, and especially hemlock occupied more and more of the landscape.  By around 5,000 years ago, hemlock was the singularly dominant tree species across nearly all of New England and the northeast.  Quite suddenly, however, it was nearly eliminated from the landscape.  A disease or insect (probably the hemlock looper) was almost certainly the proximate cause of the decline, but it may have functioned in conjunction with a centuries-long drying trend and discrete periods of severe drought.  Regardless of the details of its extirpation, hemlock did not return to the landscape in any meaningful way for 2,000-3,000 years, and while it did later become a very important component of the northern forest, it never returned to as extensive and dominant a position as it once occupied.
+
+Even in the centuries preceding European settlement, region-wide changes were observed in the forest.  Within the boreal-deciduous continuum on which the temperate mixedwoods lie, species composition began to skew more towards the boreal.  Spruce and fir dominated stands became more prevalent on the landscape, and spruce became more abundant as an associate within stands dominated by other species.
+
+Overall, biome-scale landscape changes in the millennia since deglaciation have closely tracked global- or continental-scale change in the climate, though generally following a lag of a few to several hundred years. Within-biome changes have been similarly responsive to climactic drivers, but these have been compounded by complex, finer-scale landscape and stand dynamics involving differential growth and reproduction strategies, interspecific competition, catastrophic weather events, insect outbreaks, wildlife interactions, and human land use. In short, the forest has seen constant change, and novel species arrangements have manifested regularly in response to changing conditions and chance disturbances.
+
+##Human land-use history
+
+The earliest human settlers entered the landscape fairly soon after deglaciation, following the grazing herds of game through the uplands and establishing seasonal campsites on the shores of the Champlain Sea, which then occupied the Champlain and St. Lawrence valleys.  These paleoindian groups became increasingly effective at hunting the megafauna, such as mastodons, stag elk-moose, giant ground sloths, giant beavers, woodland muskox, and others, which were poorly adapted to the predatory pressure humans applied.  By around 11,000 years ago most of these species had been hunted to extinction, and, as caribou herds moved north with the expanding tundra and encroaching temperate woodlands, paleoindian hunting tools were adapted to the smaller and often fleeter game that was then available.
+
+The cultural practices and social structure of the paleoindian groups are not well understood, but it is clear that from the time the region was first settled humans hunted, fished, and collected edible and medicinal plants in the valleys and uplands of northern Vermont.  Gradual technological development and social ordering led to the emergence of a discernibly different culture around 8,000 years ago.  The people of this “woodland period” moved between seasonal hunting and fishing camps, but began to stay within a more circumscribed area than their semi-nomadic predecessors.  Established sites in lake and river valleys were surrounded by upland hunting grounds and connected by networks of waterways and portages.  Mobility remained a more important survival strategy than modifying the environment and the relatively low-density population of this period did not significantly influence landscape-scale forest dynamics, especially in upland areas, where hunters or travelers only occasionally visited.
+
+Eventually, inhabitants (who were by that time known as the Wabenaki) began to more actively manage and manipulate the natural environment by tending wild plants for food and medicine, gathering firewood, and setting forest fires to control species compositions and encourage game animals. Those effects were focused on the areas where their camps and villages were concentrated, however, and had little effect on upland areas like western Cabot
+
+When European-Americans began settling the region in the mid to late 1700s, however, they quickly started to take advantage of the calcium-rich soils that are naturally present.  Following a period of subsistence farming, the Vermont Piedmont became known first for wheat production, then for sheep farming—providing wool to textile factories to the south—and later for dairy farming.  Vermont was close enough to Boston and other large coastal populations to ship milk to them without it spoiling and the climate and soils made for good pasture.  By the late 1800s, much of the property was probably already cleared for pasture or mowing.  
+
+With the advent of refrigeration and the development of better transportation networks in the second half of the 19th century, much of the country's agricultural production moved to the fertile Midwest and a period of agricultural decline began throughout Vermont.  Many pastures and hay fields were abandoned and, as a testament to the land's resilience, quickly regrew trees.  Forest has since become the region's dominant landcover, but the land still shows signs of its agricultural past.  Soil compaction from plowing facilitated the growth of white pine on more intensively used sites in the Piedmont and decreased the abundance of other species like beech and hemlock.  Forested pastures and other less intensively used sites often regrew beech and hemlock, but still saw a shift toward less shade-tolerant species like ash and birch.  
+
+Part of the Bothfeld forest (the upper half of area 2, closest to the existing field) looks like it developed from improved pasture that was abandoned. The remainder appears to have been continually forested and either logged at intervals (the rest of area 2) or perhaps used as a sugarbush (area 1). 
+
+#Current Conditions
+
+##Landscape context
+
+In addition to driving forest development patterns, its agricultural history left a fairly widespread network of roads across the Northern Vermont Piedmont region and large blocks of unbroken forest are now uncommon.  A dense network of streams, ponds, and wetlands is also present, though, and together with the diverse forests and remaining fields, it supports many different animal species. 
+
+The Bothfeld property is located in a somewhat fragmented part of Cabot; in a forest block that serves as an important wildlife cooridor between the large interior forests around Groton and those in northern Woodbury, Elmore, and Worcester. Far ranging animals like great horned owls and black bears probably pass through the woods regularly, and many interior forest species with smaller home ranges are probably permanent residents. The open land on and around the property (and the associated edge habitat) likely attracts a range of other species too, including white-tailed deer.
+
+Also, while the property's underlying bedrock and the resulting calcareous soils are not uncommon in Vermont, they are uncommon elsewhere, and the state considers them a priority for conservation. By protecting these areas from development and fragmentation, the natural communities that are defined by them can be protected as well.
+
+Like most parts of the state, Cabot is dominated by middle-aged forests.  Its history of clearing and abandonment eliminated large trees in most places and simplified forest structures.  The resulting young woods were generally less susceptible to disturbances such as windthrow, and humans have mostly followed a path of low intensity, exploitative logging in recent years, limiting tree regeneration.  While many species are undeterred by these simplified conditions, others are affected.  Bats that once relied on the shaggy bark of old trees for their roosts are forced to find other arrangements, cavity dwelling species lack large dead and dying cavity trees, and the dearth of vertical structure limits the diversity of songbirds, which are able to differentiate into numerous specific niches in multi-aged forests. 
+
+##Forest health
+
+Non-native, invasive honeysuckle plants were noted on pastured portions of the property, but not in the woods. Beech bark disease is present in both forest stands, and is a problem for regneration in area 1. It affects most beech trees throughout their range, shortening their lifespans and generally destroying their potential to produce sawtimber.  It can lead to excessive stump sprouting from affected trees, which inteferes with desirable regeneration. 
+
+##Access & Operability
+
+Access is generally good to all parts of the property from the pasture. Blodgett Road is a class 4 road, and may be difficult for log trucks to traverse at certain times of year.
+
+#Principles, Goals & Strategies For Forest Management
+
+##Conservation
+
+The ecological functioning, productive capacity and biological diversity of the forest resource shall be maintained or improved over time so as to provide opportunities for the current or future landowners to continue to enjoy and use the property.  A management strategy that is sustainable in the long-term and viable in the short- and medium-terms offers a strong measure of protection against future development or conversion.
+
+##Ecological integrity, wildlife habitat, & biodiversity
+
+Management should prioritize the protection of critical ecological functions, water resources, and threatened or rare plant and wildlife communities.  Wetlands and stream-side riparian zones should be carefully delineated and protected; and management should give consideration to the habitat needs of native wildlife populations and to the relationship between the property, its neighbors and the larger landscape they are nested within.  Management should be informed by and aim to improve landscape diversity, wildlife travel corridors, and habitat connectivity.  Locally under-represented habitat types should be identified and promoted.  Stand scale and sub-stand scale management should focus on developing or maintaining species-specific habitat needs, such as nesting sites, cover, mast production, preferred browse or other unique structural and compositional requirements.
+
+##Timber management
+
+Management should provide regular returns from timber harvesting. Long-term value growth is provided by maintaining full site occupancy with investment-grade stems: healthy trees capable of producing high quality sawtimber or veneer and worth retaining in the stand until they reach their full, site- and species-specific target diameter. Tree species which yield sought-after, high-value wood shall be promoted within each stand or, when regenerating a new stand, attention shall be paid to providing the stand conditions which favor the establishment of those species. At a property-wide scale, a variety of species shall be maintained, providing options for seizing future market opportunities and a hedge against species-specific market depreciation. Among desired species, additional preference shall be given to individual trees of sufficient vigor and grade-potential for strong future value growth. Consideration of economic efficiency should inform the timing and coordination of infrastructure investments and stand maintenance, improvement and harvest operations.
+
+#Stand Descriptions & Management Recommendations
+
+Presented below are detailed stand-by-stand descriptions of the forest, the long-term structural, compositional and functional goals for each stand, and the near-term silvicultural treatments or management activities that have been prescribed to advance each stand toward those goals.  The data presented in the following pages was obtained from a field examination of the property in September of 2018.  General conditions were assessed qualitatively in conjunction with quantitative sampling.  Observational notes and sample summary statistics together provide the basis for the area descriptions and management recommendations. All sampling was done using a systematic sample and variable radius plots. Both stands are uneven-aged, and all trees 6" dbh and larger were measured in each plot.
+
+Where commercial-scale work is called for it may be carried out by the Bothfeld family on an ongoing basis, or by a contractor over a shorter period of time. If a contractor is used, they should be highly skilled, properly equipped, fully insured, and closely supervised.  A professional forester should prepare and administer commercial treatments, and logging operations should be timed to coincide with favorable weather conditions (working on wet soils only when they are frozen, for instance) and favorable timber markets.  Use Value Appraisal program guidelines allow any management activities prescribed in this plan to be carried out up to three years before or after the date indicated.  Landowners in the Use Value Appraisal program must file a Forest Management Activity Report with the County Forester by February 1st if any commercial logging occurred in the previous year. 
+
+2028 will mark ten years since the inventory data on which this plan has been based was collected; the property should be reinventoried then and the findings brought to bear on a reassessment of the goals and strategies proposed in this plan, leading to a formal management plan update.  At any point over the course of this management period, this plan may be updated to incorporate new information and to reflect any new thoughts, concerns or considerations on the part of the family or the foresters helping to manage their land.
+
+##Management schedule
+  
+**2022:**  
+Area 1: Group selection harvest  
+Area 2: Single tree selection harvest
+
+**2028:**  
+Reinventory property for 2029 plan update
+
+#####pagebreak
+
+#Area 1  
+  **Northern hardwood**  
+  **23.14 legal acres | 23.53 measured acres**
+
+##Stand conditions
+
+Area 1 occupies the western half of the forestland and is situated on a northeast-facing hillside with slopes of about 10%. The upper, southwestern part of the stand hosts mostly Dummerston soils, and the lower portion hosts Buckland soils. 
+
+Older sugar maples with large crowns suggest that the area was probably managed as a sugarbush in the past. In recent decades it has been managed for timber, using single tree selection-type harvests. Unfortunately, regeneration has failed, leaving an understory dominated by diseased beech and a lack of poletimber-sized growing stock. 
+
+Timber quality is fair overall. Acceptable growing stock accounts for 70% of the total stocking, and investment-grade growing stock (see definition in "Timber management" section under "Principles, Goals & Strategies For Forest Management") accounts for 32% of the total. Some maple borer and eutepalla damage was noted in the maples.
+
+
+##Quantitative stand data
+
+```{r set1}
+std <- 1
+monyr <- "Sep. 2018"
+agestr <- "Uneven-aged"
+stclass <- "II"
+```
+
+**Site Class: **  `r stclass` (soils mapping & field assessment)  
+  **Access Distance: **  Less than one mile  
+  **Cruise Data: ** `r stands %>% filter(stand == std) %>% .$plots` points, `r baf` BAF, `r monyr`  
+  **Age Class Structure: ** `r agestr`  
+  **Volume/ac: ** `r round(stands %>% filter(stand == std) %>% .$veneer_vol/1000,1)` MBF veneer,  `r round(stands %>% filter(stand == std) %>% .$saw_vol/1000,1)` MBF sawtimber, `r round(stands %>% filter(stand == std) %>% .$tie_vol/1000,1)` MBF tie logs, & `r round(stands %>% filter(stand == std) %>% .$cord_vol)` cds pulp  
+
+**Size Class Structure (%BA): **	 6-10”: `r round(sum(trees$stand == std & trees$dbh >= 6 & trees$dbh <= 10 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`% | 11-16”: `r round(sum(trees$stand == std & trees$dbh > 10 & trees$dbh <=16 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`%	| 17-22”: `r round(sum(trees$stand == std & trees$dbh > 16 & trees$dbh <= 22 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`% |	23+”: `r round(sum(trees$stand == std & trees$dbh > 22 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`%
+
+######line
+  
+```{r ags_ugs_table1, results="asis"}
+
+temp1 <- stands %>% filter(stand == std)
+temp2 <- c(temp1$mean_ba, temp1$qsd, temp1$tpa)
+temp3 <- c(temp1$ba_ags, temp1$qsd_ags, temp1$tpa_ags)
+temp4 <- c(temp1$ba_inv, temp1$qsd_in, temp1$tpa_inv)
+temp0 <- c('Basal area (sqft/ac)', 'QSD (in)', 'Stems/ac')
+temp5 <- data.frame(temp0, temp2, temp3, temp4)
+
+kable(temp5, digits = 0, col.names = c(' ', 'Total', 'Acceptable', 'Investment-grade'), caption = "Measures of stocking for all live trees (total), acceptable growing stock, and investment-grade growing stock (which is a subset of acceptable growing stock).")
+```
+  
+```{r spp_table1, results="asis"}
+
+kable((trees %>% filter(stand == std, live == 1, dbh >= 6) %>%
+  group_by(spp) %>%
+  mutate(spp_sum = sum(live)) %>%
+  ungroup() %>%
+  mutate(spp = reorder(spp, -live, FUN = sum)) %>%
+  mutate(spp_p = spp_sum/n()) %>%
+  #filter(spp_p>=.05) %>%
+  group_by(spp) %>%
+  summarize(pcnt_ba = 100*round(mean(spp_p), digits = 2)) %>%
+  rename('Species' = spp, '% BA' = pcnt_ba)), caption = "Species present and their percentage of total stand basal area.")
+```  
+
+```{r diam_dist1}
+
+#diameter dist of main spp in a specific stand
+trees %>% filter(stand == std, live == 1, dbh >= 6) %>%
+  group_by(spp) %>%
+  mutate(spp_sum = sum(live)) %>%
+  ungroup() %>%
+  mutate(spp = reorder(spp, -live, FUN = sum)) %>%
+  filter(spp_sum/n()>=.08) %>%
+  ggplot(aes(dbh, y = ..count.., fill = spp)) +
+  geom_density(alpha = .6, position = "identity") +
+  theme(text = element_text(family = "Perpetua"), 
+        legend.position = "none") +
+  facet_wrap(~spp) +
+  scale_y_continuous("relative basal area", labels = NULL, 
+                     breaks = NULL) +
+  ggtitle("Diameter distributions", 
+          subtitle = "for common species")
+```
+
+##Long-term vision 
+
+Uneven-aged management is a good idea in the area: to generate regular timber income, to take best advantage of the trees that are already present, and to preserve the structural diversity and interior forest habitat that the stand provides. The accumulation of diseased beech in the understory has made single tree selection untenable, however. Regeneration is bound to fail under the system, and the landowners should switch to a group selection system to overcome the beech.
+
+A group selection system will differ from the current single tree selection system in that, instead of trees of many ages intermingled with eachother, the stand will be divided into "groups" of same-aged trees. Each 1/10^th^ to 2 acre group will be a tiny even-aged forest of its own, and groups of different ages will grow adjacent to one another.
+
+##Long-term management system
+
+**Group Selection**  
+**References:** Leak, W.B., M.Yamasaki, and R. Holleran. 2014. Silvicultural Guide for Northern Hardwoods in the Northeast. USDA For. Serv. Gen. Tech. Rep. NRS-132.
+
+One tenth acre to 2 acre group openings will be used to harvest mature trees and regenerate new trees. By cutting about 1/8^th^ of the stand in these groups every 15 years, new trees will be continuously regenerated and groups of many ages will always be present. Once a group is about 120 years old, its trees will be harvested and the area will be regenerated. This system will allow enough light into regenerating areas to overcome the diseased beech (which thrives in low light) and to recruit shade intermediate species like yellow birch and black cherry in addition to the more shade tolerant sugar maple, providing a more diverse hardwood forest.  As the group selection structure is gradually developed, light tending can be done in the matrix between (which will continue to have intermixed trees of different ages for a while) to focus growth on the highest quality trees and to harvest mature trees without exaserbating the beech problem.
+
+##Silvicultural prescription
+
+**Group selection harvest**  
+**Year:** 2022  
+**References:** Leak, W.B., M.Yamasaki, and R. Holleran. 2014. Silvicultural Guide for Northern Hardwoods in the Northeast. USDA For. Serv. Gen. Tech. Rep. NRS-132.
+
+Group openings should be created that are at least 1/10 acre and do not exceed 2 acres, and the total area of openings should be about 1/8^th^ of the stand area (aproximately 3 acres).  A wide range of group size, shape, and orientation arrangements should be created to accommodate the establishment and recruitment of regeneration of varying degrees of shade tolerance.  Openings should be distributed throughout the stand and represent a variety of site conditions. They should be preferentially located in areas with concentrations of desirable regeneration, areas with concentrations of sawtimber-sized ash (which is likely to die soon from emerald ash borers and should be considered mature at 12" dbh), or concentrations of unacceptable growing stock. No tending should be done in the matrix between gaps this entry, because the stocking is already below 100 ft^2^ and further reducing it would premote more beech growth.
+
+#####pagebreak
+
+#Area 2  
+  **Mixedwood**  
+  **29.61 legal acres | 30.11 measured acres**
+
+##Stand conditions
+
+Area 2 is directly east of area 1 and has similar site and soil conditions, but with more Buckland soils and fewer Dummerston soils. The downhill, northern section of the stand was probably continually forested and periodically logged. The section closer to the existing field looks to have been improved pasture that was abandoned. Today the two areas grade into one another, with somewhat simpler canopy structures uphill. The species composition is similar everywhere, but the white pine component (only 5% of the total stocking) is concentrated in the south and beech (only 1% of the total) is absent from the south.
+
+The stocking is high for a mixedwood single tree selection system, and there are a lot of small sawtimber-sized trees (11-16" dbh). Acceptable poles (6-10") and large sawtimber (>16") are lacking, but not by too much. Advanced regeneration is limited because of the high stocking. Higher up there is a fairly well developed 30-40 year old cohort that's dominated by sugar maple, and lower down there are some smaller spruce, yellow birch, ash, and beech saplings. Beech is not common and doesn't pose much of a problem for regeneration.
+
+Timber quality varies across the stand, and is generally better further uphill. The amount of investment-grade growing stock ranges from 6% to 47% of the total, and the amount of acceptable growing stock ranges from 61% to 100% of the total.
+
+##Quantitative stand data
+
+```{r set2}
+std <- 2
+monyr <- "Sep. 2018"
+agestr <- "Uneven-aged"
+stclass <- "II"
+```
+
+**Site Class: **  `r stclass` (soils mapping & field assessment)  
+  **Access Distance: **  Less than one mile  
+  **Cruise Data: ** `r stands %>% filter(stand == std) %>% .$plots` points, `r baf` BAF, `r monyr`  
+  **Age Class Structure: ** `r agestr`  
+  **Volume/ac: ** `r round(stands %>% filter(stand == std) %>% .$veneer_vol/1000,1)` MBF veneer,  `r round(stands %>% filter(stand == std) %>% .$saw_vol/1000,1)` MBF sawtimber, `r round(stands %>% filter(stand == std) %>% .$tie_vol/1000,1)` MBF tie logs, & `r round(stands %>% filter(stand == std) %>% .$cord_vol)` cds pulp  
+
+**Size Class Structure (%BA): **	 6-10”: `r round(sum(trees$stand == std & trees$dbh >= 6 & trees$dbh <= 10 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`% | 11-16”: `r round(sum(trees$stand == std & trees$dbh > 10 & trees$dbh <=16 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`%	| 17-22”: `r round(sum(trees$stand == std & trees$dbh > 16 & trees$dbh <= 22 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`% |	23+”: `r round(sum(trees$stand == std & trees$dbh > 22 & trees$live == 1)/sum(trees$stand == std & trees$dbh >= 6 & trees$live == 1)*100)`%
+
+######line
+  
+```{r ags_ugs_table2, results="asis"}
+
+temp1 <- stands %>% filter(stand == std)
+temp2 <- c(temp1$mean_ba, temp1$qsd, temp1$tpa)
+temp3 <- c(temp1$ba_ags, temp1$qsd_ags, temp1$tpa_ags)
+temp4 <- c(temp1$ba_inv, temp1$qsd_in, temp1$tpa_inv)
+temp0 <- c('Basal area (sqft/ac)', 'QSD (in)', 'Stems/ac')
+temp5 <- data.frame(temp0, temp2, temp3, temp4)
+
+kable(temp5, digits = 0, col.names = c(' ', 'Total', 'Acceptable', 'Investment-grade'), caption = "Measures of stocking for all live trees (total), acceptable growing stock, and investment-grade growing stock (which is a subset of acceptable growing stock).")
+```
+  
+```{r spp_table2, results="asis"}
+
+kable((trees %>% filter(stand == std, live == 1, dbh >= 6) %>%
+  group_by(spp) %>%
+  mutate(spp_sum = sum(live)) %>%
+  ungroup() %>%
+  mutate(spp = reorder(spp, -live, FUN = sum)) %>%
+  mutate(spp_p = spp_sum/n()) %>%
+  #filter(spp_p>=.05) %>%
+  group_by(spp) %>%
+  summarize(pcnt_ba = 100*round(mean(spp_p), digits = 2)) %>%
+  rename('Species' = spp, '% BA' = pcnt_ba)), caption = "Species present and their percentage of total stand basal area.")
+```  
+
+```{r diam_dist2}
+
+#diameter dist of main spp in a specific stand
+trees %>% filter(stand == std, live == 1, dbh >= 6) %>%
+  group_by(spp) %>%
+  mutate(spp_sum = sum(live)) %>%
+  ungroup() %>%
+  mutate(spp = reorder(spp, -live, FUN = sum)) %>%
+  filter(spp_sum/n()>=.08) %>%
+  ggplot(aes(dbh, y = ..count.., fill = spp)) +
+  geom_density(alpha = .6, position = "identity") +
+  theme(text = element_text(family = "Perpetua"), 
+        legend.position = "none") +
+  facet_wrap(~spp) +
+  scale_y_continuous("relative basal area", labels = NULL, 
+                     breaks = NULL) +
+  ggtitle("Diameter distributions", 
+          subtitle = "for common species")
+```
+
+##Long-term vision 
+
+The uneven-aged forest that is currently present should be perpetuated, so that trees of different ages continue to grow in close proximity to one-another. This system is providing regular income and important wildlife habitat, and it can be sustained as long as beech don't become common. Attentive management should increase the overall quality of the stand so that more veneer is produced and more income is generated.
+
+##Long-term management system
+
+**Single tree selection**  
+**References:** Leak, W.B., M.Yamasaki, and R. Holleran. 2014. Silvicultural Guide for Northern Hardwoods in the Northeast. USDA For. Serv. Gen. Tech. Rep. NRS-132. 
+
+A single tree selection system is well suited to the area. Long term, we aim to create a structure in which roughly 30% of the basal area is poles (6-10" dbh), 30% is small sawtimber (11-16" dbh), and 40% is large sawtimber (>16" dbh).  Logging will take place about every 10 years, reducing the overstory stocking to some 90 square feet per acre.  In each entry mature crop trees will be harvested, immature trees will be tended to focus growth on the best stems, and new regeneration will be initiated or released.  This system will allow for the efficient establishment of new regeneration while maximizing the stocking of desirable trees that are carried to the end of their rotation.  Target diameters for crop trees will be specific to individual species as follows: 24 inches for red spruce, white pine, sugar maple, yellow birch, and black cherry; 18 inches for other commercial hardwoods (with exceptions allowed for all veneer quality hardwood stems); 18 inches for hemlock; and 14 inches for fir.  Some exceptionally old and large stems may be retained for their value to wildlife and contribution to structural complexity in the stand. The ideal species composition will include sugar maple, yellow birch, black cherry, ash (if any is found to resist the ash borers), spruce, some hemlock, and maybe some white pine.
+
+##Silvicultural prescription
+
+**Single tree selection harvest**  
+**Year:** 2022  
+**References:** Leak, W.B., M.Yamasaki, and R. Holleran. 2014. Silvicultural Guide for Northern Hardwoods in the Northeast. USDA For. Serv. Gen. Tech. Rep. NRS-132.
+
+This treatment will generally function as a conventional single tree selection harvest, except that removing all unacceptable growing stock and mature trees will will reduce the stocking of large sawtimber below ideal levels. A corresponding amount of small sawtimber will be retained (above the long-term target) to keep the overall residual stocking at about 90 square feet per acre wherever possible. This residual stocking will promote sufficient regeneration establishment and advanced regeneration release without sacrificing quality growing stock unnecessarily. A higher-than-normal percentage of the current growing stock will need to be removed to bring the stand back into stocking levels that are typical for an uneven-aged system and to ensure successful regeneration. 
+
+Species targeted for regeneration are sugar maple, yellow birch, spruce, and possibly white pine. The target diameters for maturity that are presented in the "Long-term management system" section above will be used, except that the target diameter for ash will be reduced to 12 inches in this entry to capture the value of sawtimber-sized ash that would otherwise die in the next few years when emerald ash borers reach the area. If any smaller ash survive through the infestation, they can be grown to larger sizes in subsequent entries.
+
+Practically, this treatment will be carried out by removing all of the unacceptable growing stock that is 6" dbh and larger, along with all mature trees and enough of the remaining small sawtimber trees (12-16") to bring the residual stocking to 90 ft^2^/ac in any given spot. Small sawtimber removals should be focused on lower quality and lower vigor trees. Where there are choices of what species to cut, hemlock, fir and aspen should be preferentially removed and hard maple and yellow birch should be retained.
+
+In a few places, representing less than 1/5^th^ of the stand, the stocking is already below 90 ft^2^/ac. Unacceptable growing stock should be removed from those places, but mature trees should left to keep the stocking from falling too far. While the majority of the stand will end up near 90 ft^2^, we expect these areas to fall to as low as 50 ft^2^, which will bring the stand's average stocking to some 80 ft^2^.
+
+
+```{r diam_table3, results="asis"}
+n_plots <- sum(plots$stand == std)
+
+kable((trees %>% filter(stand == std, live == 1) %>%
+        mutate(size_class = 
+                 factor(case_when(dbh<6 ~ "saplings", 
+                                  dbh<=10 ~ "poles", 
+                                  dbh<=16 ~ "small sawtimber", 
+                                  TRUE ~ "large sawtimber"), 
+                        levels = c("saplings", 
+                                   "poles", 
+                                   "small sawtimber", 
+                                   "large sawtimber"))) %>% 
+        select(live, inv, ags, size_class) %>% 
+        filter(size_class != "saplings") %>% 
+        group_by(size_class) %>% 
+        summarize(total = n()*10/n_plots, 
+                  ags = sum(ags)*10/n_plots, 
+                  inv = sum(inv)*10/n_plots) %>%
+         mutate(post_harvest_target = c(22, 38, 20))),
+      caption = 'Current and target basal area by size class. Poles are 6-10" dbh, small sawtimber is 11-16", and large sawtimber is >16". Investment grade growing stock is a subset of acceptable growing stock.',
+      col.names = c("size class", "total", 
+                    "acceptable", "investment grade", 
+                    "post harvest target"), digits = 0)
+```

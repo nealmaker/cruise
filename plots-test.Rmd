@@ -1,0 +1,47 @@
+---
+title: "Plot Conditions"
+author: "Neal Maker"
+date: "September 22, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r Plots_table, echo=FALSE}
+library(tidyverse)
+library(ggthemes)
+
+trees <- read_csv("data/nalley-cruise-2018.csv", col_names = TRUE)
+baf <- 10
+
+trees <- trees %>% fill(plot) %>% fill(stand) %>% 
+  filter(!is.na(spp), dbh>=6) %>%
+  select(-(code)) %>%
+  mutate(cut = ifelse(is.na(cut), 0, 1), cut = as.logical(cut),
+         tpa = baf/(0.005454*dbh^2), 
+         live = if_else(cond == 7, 0, 1),
+         crop = if_else(cond == 1, 1, 0),
+         inv = if_else(cond %in% c(1:2), 1, 0),
+         ags = if_else(cond %in% c(1:4), 1, 0),
+         snag = if_else(cond == 7, 1, 0))
+
+trees %>% group_by(plot) %>% 
+  summarize(stand = stand[1],
+            ba_live = 10*sum(live), 
+            ba_ags = 10*sum(ags), 
+            ba_inv = 10*sum(inv),
+            ba_crop = 10*sum(crop),
+            ba_snags = 10*sum(snag),
+            tpa_live = round(sum(tpa[cond != 7])),
+            tpa_ags = round(sum(tpa[cond %in% c(1:4)])),
+            tpa_inv = round(sum(tpa[cond %in% c(1:2)])),
+            tpa_crop = round(sum(tpa[cond == 1])),
+            tpa_snags = round(sum(tpa[cond ==7]))) %>%
+  mutate(qsd_live = round(sqrt((ba_live/tpa_live)/0.005454), 1),
+         qsd_ags = round(sqrt((ba_ags/tpa_ags)/0.005454), 1),
+         qsd_inv = round(sqrt((ba_inv/tpa_inv)/0.005454), 1),
+         qsd_crop = round(sqrt((ba_crop/tpa_crop)/0.005454), 1),
+         qsd_snags = round(sqrt((ba_snags/tpa_snags)/0.005454), 1))
+```

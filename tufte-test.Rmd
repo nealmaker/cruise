@@ -1,0 +1,40 @@
+---
+title: "Tufte Test"
+author: "Neal"
+date: "`r Sys.Date()`"
+output:
+  tufte::tufte_handout: default
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+library(tidyverse)
+x <- " pickles"
+```
+
+Here is some normal text with inline code: 2+3=`r 2+3``r x`  
+
+\vspace{10pt}
+
+```{r block, fig.margin=TRUE, echo=FALSE, results='asis'}
+cat('Here is a margin code block with code-generated text and a plot.')
+mtcars %>% ggplot(aes(mpg, disp)) + geom_point()
+cat('The text stays in the main body.')
+```
+
+\vspace{10pt}
+
+I can combine text and code in a footnote^[2+3=`r 2+3` \newline\vspace{10pt}], but I get footnote numbering, which I don't want.
+
+\begin{marginfigure}
+Here is a margin figure with inline code that does work: 2+3=`r 2+3` \newline\vspace{10pt}
+\end{marginfigure}
+
+
+`r tufte::margin_note('This is a margin note. If I try to include inline code in it, I get an error because it "failed to tidy R code in chunk"')`  
+
+How about a list:
+
+> - first
+> - second
+> - third

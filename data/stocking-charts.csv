@@ -1,0 +1,12 @@
+type,name,author,source,ax1,ay1,ax2,ay2,alab,anudge,acurv,aangle,bx1,by1,bx2,by2,blab,bnudge,bcurv,bangle,cx1,cy1,cx2,cy2,clab,cnudge,ccurv,cangle
+Northern hardwood,hardwood,"Leak, et al. 2014",NRS-132,90,125,1054,92,A,20,0,90,46,64,642,56,B,20,0,90,36,50,401,35,C,20,0,90
+Spruce-fir,softwood,"Solomon, et al. 1995",NE-204,324,299,1063,145,A,20,0.3,50,171,158,455,62,B,20,0.1,90,157,145,352,48,C,20,0.1,90
+Mixedwood,mixedwood,"Leak, et al. 2014",NRS-132,129,180,1157,101,A,20,0,90,77,107,951,83,B,20,0,90,64,90,596,52,C,20,0,90
+Pine-hardwood,mixedwood,"Leak, et al. 2014",NRS-132,129,180,1157,101,A,20,0,90,77,107,951,83,B,20,0,90,64,90,596,52,C,20,0,90
+White pine,revised white pine,"Leak and Lamson, 1999",NA-TP-01-99,173,306,616,215,A,20,0.4,20,68,120,229,80,Managed B,50,0,90,54,95,146,51,Managed C,50,0,90
+Hemlock,softwood,"Solomon, et al. 1995",NE-204,173,241,1295,113,A,20,0,90,100,140,1089,95,B,20,0,90,82,115,642,56,C,20,0,90
+Cedar,softwood,"Solomon, et al. 1995",NE-204,173,241,1295,113,A,20,0,90,100,140,1089,95,B,20,0,90,82,115,642,56,C,20,0,90
+Red pine,red pine,Benzie 1977,NC-33,110,240,1100,150,A,20,0.4,30,49,106,418,57,B,20,0.1,80,49,106,418,57,  ,20,0.1,80
+Sugarbush,hardwood,"Leak, et al. 2014",NRS-132,90,125,1054,92,A,20,0,90,46,64,642,56,B,20,0,90,36,50,401,35,C,20,0,90
+Norway spruce,norway spruce,Haligan and Nyland. 1999,NJAF 16(3) p.158,121,264,1188,162,A,20,0.08,90,72,158,711,97,60pct RD,80,0.05,90,56,123,411,56,Open Grown,105,0.1,90
+Mixed softwood,softwood,"Solomon, et al. 1995",NE-204,173,241,1295,113,A,20,0,90,100,140,1089,95,B,20,0,90,82,115,642,56,C,20,0,90

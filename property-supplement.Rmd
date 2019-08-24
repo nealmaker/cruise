@@ -1,0 +1,94 @@
+---
+title: "Bassage-Hanna Property: History and Setting"
+author: "Pekin Branch Forestry"
+date: "`r lubridate::today()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 3.75)
+```
+
+```{r wrangling_cruise, include=FALSE}
+property <- "bassage-s"
+year <- 2019
+
+load(file = paste("C:/Users/Neal/projects/cruise/rda/", property, "-cruise-", year, ".rda", sep = ""))
+
+library(tidyverse)
+library(ggthemes)
+library(stargazer)
+library(knitr)
+library(extrafont)
+loadfonts("win", quiet = TRUE)
+```
+
+#Physical Geography & Environment
+
+##Bedrock geology
+
+The underlying geology of Vermont is naturally organized into several north-northeast trending bedrock belts.  Each belt is made up of rocks generally of the same age and formed by similar processes.  The `r forestname` property lies within the Waits River formation, which runs through the broad Connecticut Valley Trough, east of the Green Mountains.  Rocks of the Waits River formation were originally formed in the bed of the warm, shallow Iapetus Ocean, which was teeming with life.  The shells of marine animals were mixed with sediments on the ocean floor and compressed to form calcium rich limestone, which was later metamorphosed when the microcontinent Avalonia collided with the Laurasian supercontinent during the Acadian Orogeny, some 325-375 million years ago.  Intermixed mudstones were also metamorphosed and upended at that time, becoming flaky phyllite bands amid the crumbly limestones.  As these rocks have since weathered and been broken up, their mineralogy has greatly influenced the region’s soils and waters, and has largely defined the natural and human communities that we now see. 
+
+##Glaciation
+
+For hundreds of millions of years following the Avalonian collision, not-yet-Vermont’s rugged terrain was washed with rain and wind and worn down to gentle, rolling hills and mountains.  The weathered rock and organic deposits collected under the force of water, wind and gravity to form deep, well developed soils like those still common in the Southeastern US.  But some two million years ago a long episode of frigid temperatures began, which led to massive accumulations of snow in the north.  The snow’s increasing weight compressed lower (older) layers into crystalline ice and, eventually, to a deformed, plasma-like ice material, which grew to over a mile thick and spread under its own weight like pancake batter.  Four of these glaciers developed in succession, each spreading south, then melting down when the weather warmed, only to build up again as it cooled.  The glaciers slid over, scraped across, or ground down the bedrock and soil in front of and beneath them, thoroughly removing and mixing the existing soils.  
+
+As the most recent glacier (the Wisconsin) melted and retreated north, the unsorted silts, sands, gravel, and boulders that it had picked up and mixed together were dumped in place, blanketing the land in glacial till.  These are the soils that remain on the `r forestname` property, and across much of Calais.  
+
+##Soils
+
+Today’s soils owe much of their chemical makeup to the underlying bedrock; and much of their structure, depth, and texture to the glacial processes that laid them down.  The calcium rich mineral content of the region’s limestones buffers acidity well, and is largely responsible for the rich northern hardwood forests and fens for which the Vermont Piedmont region is famous. 
+
+Soils on the `r forestname` property vary considerably depending on the landscape position. Exposed bedrock outcroppings in places are devoid of soil; thinner soils on summits and shoulders tend to be dryer; and deeper soils lower down on backslopes hold more moisture. Basins collect water and have more poorly drained soils; in some places they remain saturated and consist of partially decomposed organic material that has been collecting there for millenia.
+
+Tree growth depends on many factors, including micro-site conditions, nearby vegetation, and light availability; but soil classification is still one of the best ways to broadly predict growth, productivity, and suitability of a site for certain species.  On the `r forestname` property, the deeper, well drained backslope soils are generally the most productive, and support our ‘pickier’ trees like basswood and white ash. They allowing for good rooting, and they provide plenty of water without depriving trees of soil oxygen.  
+
+Higher slope soils don't provide as much rooting depth, but they support a broad range of tree species. While ash and basswood are not as competitive on them, they can still grow diverse hardwood and mixedwood forests.
+
+The wettest basin soils deprive trees of oxygen and sometimes don't support tree growth at all.
+
+#Ecologic & Anthropogenic History
+
+##Historic ecological context
+
+Immediately after deglaciation, the bare landscape that was to become Vermont was colonized, if only sparsely, by tundra lichens, grasses, sedges, and forbs.  Within a few hundred years, this vegetative ground cover was probably close to continuous, with some shrub willows and dwarf birches scattered around.  Over the next few hundred years the shrub component grew denser, with alder migrating onto the landscape and patches of white and black spruce and tree-sized birch becoming established.  This tundra-forest transition zone provided habitat for—and was probably partly maintained by—muskoxen, mastodons, caribou, giant beavers, and other megafauna.
+
+Over the course of centuries, the transition from open tundra to closed boreal forest continued.  For the millennium or two that boreal forests dominated the landscape, species composition was continually shifting as the climate warmed and then cooled and as patterns of rainfall fluctuated, with competitive dynamics and disturbance regimes changing in response.  Fire-maintained jack pine forests expanded and then declined relative to spruce; tamarack and, later, balsam fir became increasingly important; and, by around 10,000 years ago, white pine, hemlock, and various hardwoods were becoming more common, marking the start of a transition to a temperate mixedwoods forest.  By this time, many of the easily quarried megafauna had already been hunted to extinction.
+
+By 9,000 years ago elm, ash, birch, beech, maple, and apparently oak were well established; with white pine and hemlock, these hardwoods marked the full transition from boreal to mixedwoods.  Spruce (mostly red spruce) and balsam fir were still present on the landscape, but were restricted to colder or wetter sites where other species were uncompetitive.  The fauna then were broadly similar to those we are familiar with today: moose, deer, black bears, beavers, wolves, mountain lions, and most of the birds, amphibians, and small mammals now associated with northern mixed forests.
+
+By around 7,000 years ago, biomes—the most general level of ecological classification (e.g. tundra, boreal forest, temperate forest)—had arrived at or very near their modern distributions.  Nevertheless, species composition and arrangement at finer spatial scales remained dynamic.  The following few thousand years continued to see change in the forest: white pine, which had once been the most widespread species, became increasingly less prevalent as maple, yellow birch, and especially hemlock occupied more and more of the landscape.  By around 5,000 years ago, hemlock was the singularly dominant tree species across nearly all of New England and the northeast.  Quite suddenly, however, it was nearly eliminated from the landscape.  A disease or insect (probably the hemlock looper) was almost certainly the proximate cause of the decline, but it may have functioned in conjunction with a centuries-long drying trend and discrete periods of severe drought.  Regardless of the details of its extirpation, hemlock did not return to the landscape in any meaningful way for 2,000-3,000 years, and while it did later become a very important component of the northern forest, it never returned to as extensive and dominant a position as it once occupied.
+
+Even in the centuries preceding European settlement, region-wide changes were observed in the forest.  Within the boreal-deciduous continuum on which the temperate mixedwoods lie, species composition began to skew more towards the boreal.  Spruce and fir dominated stands became more prevalent on the landscape, and spruce became more abundant as an associate within stands dominated by other species.
+
+Overall, biome-scale landscape changes in the millennia since deglaciation have closely tracked global- or continental-scale change in the climate, though generally following a lag of a few to several hundred years. Within-biome changes have been similarly responsive to climactic drivers, but these have been compounded by complex, finer-scale landscape and stand dynamics involving differential growth and reproduction strategies, interspecific competition, catastrophic weather events, insect outbreaks, wildlife interactions, and human land use. In short, the forest has seen constant change, and novel species arrangements have manifested regularly in response to changing conditions and chance disturbances.
+
+##Human land-use history
+
+The earliest human settlers entered the landscape fairly soon after deglaciation, following the grazing herds of game through the uplands and establishing seasonal campsites on the shores of the Champlain Sea, which then occupied the Champlain and St. Lawrence valleys.  These paleoindian groups became increasingly effective at hunting the megafauna, such as mastodons, stag elk-moose, giant ground sloths, giant beavers, woodland muskox, and others, which were poorly adapted to the predatory pressure humans applied.  By around 11,000 years ago most of these species had been hunted to extinction, and, as caribou herds moved north with the expanding tundra and encroaching temperate woodlands, paleoindian hunting tools were adapted to the smaller and often fleeter game that was then available.
+
+The cultural practices and social structure of the paleoindian groups are not well understood, but it is clear that from the time the region was first settled humans hunted, fished, and collected edible and medicinal plants in the valleys and uplands of northern Vermont.  Gradual technological development and social ordering led to the emergence of a discernibly different culture around 8,000 years ago.  The people of this “woodland period” moved between seasonal hunting and fishing camps, but began to stay within a more circumscribed area than their semi-nomadic predecessors.  Established sites in lake and river valleys were surrounded by upland hunting grounds and connected by networks of waterways and portages.  Mobility remained a more important survival strategy than modifying the environment and the relatively low-density population of this period did not significantly influence landscape-scale forest dynamics, especially in upland areas, where hunters or travelers only occasionally visited.
+
+Eventually, inhabitants (who were by that time known as the Wabenaki) began to more actively manage and manipulate the natural environment by tending wild plants for food and medicine, gathering firewood, and setting forest fires to control species compositions and encourage game animals. Those effects were focused on the areas where their camps and villages were concentrated, however, and had little effect on upland areas like western Cabot
+
+When European-Americans began settling the region in the mid to late 1700s, however, they quickly started to take advantage of the calcium-rich soils that are naturally present.  Following a period of subsistence farming, the Vermont Piedmont became known first for wheat production, then for sheep farming—providing wool to textile factories to the south—and later for dairy farming.  Vermont was close enough to Boston and other large coastal populations to ship milk to them without it spoiling and the climate and soils made for good pasture.  By the late 1800s, much of the property was probably already cleared for pasture or mowing.  
+
+With the advent of refrigeration and the development of better transportation networks in the second half of the 19th century, much of the country's agricultural production moved to the fertile Midwest and a period of agricultural decline began throughout Vermont.  Many pastures and hay fields were abandoned and, as a testament to the land's resilience, quickly regrew trees.  Forest has since become the region's dominant landcover, but the land still shows signs of its agricultural past.  Soil compaction from plowing facilitated the growth of white pine on more intensively used sites in the Piedmont and decreased the abundance of other species like beech and hemlock.  Forested pastures and other less intensively used sites often regrew beech and hemlock, but still saw a shift toward less shade-tolerant species like ash and birch.  
+
+#Current Conditions
+
+##Landscape context
+
+In addition to driving forest development patterns, its agricultural history left a fairly widespread network of roads across the Northern Vermont Piedmont region and large blocks of unbroken forest are now uncommon.  A dense network of streams, ponds, and wetlands is also present, though, and together with the diverse forests and remaining fields, it supports many different animal species. 
+
+The `r forestname` property is located in a more densely settled area that extends north from Montpelier along the Kingsbury Branch of the Winooski River. This fragmented forest is not as useful for far-ranging, interior wildlife species like moose and great horned owls, but it does support many species that thrive on "edge" habitat or that have smaller home ranges. Water courses are especially important in this setting, because they often serve as migration corridors for animals and plants. For that reason, the state has identified the stream and wetlands on the `r forestname` property as "highest priority surface water and riparian areas," and as "riparian wildlife connectivity" areas.
+
+Also, while the property's underlying bedrock and the resulting calcareous soils are not uncommon in Vermont, they are uncommon elsewhere, and the state considers them a priority for conservation. By protecting these areas from development and fragmentation, the natural communities that are defined by them can be protected as well. The property's cedar forest (Area 3) is especially notable in this regard. Cedar is tolerant of a wide range of moisture regimes, but it cannot grow without high levels of calcium in the soil. Hillside cedar forests like the one on the `r forestname` property are uncommon because they depend on calcareous soils and specific patterns of ground water flow. 
+
+Like most parts of the state, Calais is dominated by middle-aged forests.  Its history of clearing and abandonment eliminated large trees in most places and simplified forest structures.  The resulting young woods were generally less susceptible to disturbances such as windthrow, and humans have mostly followed a path of low intensity, exploitative logging in recent years, limiting tree regeneration.  While many species are undeterred by these simplified conditions, others are affected.  Bats that once relied on the shaggy bark of old trees for their roosts are forced to find other arrangements, cavity dwelling species lack large dead and dying cavity trees, and the dearth of vertical structure limits the diversity of songbirds, which are able to differentiate into numerous specific niches in multi-aged forests. 
+
+The `r forestname` forest has greater structure and more cavity trees than many forests nearby, but there is plenty of room for improvement. Area 5--in the south--seems to support an especially diverse mixture of wildlife species, because it has a component of older pasture trees that are intermixed with areas of dense regeneration. It also has a great diversity of site conditions and tree species, and some down woody material from wind-thrown trees. Deer, coyote, weasel, and hare tracks were observed here during the inventory, along with several abandoned porcupine dens and porcupine feeding sites. Hermit and wood thrushes, black-throated blue and black-throated green warblers, and hairy and pileated woodpeckers are probably at home in the stand too; and a variety of amphibians probably live in and around wetter areas, especially where there is down woody material nearby to provide overwintering areas. 
+
+Other stands with simpler structures and fewer tree species don't support the same wildlife diversity on their own, but in combination they contribute to landscape-level, "horizontal" diversity. For instance, fewer animals make regular use of the dense, even-aged, monotypic cedar forest; but it provides valuable winter cover for deer, grouse, and others because it is in close proximity to other habitats where those animals can find food and water. The `r forestname` property has dense softwood forests, more open hardwood and mixedwood forests, young forests, wetlands, and open field: all within a quarter mile of one another.
+
+Young, shrubby forests with low cover are especially lacking in the region, as most fields are mowed regularly and canopy gaps in the woods are rare. There are a few small areas of young forest on the `r forestname` property, where windthrow has made canopy openings in Area 5 and in one younger part of Area 7. The abandoned upper beaver pond is beginning to serve the purpose too, as it slowly dries out and develops shrub cover. These areas support many small mammals that need the low cover for protection from predators; and a host of songbirds, like chestnut-sided warblers, white-throated and song sparrows, and common yellowthroats

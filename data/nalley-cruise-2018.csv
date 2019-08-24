@@ -1,0 +1,465 @@
+spp,stand,plot,code,dbh,logs,cond,cut
+beech,2,403,5,5,,5,
+black cherry,,,6,11,92,3,
+fir,,,3,11,2222,2,
+spruce,,,18,11,22222,2,
+fir,,,3,10,2222,6,
+spruce,,,18,7,22,2,
+white pine,,,22,32,2222222,2,
+white pine,,,22,15,2222222,2,
+soft maple,,404,17,10,2222,3,1
+soft maple,,,17,8,2222,3,1
+white pine,,,22,21,2222222,1,
+soft maple,,,17,10,2223,3,1
+white pine,,,22,20,22222,2,
+hard maple,,,9,12,32,3,
+soft maple,,405,17,9,2322,3,1
+soft maple,,,17,11,32,3,1
+soft maple,,,17,9,3322,3,1
+soft maple,,,17,11,3223,3,1
+ash,,,1,18,222,3,1
+paper birch,,,13,10,2222,2,
+hard maple,,,9,12,223,2,
+hard maple,,,9,12,222,3,1
+ash,,,1,15,222,2,1
+ash,,305,1,22,2222,3,1
+hemlock,,,10,18,2333,3,1
+ash,,,1,16,2222,2,1
+spruce,,,18,10,2,3,
+hard maple,,,9,8,,5,1
+yellow birch,,,23,16,2,3,1
+hemlock,,,10,14,223,3,
+hemlock,,,10,17,2,3,1
+fir,,,3,7,,5,1
+hemlock,,,10,21,222233,3,1
+hard maple,,,9,18,32,3,
+fir,,,3,10,22,6,1
+soft maple,,,17,12,,5,1
+yellow birch,,,23,9,13,2,
+hard maple,,,9,14,,5,1
+yellow birch,3,306,23,16,212,1,
+yellow birch,,,23,13,22,4,1
+yellow birch,,,23,18,92,3,
+yellow birch,,,23,17,222,1,
+ash,,,1,14,2223,4,1
+yellow birch,,,23,13,223,4,1
+yellow birch,,,23,12,12,2,
+yellow birch,,,23,14,212,2,
+yellow birch,,,23,12,222,6,1
+ash,,,1,9,,6,1
+hard maple,,,9,14,2233,3,
+yellow birch,,,23,14,12,2,
+yellow birch,,,23,13,22,4,1
+ash,,,1,13,223,4,1
+aspen,,307,2,8,2222,4,1
+paper birch,,,13,8,123,3,
+paper birch,,,13,4,22,4,1
+ash,,,1,9,223,4,1
+fir,,,3,9,22222,2,
+fir,,,3,4,2222,2,
+fir,,,3,6,2222,2,
+fir,,,3,7,22222,2,
+fir,,,3,5,2222,2,
+ash,,,1,6,222,2,
+paper birch,,,13,6,12,2,
+black cherry,,,6,5,222,4,1
+yellow birch,,,23,5,122,1,
+hemlock,,,10,22,222222,3,
+fir,,308,3,8,222,2,
+hard maple,,,9,10,222,2,
+fir,,,3,8,222,2,
+ash,,,1,8,2222,2,1
+hard maple,,,9,9,,5,1
+hard maple,,,9,13,333,5,1
+paper birch,,,13,16,,5,1
+ash,,,1,6,92,3,1
+yellow birch,,,23,6,22,3,1
+hard maple,,,9,12,2333,2,
+soft maple,,,17,11,2322,3,1
+ash,,,1,5,222,2,
+white pine,,309,22,24,22222223,1,
+white pine,,,22,12,222222,4,1
+white pine,,,22,22,222222223,1,
+white pine,,,22,23,99222223,4,1
+soft maple,,,17,15,9223,3,1
+soft maple,,,17,8,,5,1
+fir,,,3,11,92,6,1
+hard maple,,,9,14,32,3,
+soft maple,,,17,12,23,4,1
+soft maple,,,17,8,,5,1
+soft maple,,,17,10,,5,1
+soft maple,,,17,12,23,3,1
+soft maple,,,17,11,33,5,1
+soft maple,,,17,12,2,3,1
+soft maple,,,17,12,3,5,1
+white pine,,,22,24,222233,3,1
+white pine,,,22,18,2222222,2,
+white pine,,,22,26,22222,2,
+white pine,,,22,22,22222,4,1
+white pine,,409,22,21,222222,3,
+white pine,,,22,16,22222222,3,1
+white pine,,,22,9,,5,1
+white pine,,,22,21,22223,3,1
+white pine,,,22,14,222222,3,1
+white pine,,,22,20,2222223,2,
+white pine,,,22,19,3,5,1
+fir,,,3,10,2222,2,
+white pine,,,22,18,223,3,1
+white pine,,,22,14,22,3,1
+white pine,,,22,31,333,5,1
+white pine,,,22,22,333,5,1
+white pine,,,22,26,23,3,1
+white pine,,,22,17,22,3,1
+white pine,,,22,22,2322,3,1
+white pine,,,22,21,2223,3,1
+tamarack,,,20,11,222222,3,
+black cherry,,,6,12,,5,1
+white pine,,410,22,28,,1,
+white pine,,,22,16,2222,4,1
+white pine,,,22,17,22223,4,1
+white pine,,,22,20,323,3,1
+white pine,,,22,26,33322,3,1
+white pine,,,22,17,22222222,4,1
+white pine,,,22,22,3323,3,1
+white pine,,,22,13,2222,3,1
+white pine,,,22,23,22222222,2,
+white pine,,,22,23,3333,5,1
+white pine,,,22,13,222222,3,1
+white pine,,,22,18,22222222,1,
+white pine,,,22,24,2223,4,1
+white pine,,,22,17,2222222,4,1
+black cherry,,,6,11,,5,1
+white pine,,,22,26,33233,3,1
+white pine,,,22,19,22222222,1,
+black cherry,,,6,12,,5,1
+soft maple,,,17,12,,5,1
+soft maple,,,17,12,,5,1
+white pine,,,22,17,222222222,2,
+white pine,,,22,16,22222222,6,1
+hard maple,,,9,12,,5,1
+hard maple,,,9,10,,5,1
+soft maple,,,17,13,22,2,
+white pine,,,22,20,22223,4,1
+white pine,,,22,18,22222223,2,
+yellow birch,,411,23,14,22,2,
+yellow birch,,,23,12,222,2,
+hard maple,,,9,9,,5,1
+fir,,,3,10,222,2,
+hemlock,,,10,14,2222,2,
+yellow birch,,,23,10,,5,1
+ash,,,1,12,2,6,1
+hemlock,,,10,8,222,2,
+ash,,,1,12,222,6,1
+hard maple,,,9,8,,5,1
+yellow birch,,,23,16,2,6,1
+hard maple,,,9,6,,5,1
+hard maple,,412,9,10,,5,1
+hemlock,,,10,15,223,3,
+hard maple,,,9,16,32,3,
+yellow birch,,,23,17,,5,1
+hard maple,,,9,12,,5,1
+hard maple,,,9,12,322,3,1
+hard maple,,,9,14,2922,3,
+yellow birch,,,23,18,,5,
+hard maple,,,9,11,,5,
+hard maple,,,9,11,2232,3,1
+hard maple,,,9,16,222,2,
+hard maple,,312,9,11,2233,2,
+hemlock,,,10,9,2222,3,1
+yellow birch,,,23,13,1222,1,
+hard maple,,,9,13,2222,2,
+hard maple,,,9,12,1222,1,
+ash,,,1,15,2222,4,1
+hemlock,,,10,11,22222,4,1
+yellow birch,,,23,19,2222,2,
+hemlock,,,10,9,22,3,1
+hard maple,,,9,11,1122,1,
+hemlock,,,10,9,22222,4,1
+ash,,,1,14,22222,4,1
+hard maple,,,9,8,11222,2,
+soft maple,2,105,17,12,3222,3,1
+spruce,,,18,12,2222222,6,1
+hard maple,,,9,10,53339,5,1
+hard maple,,,9,12,2239,3,
+soft maple,,,17,9,2222,2,
+hemlock,,,10,10,222,2,
+hard maple,,,9,18,9,5,1
+soft maple,,,17,8,223,3,1
+spruce,,,18,10,222222,1,
+soft maple,,,17,10,9,5,1
+spruce,,,18,16,22222222,1,
+hard maple,,,9,9,9,5,1
+soft maple,,,17,12,9,5,1
+fir,,,3,9,222222,2,
+aspen,3,106,2,16,2222339,3,1
+aspen,,,2,16,222229,3,1
+ash,,,1,11,22229,2,
+aspen,,,2,12,2222229,3,1
+aspen,,,2,18,2222229,2,1
+aspen,,,2,16,222239,3,1
+ash,,,1,12,1222329,2,
+aspen,,,2,20,9,6,1
+aspen,,,2,12,222339,2,
+hard maple,,,9,8,22239,2,
+aspen,,,2,20,666239,3,1
+soft maple,,107,17,10,62339,3,1
+ash,,,1,10,2229,3,
+ash,,,1,14,22229,3,1
+ash,,,1,11,222239,2,
+ash,,,1,10,222239,3,
+spruce,,,18,15,2222222,2,
+hemlock,,,10,16,339,5,1
+yellow birch,,,23,20,9,5,
+ash,,,1,9,22229,2,
+yellow birch,,,23,9,1239,2,
+yellow birch,,,23,11,529,3,1
+yellow birch,,,23,14,29,3,1
+paper birch,,108,13,17,22339,3,1
+hard maple,,,9,34,9,5,
+fir,,,3,10,222229,2,
+fir,,,3,8,222,2,
+soft maple,,,17,10,339,5,1
+soft maple,,,17,10,9,5,1
+hard maple,,,9,8,9,5,1
+spruce,,,18,19,22222222,1,
+spruce,,,18,17,2222222,2,
+soft maple,,109,17,11,339,5,1
+soft maple,,,17,14,3339,5,1
+hemlock,,,10,11,22222,2,
+hemlock,,,10,15,22223,3,1
+hemlock,,,10,14,22222,2,
+fir,,,3,12,22222,2,
+fir,,,3,7,2222,2,
+hemlock,,,10,18,223333,3,1
+soft maple,,,17,17,52239,3,1
+fir,,,3,7,22222,2,
+hemlock,,,10,12,22222,3,1
+soft maple,,110,17,20,339,5,1
+soft maple,,,17,22,3339,5,1
+fir,,,3,12,2222222,2,
+yellow birch,,,23,23,3329,3,1
+hemlock,,,10,12,229,3,1
+soft maple,,,17,12,9,5,1
+hard maple,,,9,11,22239,2,
+soft maple,,,17,16,32229,3,
+soft maple,,,17,22,9,5,1
+hemlock,,,10,20,222223,3,1
+hemlock,,,10,22,22222239,2,1
+hemlock,,,10,10,2229,3,1
+hemlock,,,10,22,222222,6,1
+soft maple,,,17,13,3229,3,1
+paper birch,,,13,19,329,3,1
+hemlock,,,10,6,222,2,
+soft maple,,,17,16,9,5,1
+yellow birch,,111,23,15,22339,2,
+ash,,,1,10,9,6,1
+hard maple,,,9,14,12339,2,
+hemlock,,,10,6,9,6,
+yellow birch,,,23,13,1239,2,
+hard maple,,,9,7,9,5,1
+yellow birch,,,23,14,2229,2,
+yellow birch,,,23,19,229,3,1
+ash,,,1,14,23339,3,1
+yellow birch,,112,23,14,29,3,1
+ash,,,1,14,2229,2,1
+ash,,,1,11,2229,3,
+ash,,,1,8,2329,3,1
+hard maple,,,9,11,2339,3,1
+ash,,,1,15,22229,2,1
+ash,,,1,16,26239,6,1
+hard maple,,,9,10,2229,2,
+yellow birch,,,23,17,239,3,
+hard maple,,,9,8,9,6,1
+hard maple,2,204,9,16,2339,3,
+fir,,,3,12,22229,3,
+hemlock,,,10,17,2223,3,1
+spruce,,,18,10,2222222,3,1
+soft maple,,,17,10,2222,3,
+soft maple,,,17,10,2222,3,
+hard maple,,,9,15,22239,2,
+soft maple,,203,17,16,12239,1,
+white pine,,,22,25,222222222,1,
+soft maple,,,17,13,629,3,1
+soft maple,,,17,10,9,5,1
+soft maple,,,17,16,629,3,1
+soft maple,,,17,19,9,5,1
+hemlock,,,10,12,2239,3,1
+soft maple,,,17,18,3339,5,1
+paper birch,,,13,15,2329,3,1
+hard maple,,,9,8,9,5,1
+aspen,,,2,19,9,5,1
+soft maple,1,202,17,8,5222,3,
+soft maple,,,17,10,39,5,
+white pine,,,22,22,3322,3,
+white pine,,,22,16,3339,6,
+white pine,,,22,14,29,3,
+white pine,,,22,17,22522,3,
+white pine,,,22,18,229,3,
+soft maple,,,17,10,223,2,
+white pine,,,22,22,333,5,
+white pine,,,22,22,3333,5,
+white pine,,,22,27,39,5,
+white pine,,,22,28,555339,5,
+white pine,,201,22,24,22333,3,
+white pine,,,22,19,222222,2,
+white pine,,,22,17,22322,3,
+white pine,,,22,17,223222,3,
+white pine,,,22,16,22222222,2,
+white pine,,,22,19,2333,3,
+white pine,,,22,17,22223,3,
+white pine,,,22,17,32322,3,
+white pine,,,22,20,222223,2,
+white pine,,,22,19,229,3,
+white pine,,,22,22,225233,3,
+white pine,,,22,17,53223,3,
+white pine,,,22,14,233,3,
+white pine,,,22,24,55333,5,
+white pine,,,22,23,29,3,
+white pine,,,22,19,2222222,2,
+soft maple,2,205,17,15,52239,3,gap
+soft maple,,,17,14,52239,3,
+soft maple,,,17,12,222,3,
+yellow birch,,,23,6,1122,2,
+soft maple,,,17,7,5233,3,
+soft maple,,,17,10,222223,2,
+ash,,,1,15,2329,3,
+soft maple,,,17,18,2239,3,
+hard maple,,,9,13,3339,5,
+ash,,,1,8,2222,3,
+hard maple,,,9,7,5239,3,
+ash,,,1,13,2339,3,
+hard maple,,,9,9,2233,3,
+soft maple,,,17,15,229,3,
+yellow birch,3,206,23,15,129,2,
+soft maple,,,17,7,22223,2,
+yellow birch,,,23,12,239,3,
+hard maple,,,9,18,239,3,
+yellow birch,,,23,14,129,2,
+hard maple,,,9,12,9,5,
+ash,,,1,16,22239,2,
+yellow birch,,,23,9,129,3,
+hard maple,,,9,11,2239,3,
+hard maple,,,9,13,32239,3,
+hemlock,,207,10,20,33333,5,
+yellow birch,,,23,10,9,5,
+fir,,,3,10,222222,3,
+hemlock,,,10,10,22222,3,
+hard maple,,,9,9,223,3,
+other hardwood,,,24,18,3339,5,
+ash,,,1,18,23329,3,
+yellow birch,,,23,16,239,3,
+soft maple,,,17,13,22229,2,
+yellow birch,,,23,11,122339,2,
+hard maple,,,9,22,9,5,
+spruce,,208,18,12,22222222,2,
+soft maple,,,17,9,32223,3,
+hard maple,,,9,7,122239,2,
+soft maple,,,17,6,22339,3,
+soft maple,,,17,14,53339,5,
+soft maple,,,17,8,5239,3,
+paper birch,,,13,17,1229,2,
+ash,,,1,10,22229,3,
+fir,,,3,7,2222,3,
+fir,,,3,7,22229,3,
+yellow birch,,209,23,5,11223,1,
+ash,,,1,7,22222,2,
+ash,,,1,8,22223,2,
+yellow birch,,,23,6,9,5,
+ash,,,1,6,22223,2,
+yellow birch,,,23,6,11239,4,
+yellow birch,,,23,6,11223,1,
+soft maple,,,17,15,22239,2,
+yellow birch,,,23,17,29,3,
+soft maple,,,17,14,222239,2,
+soft maple,,,17,16,22239,2,
+fir,,210,3,8,5222,3,
+hemlock,,,10,10,39,5,
+hard maple,,,9,25,539,5,
+hemlock,,,10,13,22222,2,
+hemlock,,,10,13,2222,3,
+yellow birch,,,23,31,9,5,
+soft maple,,,17,15,9,5,
+hard maple,,,9,8,229,3,
+soft maple,,310,17,15,5339,5,
+soft maple,,,17,13,5229,3,
+fir,,,3,14,2222229,6,
+white pine,,,22,22,22222223,2,
+soft maple,,,17,9,9,5,
+fir,,,3,7,2229,3,
+fir,,,3,6,2229,3,
+soft maple,,,17,19,229,3,
+soft maple,,,17,10,32233,3,
+white pine,,,22,20,33222223,3,
+fir,,,3,11,2222222,3,
+fir,,,3,11,2229,3,
+soft maple,,,17,12,9,5,
+soft maple,,,17,14,9,5,
+white pine,,,22,23,2222222,2,
+fir,,,3,12,2222222,2,
+white pine,,,22,12,222229,3,
+soft maple,,,17,14,322239,3,
+white pine,,,22,28,9,5,
+hemlock,,311,10,9,2222,2,
+hard maple,,,9,6,112239,1,
+hard maple,,,9,7,9,5,
+fir,,,3,10,52222222,6,
+hard maple,,,9,10,22229,3,
+hemlock,,,10,13,2222,3,
+hard maple,,,9,12,2239,3,
+hemlock,,,10,22,2339,3,
+yellow birch,,,23,10,9,5,
+hard maple,,,9,6,23539,3,
+hard maple,,211,9,16,1239,2,
+hemlock,,,10,16,2222222,2,
+hemlock,,,10,13,22222,3,
+hemlock,,,10,15,222222,2,
+hemlock,,,10,16,2222222,2,
+hemlock,,,10,8,222,3,
+hemlock,,,10,7,222,3,
+yellow birch,,,23,10,2229,3,
+yellow birch,,,23,15,12239,2,
+hard maple,,,9,9,2339,3,
+hemlock,,,10,12,2222,3,
+hard maple,,,9,12,22239,3,
+hemlock,,212,10,16,522222,3,
+yellow birch,,,23,15,2229,3,
+yellow birch,,,23,16,2229,2,
+yellow birch,,,23,15,129,3,
+hemlock,,,10,10,5222,3,
+hemlock,,,10,16,22222,2,
+hemlock,,,10,11,9,5,
+hemlock,,,10,13,22222,2,
+hard maple,,,9,9,1223,2,
+hard maple,,,9,8,222239,3,
+hard maple,,,9,8,22223,3,
+ash,,,1,13,2229,3,
+hard maple,,,9,8,9,5,
+yellow birch,,,23,13,9,5,
+hard maple,2,304,9,12,22339,3,
+hard maple,,,9,28,9,5,
+ash,,,1,18,2229,3,
+soft maple,,,17,7,12239,2,
+paper birch,,,13,9,11229,2,
+ash,,,1,7,2229,3,
+soft maple,,,17,10,2229,2,
+hard maple,,,9,10,2223,2,
+yellow birch,,,23,8,29,3,
+yellow birch,,,23,9,229,3,
+hard maple,,,9,28,9,5,
+hard maple,,303,9,27,9,5,
+hard maple,,,9,29,9,5,
+ash,,,1,13,32229,3,
+hard maple,,,9,31,9,5,
+ash,,,1,15,222229,2,
+hard maple,,,9,33,9,5,
+hard maple,,,9,26,339,5,
+white pine,1,301,22,20,2233339,3,
+white pine,,,22,18,222222,3,
+white pine,,,22,18,2222233,2,
+white pine,,,22,17,22229,3,
+white pine,,,22,18,222229,3,
+white pine,,,22,19,9,5,
+white pine,,,22,20,22339,3,
+white pine,,,22,16,22223,3,
+white pine,,,22,18,222233,2,
+white pine,,,22,19,223233,3,

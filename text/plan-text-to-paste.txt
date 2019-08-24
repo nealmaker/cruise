@@ -1,0 +1,60 @@
+#Principles, Goals & Strategies For Forest Management
+
+##Conservation
+
+The ecological functioning, productive capacity and biological diversity of the forest resource should be maintained or improved over time so as to provide opportunities for the current or future landowners to continue to enjoy and use the property.  A management strategy that is sustainable in the long-term and viable in the short- and medium-terms offers a strong measure of protection against future development or conversion.
+
+##Ecological integrity, wildlife habitat, & biodiversity
+
+Management should prioritize the protection of critical ecological functions, water resources, and threatened or rare plant and wildlife communities.  Wetlands and stream-side riparian zones should be carefully delineated and protected; and management should give consideration to the habitat needs of native wildlife populations and to the relationship between the property, its neighbors and the larger landscape they are nested within.  Management should be informed by and aim to improve landscape diversity, wildlife travel corridors, and habitat connectivity.  Locally under-represented habitat types should be identified and promoted.  Stand scale and sub-stand scale management should focus on developing or maintaining species-specific habitat needs, such as nesting sites, cover, mast production, preferred browse or other unique structural and compositional requirements.
+
+##Timber management
+
+Management should provide regular returns from timber harvesting. Long-term value growth is provided by maintaining full site occupancy with investment-grade stems: healthy trees capable of producing high quality sawtimber or veneer and worth retaining in the stand until they reach their full, site- and species-specific target diameters. Tree species which yield sought-after, high-value wood should be promoted within each stand or, when regenerating a new stand, attention should be paid to providing the stand conditions which favor the establishment of those species. At a property-wide scale, a variety of species should be maintained, providing options for seizing future market opportunities and a hedge against species-specific market depreciation. Among desired species, additional preference should be given to individual trees of sufficient vigor and grade-potential for strong future value growth. Consideration of economic efficiency should inform the timing and coordination of infrastructure investments and stand maintenance, improvement and harvest operations.
+
+
+##Long-term management system
+
+**Single tree selection**^[Leak, W.B., M.Yamasaki, and R. Holleran. 2014. Silvicultural Guide for Northern Hardwoods in the Northeast. USDA For. Serv. Gen. Tech. Rep. NRS-132.] 
+
+Long term, roughly 30% of the basal area should be kept in poles (6-10" dbh), 30% in small sawtimber (11-16" dbh), and 40% in large sawtimber (>16" dbh).  Logging should take place about every 10 years, reducing the overstory stocking to some 90 square feet per acre.  In each entry mature crop trees will be harvested, immature trees will be tended to focus growth on the best stems, and new regeneration will be initiated or released.  This system will allow for the efficient establishment of new regeneration while maximizing the stocking of desirable trees that are carried to the end of their rotation.  Target diameters for crop trees will be specific to individual species as follows: 24 inches for red spruce, white pine, sugar maple, yellow birch, and black cherry; 18 inches for other commercial hardwoods (with exceptions allowed for all veneer quality hardwood stems); 18 inches for hemlock; and 14 inches for fir.  Some exceptionally old and large stems may be retained for their value to wildlife and contribution to structural complexity in the stand. The ideal species composition will include sugar maple, yellow birch, black cherry, ash (if any is found to resist the ash borers), spruce, some hemlock, and maybe some white pine.
+
+
+##Silvicultural prescription
+
+**Single tree selection harvest**^[Leak, W.B., M.Yamasaki, and R. Holleran. 2014. Silvicultural Guide for Northern Hardwoods in the Northeast. USDA For. Serv. Gen. Tech. Rep. NRS-132.]   
+\noindent __Year:__ 2022 
+
+This treatment will generally function as a conventional single tree selection harvest, except that removing all unacceptable growing stock and mature trees will will reduce the stocking of large sawtimber below ideal levels. A corresponding amount of small sawtimber will be retained (above the long-term target) to keep the overall residual stocking at about 90 square feet per acre wherever possible. This residual stocking will promote sufficient regeneration establishment and advanced regeneration release without sacrificing quality growing stock unnecessarily. A higher-than-normal percentage of the current growing stock will need to be removed to bring the stand back into stocking levels that are typical for an uneven-aged system and to ensure successful regeneration. 
+
+Species targeted for regeneration are sugar maple, yellow birch, spruce, and possibly white pine. The target diameters for maturity that are presented in the "Long-term management system" section above will be used, except that the target diameter for ash will be reduced to 12 inches in this entry to capture the value of sawtimber-sized ash that would otherwise die in the next few years when emerald ash borers reach the area. If any smaller ash survive through the infestation, they can be grown to larger sizes in subsequent entries.
+
+Practically, this treatment will be carried out by removing all of the unacceptable growing stock that is 6" dbh and larger, along with all mature trees and enough of the remaining small sawtimber trees (12-16") to bring the residual stocking to 90 ft^2^/ac in any given spot. Small sawtimber removals should be focused on lower quality and lower vigor trees. Where there are choices of what species to cut, hemlock, fir and aspen should be preferentially removed and hard maple and yellow birch should be retained.
+
+In a few places, representing less than 1/5^th^ of the stand, the stocking is already below 90 ft^2^/ac. Unacceptable growing stock should be removed from those places, but mature trees should left to keep the stocking from falling too far. While the majority of the stand will end up near 90 ft^2^, we expect these areas to fall to as low as 50 ft^2^, which will bring the stand's average stocking to some 80 ft^2^. 
+
+```{r diam_table3, results="asis"}
+n_plots <- sum(plots$stand == std)
+
+kable((trees %>% filter(stand == std, live == 1) %>%
+        mutate(size_class = 
+                 factor(case_when(dbh<6 ~ "saplings", 
+                                  dbh<=10 ~ "poles", 
+                                  dbh<=16 ~ "small sawtimber", 
+                                  TRUE ~ "large sawtimber"), 
+                        levels = c("saplings", 
+                                   "poles", 
+                                   "small sawtimber", 
+                                   "large sawtimber"))) %>% 
+        select(live, inv, ags, size_class) %>% 
+        filter(size_class != "saplings") %>% 
+        group_by(size_class) %>% 
+        summarize(total = n()*10/n_plots, 
+                  ags = sum(ags)*10/n_plots, 
+                  inv = sum(inv)*10/n_plots) %>%
+         mutate(post_harvest_target = c(22, 38, 20))),
+      caption = 'Current and target basal area by size class. Poles are 6-10" dbh, small sawtimber is 11-16", and large sawtimber is >16". Investment grade growing stock is a subset of acceptable growing stock.',
+      col.names = c("size class", "total", 
+                    "acceptable", "investment grade", 
+                    "post harvest target"), digits = 0)
+```

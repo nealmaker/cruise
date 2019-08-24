@@ -1,0 +1,405 @@
+file <- "test-cruise-2019"
+baf <- 10
+
+library(XLConnect)
+library(tidyverse)
+
+
+###############################
+##Read in inventory worksheets
+###############################
+
+trees <- readWorksheetFromFile(paste("data/", file, ".xlsx", sep = ""), 
+                             sheet = 3, header = TRUE, endCol = 7)
+
+stands_raw <- readWorksheetFromFile(paste("data/", file, ".xlsx", sep = ""), 
+                                   sheet = 2, header = TRUE, endCol = 15)
+
+prop <- readWorksheetFromFile(paste("data/", file, ".xlsx", sep = ""), 
+                              sheet = 1, header = FALSE, endCol = 2)
+
+
+# error for incorrect species codes (before deleting them) ------------------
+if(max((trees %>% filter(!is.na(code)))$code) > 25 | 
+   min((trees %>% filter(!is.na(code)))$code) < 1){
+  message("ERROR: tree(s) w/ nonexistant species code(s)")
+  quit(save = "ask")
+} 
+
+
+###############################
+##Assign property vars
+###############################
+
+property <- prop[1,2]
+
+month <- as.numeric(prop[2,2])
+
+year <- as.numeric(prop[3,2])
+
+forestname <- prop[5,2]
+
+town <- prop[6,2]
+
+glacres <- as.numeric(prop[7,2])
+
+gldescrip <- prop[8,2]
+
+span <- prop[9,2]
+
+photo <- prop[10,2]
+
+elevationmin <- as.numeric(prop[11,2])
+
+elevationmax <- as.numeric(prop[12,2])
+
+owners <- prop[13,2]
+
+addressline1 <- prop[14,2]
+
+addressline2 <- prop[15,2]
+
+citystatezip <- prop[16,2]
+
+watertext <- prop[17,2]
+
+boundariestext <- prop[18,2]
+
+
+###############################
+##Make tree, plot & stand dfs
+###############################
+
+trees <- trees %>% fill(plot, stand) %>% 
+  filter(!is.na(spp)) %>% select(-(code)) %>%
+  mutate(logs = as.character(logs),
+         stand = as.numeric(stand),
+         stand = round(stand),
+         stand = as.character(stand),
+         cond = ifelse(is.na(cond), 3, cond),
+         tpa = baf/(0.005454*dbh^2), 
+         live = if_else(cond == 7, 0, 1),
+         crop = if_else(cond == 1, 1, 0),
+         inv = if_else(cond %in% c(1:2), 1, 0),
+         ags = if_else(cond %in% c(1:4), 1, 0),
+         snag = if_else(cond == 7, 1, 0),
+         spp = as.factor(spp),
+         sft = spp %in% c("fir", "cedar", "hemlock", "red pine",
+                          "scots pine", "spruce", "tamarack",
+                          "white pine", "other softwood")) %>%
+  filter(dbh > 0)
+
+plots <- trees %>% filter(dbh>=4) %>%
+  group_by(plot) %>% 
+  summarize(stand = stand[1],
+            pct_sft = round(sum(live[sft == 1])/sum(live)*100),
+            ba_live = baf*sum(live), 
+            ba_ags = baf*sum(ags), 
+            ba_inv = baf*sum(inv),
+            ba_crop = baf*sum(crop),
+            ba_snags = baf*sum(snag),
+            tpa_live = round(sum(tpa[cond != 7])),
+            tpa_ags = round(sum(tpa[cond %in% c(1:4)])),
+            tpa_inv = round(sum(tpa[cond %in% c(1:2)])),
+            tpa_crop = round(sum(tpa[cond == 1])),
+            tpa_snags = round(sum(tpa[cond ==7]))) %>%
+  mutate(qsd_live = round(sqrt((ba_live/tpa_live)/0.005454), 1),
+         qsd_ags = ifelse(ba_ags > 0, round(sqrt((ba_ags/tpa_ags)/0.005454), 1), 0),
+         qsd_inv = ifelse(ba_inv > 0, round(sqrt((ba_inv/tpa_inv)/0.005454), 1), 0),
+         qsd_crop = ifelse(ba_crop > 0, round(sqrt((ba_crop/tpa_crop)/0.005454), 1), 0),
+         qsd_snags = ifelse(ba_snags > 0, round(sqrt((ba_snags/tpa_snags)/0.005454), 1), 0)) %>%
+  select(stand, plot, pct_sft, ba_live, ba_ags, ba_inv, tpa_crop, qsd_live, 
+         qsd_ags, qsd_inv, tpa_live, tpa_ags, tpa_inv, ba_snags)
+
+# edit plots table by hand if you want to change stand assignments --------------
+fix(plots)
+
+# reasign stand numbers to trees table based on plot "fixes" --------------------
+trees <- trees %>% select(-stand) %>% 
+  left_join(select(plots, plot, stand), "plot") %>%
+  select(stand, plot, everything()) 
+
+stands <- plots %>% 
+  group_by(stand) %>%
+  summarise(plots = n(),
+            mean_ba = round(mean(ba_live), digits = 1),
+            confint_ba = round(qnorm(.975)*sd(ba_live)/sqrt(n())),
+            tpa = round(mean(tpa_live)),
+            ba_ags = round(mean(ba_ags)),
+            tpa_ags = round(mean(tpa_ags)),
+            ba_inv = round(mean(ba_inv)),
+            tpa_inv = round(mean(tpa_inv)),
+            tpa_crop = round(mean(tpa_crop))) %>%
+  mutate(qsd = round(sqrt((mean_ba/tpa)/.005454), digits = 1),
+         qsd_ags = round(sqrt((ba_ags/tpa_ags)/.005454), digits = 1),
+         qsd_in = round(sqrt((ba_inv/tpa_inv)/.005454), digits = 1))
+
+
+###############################
+##Add timber volume data
+###############################
+
+grade_thresholds <- read_csv("data/grade-thresholds.csv", col_names = TRUE) %>%
+  mutate(spp = str_to_lower(spp),
+         spp = as.factor(spp))
+
+tree_volumes <- read_csv("data/tree-volumes.csv", col_names = TRUE)
+
+
+# dib table (fc78 straight through) --------------------------------------------
+dbh <- c(2:45) 
+log1 <- dbh+(-.22/12.8)*dbh*4.8
+log2 <- -.22*8.3+log1
+log3 <- -.22*8.3+log2
+log4 <- -.22*8.3+log3
+log5 <- -.22*8.3+log4
+log6 <- -.22*8.3+log5
+log7 <- -.22*8.3+log6
+log8 <- -.22*8.3+log7
+log9 <- -.22*8.3+log8
+log10 <- -.22*8.3+log9
+dib <- data.frame(dbh, log1, log2, log3, log4, log5, 
+                  log6, log7, log8, log9, log10) %>%
+  mutate(log1 = ifelse(log1>0, log1, 0),
+         log2 = ifelse(log2>0, log2, 0),
+         log3 = ifelse(log3>0, log3, 0),
+         log4 = ifelse(log4>0, log4, 0),
+         log5 = ifelse(log5>0, log5, 0),
+         log6 = ifelse(log6>0, log6, 0),
+         log7 = ifelse(log7>0, log7, 0),
+         log8 = ifelse(log8>0, log8, 0),
+         log9 = ifelse(log9>0, log9, 0),
+         log10 = ifelse(log10>0, log10, 0)) %>%
+  gather(section, dib, log1:log10) %>%
+  mutate(section = str_extract(section, "\\d+"))
+
+
+# add primary key to trees df -------------------------------------------------
+trees <- trees %>% mutate(tree = row_number())
+
+
+# make logs df for hardwoods only (because they're differently formatted) -----
+logs <- trees[sft == 0,] %>%
+  select(tree, plot, stand, spp:tpa) %>%
+  mutate(logs = str_trim(logs),
+         # for older cruises, remove 9s that were hard stops & internal cull:
+         logs = str_replace(logs, "9$", ","),
+         logs = str_replace_all(logs, "9", "6"),
+         grade1 = str_sub(logs, 1, 1),
+         grade2 = ifelse(grade1 == ",", ",", str_sub(logs, 2, 2)),
+         grade3 = ifelse(str_detect(grade2, ","), ",", str_sub(logs, 3, 3)),
+         grade4 = ifelse(str_detect(grade3, ","), ",", str_sub(logs, 4, 4)),
+         grade5 = ifelse(str_detect(grade4, ","), ",", str_sub(logs, 5, 5)),
+         grade6 = ifelse(str_detect(grade5, ","), ",", str_sub(logs, 6, 6)),
+         grade7 = ifelse(str_detect(grade6, ","), ",", str_sub(logs, 7, 7)),
+         grade8 = ifelse(str_detect(grade7, ","), ",", str_sub(logs, 8, 8)),
+         grade9 = ifelse(str_detect(grade8, ","), ",", str_sub(logs, 9, 9)),
+         grade10 = ifelse(str_detect(grade9, ","), ",", str_sub(logs, 10, 10))) %>%
+  gather(section, max_grade, grade1:grade10) %>%
+  
+  filter(!str_detect(max_grade, ",")) %>%
+  mutate(max_grade = ifelse(str_detect(max_grade, "\\d"), max_grade, "2"),
+         section = str_extract(section, "\\d+")) %>%
+  left_join(dib) %>%
+  left_join(grade_thresholds) %>%
+  
+  # determine current grade 
+  mutate(grade = case_when(max_grade==1 & dib>=t1 ~ 1,
+                           max_grade==1 & dib>=t2 ~ 2,
+                           max_grade==1 & dib>=t3 ~ 3,
+                           max_grade==1 & dib>=t5 ~ 5,
+                           max_grade==1 & dib<t5 ~ 6,
+                           max_grade==2 & dib>=t2 ~ 2,
+                           max_grade==2 & dib>=t3 ~ 3,
+                           max_grade==2 & dib>=t5 ~ 5,
+                           max_grade==2 & dib<t5 ~ 6,
+                           max_grade==3 & dib>=t3 ~ 3,
+                           max_grade==3 & dib>=t5 ~ 5,
+                           max_grade==3 & dib<t5 ~ 6,
+                           max_grade==5 & dib>=t5 ~ 5, 
+                           TRUE ~ 6)) %>%
+  filter(grade %in% c(1:3)) %>%
+  
+  # add log volumes with 1/4" international rule & scale up to per acre 
+  mutate(vol_log = .905*(.22*dib^2-.71*dib)+
+           .905*(.22*(dib+.5)^2-.71*(dib+.5)),
+         vol_ac = vol_log*tpa) %>%
+  
+  select(tree:spp, tpa, grade, vol_log, vol_ac)
+
+# add softwood logs to logs df -------------------------------------------------
+# trees[sft == 1] <- trees[sft == 1] %>% 
+#   mutate(logs = str_trim(logs),
+#   )
+
+
+# get cordwood volume per tree & scale up to per acre --------------------------
+cordwood <- trees %>% left_join((logs %>% group_by(tree) %>%
+                                   summarize(vol_logs = sum(vol_log))), by = 'tree') %>%
+  left_join(tree_volumes) %>%
+  rename(vol_total_cords = cds) %>%
+  mutate(vol_logs = ifelse(is.na(vol_logs), 0, vol_logs),
+         vol_cords = vol_total_cords-(vol_logs/500),
+         vol_cords = ifelse(vol_cords>0, vol_cords, 0),
+         vol_cords = vol_cords*tpa) %>%
+  select(plot, vol_cords) %>%
+  group_by(plot) %>%
+  summarize(cord_vol = sum(vol_cords))
+
+
+# ammend plots table with veneer, st, tie, and cordwd volumes ------------------
+plots <- plots %>% left_join((logs %>% group_by(plot, grade) %>% 
+                                summarize(volume = sum(vol_ac)) %>% 
+                                # to keep grades that aren't represented:
+                                merge(data.frame(plot = c(9999999, 9999999, 9999999), 
+                                                 grade = c(1, 2, 3), 
+                                                 volume = c(0, 0, 0)), all = T) %>% 
+                                spread(grade, volume, fill = 0) %>% 
+                                filter(plot != 9999999) %>% 
+                                rename(veneer_vol = '1', saw_vol = '2', tie_vol = '3'))) %>%
+  left_join(cordwood) %>%
+  mutate(cord_vol = ifelse(cord_vol>0, cord_vol, 0)) %>%
+  mutate(veneer_vol = if_else(is.na(veneer_vol), 0, veneer_vol),
+         saw_vol = if_else(is.na(saw_vol), 0, saw_vol),
+         tie_vol = if_else(is.na(tie_vol), 0, tie_vol))
+
+
+# ammend stands table with volume/ac info --------------------------------------
+stands <- stands %>% left_join((plots %>% 
+                                  group_by(stand) %>%
+                                  summarize(veneer_vol = 
+                                              round(mean(veneer_vol)),
+                                            saw_vol = round(mean(saw_vol)),
+                                            tie_vol = round(mean(tie_vol)),
+                                            cord_vol = round(mean(cord_vol), 
+                                                             1)) %>%
+                                  mutate(total_bf_vol = 
+                                           round(veneer_vol+saw_vol+
+                                                   tie_vol)) %>%
+                                  select(stand, veneer_vol, saw_vol, tie_vol,
+                                         total_bf_vol, cord_vol)))
+
+
+###############################
+##Add qualitative data to stands
+###############################
+
+stands_raw <- stands_raw %>% 
+  mutate(stand = as.character(stand),
+         acres_calc = as.numeric(acres_calc),
+         acres_legal = as.numeric(acres_legal)) %>%
+  select(-type_code, -structure) %>%
+  filter(stand > 0) %>%
+  mutate(stand = as.character(stand))
+
+stands <- stands %>% full_join(stands_raw)
+
+rm(stands_raw)
+
+
+###############################
+##Add stocking chart data to stands
+###############################
+
+stocking_charts <- read.csv("data/stocking-charts.csv", header = TRUE) %>%
+  mutate(type = as.character(type),
+         name = as.character(name),
+         author = as.character(author),
+         source = as.character(source),
+         alab = as.character(alab),
+         blab = as.character(blab),
+         clab = as.character(clab))
+
+stands <- stands %>%
+  left_join(stocking_charts, by = "type")
+
+rm(stocking_charts)
+
+
+###############################
+##objectives table
+###############################
+
+objectives_raw <- read.csv("data/objectives.csv", header = TRUE) %>%
+  mutate(id = as.factor(id),
+         text = as.character(text))
+
+objectives <- prop %>%
+  filter(Col1 == "objectives_codes") %>%
+  mutate(id = Col2) %>%
+  mutate(id = str_split(id, ",")) %>%
+  unnest() %>%
+  mutate(id = str_trim(id),
+         id = as.factor(id)) %>%
+  select(id) %>%
+  left_join(objectives_raw, by = "id")
+
+# get latex formatting ---------
+objectives <- paste(objectives$text, collapse = " ") %>%
+  str_replace_all("\\sn\\s", paste(" ", "\\\n\\\n", " ", sep = "")) %>%
+  str_replace_all("^n", "\\\n\\\n") %>%
+  str_replace_all(" hash ", "##")
+
+
+###############################
+##soils table
+###############################
+
+soils_raw <- read.csv("data/soils.csv", header = TRUE) %>%
+  mutate(id = as.factor(id),
+         text = as.character(text))
+
+soils <- stands %>%
+  select(stand, soils_comma_separated) %>%
+  mutate(id = soils_comma_separated,
+         id = str_split(id, ",")) %>%
+  unnest() %>%
+  mutate(id = str_trim(id),
+         id = str_remove(id, "\\D")) %>%
+  left_join(soils_raw, by = "id") %>%
+  select(stand, text) %>%
+  mutate(text = str_trim(text),
+         text = paste("START", text, "END", sep = " "))
+
+
+###############################
+##Data integrity errors
+###############################
+
+if(max(trees$dbh) > 40){
+  message("ERROR: tree(s) > 40\" dbh")
+  quit(save = "ask")
+}
+
+if(min(trees$dbh) < 1){
+  message("ERROR: tree(s) < 1\" dbh")
+  quit(save = "ask")
+}
+
+if(trees$dbh %% 1 != 0){
+  message("ERROR: tree(s) w/ fractional dbh")
+  quit(save = "ask")
+}
+
+if(is.na(trees$logs)){
+  message("ERROR: tree(s) w/ blank 'logs' field")
+  quit(save = "ask")
+}
+
+if(trees$cond > 7 | trees$cond < 1){
+  message("ERROR: tree(s) w/ missing or incorrect 'cond' field")
+  quit(save = "ask")
+}
+
+
+###############################
+##Save rda
+###############################
+
+save(file, baf, logs, trees, plots, stands, tree_volumes,
+     grade_thresholds, dib, property, month, year, forestname,
+     town, glacres, gldescrip, span, photo, elevationmin,
+     elevationmax, owners, addressline1, addressline2, citystatezip,
+     watertext, boundariestext, objectives, soils,
+     file = paste("rda/", file, ".rda", sep = ""))
+            
