@@ -1,0 +1,10 @@
+---
+output:
+  tufte::tufte_handout: default
+---
+
+```{r child = 'test.Rmd'}
+```
+
+```{r child = 'stand-descriptions.Rmd'}
+```

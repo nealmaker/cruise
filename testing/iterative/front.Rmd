@@ -1,0 +1,8 @@
+## Property
+
+Here is some info about the property:  
+It has `r nrow(df)` unique stands.
+
+Info about individual stands follows.
+
+\newpage

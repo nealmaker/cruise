@@ -1,8 +1,9 @@
-file <- "roa-bethel-cruise-2019-08"
+file <- "roa-bethel-cruise-2019"
 baf <- 10
 
 library(XLConnect)
 library(tidyverse)
+library("here")
 
 
 ###############################
@@ -26,44 +27,36 @@ if(max((trees %>% filter(!is.na(code)))$code) > 25 |
   quit(save = "ask")
 } 
 
+# load height model & misc functions
+load("../big-rdas/ht-model-op.rda")
+source(here("scripts", "height.R"))
+source(here("scripts", "pbal.R"))
+source(here("scripts", "dib.R"))
+
 
 ###############################
 ##Assign property vars
 ###############################
 
 property <- prop[1,2]
-
 month <- as.numeric(prop[2,2])
-
 year <- as.numeric(prop[3,2])
-
 forestname <- prop[5,2]
-
 town <- prop[6,2]
-
 glacres <- as.numeric(prop[7,2])
-
 gldescrip <- prop[8,2]
-
 span <- prop[9,2]
-
 photo <- prop[10,2]
-
 elevationmin <- as.numeric(prop[11,2])
-
 elevationmax <- as.numeric(prop[12,2])
-
 owners <- prop[13,2]
-
 addressline1 <- prop[14,2]
-
 addressline2 <- prop[15,2]
-
 citystatezip <- prop[16,2]
-
 watertext <- prop[17,2]
-
 boundariestext <- prop[18,2]
+lat <- prop[21,2]
+lon <- prop[22,2]
 
 
 ###############################
@@ -136,12 +129,72 @@ stands <- plots %>%
 
 
 ###############################
+##Add qualitative data to stands
+###############################
+
+stands_raw <- stands_raw %>% 
+  mutate(stand = as.character(stand),
+         acres_calc = as.numeric(acres_calc),
+         acres_legal = as.numeric(acres_legal)) %>%
+  select(-type_code) %>%
+  filter(stand > 0) %>%
+  mutate(stand = as.character(stand),
+         structure.1 = case_when(structure == 1 ~ "Even-aged",
+                                 structure == 2 ~ "Two-aged",
+                                 structure == 3 ~ "Uneven-aged"))
+
+stands <- stands %>% full_join(stands_raw)
+
+rm(stands_raw)
+
+
+###############################
 ##Add timber volume data
 ###############################
 
+taper_coefs <- read_csv("data/taper-coefs.csv", col_names = TRUE) %>%
+  mutate(spp = str_to_lower(spp),
+         spp = factor(spp,
+                      levels = levels(ht_model_op$trainingData$spp))) %>% 
+  filter(!is.na(spp))
+
 grade_thresholds <- read_csv("data/grade-thresholds.csv", col_names = TRUE) %>%
   mutate(spp = str_to_lower(spp),
-         spp = as.factor(spp))
+         spp = factor(spp,
+                      levels = levels(ht_model_op$trainingData$spp)))
+
+#add height predictors & height to trees
+trees <- trees %>% 
+  group_by(plot) %>% 
+  mutate(bal = pbal(dbh, 0.005454*(dbh^2)*tpa)) %>% 
+  ungroup()
+
+trees <- trees %>% 
+  mutate(lat = lat,
+         lon = lon) %>% 
+  left_join(select(stands, stand, mean_ba, site_class, type),
+            by = "stand") %>% 
+  rename(ba = mean_ba,
+         forest_type = type) %>% 
+  mutate(spp = 
+           factor(spp,
+                  levels = 
+                    levels(ht_model_op$trainingData$spp)),
+         forest_type = 
+           factor(forest_type,
+                  levels = 
+                    levels(ht_model_op$trainingData$forest_type_s)), 
+         site_class = case_when(site_class == 4 ~ 4,
+                                site_class == 5 ~ 5,
+                                site_class == 6 ~ 6,
+                                site_class == 7 ~ 7,
+                                site_class == "I" ~ 4,
+                                site_class == "II" ~ 5,
+                                site_class == "III" ~ 6,
+                                site_class == "IV" ~ 7,
+                                TRUE ~ 5),
+         ht = height(spp, dbh, forest_type, cr, ba, 
+                     bal, lat, lon, site_class))
 
 
 # add primary key to trees df -------------------------------------------------
@@ -150,7 +203,7 @@ trees <- trees %>% mutate(tree = row_number())
 
 # make logs df ----------------------------------------------------------------
 logs <- trees %>%
-  select(tree, plot, stand, spp, dbh, logs, sft, tpa) %>%
+  select(tree, plot, stand, spp, dbh, logs, sft, tpa, ht) %>%
   mutate(logs = str_trim(logs),
          # for older cruises, remove 9s that were hard stops & internal cull:
          logs = str_replace(logs, "9$", ","),
@@ -185,8 +238,7 @@ logs <- trees %>%
          max_grade = ifelse(str_detect(max_grade, "\\d"), max_grade, 
                             ifelse(sft, 2, 3)),
          section = as.numeric(str_extract(section, "\\d+")),
-         #calc dib with form class 78 & assume dib is 15/16 dob
-         dib = (15*dbh/16)-.22*(section*8.3-4.5), 
+         dib = dib(spp, dbh, ht, section), 
          dib = if_else(dib > 0, dib, 0)) %>%
   left_join(grade_thresholds) %>%
   # determine current grade 
@@ -243,23 +295,6 @@ stands <- stands %>%
                mutate(total_bf_vol = round(veneer_vol+saw_vol+tie_vol)) %>%
                select(stand, veneer_vol, saw_vol, tie_vol, 
                       total_bf_vol, cord_vol)))
-
-
-###############################
-##Add qualitative data to stands
-###############################
-
-stands_raw <- stands_raw %>% 
-  mutate(stand = as.character(stand),
-         acres_calc = as.numeric(acres_calc),
-         acres_legal = as.numeric(acres_legal)) %>%
-  select(-type_code, -structure) %>%
-  filter(stand > 0) %>%
-  mutate(stand = as.character(stand))
-
-stands <- stands %>% full_join(stands_raw)
-
-rm(stands_raw)
 
 
 ###############################

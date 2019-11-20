@@ -1,0 +1,8 @@
+_* can't change the output type of the child (no Tufte for stands & full page for front matter)._
+
+## Stand `r i`
+
+stand `r i` has a basal area of some `r filter(df, stand == i)$ba` square feet.
+
+
+\newpage

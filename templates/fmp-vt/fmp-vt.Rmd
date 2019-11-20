@@ -1,0 +1,153 @@
+---
+title: "Pierce Property"
+author: "Forest Management Plan"
+date: "`r lubridate::today()`"
+output:
+  tufte::tufte_handout: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, fig.width = 5, fig.height = 3.75)
+```
+
+```{r wrangling_cruise, include=FALSE}
+property <- "pierce"
+year <- 2019
+
+load(file = paste("C:/Users/Neal/projects/cruise/rda/", property, "-cruise-", year, ".rda", sep = ""))
+
+library(tidyverse)
+library(ggthemes)
+library(stargazer)
+library(knitr)
+library(kableExtra)
+library(extrafont)
+loadfonts("win", quiet = TRUE)
+```
+
+```{r pbf_logo, fig.margin=TRUE, out.width='30%', out.height='30%', fig.align='center'}
+knitr::include_graphics("C:/Users/Neal/projects/cruise/logo-small.png")
+```
+
+\begin{marginfigure}
+\noindent \textit{\large Prepared by} 
+\newline\indent Neal F. Maker and John D. Foppert  
+\newline\indent Pekin Branch Forestry  
+\newline\indent 1324 West County Road  
+\newline\indent Calais, VT 05648  
+\newline\indent (802) 229-9757  
+\end{marginfigure}
+
+\begin{marginfigure}
+\noindent \textit{\large Owner}
+\newline\indent `r owners`  
+\newline\indent `r addressline1`
+`r ifelse(is.na(addressline2), "", "\newline")`\indent `r if_else(is.na(addressline2), "", addressline2)`
+\newline\indent `r citystatezip`  
+\end{marginfigure}
+
+\begin{marginfigure}
+\noindent \textit{\large Property}   
+\newline\indent `r paste(glacres, "acres", gldescrip, sep = " ")`   
+\newline\indent `r paste(town, ", VT", sep = "")`  
+\newline\indent SPAN `r span`  
+\newline\indent Map delineation based on VMP  
+\newline\indent Photo(s) `r photo`  
+\end{marginfigure}
+
+\begin{marginfigure}
+\noindent \textit{\large Effective date of plan}  
+\newline\indent April 1, `r if_else(month < 4, year, year+1)`  
+\end{marginfigure}
+
+\vspace{30pt}
+\indent This forest management plan is a blueprint for responsible land stewardship.  It is the result of a planning process that incorporated an assessment of the history and current conditions on the property, consideration of the various courses of future development that the forest could follow, and discernment as to which outcomes best suit my particular objectives.
+
+\vspace{5pt}
+By signing below, I certify that I approve of---and agree to manage my forestland according to---the following management plan. I further certify that any of my forestland that is enrolled in Vermont's Use Value Appraisal program is under active long-term forest management in accordance with the state's minimum acceptable standards for forest management. These standards include following Acceptable Management Practices to maintain water quality on logging operations.  
+
+\vspace{38pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}  
+
+\noindent Landowner \rule{7.7cm}{0pt} Date						
+
+\vspace{18pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}  
+
+\noindent Landowner \rule{7.7cm}{0pt} Date	 
+
+\vspace{18pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}  
+
+\noindent Landowner \rule{7.7cm}{0pt} Date	 
+
+\vspace{18pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}  
+
+\noindent Landowner \rule{7.7cm}{0pt} Date  
+
+\vspace{24pt}
+
+This forest management plan meets the standards promulgated by the Vermont Department of Forests, Parks and Recreation as required for eligibility in the Use Value Appraisal Program.  
+
+\vspace{22pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}  
+
+\noindent County Forester \rule{7cm}{0pt} Date
+
+\pagebreak
+
+#Introduction
+
+This plan Covers the ten year period from `r if_else(month < 4, year, year+1)` to `r if_else(month < 4, year+9, year+10)`. It lays out the near- and medium-term actions that should guide the development of the `r forestname` Forest.  It also qualifies the property for Use Value Appraisal (UVA) and commensurate reduction in property taxes.^[Further information about UVA and current valuations can be found at the Vermont Tax Department's website: https://tax.vermont.gov/property-owners/current-use. \vspace{20pt}]  Owners participating in the Use Value Appraisal program are obliged to manage their property according to the plan and to make any reasonable investments for improvement that the plan recommends.^[UVA management plan standards are determined by the Department of Forests, Parks, & Recreation and are available at https://fpr.vermont.gov/forest/your_woods/use_value_appraisal or through a County Forester.]  Its recommendations were developed in accordance with the principles and practices of scientifically sound forestry, as described in the relevant management guidelines, textbooks and academic journals.
+
+#Property Description
+
+`r if_else(sum(stands$acres_legal) == glacres, "All", paste("Some", round(100*sum(stands$acres_legal)/glacres), "percent", sep = " "))` of the `r glacres` acre `r forestname` property is productive forestland that will be managed according to this plan. Its elevations range from `r elevationmin` to `r elevationmax` feet above mean sea level. `r watertext` `r boundariestext` Soils, forest health, and other pertinent topics are discussed in the individual stand area descriptions that follow.
+
+#Principles, Goals & Strategies For Forest Management
+
+`r paste(objectives)`
+
+#Stand Descriptions & Management Recommendations
+
+\begin{marginfigure}
+\noindent \textit{\LARGE Management Schedule}
+\vspace{10pt}
+
+\noindent \textit{\large 2022}
+
+\begin{itemize}
+  \item Area 1: Group selection harvest  
+\end{itemize}
+
+\vspace{10pt}  
+\noindent \textit{\large `r if_else(month < 4, year+9, year+10)`}  
+
+\begin{itemize}
+  \item Reinventory property
+\end{itemize}
+\end{marginfigure}
+
+Presented below are detailed stand-by-stand descriptions of the forest, the long-term structural, compositional and functional goals for each stand, and the near-term silvicultural treatments or management activities that have been prescribed to advance each stand toward those goals.  The data presented in the following pages was obtained from a field examination of the property in `r lubridate::month(month, label = TRUE, abbr = FALSE)` of `r year`.  General conditions were assessed qualitatively in conjunction with quantitative sampling.  Observational notes and sample summary statistics together provide the basis for the area descriptions and management recommendations. All sampling was done using a systematic sample and variable radius plots. In stands with uneven-aged structures, all trees 6" dbh and larger were measured in each plot. In stands with even-aged structures, all main-canopy trees were measured in each plot.
+
+When contractors are used to implement silvicultural prescriptions, they should be highly skilled, properly equipped, fully insured, and closely supervised.  A professional forester should prepare and administer commercial treatments, and logging operations should be timed to coincide with favorable weather conditions (working on wet soils only when they are frozen, for instance) and favorable timber markets.  Use Value Appraisal program guidelines allow any management activities prescribed in this plan to be carried out up to three years before or after the date indicated.  Landowners in the Use Value Appraisal program must file a Forest Management Activity Report with the County Forester by February 1^st^ if any commercial logging occurred in the previous year. 
+
+The property should be reinventoried in `r if_else(month < 4, year+9, year+10)` and the findings brought to bear on a reassessment of the goals and strategies proposed in this plan, leading to a formal management plan update.  At any point over the course of this management period, this plan may be updated to incorporate new information and to reflect any new thoughts, concerns or considerations on the part of the family or the foresters helping to manage their land.
+
+\newpage
+
+```{r echo=FALSE, results='asis'}
+res <- lapply(stands$stand, function(i) {
+  knitr::knit_child(
+    'stand.Rmd', envir = environment(), quiet = TRUE
+  )
+})
+
+cat(unlist(res), sep = '\n')
+```

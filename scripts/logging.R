@@ -15,20 +15,20 @@ trees <- trees %>%
                             maturity_class == 3 & dbh >= 14 ~ 1,
                             maturity_class == 4 & dbh >= 12 ~ 1,
                             TRUE ~ 0),
-         cut = if_else((mature == 1 | cond >= 4) & dbh >= 7, 1, 0))
+         cut = if_else((mature == 1 | ags == 0) & dbh >= 7, 1, 0))
 
 
 # get cordwood estimates of trees not represented in logs tibble ------
 
-temp <- trees %>% 
-  filter(cut == 1) %>%
-  anti_join(logs, by = 'tree') %>%
-  left_join(tree_volumes, by = 'dbh') %>%
-  mutate(cd_vol_peracre = cds * tpa) %>%
-  group_by(stand, plot, spp) %>%
-  summarise(bf_vol_peracre = sum(cd_vol_peracre)*500) %>%
-  mutate(grade = 5) %>%
-  select(stand, plot, spp, grade, bf_vol_peracre)
+# temp <- trees %>% 
+#   filter(cut == 1) %>%
+#   anti_join(logs, by = 'tree') %>%
+#   left_join(tree_volumes, by = 'dbh') %>%
+#   mutate(cd_vol_peracre = cds * tpa) %>%
+#   group_by(stand, plot, spp) %>%
+#   summarise(bf_vol_peracre = sum(cd_vol_peracre)*500) %>%
+#   mutate(grade = 5) %>%
+#   select(stand, plot, spp, grade, bf_vol_peracre)
 
 
 # make volume tibbles of cut trees ------------------------------------
@@ -40,7 +40,6 @@ plot_cut_specs <- logs %>% left_join(trees, by = 'tree') %>%
          stand = stand.x) %>%
   group_by(stand, plot, spp, grade) %>%
   summarize(bf_vol_peracre = sum(vol_ac)) %>%
-  merge(temp, all.y = TRUE, all.x = TRUE) %>%
   arrange(stand, plot, spp, grade)
 
 plot_cut_summaries <- plot_cut_specs %>%
@@ -75,17 +74,17 @@ plots_residual <- trees %>% filter(cut == 0, dbh >= 4) %>%
             ba_live = baf*sum(live), 
             ba_ags = baf*sum(ags), 
             ba_inv = baf*sum(inv),
-            ba_crop = baf*sum(crop),
+            # ba_crop = baf*sum(crop),
             ba_snags = baf*sum(snag),
-            tpa_live = round(sum(tpa[cond != 7])),
-            tpa_ags = round(sum(tpa[cond %in% c(1:4)])),
-            tpa_inv = round(sum(tpa[cond %in% c(1:2)])),
-            tpa_crop = round(sum(tpa[cond == 1])),
-            tpa_snags = round(sum(tpa[cond ==7]))) %>%
+            tpa_live = round(sum(tpa[live = 1])),
+            tpa_ags = round(sum(tpa[ags == 1])),
+            tpa_inv = round(sum(tpa[inv == 1])),
+            # tpa_crop = round(sum(tpa[cond == 1])),
+            tpa_snags = round(sum(tpa[snag == 1]))) %>%
   mutate(qsd_live = round(sqrt((ba_live/tpa_live)/0.005454), 1),
          qsd_ags = ifelse(ba_ags > 0, round(sqrt((ba_ags/tpa_ags)/0.005454), 1), 0),
          qsd_inv = ifelse(ba_inv > 0, round(sqrt((ba_inv/tpa_inv)/0.005454), 1), 0),
-         qsd_crop = ifelse(ba_crop > 0, round(sqrt((ba_crop/tpa_crop)/0.005454), 1), 0),
+         # qsd_crop = ifelse(ba_crop > 0, round(sqrt((ba_crop/tpa_crop)/0.005454), 1), 0),
          qsd_snags = ifelse(ba_snags > 0, round(sqrt((ba_snags/tpa_snags)/0.005454), 1), 0)) %>%
   arrange(stand, plot)
 

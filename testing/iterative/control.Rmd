@@ -1,0 +1,36 @@
+---
+title: "Some Property"
+author: "Forest Management Plan"
+date: "`r lubridate::today()`"
+output: pdf_document
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 3.75)
+
+library("tidyverse")
+```
+
+```{r}
+df <- data.frame(stand = 1:4, ba = c(120, 150, 80, 90))
+```
+
+```{r echo=FALSE, results='asis'}
+front <- knitr::knit_child(
+  'front.Rmd', envir = environment(), quiet = TRUE
+)
+
+cat(front, sep = '\n')
+```
+
+```{r echo=FALSE, results='asis'}
+res <- lapply(df$stand, function(i) {
+  knitr::knit_child(
+    'stand-data.Rmd', envir = environment(), quiet = TRUE
+  )
+})
+
+cat(unlist(res), sep = '\n')
+```
+
+
