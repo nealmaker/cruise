@@ -198,12 +198,14 @@ trees <- trees %>%
 
 
 # add primary key to trees df -------------------------------------------------
-trees <- trees %>% mutate(tree = row_number())
+trees <- trees %>% 
+  mutate(tree = row_number()) %>% 
+  left_join(taper_coefs, by = "spp")
 
 
 # make logs df ----------------------------------------------------------------
 logs <- trees %>%
-  select(tree, plot, stand, spp, dbh, logs, sft, tpa, ht) %>%
+  select(tree, plot, stand, spp, dbh, logs, sft, tpa, ht, theta1:beta2) %>%
   mutate(logs = str_trim(logs),
          # for older cruises, remove 9s that were hard stops & internal cull:
          logs = str_replace(logs, "9$", ","),
@@ -238,7 +240,9 @@ logs <- trees %>%
          max_grade = ifelse(str_detect(max_grade, "\\d"), max_grade, 
                             ifelse(sft, 2, 3)),
          section = as.numeric(str_extract(section, "\\d+")),
-         dib = dib(spp, dbh, ht, section), 
+         dib = dib(spp, dbh, ht, section, theta1, theta2,
+                   alpha1, alpha2, gamma1, gamma2, psi,
+                   lambda, beta1, beta2), 
          dib = if_else(dib > 0, dib, 0)) %>%
   left_join(grade_thresholds) %>%
   # determine current grade 
@@ -260,6 +264,7 @@ logs <- trees %>%
   mutate(vol_log = .905*(.22*dib^2-.71*dib)+
            .905*(.22*(dib+.5)^2-.71*(dib+.5)),
          vol_log = ifelse(vol_log > 0, vol_log, 0),
+         vol_log = ifelse(is.na(vol_log), 0, vol_log),
          vol_ac = vol_log*tpa) %>%
   select(tree:spp, tpa, grade, vol_log, vol_ac)
 
