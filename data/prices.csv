@@ -1,0 +1,26 @@
+spp,spp_grp,mill_grade2,pulp_roadside
+ash,mvh,450,120
+aspen,lvh,170,100
+fir,sw,300,100
+basswood,lvh,190,100
+beech,lvh,190,120
+black cherry,hvh,400,120
+cedar,sw,250,100
+elm,lvh,na,120
+hard maple,hvh,500,120
+hemlock,pine_hem,250,100
+hickory,mvh,400,120
+hophornbeam,lvh,na,120
+paper birch,mvh,350,120
+red oak,hvh,450,120
+red pine,pine_hem,300,100
+scots pine,pine_hem,300,100
+soft maple,mvh,350,120
+spruce,sw,300,100
+striped maple,lvh,na,120
+tamarack,sw,320,100
+white oak,mvh,350,120
+white pine,pine_hem,300,100
+yellow birch,hvh,400,120
+other hardwood,lvh,190,120
+other softwood,sw,170,100

@@ -1,5 +1,5 @@
 ---
-title: "Pierce Property"
+title: "Perdue Property"
 author: "Forest Management Plan"
 date: "`r lubridate::today()`"
 output:
@@ -7,11 +7,11 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, fig.width = 5, fig.height = 3.75)
+knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 3.75)
 ```
 
 ```{r wrangling_cruise, include=FALSE}
-property <- "pierce"
+property <- "perdue"
 year <- 2019
 
 load(file = paste("C:/Users/Neal/projects/cruise/rda/", property, "-cruise-", year, ".rda", sep = ""))

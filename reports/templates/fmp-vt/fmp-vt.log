@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.1)  4 NOV 2019 21:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.1)  22 NOV 2019 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -844,7 +844,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \langwohyphens=\language3
-<C:/Users/Neal/projects/cruise/logo-small.png, id=24, 209.28188pt x 289.08pt>
+<C:/Users/Neal/projects/cruise/logo-small.png, id=48, 209.28188pt x 289.08pt>
 File: C:/Users/Neal/projects/cruise/logo-small.png Graphic file (type png)
 <use C:/Users/Neal/projects/cruise/logo-small.png>
 Package pdftex.def Info: C:/Users/Neal/projects/cruise/logo-small.png  used on 
@@ -916,106 +916,381 @@ LaTeX Warning: Marginpar on page 2 moved.
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 229.
+This message occurred on input line 235.
 
 [2]
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 285.
+This message occurred on input line 291.
 
 [3]
 
-LaTeX Warning: Marginpar on page 4 moved.
-
-
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 322.
+This message occurred on input line 292.
 
 [4]
-<fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf, id=62, 144.54pt x 433.62pt>
+<fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf, id=84, 144.54pt x 433.62pt>
 File: fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 <use fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf  used 
-on input line 382.
+on input line 349.
 (pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 467.
-
-[5 <./fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf>]
-<fmp-vt_files/figure-latex/unnamed-chunk-4-1.pdf, id=82, 361.35pt x 271.0125pt>
+<fmp-vt_files/figure-latex/unnamed-chunk-4-1.pdf, id=85, 361.35pt x 271.0125pt>
 
 File: fmp-vt_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use fmp-vt_files/figure-latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-4-1.pdf  used 
-on input line 470.
+on input line 428.
 (pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--471
+Underfull \hbox (badness 10000) in paragraph at lines 428--429
 
  []
 
 
-LaTeX Warning: Marginpar on page 6 moved.
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 452.
+
+[5 <./fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 452.
+
+[6 <./fmp-vt_files/figure-latex/unnamed-chunk-4-1.pdf>]
+
+LaTeX Warning: Marginpar on page 7 moved.
 
 
-LaTeX Warning: Marginpar on page 6 moved.
+LaTeX Warning: Marginpar on page 7 moved.
 
 
-LaTeX Warning: Marginpar on page 6 moved.
+LaTeX Warning: Marginpar on page 7 moved.
 
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 503.
+This message occurred on input line 461.
 
-[6 <./fmp-vt_files/figure-latex/unnamed-chunk-4-1.pdf>]
+[7]
+<fmp-vt_files/figure-latex/unnamed-chunk-6-1.pdf, id=124, 144.54pt x 433.62pt>
+File: fmp-vt_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-6-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-6-1.pdf  used 
+on input line 520.
+(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
+<fmp-vt_files/figure-latex/unnamed-chunk-8-1.pdf, id=125, 361.35pt x 271.0125pt
+>
+File: fmp-vt_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-8-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-8-1.pdf  used 
+on input line 597.
+(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 597--598
+
+ []
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 621.
+
+[8 <./fmp-vt_files/figure-latex/unnamed-chunk-6-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 621.
+
+[9 <./fmp-vt_files/figure-latex/unnamed-chunk-8-1.pdf>]
+
+LaTeX Warning: Marginpar on page 10 moved.
+
+
+LaTeX Warning: Marginpar on page 10 moved.
+
+
+LaTeX Warning: Marginpar on page 10 moved.
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 630.
+
+[10]
+<fmp-vt_files/figure-latex/unnamed-chunk-10-1.pdf, id=159, 144.54pt x 433.62pt>
+
+File: fmp-vt_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-10-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-10-1.pdf  used
+ on input line 688.
+(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
+<fmp-vt_files/figure-latex/unnamed-chunk-12-1.pdf, id=160, 361.35pt x 271.0125p
+t>
+File: fmp-vt_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-12-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-12-1.pdf  used
+ on input line 766.
+(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 766--767
+
+ []
+
+
+LaTeX Warning: Marginpar on page 11 moved.
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 796.
+
+[11 <./fmp-vt_files/figure-latex/unnamed-chunk-10-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 796.
+
+[12 <./fmp-vt_files/figure-latex/unnamed-chunk-12-1.pdf>]
+
+LaTeX Warning: Marginpar on page 13 moved.
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 799.
+
+[13]
+<fmp-vt_files/figure-latex/unnamed-chunk-14-1.pdf, id=194, 144.54pt x 433.62pt>
+
+File: fmp-vt_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-14-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-14-1.pdf  used
+ on input line 857.
+(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
+<fmp-vt_files/figure-latex/unnamed-chunk-16-1.pdf, id=195, 361.35pt x 271.0125p
+t>
+File: fmp-vt_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-16-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-16-1.pdf  used
+ on input line 936.
+(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 936--937
+
+ []
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 960.
+
+[14 <./fmp-vt_files/figure-latex/unnamed-chunk-14-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 960.
+
+[15 <./fmp-vt_files/figure-latex/unnamed-chunk-16-1.pdf>]
+
+LaTeX Warning: Marginpar on page 16 moved.
+
+
+LaTeX Warning: Marginpar on page 16 moved.
+
+
+LaTeX Warning: Marginpar on page 16 moved.
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 969.
+
+[16]
+<fmp-vt_files/figure-latex/unnamed-chunk-18-1.pdf, id=228, 144.54pt x 433.62pt>
+
+File: fmp-vt_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-18-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-18-1.pdf  used
+ on input line 1029.
+(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
+<fmp-vt_files/figure-latex/unnamed-chunk-20-1.pdf, id=229, 361.35pt x 271.0125p
+t>
+File: fmp-vt_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-20-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-20-1.pdf  used
+ on input line 1107.
+(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1107--1108
+
+ []
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 1131.
+
+[17 <./fmp-vt_files/figure-latex/unnamed-chunk-18-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 1131.
+
+[18 <./fmp-vt_files/figure-latex/unnamed-chunk-20-1.pdf>]
+
+LaTeX Warning: Marginpar on page 19 moved.
+
+
+LaTeX Warning: Marginpar on page 19 moved.
+
+
+LaTeX Warning: Marginpar on page 19 moved.
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 1140.
+
+[19]
+<fmp-vt_files/figure-latex/unnamed-chunk-22-1.pdf, id=263, 144.54pt x 433.62pt>
+
+File: fmp-vt_files/figure-latex/unnamed-chunk-22-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-22-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-22-1.pdf  used
+ on input line 1200.
+(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
+<fmp-vt_files/figure-latex/unnamed-chunk-24-1.pdf, id=264, 361.35pt x 271.0125p
+t>
+File: fmp-vt_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-24-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-24-1.pdf  used
+ on input line 1278.
+(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1279
+
+ []
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 1302.
+
+[20 <./fmp-vt_files/figure-latex/unnamed-chunk-22-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 1302.
+
+[21 <./fmp-vt_files/figure-latex/unnamed-chunk-24-1.pdf>]
+
+LaTeX Warning: Marginpar on page 22 moved.
+
+
+LaTeX Warning: Marginpar on page 22 moved.
+
+
+LaTeX Warning: Marginpar on page 22 moved.
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 1311.
+
+[22]
+<fmp-vt_files/figure-latex/unnamed-chunk-26-1.pdf, id=298, 144.54pt x 433.62pt>
+
+File: fmp-vt_files/figure-latex/unnamed-chunk-26-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-26-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-26-1.pdf  used
+ on input line 1374.
+(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
+
+Overfull \hbox (4.8346pt too wide) in paragraph at lines 1405--1407
+[]\T1/cmr/m/n/9 Shallow and/or wet soils limit root-ing and in-crease risk of w
+indthrow 
+ []
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 1449.
+
+[23 <./fmp-vt_files/figure-latex/unnamed-chunk-26-1.pdf>]
+<fmp-vt_files/figure-latex/unnamed-chunk-28-1.pdf, id=314, 361.35pt x 271.0125p
+t>
+File: fmp-vt_files/figure-latex/unnamed-chunk-28-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-28-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-28-1.pdf  used
+ on input line 1452.
+(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1452--1453
+
+ []
+
+
+LaTeX Warning: Marginpar on page 24 moved.
+
+
+LaTeX Warning: Marginpar on page 24 moved.
+
+
+LaTeX Warning: Marginpar on page 24 moved.
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 1485.
+
+[24 <./fmp-vt_files/figure-latex/unnamed-chunk-28-1.pdf>]
 
 Package bibentry Warning: You have used \nobibliography* 
 (bibentry)                without a following \bibliography.
 (bibentry)                You may not be able to run BibTeX.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 507.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 507.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1489.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1489.
 (./fmp-vt.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 507.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 507.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1489.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1489.
+
 Package rerunfilecheck Info: File `fmp-vt.out' has not changed.
-(rerunfilecheck)             Checksum: 4DACEABCE38363356A71C354C28720BC;947.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 507.
+(rerunfilecheck)             Checksum: 0D4B88B4291AA3164C309260EE940B5D;1417.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1489.
  ) 
 Here is how much of TeX's memory you used:
- 12840 strings out of 494553
- 184129 string characters out of 6176038
- 284182 words of memory out of 5000000
- 16243 multiletter control sequences out of 15000+600000
- 22581 words of font info for 60 fonts, out of 8000000 for 9000
+ 13020 strings out of 494553
+ 189226 string characters out of 6176038
+ 295895 words of memory out of 5000000
+ 16360 multiletter control sequences out of 15000+600000
+ 22268 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 40i,11n,45p,443b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,11n,45p,446b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
  <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
 1000.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappe
-n/ec/ectt1000.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfou
-r/jknappen/ec/ecrm0600.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts
-/pk/ljfour/jknappen/ec/ecrm0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-
-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> <c:/Users/Neal/Documents/.TinyT
-eX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0900.600pk> <c:/Users/Neal/Documen
-ts/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> <c:/Users/Nea
-l/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0800.600pk> <c:/
-Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.60
+n/ec/ecrm0600.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfou
+r/jknappen/ec/ecrm0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts
+/pk/ljfour/jknappen/ec/ecbx0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-
+var/fonts/pk/ljfour/jknappen/ec/tcrm0900.600pk> <c:/Users/Neal/Documents/.TinyT
+eX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> <c:/Users/Neal/Documen
+ts/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0800.600pk> <c:/Users/Nea
+l/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.600pk> <c:/
+Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.60
 0pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ec
-rm0500.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknap
-pen/ec/ecrm1000.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecrm0800.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fon
-ts/pk/ljfour/jknappen/ec/ecti1095.600pk> <c:/Users/Neal/Documents/.TinyTeX/texm
-f-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> <c:/Users/Neal/Documents/.Tin
-yTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1440.600pk>
-Output written on fmp-vt.pdf (6 pages, 191665 bytes).
+rm1000.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknap
+pen/ec/ecrm0800.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljf
+our/jknappen/ec/ecti1095.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ecti1200.600pk> <c:/Users/Neal/Documents/.TinyTeX/texm
+f-var/fonts/pk/ljfour/jknappen/ec/ecti1440.600pk>
+Output written on fmp-vt.pdf (24 pages, 347085 bytes).
 PDF statistics:
- 553 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 777 PDF objects out of 1000 (max. 8388607)
+ 333 compressed objects within 4 object streams
+ 73 named destinations out of 1000 (max. 500000)
+ 164 words of extra memory for PDF output out of 10000 (max. 10000000)
 

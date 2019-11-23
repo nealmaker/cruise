@@ -1,5 +1,6 @@
-file <- "roa-bethel-cruise-2019"
+file <- "perdue-cruise-2019"
 baf <- 10
+trucking <- 80
 
 library(XLConnect)
 library(tidyverse)
@@ -10,13 +11,13 @@ library("here")
 ##Read in inventory worksheets
 ###############################
 
-trees <- readWorksheetFromFile(paste("data/", file, ".xlsx", sep = ""), 
+trees <- readWorksheetFromFile(paste("data/cruises/", file, ".xlsx", sep = ""), 
                              sheet = 3, header = TRUE, endCol = 9)
 
-stands_raw <- readWorksheetFromFile(paste("data/", file, ".xlsx", sep = ""), 
+stands_raw <- readWorksheetFromFile(paste("data/cruises/", file, ".xlsx", sep = ""), 
                                    sheet = 2, header = TRUE, endCol = 15)
 
-prop <- readWorksheetFromFile(paste("data/", file, ".xlsx", sep = ""), 
+prop <- readWorksheetFromFile(paste("data/cruises/", file, ".xlsx", sep = ""), 
                               sheet = 1, header = FALSE, endCol = 2)
 
 
@@ -32,6 +33,7 @@ load("../big-rdas/ht-model-op.rda")
 source(here("scripts", "height.R"))
 source(here("scripts", "pbal.R"))
 source(here("scripts", "dib.R"))
+source(here("scripts", "get-roadside.R"))
 
 
 ###############################
@@ -55,8 +57,8 @@ addressline2 <- prop[15,2]
 citystatezip <- prop[16,2]
 watertext <- prop[17,2]
 boundariestext <- prop[18,2]
-lat <- prop[21,2]
-lon <- prop[22,2]
+lat <- as.numeric(prop[21,2])
+lon <- as.numeric(prop[22,2])
 
 
 ###############################
@@ -239,11 +241,13 @@ logs <- trees %>%
          # (for softwoods they're 2s, for hardwoods they're 3s):
          max_grade = ifelse(str_detect(max_grade, "\\d"), max_grade, 
                             ifelse(sft, 2, 3)),
+         max_grade = as.integer(max_grade),
          section = as.numeric(str_extract(section, "\\d+")),
          dib = dib(spp, dbh, ht, section, theta1, theta2,
                    alpha1, alpha2, gamma1, gamma2, psi,
                    lambda, beta1, beta2), 
-         dib = if_else(dib > 0, dib, 0)) %>%
+         dib = if_else(dib > 0, dib, 0),
+         dib = if_else(is.na(dib), 0, dib)) %>%
   left_join(grade_thresholds) %>%
   # determine current grade 
   mutate(grade = case_when(max_grade==1 & dib>=t1 ~ 1,
@@ -266,7 +270,9 @@ logs <- trees %>%
          vol_log = ifelse(vol_log > 0, vol_log, 0),
          vol_log = ifelse(is.na(vol_log), 0, vol_log),
          vol_ac = vol_log*tpa) %>%
-  select(tree:spp, tpa, grade, vol_log, vol_ac)
+  filter(max_grade %in% 1:5,
+         dib >= 4) %>% 
+  select(tree:spp, tpa, max_grade, grade, dib, vol_log, vol_ac)
 
 
 ## ammend plots table with veneer, st, tie, and cordwd volumes ------------------
@@ -300,6 +306,17 @@ stands <- stands %>%
                mutate(total_bf_vol = round(veneer_vol+saw_vol+tie_vol)) %>%
                select(stand, veneer_vol, saw_vol, tie_vol, 
                       total_bf_vol, cord_vol)))
+
+
+###############################
+##Add roadside prices
+###############################
+
+logs <- logs %>% 
+  filter(grade < 6) %>% 
+  mutate(roadside_log = vol_log * get_roadside(spp, dib, max_grade),
+         roadside_log = if_else(roadside_log > 0, roadside_log, 0),
+         roadside_ac = roadside_log * tpa)
 
 
 ###############################

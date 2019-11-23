@@ -7,7 +7,7 @@ knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, fig.width = 
 ```
 
 ```{r wrangling_cruise2, include=FALSE}
-property <- "pierce"
+property <- "perdue"
 year <- 2019
 
 load(file = paste("C:/Users/Neal/projects/cruise/rda/", property, "-cruise-", year, ".rda", sep = ""))
@@ -222,10 +222,9 @@ ifelse(this_stand$structure.1[1] == "Even-aged", print(curveplot),
 temp1 <- stands %>% filter(stand == std)
 temp2 <- c(temp1$mean_ba, temp1$qsd, temp1$tpa)
 temp3 <- c(temp1$ba_ags, temp1$qsd_ags, temp1$tpa_ags)
-temp4 <- c(temp1$ba_inv, temp1$qsd_in, temp1$tpa_inv)
 temp0 <- c('Basal area (sqft/ac)', 'QSD (in)', 'Stems/ac')
-temp5 <- data.frame(temp0, temp2, temp3, temp4)
-names(temp5) <- c(' ', 'Total', 'Acceptable', 'Investment-grade')
+temp5 <- data.frame(temp0, temp2, temp3)
+names(temp5) <- c(' ', 'Total', 'Acceptable')
 
 kable(temp5, booktabs = T, digits = 0, caption = "Measures of stocking for all live trees (total), acceptable growing stock, and investment-grade growing stock (which is a subset of acceptable growing stock).")
 ```
