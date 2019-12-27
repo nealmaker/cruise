@@ -1,20 +1,18 @@
 ---
-title: "Perdue Property"
-author: "Forest Management Plan"
-date: "`r lubridate::today()`"
 output:
   tufte::tufte_handout: default
+params:
+  file: "C:\\Users\\Neal\\projects\\cruise\\rda\\perdue-cruise-2019.rda"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 3.75)
 ```
 
-```{r wrangling_cruise, include=FALSE}
-property <- "perdue"
-year <- 2019
+\thispagestyle{empty}
 
-load(file = paste("C:/Users/Neal/projects/cruise/rda/", property, "-cruise-", year, ".rda", sep = ""))
+```{r wrangling_cruise, include=FALSE}
+load(params$file)
 
 library(tidyverse)
 library(ggthemes)
@@ -25,10 +23,15 @@ library(extrafont)
 loadfonts("win", quiet = TRUE)
 ```
 
+\LARGE _`r forestname` Property_   
+\Large _Forest Management Plan_   
+\Large _`r lubridate::today()`_
+
 ```{r pbf_logo, fig.margin=TRUE, out.width='30%', out.height='30%', fig.align='center'}
 knitr::include_graphics("C:/Users/Neal/projects/cruise/logo-small.png")
 ```
 
+\normalsize 
 \begin{marginfigure}
 \noindent \textit{\large Prepared by} 
 \newline\indent Neal F. Maker and John D. Foppert  

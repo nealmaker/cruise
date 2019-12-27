@@ -1,26 +1,26 @@
 spp,spp_grp,mill_grade2,pulp_roadside
-ash,mvh,450,120
-aspen,lvh,170,100
-fir,sw,300,100
-basswood,lvh,190,100
-beech,lvh,190,120
-black cherry,hvh,400,120
-cedar,sw,250,100
-elm,lvh,na,120
-hard maple,hvh,500,120
-hemlock,pine_hem,250,100
-hickory,mvh,400,120
-hophornbeam,lvh,na,120
-paper birch,mvh,350,120
-red oak,hvh,450,120
-red pine,pine_hem,300,100
-scots pine,pine_hem,300,100
-soft maple,mvh,350,120
-spruce,sw,300,100
-striped maple,lvh,na,120
-tamarack,sw,320,100
-white oak,mvh,350,120
-white pine,pine_hem,300,100
-yellow birch,hvh,400,120
-other hardwood,lvh,190,120
-other softwood,sw,170,100
+ash,mvh,400,160
+aspen,lvh,170,125
+fir,sw,230,125
+basswood,lvh,190,125
+beech,lvh,190,160
+black cherry,hvh,400,160
+cedar,sw,360,125
+elm,lvh,na,160
+hard maple,hvh,460,160
+hemlock,pine_hem,300,125
+hickory,mvh,400,160
+hophornbeam,lvh,na,160
+paper birch,mvh,320,160
+red oak,hvh,450,160
+red pine,pine_hem,280,125
+scots pine,pine_hem,280,125
+soft maple,mvh,370,160
+spruce,sw,340,125
+striped maple,lvh,na,160
+tamarack,sw,340,125
+white oak,mvh,350,160
+white pine,pine_hem,330,125
+yellow birch,hvh,420,160
+other hardwood,lvh,190,160
+other softwood,sw,170,125

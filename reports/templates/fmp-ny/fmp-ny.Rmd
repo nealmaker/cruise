@@ -1,0 +1,151 @@
+---
+output:
+  tufte::tufte_handout: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 3.75)
+```
+
+```{r wrangling_cruise, include=FALSE}
+property <- "two-dog"
+year <- 2019
+
+library("here")
+
+# this gives a Latex unicode character error:
+# load(file = params$file)
+
+# with this in YMAL:
+# params:
+#  file: "C:\\Users\\Neal\\projects\\cruise\\rda\\test-cruise-2019.rda"
+
+load(file = here("rda", paste0(property, "-cruise-", year, ".rda")))
+
+library(tidyverse)
+library(ggthemes)
+library(stargazer)
+library(knitr)
+library(extrafont)
+library(Hmisc)
+library(lubridate)
+loadfonts("win", quiet = TRUE)
+source("C:/Users/Neal/projects/cruise/scripts/numbers2words.R")
+
+temp <- paste0("Stand ", stands$stand, ": ", stands$treatment_name)
+mngmt <- lapply((year+1):(year+15), function(x){
+  if(x %in% stands$treatment_yr){
+    if(x %in% seq(year+1, (year+14), by = 5)){
+      paste0("Full management plan revision; boundary line maintenance; ",
+                 paste(temp[which(stands$treatment_yr == x)], collapse = "; "))
+    }else if(x == year+15){
+      paste0("Management plan update; boundary line maintenance; ",
+                 paste(temp[which(stands$treatment_yr == x)], collapse = "; "))
+    }else{
+     paste(temp[which(stands$treatment_yr == x)], collapse = "; ") 
+    }
+  }else{
+    if(x %in% seq(year+1, (year+14), by = 5)){
+      "Management plan update; boundary line maintenance"
+    }else if(x == year+15){
+      "Full management plan revision; boundary line maintenance"
+    }else {
+      "No scheduled activity"
+    }
+  }
+})
+mngmt_schd <- paste0((year+1):(year+15), " - ", mngmt)
+```
+
+\pagenumbering{gobble}
+\vspace*{30pt}
+
+\huge FOREST MANAGEMENT PLAN
+
+\vspace{30pt}
+
+\LARGE `r forestname` Property
+
+\vspace{22pt}
+
+\normalsize Town of `r str_split(jurisdiction, ", ", simplify = T)[[1]]`, `r str_split(jurisdiction, ", ", simplify = T)[[2]]` County, New York  
+
+\vspace{70pt}
+
+\small `r glacres` acres (`r eligable` certified eligible; `r fully_assessed` fully assessed committed)
+
+\vspace{18pt}
+
+Parcel IDs: 
+
+\vspace{8pt}
+
+`r str_replace_all(parcel_ids, ",", " \n\n")`
+
+\vspace{10pt}
+
+Deed (Liber/Pages): `r deed`
+
+\vspace{10pt}
+
+480-a certification number: `r cert_num_480a`
+
+\vspace{10pt}
+
+Original certication date: `r format(date(orig_cert), format = "%m/%d/%Y")`
+
+\vspace{60pt}
+
+Prepared by:
+```{r pbf_logo, out.width='50%', out.height='50%'}
+knitr::include_graphics("C:/Users/Neal/projects/cruise/logo-name-small.png")
+```
+
+John D. Foppert & Neal F. Maker  
+96 Durocher Road  
+Saranac, NY 12981  
+
+\vspace{30pt}
+
+\large `r format(today(), format = "%B %d, %Y")`
+
+\pagebreak
+\pagenumbering{arabic}
+
+#Introduction
+
+This plan covers the fifteen year period from `r year` to `r year+15`. It lays out the near- and medium-term actions that should guide the development of the `r forestname` forest. It also qualifies portions of the property for continued enrollment in the 480-a Forest Tax Law program and commensurate reduction in property taxes.^[Further information about 480-a can be found at the New York Department of Conservation's website: https://www.dec.ny.gov/lands/5236.html. \vspace{20pt}]  Owners participating in the program are obliged to manage enrolled portions of their property according to their approved forest management plan and to make any reasonable investments for improvement that the plan recommends. Its recommendations were developed in accordance with the principles and practices of scientifically sound forestry, as described in the relevant management guidelines, textbooks and academic journals.
+
+#Property Description
+
+The `r forestname` forest represents a well-managed resource positioned to continue generating value on a sustainable basis. `r capitalize(numbers2words(100*sum(stands$acres_legal)/glacres))` percent of the `r glacres` acre property is productive forestland to be managed according to this plan. The property is located `r ifelse(str_detect(jurisdiction, "Adirondack Park") | str_detect(jurisdiction, "adirondack park"), "in the Adirondack Park ", "")`in the Town of `r str_split(jurisdiction, ", ", simplify = T)[[1]]`, `r str_split(jurisdiction, ", ", simplify = T)[[2]]` County, New York. `r accesstext` Property-wide, elevations range from `r elevationmin` to `r elevationmax` feet above mean sea level. `r watertext` `r boundariestext` Soils, forest health, and other pertinent topics are discussed in the individual stand area descriptions that follow.
+
+#Principles, Goals & Strategies For Forest Management
+
+`r paste(objectives)`
+
+#Stand Descriptions & Management Recommendations
+
+Presented below are detailed stand-by-stand descriptions of the forest, the long-term structural, compositional and functional goals for each stand, and the near-term silvicultural treatments or management activities that have been prescribed to advance each stand toward those goals.  The data presented in the following pages was obtained from a thorough inventory of the property in `r month.name[[month]]` of `r year`.  General conditions were assessed qualitatively in conjunction with quantitative sampling.  Observational notes and sample summary statistics together provide the basis for the stand descriptions and management recommendations. All sampling was done using a systematic sample and variable radius plots. In stands with uneven-aged structures, all trees 6" in diameter at breast height (dbh) and larger were measured in each plot. In stands with even-aged structures, all main-canopy trees were measured in each plot.
+
+When contractors are used to implement silvicultural prescriptions, they should be highly skilled, properly equipped, fully insured, and closely supervised.  A professional forester should prepare and administer commercial treatments, and logging operations should be timed to coincide with favorable weather conditions (working on wet soils only when they are frozen, for instance) and favorable timber markets. The dates assigned to timber harvests and other management activities prescribed in this plan are intended to guide, rather than constrain, forest management. To accommodate dynamic markets and variable weather, scheduled timber harvests may be advanced or delayed by one year from the date indentified in this plan; if operational or economic conditions change substantially, the management schedule may be further revised by an ammendment to this plan.
+
+The property should be reassessed in `r year+5` and the findings brought to bear on a reassessment of the goals and strategies proposed in this plan, leading to a formal management plan update.
+
+\newpage
+
+#Management Schedule
+
+\small `r paste(mngmt_schd, collapse = " \n\n \\vspace{5pt} \n\n \\noindent ")`
+
+\newpage
+
+```{r echo=FALSE, results='asis'}
+res <- lapply(stands$stand, function(i) {
+  knitr::knit_child(
+    'stand.Rmd', envir = environment(), quiet = TRUE
+  )
+})
+
+cat(unlist(res), sep = '\n')
+```

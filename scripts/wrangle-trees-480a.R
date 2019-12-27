@@ -49,21 +49,28 @@ property <- prop[1,2]
 month <- as.numeric(prop[2,2])
 year <- as.numeric(prop[3,2])
 forestname <- prop[5,2]
-town <- prop[6,2]
+jurisdiction <- prop[6,2]
 glacres <- as.numeric(prop[7,2])
-gldescrip <- prop[8,2]
-span <- prop[9,2]
-photo <- prop[10,2]
-elevationmin <- as.numeric(prop[11,2])
-elevationmax <- as.numeric(prop[12,2])
-owners <- prop[13,2]
-addressline1 <- prop[14,2]
-addressline2 <- prop[15,2]
-citystatezip <- prop[16,2]
-watertext <- prop[17,2]
-boundariestext <- prop[18,2]
-lat <- as.numeric(prop[21,2])
-lon <- as.numeric(prop[22,2])
+eligable <- prop[8,2]
+ineligable <- prop[9,2]
+fully_assessed <- prop[10,2]
+non_commited <- prop[11,2]
+parcel_ids <- prop[12,2]
+deed <- prop[13,2]
+cert_num_480a <- prop[14,2]
+orig_cert <- prop[15,2]
+elevationmin <- as.numeric(prop[16,2])
+elevationmax <- as.numeric(prop[17,2])
+owners <- prop[18,2]
+addressline1 <- prop[19,2]
+addressline2 <- prop[20,2]
+citystatezip <- prop[21,2]
+accesstext <- prop[22,2]
+watertext <- prop[23,2]
+boundariestext <- prop[24,2]
+plan_yr <- prop[26,2]
+lat <- as.numeric(prop[27,2])
+lon <- as.numeric(prop[28,2])
 
 
 ###############################
@@ -125,7 +132,7 @@ if(fix_plots == "yes"){
     left_join(select(plots, plot, stand), "plot") %>%
     select(stand, plot, everything())
 }
- 
+
 stands <- plots %>% 
   group_by(stand) %>%
   summarise(plots = n(),
@@ -245,16 +252,16 @@ logs <- trees %>%
   # collapse section columns into "section" and "max grade" columns:
   gather(section, max_grade, grade1:grade10) %>%
   mutate(# populate undefined upper sections not above hard stops
-         # (for softwoods they're 2s, for hardwoods they're 3s):
-         max_grade = ifelse(str_detect(max_grade, "\\d"), max_grade, 
-                            ifelse(sft, 2, 3)),
-         max_grade = as.integer(max_grade),
-         section = as.numeric(str_extract(section, "\\d+")),
-         dib = dib(spp, dbh, ht, section, theta1, theta2,
-                   alpha1, alpha2, gamma1, gamma2, psi,
-                   lambda, beta1, beta2), 
-         dib = if_else(dib > 0, dib, 0),
-         dib = if_else(is.na(dib), 0, dib)) %>%
+    # (for softwoods they're 2s, for hardwoods they're 3s):
+    max_grade = ifelse(str_detect(max_grade, "\\d"), max_grade, 
+                       ifelse(sft, 2, 3)),
+    max_grade = as.integer(max_grade),
+    section = as.numeric(str_extract(section, "\\d+")),
+    dib = dib(spp, dbh, ht, section, theta1, theta2,
+              alpha1, alpha2, gamma1, gamma2, psi,
+              lambda, beta1, beta2), 
+    dib = if_else(dib > 0, dib, 0),
+    dib = if_else(is.na(dib), 0, dib)) %>%
   left_join(grade_thresholds) %>%
   # determine current grade 
   mutate(grade = case_when(max_grade==1 & dib>=t1 ~ 1,
@@ -274,7 +281,7 @@ logs <- trees %>%
   # add log volumes with 1/4" international rule, convert to cords, 
   # & scale up to per acre 
   mutate(vol_log = (.905*(.22*dib^2-.71*dib)+
-           .905*(.22*(dib+.5)^2-.71*(dib+.5)))/
+                      .905*(.22*(dib+.5)^2-.71*(dib+.5)))/
            ((1/((554/(.15*dib^4.48)) + 1.9))*1000), 
          vol_log = ifelse(vol_log > 0, vol_log, 0),
          vol_log = ifelse(is.na(vol_log), 0, vol_log),
@@ -320,6 +327,8 @@ stands <- stands %>%
 ###############################
 ## Add prices
 ###############################
+
+yn <- c("yes", "no")
 
 priceit <- rselect.list(yn, 
                         title = "Add prices?",
@@ -389,7 +398,7 @@ rm(stocking_charts)
 ## Add objectives
 ###############################
 
-if(!is.na(prop[19, 2])){
+if(!is.na(prop[25, 2])){
   objectives_raw <- read.csv("data/objectives.csv", header = TRUE) %>%
     mutate(id = as.factor(id),
            text = as.character(text))
@@ -467,19 +476,22 @@ if(any(trees$vigor > 5 | trees$vigor < 1)){
 ## Save rda
 ###############################
 
-if ("objectives" %in% ls(envir = .GlobalEnv)) { 
+if ("objectives" %in% ls(envir = .GlobalEnv)) {
   save(file, baf, logs, trees, plots, stands,
        grade_thresholds, property, month, year, forestname,
-       town, glacres, gldescrip, span, photo, elevationmin,
-       elevationmax, owners, addressline1, addressline2, citystatezip,
+       jurisdiction, glacres, eligable, ineligable, fully_assessed, 
+       non_commited, parcel_ids, deed, cert_num_480a, orig_cert, 
+       lat, lon, elevationmin, elevationmax, owners, addressline1, 
+       addressline2, citystatezip, plan_yr, trucking, accesstext,
        watertext, boundariestext, objectives, soils,
        file = paste("rda/", property, "-cruise-", year, ".rda", sep = ""))
 } else {
   save(file, baf, logs, trees, plots, stands,
        grade_thresholds, property, month, year, forestname,
-       town, glacres, gldescrip, span, photo, elevationmin,
-       elevationmax, owners, addressline1, addressline2, citystatezip,
+       jurisdiction, glacres, eligable, ineligable, fully_assessed, 
+       non_commited, parcel_ids, deed, cert_num_480a, orig_cert, 
+       lat, lon, elevationmin, elevationmax, owners, addressline1, 
+       addressline2, citystatezip, plan_yr, trucking, accesstext,
        watertext, boundariestext, soils,
        file = paste("rda/", property, "-cruise-", year, ".rda", sep = ""))
-} 
-            
+}

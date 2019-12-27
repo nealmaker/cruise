@@ -2,35 +2,64 @@ price_coeffs <- read_csv(here("data", "price-coefficients.csv"),
                          col_names = TRUE) %>%
   mutate(spp_grp = as.factor(spp_grp))
 
-prices <- read_csv(here("data", "prices.csv"), 
-                   col_names = TRUE) %>%
-  mutate(mill_grade2 = as.numeric(mill_grade2),
-         pulp_roadside = as.numeric(pulp_roadside))
 
-
-# Returns unit price for each log (roadside)
-# from price data based on spp & grade & dib (shape matters; sigmoidal or quadratic)
-# proably a function that references a table of coefficients for each spp.
+# Returns unit price for each log (roadside per cord)
+# from price data based on spp & grade & dib 
 
 # BETTER TO WRITE IT VECTORIZED!!!!!! 
 get_roadside <- Vectorize(function(species, dib, pot_grade){
   
-  if(pot_grade %in% 1:3){
+  pulp_rdsd <- filter(prices, spp == species)$pulp_roadside/2
+  
+  if(pot_grade %in% 0:3){
     species_grp <- filter(prices, spp == species)$spp_grp
-    a <- filter(price_coeffs, spp_grp == species_grp, grade == pot_grade, coef == "a")$value
-    b <- filter(price_coeffs, spp_grp == species_grp, grade == pot_grade, coef == "b")$value
-    c <- filter(price_coeffs, spp_grp == species_grp, grade == pot_grade, coef == "c")$value
-    d <- filter(price_coeffs, spp_grp == species_grp, grade == pot_grade, coef == "d")$value
+    
+    a <- filter(price_coeffs, spp_grp == species_grp, 
+                grade == pot_grade, coef == "a")$value
+    b <- filter(price_coeffs, spp_grp == species_grp, 
+                grade == pot_grade, coef == "b")$value
+    c <- filter(price_coeffs, spp_grp == species_grp, 
+                grade == pot_grade, coef == "c")$value
+    d <- filter(price_coeffs, spp_grp == species_grp,
+                grade == pot_grade, coef == "d")$value
+    switch_bottom <- 
+      filter(price_coeffs, spp_grp == species_grp, 
+             grade == pot_grade, coef == "switch_bottom")$value
+    switch_top <- 
+      filter(price_coeffs, spp_grp == species_grp, 
+             grade == pot_grade, coef == "switch_top")$value
     
     # mill price/mbf for #2 log of this spp (base price)
-    base <- filter(prices, spp == species)$mill_grade2 
+    base <- (filter(prices, spp == species)$mill_grade2)/2
     
-    # multiplier to get current price based on base price & dib
-    price_factor <- (a/(1+2.718281828459^(-(b/a)*(dib-c))))+d 
+    if(dib <= switch_bottom) {
+      return(pulp_rdsd)
+      
+    } else if(dib <= switch_top) {
+      top_rdsd <- base*((a/(1+2.718281828459^(-(b/a)*(switch_top-c))))+d) - 
+        (trucking/2)
+      
+      if(top_rdsd > pulp_rdsd){
+        return(((dib - switch_bottom)/(switch_top - switch_bottom))*
+                 (top_rdsd - pulp_rdsd) + pulp_rdsd)
+      } else {
+        return(pulp_rdsd)
+      }
+      
+    } else {
+      rdsd <- base*((a/(1+2.718281828459^(-(b/a)*(dib-c))))+d) - 
+        (trucking/2)
+      
+      if(rdsd > pulp_rdsd) {
+        return(rdsd)
+        
+      } else {
+        return(pulp_rdsd)
+        
+      }
+    }
+  } else {
+    return(pulp_rdsd)
     
-    # final price/bf
-    return((base*price_factor-trucking)/1000)
   }
-  
-  else return(filter(prices, spp == species)$pulp_roadside/1000)
 })

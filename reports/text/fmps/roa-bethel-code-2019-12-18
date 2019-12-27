@@ -1,0 +1,102 @@
+---
+title: "Rock of Ages Bethel Quarry"
+author: "Forest Management Plan Amendment"
+date: "2019-12-18"
+output:
+  tufte::tufte_handout: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 3.75)
+```
+
+```{r wrangling_cruise, include=FALSE}
+property <- "roa-bethel"
+year <- 2019
+
+load(file = paste("C:/Users/Neal/projects/cruise/rda/", property, "-cruise-", year, ".rda", sep = ""))
+
+library(tidyverse)
+library(ggthemes)
+library(stargazer)
+library(knitr)
+library(extrafont)
+loadfonts("win", quiet = TRUE)
+```
+
+```{r pbf_logo, fig.margin=TRUE, out.width='30%', out.height='30%', fig.align='center'}
+knitr::include_graphics("C:/Users/Neal/projects/cruise/logo-small.png")
+```
+
+\begin{marginfigure}
+\noindent \textit{\large Prepared by}
+\newline\indent Neal F. Maker and John D. Foppert
+\newline\indent Pekin Branch Forestry
+\newline\indent 1324 West County Road
+\newline\indent Calais, VT 05648
+\newline\indent (802) 229-9757
+\end{marginfigure}
+
+\begin{marginfigure}
+\noindent \textit{\large Owner}
+\newline\indent `r owners`
+\newline\indent `r addressline1`
+`r ifelse(is.na(addressline2), "", "\n")`\indent `r if_else(is.na(addressline2), "", addressline2)`
+\newline\indent `r citystatezip`
+\end{marginfigure}
+
+\begin{marginfigure}
+\noindent \textit{\large Property}
+\newline\indent `r paste("463.7", "acres, dwelling & ", gldescrip, sep = " ")`
+\newline\indent `r paste(town, ", VT", sep = "")`
+\newline\indent SPAN `r span`
+\newline\indent Map delineation based on VMP
+\newline\indent Photo(s) `r photo`
+\end{marginfigure}
+
+\begin{marginfigure}
+\noindent \textit{\large Effective date of plan}
+\newline\indent April 1, 2014
+\end{marginfigure}
+
+\vspace{30pt}
+\indent This amendment joins the existing Rock of Ages forest management plan with the forest management plan for the adjacent property to the south; which was previously owned by Robert Smith and has been transferred to Rock of Ages. It retains the stand numbers from the original Rock of Ages plan, and stands previously on the Smith property are proceeded with the letter "s".
+
+\vspace{5pt}
+By signing below, I certify that I approve of---and agree to manage my forestland according to---the existing Rock of Ages and Smith plans. I further certify that any of my forestland that is enrolled in Vermont's Use Value Appraisal program is under active long-term forest management in accordance with the state's minimum acceptable standards for forest management. These standards include following Acceptable Management Practices to maintain water quality on logging operations.
+
+\vspace{38pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}
+
+\noindent Landowner \rule{7.7cm}{0pt} Date
+
+\vspace{18pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}
+
+\noindent Landowner \rule{7.7cm}{0pt} Date
+
+\vspace{18pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}
+
+\noindent Landowner \rule{7.7cm}{0pt} Date
+
+\vspace{18pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}
+
+\noindent Landowner \rule{7.7cm}{0pt} Date
+
+\vspace{24pt}
+
+This forest management plan meets the standards promulgated by the Vermont Department of Forests, Parks and Recreation as required for eligibility in the Use Value Appraisal Program.
+
+\vspace{22pt}
+
+\noindent\rule{9cm}{0.4pt} \rule{.3cm}{0pt} \rule{4cm}{0.4pt}
+
+\noindent County Forester \rule{7cm}{0pt} Date
+
+\pagebreak

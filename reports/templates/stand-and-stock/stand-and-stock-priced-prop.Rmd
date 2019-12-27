@@ -1,0 +1,589 @@
+---
+output: pdf_document
+classoption: landscape
+header-includes:
+  - \usepackage{caption}
+---
+  
+  ```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+options(knitr.kable.NA = '')
+
+func <- function(z) if (is.numeric(z)) sum(z, na.rm = T) else ''
+```
+
+```{r}
+load("C:/Users/Neal/projects/cruise/rda/hydefam-cruise-2019.rda")
+library("tidyverse")
+library("knitr")
+library("kableExtra")
+```
+
+\captionsetup[table]{labelformat=empty} 
+<!-- removes "Table #" from in front of table captions (along with YMAL 'caption') -->
+  \captionsetup{justification=raggedright,singlelinecheck=false}
+<!-- left aligns table captions -->
+  \pagenumbering{gobble}
+
+\vspace*{23pt}
+
+\huge STAND & STOCK TABLES  
+\large _expected stumpage values_
+
+\vspace{18pt}
+
+\LARGE `r forestname` Property
+
+\vspace{16pt}
+
+\Large Town of Harrietstown, Franklin County, New York
+
+\vspace{120pt}
+
+\large Prepared December, 2019 by:
+  
+  \vspace{20pt}
+
+```{r pbf_logo, out.width='20%', out.height='20%'}
+knitr::include_graphics("C:/Users/Neal/projects/cruise/logo-name-small.png")
+```
+
+\normalsize John D. Foppert & Neal F. Maker  
+96 Durocher Road  
+Saranac, NY 12981
+
+\pagebreak
+\pagenumbering{arabic}
+
+```{r}
+ac <- sum(stands$acres_calc)
+plts <- sum(stands$plots)
+```
+#Property-Wide   
+**`r ac` acres**
+  
+```{r}
+trees_veneer <- 
+  unique(filter(logs, grade == 1)$tree)
+
+temp1 <- logs %>% 
+  filter(grade == 1) %>% 
+  group_by(spp) %>% 
+  summarize(vol1_ac = (sum(vol_ac)/plts)*500,
+            vol1_total = vol1_ac * ac)
+
+temp2 <- logs %>% 
+  filter(tree %in% trees_veneer,
+         grade == 2) %>% 
+  group_by(spp) %>% 
+  summarize(vol2_ac = (sum(vol_ac)/plts)*500,
+            vol2_total = vol2_ac * ac) 
+
+temp3 <- logs %>% 
+  filter(tree %in% trees_veneer,
+         grade == 3) %>% 
+  group_by(spp) %>% 
+  summarize(vol3_ac = (sum(vol_ac)/plts)*500,
+            vol3_total = vol3_ac * ac)
+
+temp5 <- logs %>% 
+  filter(tree %in% trees_veneer,
+         grade == 5) %>% 
+  group_by(spp) %>% 
+  summarize(vol5_ac = sum(vol_ac)/plts,
+            vol5_total = vol5_ac * ac)
+
+temp7 <- logs %>% 
+  filter(tree %in% trees_veneer) %>% 
+  group_by(spp) %>% 
+  summarize(stump_ac = sum(stump_log*tpa)/plts,
+            stump = (sum(stump_log*tpa)/plts) * ac)
+
+temp6 <- trees %>% 
+  filter(tree %in% trees_veneer) %>% 
+  group_by(spp) %>% 
+  summarize(ba_ac = (n()*baf)/plts,
+            tpa = sum(tpa)/plts) %>% 
+  arrange(desc(ba_ac)) 
+
+temp_veneer <- temp6 %>% 
+  full_join(temp1) %>% 
+  full_join(temp2) %>% 
+  full_join(temp3) %>% 
+  full_join(temp5) %>% 
+  full_join(temp7) %>% 
+  select(spp, ba_ac, tpa, vol1_ac, vol2_ac, vol3_ac,
+         vol5_ac, vol1_total, vol2_total, vol3_total,
+         vol5_total, stump_ac, stump)
+
+sumrow <- as.data.frame(lapply(temp_veneer, func)) %>% 
+  mutate(spp = "total",
+         ba_ac = ifelse(is.numeric(ba_ac), ba_ac, as.numeric(0)),
+         tpa = ifelse(is.numeric(tpa), tpa, as.numeric(0)),
+         vol1_ac = ifelse(is.numeric(vol1_ac), vol1_ac, as.numeric(0)),
+         vol2_ac = ifelse(is.numeric(vol2_ac), vol2_ac, as.numeric(0)),
+         vol3_ac = ifelse(is.numeric(vol3_ac), vol3_ac, as.numeric(0)),
+         vol5_ac = ifelse(is.numeric(vol5_ac), vol5_ac, as.numeric(0)),
+         vol1_total = ifelse(is.numeric(vol1_total), vol1_total, as.numeric(0)),
+         vol2_total = ifelse(is.numeric(vol2_total), vol2_total, as.numeric(0)),
+         vol3_total = ifelse(is.numeric(vol3_total), vol3_total, as.numeric(0)),
+         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)),
+         stump_ac = ifelse(is.numeric(stump_ac), as.character(round(stump_ac)), "0"),
+         stump_ac = paste("$", stump_ac, sep = ""),
+         stump = ifelse(is.numeric(stump), as.character(round(stump)), "0"),
+         stump = paste("$", stump, sep = ""))
+
+temp_veneer <- temp_veneer %>% 
+  mutate(stump = round(stump),
+         stump_ac = round(stump_ac)) %>% 
+  rbind(sumrow) %>% 
+  mutate(ba_ac = round(as.numeric(ba_ac), 1),
+         tpa = round(as.numeric(tpa), 1),
+         vol1_ac = round(as.numeric(vol1_ac)),
+         vol1_total = round(as.numeric(vol1_total)/1000, 1),
+         vol2_ac = round(as.numeric(vol2_ac)),
+         vol2_total = round(as.numeric(vol2_total)/1000, 1),
+         vol3_ac = round(as.numeric(vol3_ac)),
+         vol3_total = round(as.numeric(vol3_total)/1000, 1),
+         vol5_ac = round(as.numeric(vol5_ac), 2),
+         vol5_total = round(as.numeric(vol5_total)))
+
+kable(temp_veneer, "latex", booktabs = T, linesep = ' ',
+      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
+      col.names = c("species", "basal area", "trees/ac", "veneer", 
+                    "sawtimber", "pallet", "pulp", "veneer", 
+                    "sawtimber", "pallet", "pulp", " ", " "),
+      caption = "Veneer Trees") %>% 
+  kable_styling(position = "left", font_size = 10,
+                latex_options = c("striped", "HOLD_position")) %>% 
+  add_header_above(c(" " = 3, "board feet" = 3, "cords" = 1,
+                     "thousand board feet" = 3, "cords" = 1,
+                     "per acre" = 1, "total" = 1)) %>% 
+  add_header_above(c(" " = 1, "stocking" = 2, "volume/ac " = 4, 
+                     "total volume" = 4, "stumpage" = 2),
+                   bold = T, italic = T) %>% 
+  row_spec(nrow(temp_veneer), bold = T, italic = T, background = '#DCDCDC') %>% 
+  row_spec(0, bold = T, italic = T, background = '#DCDCDC')
+
+```
+
+```{r}
+trees_temp <- 
+  unique(filter(logs, grade == 2)$tree)
+
+trees_st <- trees_temp[!(trees_temp %in% trees_veneer)]
+
+temp2 <- logs %>% 
+  filter(tree %in% trees_st,
+         grade == 2) %>% 
+  group_by(spp) %>% 
+  summarize(vol2_ac = (sum(vol_ac)/plts)*500,
+            vol2_total = vol2_ac * ac) 
+
+temp3 <- logs %>% 
+  filter(tree %in% trees_st,
+         grade == 3) %>% 
+  group_by(spp) %>% 
+  summarize(vol3_ac = (sum(vol_ac)/plts)*500,
+            vol3_total = vol3_ac * ac)
+
+temp5 <- logs %>% 
+  filter(tree %in% trees_st,
+         grade == 5) %>% 
+  group_by(spp) %>% 
+  summarize(vol5_ac = sum(vol_ac)/plts,
+            vol5_total = vol5_ac * ac)
+
+temp6 <- trees %>% 
+  filter(tree %in% trees_st) %>% 
+  group_by(spp) %>% 
+  summarize(ba_ac = (n()*baf)/plts,
+            tpa = sum(tpa)/plts) %>% 
+  arrange(desc(ba_ac)) 
+
+temp7 <- logs %>% 
+  filter(tree %in% trees_st) %>% 
+  group_by(spp) %>% 
+  summarize(stump_ac = sum(stump_log*tpa)/plts,
+            stump = (sum(stump_log*tpa)/plts) * ac)
+
+temp_st <- temp6 %>% 
+  full_join(temp2) %>% 
+  full_join(temp3) %>%
+  full_join(temp5) %>%
+  full_join(temp7) %>% 
+  select(spp, ba_ac, tpa, vol2_ac, vol3_ac, 
+         vol5_ac, vol2_total, vol3_total, 
+         vol5_total, stump_ac, stump)
+
+sumrow <- as.data.frame(lapply(temp_st, func)) %>% 
+  mutate(spp = "total",
+         ba_ac = ifelse(is.numeric(ba_ac), ba_ac, as.numeric(0)),
+         tpa = ifelse(is.numeric(tpa), tpa, as.numeric(0)),
+         vol2_ac = ifelse(is.numeric(vol2_ac), vol2_ac, as.numeric(0)),
+         vol3_ac = ifelse(is.numeric(vol3_ac), vol3_ac, as.numeric(0)),
+         vol5_ac = ifelse(is.numeric(vol5_ac), vol5_ac, as.numeric(0)),
+         vol2_total = ifelse(is.numeric(vol2_total), vol2_total, as.numeric(0)),
+         vol3_total = ifelse(is.numeric(vol3_total), vol3_total, as.numeric(0)),
+         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)),
+         stump_ac = ifelse(is.numeric(stump_ac), as.character(round(stump_ac)), "0"),
+         stump_ac = paste("$", stump_ac, sep = ""),
+         stump = ifelse(is.numeric(stump), round(stump), "0"),
+         stump = paste("$", stump, sep = ""))
+
+temp_st <- temp_st %>% 
+  mutate(stump = round(stump),
+         stump_ac = round(stump_ac)) %>% 
+  rbind(sumrow) %>% 
+  mutate(ba_ac = round(as.numeric(ba_ac), 1),
+         tpa = round(as.numeric(tpa), 1),
+         vol2_ac = round(as.numeric(vol2_ac)),
+         vol2_total = round(as.numeric(vol2_total)/1000, 1),
+         vol3_ac = round(as.numeric(vol3_ac)),
+         vol3_total = round(as.numeric(vol3_total)/1000, 1),
+         vol5_ac = round(as.numeric(vol5_ac), 2),
+         vol5_total = round(as.numeric(vol5_total)))
+
+kable(temp_st, "latex", booktabs = T, linesep = ' ',
+      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
+      col.names = c("species", "basal area", "trees/ac", 
+                    "sawtimber", "pallet", "pulp", 
+                    "sawtimber", "pallet", "pulp", " ", " "),
+      caption = "Sawtimber Trees") %>% 
+  kable_styling(position = "left", font_size = 10,
+                latex_options = c("striped", "HOLD_position")) %>% 
+  add_header_above(c(" " = 3, "board feet" = 2, "cords" = 1,
+                     "thousand board feet" = 2, "cords" = 1,
+                     "per acre" = 1, "total" = 1)) %>% 
+  add_header_above(c(" " = 1, "stocking" = 2, "volume/ac " = 3, 
+                     "total volume" = 3, "stumpage" = 2),
+                   bold = T, italic = T) %>% 
+  row_spec(nrow(temp_st), bold = T, italic = T, background = '#DCDCDC') %>% 
+  row_spec(0, bold = T, italic = T, background = '#DCDCDC')
+
+```
+
+```{r}
+trees_temp <- 
+  unique(filter(logs, grade == 3)$tree)
+
+trees_pal <- trees_temp[(!(trees_temp %in% trees_veneer)) &
+                          (!(trees_temp %in% trees_st))]
+
+temp3 <- logs %>% 
+  filter(tree %in% trees_pal,
+         grade == 3) %>% 
+  group_by(spp) %>% 
+  summarize(vol3_ac = (sum(vol_ac)/plts)*500,
+            vol3_total = vol3_ac * ac)
+
+temp5 <- logs %>% 
+  filter(tree %in% trees_pal,
+         grade == 5) %>% 
+  group_by(spp) %>% 
+  summarize(vol5_ac = sum(vol_ac)/plts,
+            vol5_total = vol5_ac * ac)
+
+temp6 <- trees %>% 
+  filter(tree %in% trees_pal) %>% 
+  group_by(spp) %>% 
+  summarize(ba_ac = (n()*baf)/plts,
+            tpa = sum(tpa)/plts) %>% 
+  arrange(desc(ba_ac)) 
+
+temp7 <- logs %>% 
+  filter(tree %in% trees_pal) %>% 
+  group_by(spp) %>% 
+  summarize(stump_ac = sum(stump_log*tpa)/plts,
+            stump = (sum(stump_log*tpa)/plts) * ac)
+
+temp_pal <- temp6 %>% 
+  full_join(temp3) %>%
+  full_join(temp5) %>%
+  full_join(temp7) %>% 
+  select(spp, ba_ac, tpa, vol3_ac, 
+         vol5_ac, vol3_total, 
+         vol5_total, stump_ac, stump)
+
+sumrow <- as.data.frame(lapply(temp_pal, func)) %>% 
+  mutate(spp = "total",
+         ba_ac = ifelse(is.numeric(ba_ac), ba_ac, as.numeric(0)),
+         tpa = ifelse(is.numeric(tpa), tpa, as.numeric(0)),
+         vol3_ac = ifelse(is.numeric(vol3_ac), vol3_ac, as.numeric(0)),
+         vol5_ac = ifelse(is.numeric(vol5_ac), vol5_ac, as.numeric(0)),
+         vol3_total = ifelse(is.numeric(vol3_total), vol3_total, as.numeric(0)),
+         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)),
+         stump_ac = ifelse(is.numeric(stump_ac), as.character(round(stump_ac)), "0"),
+         stump_ac = paste("$", stump_ac, sep = ""),
+         stump = ifelse(is.numeric(stump), round(stump), "0"),
+         stump = paste("$", stump, sep = ""))
+
+temp_pal <- temp_pal %>%  
+  mutate(stump = round(stump),
+         stump_ac = round(stump_ac)) %>%
+  rbind(sumrow) %>% 
+  mutate(ba_ac = round(as.numeric(ba_ac), 1),
+         tpa = round(as.numeric(tpa), 1),
+         vol3_ac = round(as.numeric(vol3_ac)),
+         vol3_total = round(as.numeric(vol3_total)/1000, 1),
+         vol5_ac = round(as.numeric(vol5_ac), 2),
+         vol5_total = round(as.numeric(vol5_total)))
+
+kable(temp_pal, "latex", booktabs = T, linesep = ' ',
+      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c"),
+      col.names = c("species", "basal area", "trees/ac", "pallet", 
+                    "pulp", "pallet", "pulp", " ", " "),
+      caption = "Pallet Trees") %>% 
+  kable_styling(position = "left", font_size = 10,
+                latex_options = c("striped", "HOLD_position")) %>% 
+  add_header_above(c(" " = 3, "board feet" = 1, "cords" = 1,
+                     "thousand board feet" = 1, "cords" = 1,
+                     "per acre" = 1, "total" = 1)) %>% 
+  add_header_above(c(" " = 1, "stocking" = 2, "volume/ac " = 2, 
+                     "total volume" = 2, "stumpage" = 2),
+                   bold = T, italic = T) %>% 
+  row_spec(nrow(temp_pal), bold = T, italic = T, background = '#DCDCDC') %>% 
+  row_spec(0, bold = T, italic = T, background = '#DCDCDC')
+
+```
+
+```{r}
+ags <- unique(filter(trees, ags == 1)$tree)
+
+trees_ap <- ags[(!(ags %in% trees_veneer)) & 
+                  (!(ags %in% trees_st)) &
+                  (!(ags %in% trees_st)) &
+                  (!(ags %in% trees_pal))]
+
+temp5 <- logs %>% 
+  filter(tree %in% trees_ap,
+         grade == 5) %>% 
+  group_by(spp) %>% 
+  summarize(vol5_ac = sum(vol_ac)/plts,
+            vol5_total = vol5_ac * ac)
+
+temp6 <- trees %>% 
+  filter(tree %in% trees_ap) %>% 
+  group_by(spp) %>% 
+  summarize(ba_ac = (n()*baf)/plts,
+            tpa = sum(tpa)/plts) %>% 
+  arrange(desc(ba_ac)) 
+
+temp7 <- logs %>% 
+  filter(tree %in% trees_ap) %>% 
+  group_by(spp) %>% 
+  summarize(stump_ac = sum(stump_log*tpa)/plts,
+            stump = (sum(stump_log*tpa)/plts) * ac)
+
+temp_ap <- temp6 %>% 
+  full_join(temp5) %>% 
+  full_join(temp7) %>% 
+  select(spp, ba_ac, tpa, vol5_ac,  
+         vol5_total, stump_ac, stump)
+
+sumrow <- as.data.frame(lapply(temp_ap, func)) %>% 
+  mutate(spp = "total",
+         ba_ac = ifelse(is.numeric(ba_ac), ba_ac, as.numeric(0)),
+         tpa = ifelse(is.numeric(tpa), tpa, as.numeric(0)),
+         vol5_ac = ifelse(is.numeric(vol5_ac), vol5_ac, as.numeric(0)),
+         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)),
+         stump_ac = ifelse(is.numeric(stump_ac), as.character(round(stump_ac)), "0"),
+         stump_ac = paste("$", stump_ac, sep = ""),
+         stump = ifelse(is.numeric(stump), round(stump), "0"),
+         stump = paste("$", stump, sep = ""))
+
+temp_ap <- temp_ap %>% 
+  mutate(stump = round(stump),
+         stump_ac = round(stump_ac)) %>% 
+  rbind(sumrow) %>% 
+  mutate(ba_ac = round(as.numeric(ba_ac), 1),
+         tpa = round(as.numeric(tpa), 1),
+         vol5_ac = round(as.numeric(vol5_ac), 2),
+         vol5_total = round(as.numeric(vol5_total)))
+
+kable(temp_ap, "latex", booktabs = T, linesep = ' ',
+      align = c("l", "c", "c", "c", "c", "c", "c"),
+      col.names = c("species", "basal area", "trees/ac", "pulp", 
+                    "pulp", " ", " "),
+      caption = "Acceptable Pulp Trees") %>% 
+  kable_styling(position = "left", font_size = 10,
+                latex_options = c("striped", "HOLD_position")) %>% 
+  add_header_above(c(" " = 3, "cords" = 1, "cords" = 1,
+                     "per acre" = 1, "total" = 1)) %>% 
+  add_header_above(c(" " = 1, "stocking" = 2, "volume/ac " = 1, 
+                     "total volume" = 1, "stumpage" = 2),
+                   bold = T, italic = T) %>% 
+  row_spec(nrow(temp_ap), bold = T, italic = T, background = '#DCDCDC') %>% 
+  row_spec(0, bold = T, italic = T, background = '#DCDCDC')
+
+```
+
+```{r}
+ugs <- unique(filter(trees, ags == 0)$tree)
+
+trees_up <- ugs[(!(ugs %in% trees_veneer)) & 
+                  (!(ugs %in% trees_st)) &
+                  (!(ugs %in% trees_st)) &
+                  (!(ugs %in% trees_pal))]
+
+temp5 <- logs %>% 
+  filter(tree %in% trees_up,
+         grade == 5) %>% 
+  group_by(spp) %>% 
+  summarize(vol5_ac = sum(vol_ac)/plts,
+            vol5_total = vol5_ac * ac)
+
+temp6 <- trees %>% 
+  filter(tree %in% trees_up) %>% 
+  group_by(spp) %>% 
+  summarize(ba_ac = (n()*baf)/plts,
+            tpa = sum(tpa)/plts) %>% 
+  arrange(desc(ba_ac)) 
+
+temp7 <- logs %>% 
+  filter(tree %in% trees_up) %>% 
+  group_by(spp) %>% 
+  summarize(stump_ac = sum(stump_log*tpa)/plts,
+            stump = (sum(stump_log*tpa)/plts) * ac)
+
+temp_up <- temp6 %>% 
+  full_join(temp5) %>% 
+  full_join(temp7) %>% 
+  select(spp, ba_ac, tpa, vol5_ac,  
+         vol5_total, stump_ac, stump)
+
+sumrow <- as.data.frame(lapply(temp_up, func)) %>% 
+  mutate(spp = "total",
+         ba_ac = ifelse(is.numeric(ba_ac), ba_ac, as.numeric(0)),
+         tpa = ifelse(is.numeric(tpa), tpa, as.numeric(0)),
+         vol5_ac = ifelse(is.numeric(vol5_ac), vol5_ac, as.numeric(0)),
+         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)),
+         stump_ac = ifelse(is.numeric(stump_ac), as.character(round(stump_ac)), "0"),
+         stump_ac = paste("$", stump_ac, sep = ""),
+         stump = ifelse(is.numeric(stump), round(stump), "0"),
+         stump = paste("$", stump, sep = ""))
+
+temp_up <- temp_up %>% 
+  mutate(stump = round(stump),
+         stump_ac = round(stump_ac)) %>% 
+  rbind(sumrow) %>% 
+  mutate(ba_ac = round(as.numeric(ba_ac), 1),
+         tpa = round(as.numeric(tpa), 1),
+         vol5_ac = round(as.numeric(vol5_ac), 2),
+         vol5_total = round(as.numeric(vol5_total)))
+
+kable(temp_up, "latex", booktabs = T, linesep = ' ',
+      align = c("l", "c", "c", "c", "c", "c", "c"),
+      col.names = c("species", "basal area", "trees/ac", "pulp", 
+                    "pulp", " ", " "),
+      caption = "Unacceptable Trees") %>% 
+  kable_styling(position = "left", font_size = 10,
+                latex_options = c("striped", "HOLD_position")) %>% 
+  add_header_above(c(" " = 3, "cords" = 1, "cords" = 1,
+                     "per acre" = 1, "total" = 1)) %>% 
+  add_header_above(c(" " = 1, "stocking" = 2, "volume/ac " = 1, 
+                     "total volume" = 1, "stumpage" = 2),
+                   bold = T, italic = T) %>% 
+  row_spec(nrow(temp_up), bold = T, italic = T, background = '#DCDCDC') %>% 
+  row_spec(0, bold = T, italic = T, background = '#DCDCDC')
+
+```
+
+```{r}
+temp1 <- logs %>% 
+  filter(grade == 1) %>% 
+  group_by(spp) %>% 
+  summarize(vol1_ac = (sum(vol_ac)/plts)*500,
+            vol1_total = vol1_ac * ac)
+
+temp2 <- logs %>% 
+  filter(grade == 2) %>% 
+  group_by(spp) %>% 
+  summarize(vol2_ac = (sum(vol_ac)/plts)*500,
+            vol2_total = vol2_ac * ac)
+
+temp3 <- logs %>% 
+  filter(grade == 3) %>% 
+  group_by(spp) %>% 
+  summarize(vol3_ac = (sum(vol_ac)/plts)*500,
+            vol3_total = vol3_ac * ac)
+
+temp5 <- logs %>% 
+  filter(grade == 5) %>% 
+  group_by(spp) %>% 
+  summarize(vol5_ac = sum(vol_ac)/plts,
+            vol5_total = vol5_ac * ac)
+
+temp6 <- trees %>% 
+  filter(live == 1,
+         dbh >= 4) %>% 
+  group_by(spp) %>% 
+  summarize(ba_ac = (n()*baf)/plts,
+            tpa = sum(tpa)/plts) %>% 
+  arrange(desc(ba_ac)) 
+
+temp7 <- logs %>%  
+  group_by(spp) %>% 
+  summarize(stump_ac = sum(stump_log*tpa)/plts,
+            stump = (sum(stump_log*tpa)/plts) * ac)
+
+temp_total <- temp6 %>% 
+  full_join(temp1) %>% 
+  full_join(temp2) %>% 
+  full_join(temp3) %>% 
+  full_join(temp5) %>% 
+  full_join(temp7) %>% 
+  select(spp, ba_ac, tpa, vol1_ac, vol2_ac, vol3_ac, 
+         vol5_ac, vol1_total, vol2_total, vol3_total, 
+         vol5_total, stump_ac, stump)
+
+sumrow <- as.data.frame(lapply(temp_total, func)) %>% 
+  mutate(spp = "grand total",
+         ba_ac = ifelse(is.numeric(ba_ac), ba_ac, as.numeric(0)),
+         tpa = ifelse(is.numeric(tpa), tpa, as.numeric(0)),
+         vol1_ac = ifelse(is.numeric(vol1_ac), vol1_ac, as.numeric(0)),
+         vol2_ac = ifelse(is.numeric(vol2_ac), vol2_ac, as.numeric(0)),
+         vol3_ac = ifelse(is.numeric(vol3_ac), vol3_ac, as.numeric(0)),
+         vol5_ac = ifelse(is.numeric(vol5_ac), vol5_ac, as.numeric(0)),
+         vol1_total = ifelse(is.numeric(vol1_total), vol1_total, as.numeric(0)),
+         vol2_total = ifelse(is.numeric(vol2_total), vol2_total, as.numeric(0)),
+         vol3_total = ifelse(is.numeric(vol3_total), vol3_total, as.numeric(0)),
+         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)),
+         stump_ac = ifelse(is.numeric(stump_ac), as.character(round(stump_ac)), "0"),
+         stump_ac = paste("$", stump_ac, sep = ""),
+         stump = ifelse(is.numeric(stump), round(stump), "0"),
+         stump = paste("$", stump, sep = ""))
+
+temp_total <- temp_total %>% 
+  mutate(stump = round(stump),
+         stump_ac = round(stump_ac)) %>% 
+  rbind(sumrow) %>% 
+  mutate(ba_ac = round(as.numeric(ba_ac), 1),
+         tpa = round(as.numeric(tpa), 1),
+         vol1_ac = round(as.numeric(vol1_ac)),
+         vol1_total = round(as.numeric(vol1_total)/1000, 1),
+         vol2_ac = round(as.numeric(vol2_ac)),
+         vol2_total = round(as.numeric(vol2_total)/1000, 1),
+         vol3_ac = round(as.numeric(vol3_ac)),
+         vol3_total = round(as.numeric(vol3_total)/1000, 1),
+         vol5_ac = round(as.numeric(vol5_ac), 2),
+         vol5_total = round(as.numeric(vol5_total)))
+
+kable(temp_total, "latex", booktabs = T, linesep = ' ',
+      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
+      col.names = c("species", "basal area", "trees/ac", "veneer", 
+                    "sawtimber", "pallet", "pulp", "veneer", 
+                    "sawtimber", "pallet", "pulp", " ", " "),
+      caption = "Totals") %>% 
+  kable_styling(position = "left", font_size = 10,
+                latex_options = c("striped", "HOLD_position")) %>% 
+  add_header_above(c(" " = 3, "board feet" = 3, "cords" = 1,
+                     "thousand board feet" = 3, "cords" = 1,
+                     "per acre" = 1, "total" = 1)) %>% 
+  add_header_above(c(" " = 1, "stocking" = 2, "volume/ac " = 4, 
+                     "total volume" = 4, "stumpage" = 2),
+                   bold = T, italic = T) %>% 
+  row_spec(nrow(temp_total), bold = T, italic = T, background = '#DCDCDC') %>% 
+  row_spec(0, bold = T, italic = T, background = '#DCDCDC')
+```

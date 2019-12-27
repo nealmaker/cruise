@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.25)  25 NOV 2019 12:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.25)  19 DEC 2019 11:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**fmp-vt.tex
-(./fmp-vt.tex
+**roa-bethel-code-2019-12-18.tex
+(./roa-bethel-code-2019-12-18.tex
 LaTeX2e <2019-10-01> patch level 3
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tufte-latex/tufte-h
@@ -371,7 +371,7 @@ LaTeX Info: Redefining \cite on input line 694.
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/bibentry.sty
 Package: bibentry 2007/10/30 1.5 (PWD)
 )
-No file fmp-vt.bbl.
+No file roa-bethel-code-2019-12-18.bbl.
 \c@@tufte@num@bibkeys=\count110
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/sauerj/optparams.st
@@ -707,10 +707,6 @@ Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks25
 \inpenc@posthook=\toks26
 )
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/eurosym/eurosym.sty
-Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
-\@eurobox=\box59
-)
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.s
 ty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
@@ -758,14 +754,14 @@ Package: nicefrac 1998/08/04 v0.9b Nice fractions
 \L@UnitsRaiseTextstyle=\skip91
 \L@UnitsRaiseScriptstyle=\skip92
 )) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box60
-\UL@hyphenbox=\box61
+\UL@box=\box59
+\UL@hyphenbox=\box60
 \UL@skip=\skip93
 \UL@hook=\toks27
 \UL@height=\dimen156
 \UL@pe=\count137
 \UL@pixel=\dimen157
-\ULC@box=\box62
+\ULC@box=\box61
 Package: ulem 2012/05/18
 \ULdepth=\dimen158
 )
@@ -776,9 +772,8 @@ Package morefloats Info: Maximum number of possible floats asked for: 36
 (morefloats)             (i.e. 18 more floats).
 (morefloats)             LaTeX might run out of memory before this
 (morefloats)             (in which case it will notify you).
-)
-No file fmp-vt.aux.
-\openout1 = `fmp-vt.aux'.
+) (./roa-bethel-code-2019-12-18.aux)
+\openout1 = `roa-bethel-code-2019-12-18.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
 LaTeX Font Info:    ... okay on input line 70.
@@ -803,7 +798,7 @@ LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 7
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 70.
-\AtBeginShipoutBox=\box63
+\AtBeginShipoutBox=\box62
 Package hyperref Info: Link coloring OFF on input line 70.
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.st
@@ -823,8 +818,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 70.
 LaTeX Info: Redefining \pageref on input line 70.
 LaTeX Info: Redefining \nameref on input line 70.
+(./roa-bethel-code-2019-12-18.out) (./roa-bethel-code-2019-12-18.out)
 \@outlinefile=\write3
-\openout3 = `fmp-vt.out'.
+\openout3 = `roa-bethel-code-2019-12-18.out'.
 
 ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 70.
@@ -887,14 +883,14 @@ e
 File: C:/Users/Neal/projects/cruise/logo-small.png Graphic file (type png)
 <use C:/Users/Neal/projects/cruise/logo-small.png>
 Package pdftex.def Info: C:/Users/Neal/projects/cruise/logo-small.png  used on 
-input line 84.
+input line 79.
 (pdftex.def)             Requested size: 43.20003pt x 59.672pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 83.
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 83.
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -912,6 +908,11 @@ LaTeX Warning: Marginpar on page 1 moved.
 LaTeX Warning: Marginpar on page 1 moved.
 
 
+Overfull \hbox (73.08676pt too wide) in paragraph at lines 134--135
+[] [] []  
+ []
+
+
 Overfull \hbox (73.08676pt too wide) in paragraph at lines 140--141
 [] [] []  
  []
@@ -927,12 +928,7 @@ Overfull \hbox (73.08676pt too wide) in paragraph at lines 152--153
  []
 
 
-Overfull \hbox (73.08676pt too wide) in paragraph at lines 158--159
-[] [] []  
- []
-
-
-Overfull \hbox (73.08676pt too wide) in paragraph at lines 170--171
+Overfull \hbox (73.08676pt too wide) in paragraph at lines 164--165
 [] [] []  
  []
 
@@ -940,61 +936,39 @@ Overfull \hbox (73.08676pt too wide) in paragraph at lines 170--171
 
 {c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex
 .map} <c:/Users/Neal/projects/cruise/logo-small.png>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-85.
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
 
-LaTeX Warning: Marginpar on page 2 moved.
+Package bibentry Warning: You have used \nobibliography* 
+(bibentry)                without a following \bibliography.
+(bibentry)                You may not be able to run BibTeX.
 
-
-LaTeX Warning: Marginpar on page 2 moved.
-
-
-LaTeX Warning: Marginpar on page 2 moved.
-
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 242.
-
-[2]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 298.
-
-[3]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 299.
-
-[4]
-<fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf, id=44, 144.54pt x 433.62pt>
-File: fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
-<use fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf>
-Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf  used 
-on input line 356.
-(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
-
-! Package inputenc Error: Unicode character  (U+009D)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.408   \vspace{2pt} \indent 6-10â\euro{}
-                                            : 30\% \textbar{} 11-16â\euro{}:
- 
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 172.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 172.
+(./roa-bethel-code-2019-12-18.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 172.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 172.
+Package rerunfilecheck Info: File `roa-bethel-code-2019-12-18.out' has not chan
+ged.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 172.
+ ) 
 Here is how much of TeX's memory you used:
- 13289 strings out of 494108
- 191036 string characters out of 6172307
- 283775 words of memory out of 5000000
- 17107 multiletter control sequences out of 15000+600000
- 23154 words of font info for 65 fonts, out of 8000000 for 9000
+ 13135 strings out of 494108
+ 188536 string characters out of 6172307
+ 280978 words of memory out of 5000000
+ 16988 multiletter control sequences out of 15000+600000
+ 10486 words of font info for 30 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 51i,11n,51p,443b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 51i,11n,51p,274b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm
+1000.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecrm0800.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfou
+r/jknappen/ec/ecti1095.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts
+/pk/ljfour/jknappen/ec/ecti1200.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-
+var/fonts/pk/ljfour/jknappen/ec/ecti1440.600pk>
+Output written on roa-bethel-code-2019-12-18.pdf (1 page, 79907 bytes).
+PDF statistics:
+ 194 PDF objects out of 1000 (max. 8388607)
+ 30 compressed objects within 1 object stream
+ 2 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+

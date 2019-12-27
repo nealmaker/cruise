@@ -105,6 +105,11 @@ temp5 <- logs %>%
   summarize(vol5_ac = (sum(vol_ac)/plts)/500,
             vol5_total = vol5_ac * ac)
 
+temp7 <- logs %>% 
+  filter(tree %in% trees_veneer) %>% 
+  group_by(spp) %>% 
+  summarize(stump = (sum(stump_log*tpa)/plts) * ac)
+
 temp6 <- trees %>% 
   filter(tree %in% trees_veneer) %>% 
   group_by(spp) %>% 
@@ -117,9 +122,10 @@ temp_veneer <- temp6 %>%
   full_join(temp2) %>% 
   full_join(temp3) %>% 
   full_join(temp5) %>% 
+  full_join(temp7) %>% 
   select(spp, ba_ac, tpa, vol1_ac, vol2_ac, vol3_ac,
          vol5_ac, vol1_total, vol2_total, vol3_total,
-         vol5_total)
+         vol5_total, stump)
 
 sumrow <- as.data.frame(lapply(temp_veneer, func)) %>% 
   mutate(spp = "total",
@@ -132,9 +138,12 @@ sumrow <- as.data.frame(lapply(temp_veneer, func)) %>%
          vol1_total = ifelse(is.numeric(vol1_total), vol1_total, as.numeric(0)),
          vol2_total = ifelse(is.numeric(vol2_total), vol2_total, as.numeric(0)),
          vol3_total = ifelse(is.numeric(vol3_total), vol3_total, as.numeric(0)),
-         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)))
+         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)),
+         stump = ifelse(is.numeric(stump), as.character(round(stump)), "0"),
+         stump = paste("$", stump, sep = ""))
 
 temp_veneer <- temp_veneer %>% 
+  mutate(stump = round(stump)) %>% 
   rbind(sumrow) %>% 
   mutate(ba_ac = round(as.numeric(ba_ac), 1),
          tpa = round(as.numeric(tpa), 1),
@@ -148,16 +157,17 @@ temp_veneer <- temp_veneer %>%
          vol5_total = round(as.numeric(vol5_total)))
 
 kable(temp_veneer, "latex", booktabs = T, linesep = ' ',
-      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
+      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
       col.names = c("species", "basal area", "trees/ac", "veneer", 
                     "sawtimber", "pallet", "pulp", "veneer", 
-                    "sawtimber", "pallet", "pulp")) %>% 
-  kable_styling(position = "center", font_size = 8,
+                    "sawtimber", "pallet", "pulp", " ")) %>% 
+  kable_styling(position = "center", font_size = 7,
                 latex_options = "striped") %>% 
   add_header_above(c(" " = 3, "board feet" = 3, "cords" = 1,
-                     "thousand board feet" = 3, "cords" = 1)) %>% 
+                     "thousand board feet" = 3, "cords" = 1,
+                     "total" = 1)) %>% 
   add_header_above(c(" " = 1, "stocking" = 2, "volume/ac " = 4, 
-                     "total volume" = 4),
+                     "total volume" = 4, "stumpage" = 1),
                    bold = T, italic = T) %>% 
   row_spec(nrow(temp_veneer), bold = T, italic = T, background = '#DCDCDC') %>% 
   row_spec(0, bold = T, italic = T, background = '#DCDCDC')
@@ -199,15 +209,21 @@ temp6 <- trees %>%
             tpa = sum(tpa)/plts) %>% 
   arrange(desc(ba_ac)) 
 
+temp7 <- logs %>% 
+  filter(tree %in% trees_st) %>% 
+  group_by(spp) %>% 
+  summarize(stump = (sum(stump_log*tpa)/plts) * ac)
+
 temp_st <- temp6 %>% 
   full_join(temp2) %>% 
   full_join(temp3) %>%
   full_join(temp5) %>%
+  full_join(temp7) %>% 
   mutate(vol1_ac = " ",
          vol1_total = " ") %>% 
   select(spp, ba_ac, tpa, vol1_ac, vol2_ac, vol3_ac, 
          vol5_ac, vol1_total, vol2_total, vol3_total, 
-         vol5_total)
+         vol5_total, stump)
 
 sumrow <- as.data.frame(lapply(temp_st, func)) %>% 
   mutate(spp = "total",
@@ -220,9 +236,12 @@ sumrow <- as.data.frame(lapply(temp_st, func)) %>%
          vol1_total = ifelse(is.numeric(vol1_total), vol1_total, as.numeric(0)),
          vol2_total = ifelse(is.numeric(vol2_total), vol2_total, as.numeric(0)),
          vol3_total = ifelse(is.numeric(vol3_total), vol3_total, as.numeric(0)),
-         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)))
+         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)),
+         stump = ifelse(is.numeric(stump), round(stump), "0"),
+         stump = paste("$", stump, sep = ""))
 
 temp_st <- temp_st %>% 
+  mutate(stump = round(stump)) %>% 
   rbind(sumrow) %>% 
   mutate(ba_ac = round(as.numeric(ba_ac), 1),
          tpa = round(as.numeric(tpa), 1),
@@ -234,16 +253,17 @@ temp_st <- temp_st %>%
          vol5_total = round(as.numeric(vol5_total)))
 
 kable(temp_st, "latex", booktabs = T, linesep = ' ',
-      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
+      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
       col.names = c("species", "basal area", "trees/ac", "veneer", 
                     "sawtimber", "pallet", "pulp", "veneer", 
-                    "sawtimber", "pallet", "pulp")) %>% 
-  kable_styling(position = "center", font_size = 8,
+                    "sawtimber", "pallet", "pulp", " ")) %>% 
+  kable_styling(position = "center", font_size = 7,
                 latex_options = "striped") %>% 
   add_header_above(c(" " = 3, "board feet" = 3, "cords" = 1,
-                     "thousand board feet" = 3, "cords" = 1)) %>% 
+                     "thousand board feet" = 3, "cords" = 1,
+                     "total" = 1)) %>% 
   add_header_above(c(" " = 1, "stocking" = 2, "volume/ac " = 4, 
-                     "total volume" = 4),
+                     "total volume" = 4, "stumpage" = 1),
                    bold = T, italic = T) %>% 
   row_spec(nrow(temp_st), bold = T, italic = T, background = '#DCDCDC') %>% 
   row_spec(0, bold = T, italic = T, background = '#DCDCDC')
@@ -279,16 +299,22 @@ temp6 <- trees %>%
             tpa = sum(tpa)/plts) %>% 
   arrange(desc(ba_ac)) 
 
+temp7 <- logs %>% 
+  filter(tree %in% trees_pal) %>% 
+  group_by(spp) %>% 
+  summarize(stump = (sum(stump_log*tpa)/plts) * ac)
+
 temp_pal <- temp6 %>% 
   full_join(temp3) %>%
   full_join(temp5) %>%
+  full_join(temp7) %>% 
   mutate(vol1_ac = " ",
          vol1_total = " ",
          vol2_ac = " ",
          vol2_total = " ") %>% 
   select(spp, ba_ac, tpa, vol1_ac, vol2_ac, vol3_ac, 
          vol5_ac, vol1_total, vol2_total, vol3_total, 
-         vol5_total)
+         vol5_total, stump)
 
 sumrow <- as.data.frame(lapply(temp_pal, func)) %>% 
   mutate(spp = "total",
@@ -301,9 +327,12 @@ sumrow <- as.data.frame(lapply(temp_pal, func)) %>%
          vol1_total = ifelse(is.numeric(vol1_total), vol1_total, as.numeric(0)),
          vol2_total = ifelse(is.numeric(vol2_total), vol2_total, as.numeric(0)),
          vol3_total = ifelse(is.numeric(vol3_total), vol3_total, as.numeric(0)),
-         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)))
+         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)),
+         stump = ifelse(is.numeric(stump), round(stump), "0"),
+         stump = paste("$", stump, sep = ""))
 
-temp_pal <- temp_pal %>% 
+temp_pal <- temp_pal %>%  
+  mutate(stump = round(stump)) %>%
   rbind(sumrow) %>% 
   mutate(ba_ac = round(as.numeric(ba_ac), 1),
          tpa = round(as.numeric(tpa), 1),
@@ -313,16 +342,17 @@ temp_pal <- temp_pal %>%
          vol5_total = round(as.numeric(vol5_total)))
 
 kable(temp_pal, "latex", booktabs = T, linesep = ' ',
-      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
+      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
       col.names = c("species", "basal area", "trees/ac", "veneer", 
                     "sawtimber", "pallet", "pulp", "veneer", 
-                    "sawtimber", "pallet", "pulp")) %>% 
-  kable_styling(position = "center", font_size = 8,
+                    "sawtimber", "pallet", "pulp", " ")) %>% 
+  kable_styling(position = "center", font_size = 7,
                 latex_options = "striped") %>% 
   add_header_above(c(" " = 3, "board feet" = 3, "cords" = 1,
-                     "thousand board feet" = 3, "cords" = 1)) %>% 
+                     "thousand board feet" = 3, "cords" = 1,
+                     "total" = 1)) %>% 
   add_header_above(c(" " = 1, "stocking" = 2, "volume/ac " = 4, 
-                     "total volume" = 4),
+                     "total volume" = 4, "stumpage" = 1),
                    bold = T, italic = T) %>% 
   row_spec(nrow(temp_pal), bold = T, italic = T, background = '#DCDCDC') %>% 
   row_spec(0, bold = T, italic = T, background = '#DCDCDC')
@@ -352,8 +382,14 @@ temp6 <- trees %>%
             tpa = sum(tpa)/plts) %>% 
   arrange(desc(ba_ac)) 
 
+temp7 <- logs %>% 
+  filter(tree %in% trees_ap) %>% 
+  group_by(spp) %>% 
+  summarize(stump = (sum(stump_log*tpa)/plts) * ac)
+
 temp_ap <- temp6 %>% 
   full_join(temp5) %>% 
+  full_join(temp7) %>% 
   mutate(vol1_ac = " ",
          vol1_total = " ",
          vol2_ac = " " ,
@@ -362,7 +398,7 @@ temp_ap <- temp6 %>%
          vol3_total = " ") %>% 
   select(spp, ba_ac, tpa, vol1_ac, vol2_ac, vol3_ac, 
          vol5_ac, vol1_total, vol2_total, vol3_total, 
-         vol5_total)
+         vol5_total, stump)
 
 sumrow <- as.data.frame(lapply(temp_ap, func)) %>% 
   mutate(spp = "total",
@@ -375,9 +411,12 @@ sumrow <- as.data.frame(lapply(temp_ap, func)) %>%
          vol1_total = ifelse(is.numeric(vol1_total), vol1_total, as.numeric(0)),
          vol2_total = ifelse(is.numeric(vol2_total), vol2_total, as.numeric(0)),
          vol3_total = ifelse(is.numeric(vol3_total), vol3_total, as.numeric(0)),
-         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)))
+         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)),
+         stump = ifelse(is.numeric(stump), round(stump), "0"),
+         stump = paste("$", stump, sep = ""))
 
 temp_ap <- temp_ap %>% 
+  mutate(stump = round(stump)) %>% 
   rbind(sumrow) %>% 
   mutate(ba_ac = round(as.numeric(ba_ac), 1),
          tpa = round(as.numeric(tpa), 1),
@@ -385,16 +424,17 @@ temp_ap <- temp_ap %>%
          vol5_total = round(as.numeric(vol5_total)))
 
 kable(temp_ap, "latex", booktabs = T, linesep = ' ',
-      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
+      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
       col.names = c("species", "basal area", "trees/ac", "veneer", 
                     "sawtimber", "pallet", "pulp", "veneer", 
-                    "sawtimber", "pallet", "pulp")) %>% 
-  kable_styling(position = "center", font_size = 8,
+                    "sawtimber", "pallet", "pulp", " ")) %>% 
+  kable_styling(position = "center", font_size = 7,
                 latex_options = "striped") %>% 
   add_header_above(c(" " = 3, "board feet" = 3, "cords" = 1,
-                     "thousand board feet" = 3, "cords" = 1)) %>% 
+                     "thousand board feet" = 3, "cords" = 1,
+                     "total" = 1)) %>% 
   add_header_above(c(" " = 1, "stocking" = 2, "volume/ac " = 4, 
-                     "total volume" = 4),
+                     "total volume" = 4, "stumpage" = 1),
                    bold = T, italic = T) %>% 
   row_spec(nrow(temp_ap), bold = T, italic = T, background = '#DCDCDC') %>% 
   row_spec(0, bold = T, italic = T, background = '#DCDCDC')
@@ -426,8 +466,14 @@ temp6 <- trees %>%
             tpa = sum(tpa)/plts) %>% 
   arrange(desc(ba_ac)) 
 
+temp7 <- logs %>% 
+  filter(tree %in% trees_up) %>% 
+  group_by(spp) %>% 
+  summarize(stump = (sum(stump_log*tpa)/plts) * ac)
+
 temp_up <- temp6 %>% 
   full_join(temp5) %>% 
+  full_join(temp7) %>% 
   mutate(vol1_ac = " ",
          vol1_total = " ",
          vol2_ac = " " ,
@@ -436,7 +482,7 @@ temp_up <- temp6 %>%
          vol3_total = " ") %>% 
   select(spp, ba_ac, tpa, vol1_ac, vol2_ac, vol3_ac, 
          vol5_ac, vol1_total, vol2_total, vol3_total, 
-         vol5_total)
+         vol5_total, stump)
 
 sumrow <- as.data.frame(lapply(temp_up, func)) %>% 
   mutate(spp = "total",
@@ -449,9 +495,12 @@ sumrow <- as.data.frame(lapply(temp_up, func)) %>%
          vol1_total = ifelse(is.numeric(vol1_total), vol1_total, as.numeric(0)),
          vol2_total = ifelse(is.numeric(vol2_total), vol2_total, as.numeric(0)),
          vol3_total = ifelse(is.numeric(vol3_total), vol3_total, as.numeric(0)),
-         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)))
+         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)),
+         stump = ifelse(is.numeric(stump), round(stump), "0"),
+         stump = paste("$", stump, sep = ""))
 
 temp_up <- temp_up %>% 
+  mutate(stump = round(stump)) %>% 
   rbind(sumrow) %>% 
   mutate(ba_ac = round(as.numeric(ba_ac), 1),
          tpa = round(as.numeric(tpa), 1),
@@ -459,16 +508,17 @@ temp_up <- temp_up %>%
          vol5_total = round(as.numeric(vol5_total)))
 
 kable(temp_up, "latex", booktabs = T, linesep = ' ',
-      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
+      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
       col.names = c("species", "basal area", "trees/ac", "veneer", 
                     "sawtimber", "pallet", "pulp", "veneer", 
-                    "sawtimber", "pallet", "pulp")) %>% 
-  kable_styling(position = "center", font_size = 8,
+                    "sawtimber", "pallet", "pulp", " ")) %>% 
+  kable_styling(position = "center", font_size = 7,
                 latex_options = "striped") %>% 
   add_header_above(c(" " = 3, "board feet" = 3, "cords" = 1,
-                     "thousand board feet" = 3, "cords" = 1)) %>% 
+                     "thousand board feet" = 3, "cords" = 1,
+                     "total" = 1)) %>% 
   add_header_above(c(" " = 1, "stocking" = 2, "volume/ac " = 4, 
-                     "total volume" = 4),
+                     "total volume" = 4, "stumpage" = 1),
                    bold = T, italic = T) %>% 
   row_spec(nrow(temp_up), bold = T, italic = T, background = '#DCDCDC') %>% 
   row_spec(0, bold = T, italic = T, background = '#DCDCDC')
@@ -514,14 +564,20 @@ temp6 <- trees %>%
             tpa = sum(tpa)/plts) %>% 
   arrange(desc(ba_ac)) 
 
+temp7 <- logs %>% 
+  filter(stand == std) %>% 
+  group_by(spp) %>% 
+  summarize(stump = (sum(stump_log*tpa)/plts) * ac)
+
 temp_total <- temp6 %>% 
   full_join(temp1) %>% 
   full_join(temp2) %>% 
   full_join(temp3) %>% 
-  full_join(temp5) %>%  
+  full_join(temp5) %>% 
+  full_join(temp7) %>% 
   select(spp, ba_ac, tpa, vol1_ac, vol2_ac, vol3_ac, 
          vol5_ac, vol1_total, vol2_total, vol3_total, 
-         vol5_total)
+         vol5_total, stump)
 
 sumrow <- as.data.frame(lapply(temp_total, func)) %>% 
   mutate(spp = "grand total",
@@ -534,9 +590,12 @@ sumrow <- as.data.frame(lapply(temp_total, func)) %>%
          vol1_total = ifelse(is.numeric(vol1_total), vol1_total, as.numeric(0)),
          vol2_total = ifelse(is.numeric(vol2_total), vol2_total, as.numeric(0)),
          vol3_total = ifelse(is.numeric(vol3_total), vol3_total, as.numeric(0)),
-         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)))
+         vol5_total = ifelse(is.numeric(vol5_total), vol5_total, as.numeric(0)),
+         stump = ifelse(is.numeric(stump), round(stump), "0"),
+         stump = paste("$", stump, sep = ""))
 
 temp_total <- temp_total %>% 
+  mutate(stump = round(stump)) %>% 
   rbind(sumrow) %>% 
   mutate(ba_ac = round(as.numeric(ba_ac), 1),
          tpa = round(as.numeric(tpa), 1),
@@ -550,16 +609,17 @@ temp_total <- temp_total %>%
          vol5_total = round(as.numeric(vol5_total)))
 
 kable(temp_total, "latex", booktabs = T, linesep = ' ',
-      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
+      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c", "c"),
       col.names = c("species", "basal area", "trees/ac", "veneer", 
                     "sawtimber", "pallet", "pulp", "veneer", 
-                    "sawtimber", "pallet", "pulp")) %>% 
-  kable_styling(position = "center", font_size = 8,
+                    "sawtimber", "pallet", "pulp", " ")) %>% 
+  kable_styling(position = "center", font_size = 7,
                 latex_options = "striped") %>% 
   add_header_above(c(" " = 3, "board feet" = 3, "cords" = 1,
-                     "thousand board feet" = 3, "cords" = 1)) %>% 
+                     "thousand board feet" = 3, "cords" = 1,
+                     "total" = 1)) %>% 
   add_header_above(c(" " = 1, "stocking" = 2, "volume/ac " = 4, 
-                     "total volume" = 4),
+                     "total volume" = 4, "stumpage" = 1),
                    bold = T, italic = T) %>% 
   row_spec(nrow(temp_total), bold = T, italic = T, background = '#DCDCDC') %>% 
   row_spec(0, bold = T, italic = T, background = '#DCDCDC')
@@ -902,6 +962,8 @@ kable(temp_ap, "latex", booktabs = T, linesep = ' ',
   
 ```
 
+\pagebreak
+
 **Unacceptable Trees**
 ```{r up2}
 ugs <- unique(filter(trees, stand == std, ags == 0)$tree)
@@ -973,8 +1035,6 @@ kable(temp_up, "latex", booktabs = T, linesep = ' ',
   row_spec(0, bold = T, italic = T, background = '#DCDCDC')
   
 ```
-
-\pagebreak
 
 **Totals**
 ```{r total2}
@@ -1329,8 +1389,6 @@ kable(temp_pal, "latex", booktabs = T, linesep = ' ',
   
 ```
 
-\pagebreak
-
 **Acceptable Pulp Trees**
 ```{r apall}
 ags <- unique(filter(trees, ags == 1)$tree)
@@ -1402,6 +1460,8 @@ kable(temp_ap, "latex", booktabs = T, linesep = ' ',
   row_spec(0, bold = T, italic = T, background = '#DCDCDC')
   
 ```
+
+\pagebreak
 
 **Unacceptable Trees**
 ```{r upall}
