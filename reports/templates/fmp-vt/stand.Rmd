@@ -77,9 +77,23 @@ x <- trees %>%
 \vspace{2pt}
 \indent 6-10”: `r round(sum(trees$stand == i & trees$dbh >= 6 & trees$dbh <= 10 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`% | 11-16”: `r round(sum(trees$stand == i & trees$dbh > 10 & trees$dbh <=16 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`%	| 17-22”: `r round(sum(trees$stand == i & trees$dbh > 16 & trees$dbh <= 22 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`% |	23+”: `r round(sum(trees$stand == i & trees$dbh > 22 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`%  
 
-> - __Standing dead wood (BA by size class):__   
-\vspace{2pt}
-6-10”: `r round((sum(filter(trees, stand == i, dbh >= 6, dbh <= 10)$live == 0)*baf)/(filter(stands, stand == i)$plots), 1)` ft^2^/ac | 11-16”: `r round((sum(filter(trees, stand == i, dbh > 10, dbh <= 16)$live == 0)*baf)/(filter(stands, stand == i)$plots), 1)` ft^2^/ac | 17-22”: `r round((sum(filter(trees, stand == i, dbh > 17, dbh <= 22)$live == 0)*baf)/(filter(stands, stand == i)$plots), 1)` ft^2^/ac | 23+”: `r round((sum(filter(trees, stand == i, dbh > 22)$live == 0)*baf)/(filter(stands, stand == i)$plots), 1)` ft^2^/ac  
+```{r}
+if(any(trees$vigor == 5)){
+  dead <- TRUE
+  six <- round((sum(filter(trees, stand == i, dbh >= 6, dbh <= 10)$live == 0)*baf)/
+                 (filter(stands, stand == i)$plots), 1)
+  eleven <- round((sum(filter(trees, stand == i, dbh > 10, dbh <= 16)$live == 0)*baf)/
+                    (filter(stands, stand == i)$plots), 1)
+  seventeen <- round((sum(filter(trees, stand == i, dbh > 17, dbh <= 22)$live == 0)*baf)/
+                       (filter(stands, stand == i)$plots), 1)
+  twentythree <- round((sum(filter(trees, stand == i, dbh > 22)$live == 0)*baf)/
+                         (filter(stands, stand == i)$plots), 1)
+} else {
+  dead <- FALSE
+}
+```
+
+`r ifelse(dead, paste0('> - __Standing dead wood (BA by size class):__   \n \\vspace{2pt} \\indent \\small 6-10": ', six, ' ft^2^/ac | 11-16”: ', eleven, ' ft^2^/ac | 17-22”: ', seventeen, ' ft^2^/ac | 23+”: ', twentythree, ' ft^2^/ac'), "")`
 
 ##Inventory information
 

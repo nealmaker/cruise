@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.25)  25 NOV 2019 12:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.25)  27 DEC 2019 16:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -707,10 +707,6 @@ Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks25
 \inpenc@posthook=\toks26
 )
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/eurosym/eurosym.sty
-Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
-\@eurobox=\box59
-)
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.s
 ty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
@@ -758,14 +754,14 @@ Package: nicefrac 1998/08/04 v0.9b Nice fractions
 \L@UnitsRaiseTextstyle=\skip91
 \L@UnitsRaiseScriptstyle=\skip92
 )) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box60
-\UL@hyphenbox=\box61
+\UL@box=\box59
+\UL@hyphenbox=\box60
 \UL@skip=\skip93
 \UL@hook=\toks27
 \UL@height=\dimen156
 \UL@pe=\count137
 \UL@pixel=\dimen157
-\ULC@box=\box62
+\ULC@box=\box61
 Package: ulem 2012/05/18
 \ULdepth=\dimen158
 )
@@ -776,35 +772,34 @@ Package morefloats Info: Maximum number of possible floats asked for: 36
 (morefloats)             (i.e. 18 more floats).
 (morefloats)             LaTeX might run out of memory before this
 (morefloats)             (in which case it will notify you).
-)
-No file fmp-vt.aux.
+) (./fmp-vt.aux)
 \openout1 = `fmp-vt.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 7
-0.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 6
+8.
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 70.
-\AtBeginShipoutBox=\box63
-Package hyperref Info: Link coloring OFF on input line 70.
+LaTeX Font Info:    ... okay on input line 68.
+\AtBeginShipoutBox=\box62
+Package hyperref Info: Link coloring OFF on input line 68.
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.st
 y
@@ -820,14 +815,15 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count138
 )
-LaTeX Info: Redefining \ref on input line 70.
-LaTeX Info: Redefining \pageref on input line 70.
-LaTeX Info: Redefining \nameref on input line 70.
+LaTeX Info: Redefining \ref on input line 68.
+LaTeX Info: Redefining \pageref on input line 68.
+LaTeX Info: Redefining \nameref on input line 68.
+(./fmp-vt.out) (./fmp-vt.out)
 \@outlinefile=\write3
 \openout3 = `fmp-vt.out'.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 70.
+LaTeX Info: Redefining \selectfont on input line 68.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -883,18 +879,18 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \langwohyphens=\language3
-<C:/Users/Neal/projects/cruise/logo-small.png, id=4, 209.28188pt x 289.08pt>
+<C:/Users/Neal/projects/cruise/logo-small.png, id=28, 209.28188pt x 289.08pt>
 File: C:/Users/Neal/projects/cruise/logo-small.png Graphic file (type png)
 <use C:/Users/Neal/projects/cruise/logo-small.png>
 Package pdftex.def Info: C:/Users/Neal/projects/cruise/logo-small.png  used on 
-input line 84.
+input line 82.
 (pdftex.def)             Requested size: 43.20003pt x 59.672pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 86.
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 86.
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -912,27 +908,27 @@ LaTeX Warning: Marginpar on page 1 moved.
 LaTeX Warning: Marginpar on page 1 moved.
 
 
-Overfull \hbox (73.08676pt too wide) in paragraph at lines 140--141
+Overfull \hbox (73.08676pt too wide) in paragraph at lines 138--139
 [] [] []  
  []
 
 
-Overfull \hbox (73.08676pt too wide) in paragraph at lines 146--147
+Overfull \hbox (73.08676pt too wide) in paragraph at lines 144--145
 [] [] []  
  []
 
 
-Overfull \hbox (73.08676pt too wide) in paragraph at lines 152--153
+Overfull \hbox (73.08676pt too wide) in paragraph at lines 150--151
 [] [] []  
  []
 
 
-Overfull \hbox (73.08676pt too wide) in paragraph at lines 158--159
+Overfull \hbox (73.08676pt too wide) in paragraph at lines 156--157
 [] [] []  
  []
 
 
-Overfull \hbox (73.08676pt too wide) in paragraph at lines 170--171
+Overfull \hbox (73.08676pt too wide) in paragraph at lines 168--169
 [] [] []  
  []
 
@@ -941,7 +937,7 @@ Overfull \hbox (73.08676pt too wide) in paragraph at lines 170--171
 {c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex
 .map} <c:/Users/Neal/projects/cruise/logo-small.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-85.
+83.
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
@@ -957,44 +953,152 @@ LaTeX Warning: Marginpar on page 2 moved.
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 242.
+This message occurred on input line 230.
 
 [2]
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 298.
+This message occurred on input line 294.
 
 [3]
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 299.
+This message occurred on input line 294.
 
 [4]
-<fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf, id=44, 144.54pt x 433.62pt>
+<fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf, id=64, 144.54pt x 433.62pt>
 File: fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 <use fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf  used 
 on input line 356.
 (pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
+<fmp-vt_files/figure-latex/unnamed-chunk-5-1.pdf, id=65, 361.35pt x 271.0125pt>
 
-! Package inputenc Error: Unicode character  (U+009D)
-(inputenc)                not set up for use with LaTeX.
+File: fmp-vt_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-5-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-5-1.pdf  used 
+on input line 422.
+(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
 
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.408   \vspace{2pt} \indent 6-10â\euro{}
-                                            : 30\% \textbar{} 11-16â\euro{}:
- 
+Underfull \hbox (badness 10000) in paragraph at lines 422--423
+
+ []
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 446.
+
+[5 <./fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 446.
+
+[6 <./fmp-vt_files/figure-latex/unnamed-chunk-5-1.pdf>]
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 455.
+
+[7]
+<fmp-vt_files/figure-latex/unnamed-chunk-7-1.pdf, id=103, 144.54pt x 433.62pt>
+File: fmp-vt_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-7-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-7-1.pdf  used 
+on input line 521.
+(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
+<fmp-vt_files/figure-latex/unnamed-chunk-10-1.pdf, id=104, 361.35pt x 271.0125p
+t>
+File: fmp-vt_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
+<use fmp-vt_files/figure-latex/unnamed-chunk-10-1.pdf>
+Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-10-1.pdf  used
+ on input line 586.
+(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 586--587
+
+ []
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 610.
+
+[8 <./fmp-vt_files/figure-latex/unnamed-chunk-7-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 610.
+
+[9 <./fmp-vt_files/figure-latex/unnamed-chunk-10-1.pdf>]
+
+LaTeX Warning: Marginpar on page 10 moved.
+
+
+LaTeX Warning: Marginpar on page 10 moved.
+
+
+LaTeX Warning: Marginpar on page 10 moved.
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 619.
+
+[10]
+
+Package bibentry Warning: You have used \nobibliography* 
+(bibentry)                without a following \bibliography.
+(bibentry)                You may not be able to run BibTeX.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 623.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 623.
+(./fmp-vt.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 623.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 623.
+Package rerunfilecheck Info: File `fmp-vt.out' has not changed.
+(rerunfilecheck)             Checksum: 51466D573D981956226F89367AC7FD7E;1025.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 623.
+ ) 
 Here is how much of TeX's memory you used:
- 13289 strings out of 494108
- 191036 string characters out of 6172307
- 283775 words of memory out of 5000000
- 17107 multiletter control sequences out of 15000+600000
- 23154 words of font info for 65 fonts, out of 8000000 for 9000
+ 13307 strings out of 494108
+ 191900 string characters out of 6172307
+ 291755 words of memory out of 5000000
+ 17101 multiletter control sequences out of 15000+600000
+ 23813 words of font info for 65 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  51i,11n,51p,443b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
+1000.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecrm0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfou
+r/jknappen/ec/ecbx0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts
+/pk/ljfour/jknappen/ec/tcrm0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-
+var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> <c:/Users/Neal/Documents/.TinyT
+eX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0800.600pk> <c:/Users/Neal/Documen
+ts/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.600pk> <c:/Users/Nea
+l/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> <c:/
+Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.60
+0pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ec
+rm0800.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknap
+pen/ec/ecti1095.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljf
+our/jknappen/ec/ecti1200.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ecti1440.600pk>
+Output written on fmp-vt.pdf (10 pages, 198342 bytes).
+PDF statistics:
+ 560 PDF objects out of 1000 (max. 8388607)
+ 164 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 74 words of extra memory for PDF output out of 10000 (max. 10000000)
+
