@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, warning = FA
 ```
 
 ```{r wrangling_cruise, include=FALSE}
-property <- "two-dog"
+property <- "hydefam"
 year <- 2019
 
 library("here")
@@ -72,7 +72,7 @@ mngmt_schd <- paste0((year+1):(year+15), " - ", mngmt)
 
 \vspace{70pt}
 
-\small `r glacres` acres (`r eligable` certified eligible; `r fully_assessed` fully assessed committed)
+\small `r glacres` acres 
 
 \vspace{18pt}
 

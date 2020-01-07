@@ -7,9 +7,6 @@ fix_plots <-
                  "Reassign plots?",
                graphics = T)
 
-baf <- 10
-trucking <- 80
-
 library(XLConnect)
 library(tidyverse)
 library("here")
@@ -64,6 +61,7 @@ watertext <- prop[17,2]
 boundariestext <- prop[18,2]
 lat <- as.numeric(prop[21,2])
 lon <- as.numeric(prop[22,2])
+baf <- as.numeric(prop[23,2])
 
 
 ###############################
@@ -326,6 +324,15 @@ priceit <- rselect.list(yn,
                         graphics = T)
 
 if(priceit == "yes"){
+  
+  repeat {
+    trucking <- readline("trucking ($/mbf): ")
+    trucking <- as.numeric(trucking)
+    
+    if(!is.na(trucking)) {
+      break
+    }
+  }
   
   load(here("data", "prices.rda"))
   
