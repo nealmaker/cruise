@@ -68,11 +68,6 @@ x <- trees %>%
 \vspace{2pt}
 `r (stands %>% filter(stand == i))$health`  
 
-> - __Volume/ac:__   
-\vspace{2pt}
-`r round(stands %>% filter(stand == i) %>% .$veneer_vol/1000,1)` MBF veneer, `r round(stands %>% filter(stand == i) %>% .$saw_vol/1000,1)` MBF sawtimber, `r round(stands %>% filter(stand == i) %>% .$tie_vol/1000,1)` MBF tie logs,   
-`r round(stands %>% filter(stand == i) %>% .$cord_vol/500)` cds pulp   
-
 > - __Size class structure (%BA):__  	 
 \vspace{2pt}
 \indent 6-10”: `r round(sum(trees$stand == i & trees$dbh >= 6 & trees$dbh <= 10 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`% | 11-16”: `r round(sum(trees$stand == i & trees$dbh > 10 & trees$dbh <=16 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`%	| 17-22”: `r round(sum(trees$stand == i & trees$dbh > 16 & trees$dbh <= 22 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`% |	23+”: `r round(sum(trees$stand == i & trees$dbh > 22 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`%  

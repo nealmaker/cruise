@@ -155,7 +155,8 @@ stands_raw <- stands_raw %>%
   mutate(stand = as.character(stand),
          structure.1 = case_when(structure == 1 ~ "Even-aged",
                                  structure == 2 ~ "Two-aged",
-                                 structure == 3 ~ "Uneven-aged"))
+                                 structure == 3 ~ "Uneven-aged")) %>% 
+  filter(!is.na(stand))
 
 stands <- stands %>% full_join(stands_raw)
 
@@ -221,6 +222,8 @@ trees <- trees %>%
 logs <- trees %>%
   select(tree, plot, stand, spp, dbh, logs, sft, tpa, ht, theta1:beta2) %>%
   mutate(logs = str_trim(logs),
+         # turn "*"s (nice veneer) into "0"s, so they play nice:
+         logs = str_replace_all(logs, "\\*", "0"),
          # for older cruises, remove 9s that were hard stops & internal cull:
          logs = str_replace(logs, "9$", ","),
          logs = str_replace_all(logs, "9", "6"),
@@ -262,7 +265,13 @@ logs <- trees %>%
     dib = if_else(is.na(dib), 0, dib)) %>%
   left_join(grade_thresholds) %>%
   # determine current grade 
-  mutate(grade = case_when(max_grade==1 & dib>=t1 ~ 1,
+  mutate(grade = case_when(max_grade==0 & dib>=t0 ~ 0,
+                           max_grade==0 & dib>=t1 ~ 1,
+                           max_grade==0 & dib>=t2 ~ 2,
+                           max_grade==0 & dib>=t3 ~ 3,
+                           max_grade==0 & dib>=t5 ~ 5,
+                           max_grade==0 & dib<t5 ~ 6,
+                           max_grade==1 & dib>=t1 ~ 1,
                            max_grade==1 & dib>=t2 ~ 2,
                            max_grade==1 & dib>=t3 ~ 3,
                            max_grade==1 & dib>=t5 ~ 5,
@@ -292,21 +301,25 @@ logs <- trees %>%
 ## ammend plots table with veneer, st, tie, and cordwd volumes ------------------
 plots <- plots %>% 
   left_join((logs %>% 
-               filter(grade %in% c(1, 2, 3, 5)) %>%
+               filter(grade %in% c(0, 1, 2, 3, 5)) %>%
                group_by(plot, grade) %>% 
                summarize(volume = sum(vol_ac)) %>% 
                # to keep grades that aren't represented:
-               merge(data.frame(plot = c(9999999, 9999999, 9999999, 9999999), 
-                                grade = c(1, 2, 3, 5), 
-                                volume = c(0, 0, 0, 0)), all = T) %>% 
+               merge(data.frame(plot = c(9999999, 9999999, 9999999, 9999999, 9999999), 
+                                grade = c(0, 1, 2, 3, 5), 
+                                volume = c(0, 0, 0, 0, 0)), all = T) %>% 
                spread(grade, volume, fill = 0) %>% 
                filter(plot != 9999999) %>% 
-               rename(veneer_vol = '1', saw_vol = '2', 
+               rename(nveneer_vol = '0', veneer_vol = '1', saw_vol = '2', 
                       tie_vol = '3', cord_vol = '5'))) %>%
-  mutate(veneer_vol = if_else(is.na(veneer_vol), 0, veneer_vol),
+  # turn 'na's to 0 & combine nice veneer and veneer:
+  mutate(nveneer_vol = if_else(is.na(nveneer_vol), 0, nveneer_vol),
+         veneer_vol = if_else(is.na(veneer_vol), 0, veneer_vol),
+         veneer_vol = nveneer_vol + veneer_vol,
          saw_vol = if_else(is.na(saw_vol), 0, saw_vol),
          tie_vol = if_else(is.na(tie_vol), 0, tie_vol),
-         cord_vol = if_else(is.na(cord_vol), 0, cord_vol))
+         cord_vol = if_else(is.na(cord_vol), 0, cord_vol)) %>% 
+  select(-nveneer_vol)
 
 
 # ammend stands table with volume/ac info --------------------------------------
@@ -483,22 +496,45 @@ if(any(trees$vigor > 5 | trees$vigor < 1)){
 ## Save rda
 ###############################
 
-if ("objectives" %in% ls(envir = .GlobalEnv)) {
-  save(file, baf, logs, trees, plots, stands,
-       grade_thresholds, property, month, year, forestname,
-       jurisdiction, glacres, eligable, ineligable, fully_assessed, 
-       non_commited, parcel_ids, deed, cert_num_480a, orig_cert, 
-       lat, lon, elevationmin, elevationmax, owners, addressline1, 
-       addressline2, citystatezip, plan_yr, trucking, accesstext,
-       watertext, boundariestext, objectives, soils,
-       file = paste("rda/", property, "-cruise-", year, ".rda", sep = ""))
+if (priceit == "yes") {
+  if ("objectives" %in% ls(envir = .GlobalEnv)) {
+    save(file, baf, logs, trees, plots, stands,
+         grade_thresholds, property, month, year, forestname,
+         jurisdiction, glacres, eligable, ineligable, fully_assessed, 
+         non_commited, parcel_ids, deed, cert_num_480a, orig_cert, 
+         lat, lon, elevationmin, elevationmax, owners, addressline1, 
+         addressline2, citystatezip, plan_yr, trucking, accesstext,
+         watertext, boundariestext, objectives, soils, prices,
+         file = paste("rda/", property, "-cruise-", year, ".rda", sep = ""))
+  } else {
+    save(file, baf, logs, trees, plots, stands,
+         grade_thresholds, property, month, year, forestname,
+         jurisdiction, glacres, eligable, ineligable, fully_assessed, 
+         non_commited, parcel_ids, deed, cert_num_480a, orig_cert, 
+         lat, lon, elevationmin, elevationmax, owners, addressline1, 
+         addressline2, citystatezip, plan_yr, trucking, accesstext,
+         watertext, boundariestext, soils, prices,
+         file = paste("rda/", property, "-cruise-", year, ".rda", sep = ""))
+  }
 } else {
-  save(file, baf, logs, trees, plots, stands,
-       grade_thresholds, property, month, year, forestname,
-       jurisdiction, glacres, eligable, ineligable, fully_assessed, 
-       non_commited, parcel_ids, deed, cert_num_480a, orig_cert, 
-       lat, lon, elevationmin, elevationmax, owners, addressline1, 
-       addressline2, citystatezip, plan_yr, trucking, accesstext,
-       watertext, boundariestext, soils,
-       file = paste("rda/", property, "-cruise-", year, ".rda", sep = ""))
+  if ("objectives" %in% ls(envir = .GlobalEnv)) {
+    save(file, baf, logs, trees, plots, stands,
+         grade_thresholds, property, month, year, forestname,
+         jurisdiction, glacres, eligable, ineligable, fully_assessed, 
+         non_commited, parcel_ids, deed, cert_num_480a, orig_cert, 
+         lat, lon, elevationmin, elevationmax, owners, addressline1, 
+         addressline2, citystatezip, plan_yr, accesstext,
+         watertext, boundariestext, objectives, soils,
+         file = paste("rda/", property, "-cruise-", year, ".rda", sep = ""))
+  } else {
+    save(file, baf, logs, trees, plots, stands,
+         grade_thresholds, property, month, year, forestname,
+         jurisdiction, glacres, eligable, ineligable, fully_assessed, 
+         non_commited, parcel_ids, deed, cert_num_480a, orig_cert, 
+         lat, lon, elevationmin, elevationmax, owners, addressline1, 
+         addressline2, citystatezip, plan_yr, accesstext,
+         watertext, boundariestext, soils,
+         file = paste("rda/", property, "-cruise-", year, ".rda", sep = ""))
+  }
 }
+

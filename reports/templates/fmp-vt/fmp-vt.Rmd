@@ -2,7 +2,7 @@
 output:
   tufte::tufte_handout: default
 params:
-  file: "C:\\Users\\Neal\\projects\\cruise\\rda\\perdue-cruise-2019.rda"
+  file: "C:\\Users\\Neal\\projects\\cruise\\rda\\test-prop-cruise-2019.rda"
 ---
 
 ```{r setup, include=FALSE}
