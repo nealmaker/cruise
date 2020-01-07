@@ -1,6 +1,8 @@
 ---
 output:
   tufte::tufte_handout: default
+params:
+  file: "C:\\Users\\Neal\\projects\\cruise\\rda\\test-cruise-2019.rda"
 ---
 
 ```{r setup, include=FALSE}
@@ -8,27 +10,17 @@ knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, warning = FA
 ```
 
 ```{r wrangling_cruise, include=FALSE}
-property <- "hydefam"
-year <- 2019
+
+load(params$file)
 
 library("here")
-
-# this gives a Latex unicode character error:
-# load(file = params$file)
-
-# with this in YMAL:
-# params:
-#  file: "C:\\Users\\Neal\\projects\\cruise\\rda\\test-cruise-2019.rda"
-
-load(file = here("rda", paste0(property, "-cruise-", year, ".rda")))
-
-library(tidyverse)
-library(ggthemes)
-library(stargazer)
-library(knitr)
-library(extrafont)
-library(Hmisc)
-library(lubridate)
+library("tidyverse")
+library("ggthemes")
+library("stargazer")
+library("knitr")
+library("extrafont")
+library("Hmisc")
+library("lubridate")
 loadfonts("win", quiet = TRUE)
 source("C:/Users/Neal/projects/cruise/scripts/numbers2words.R")
 

@@ -74,7 +74,7 @@ x <- x %>%
 
 > - __Size class structure (%BA):__  	 
 \vspace{2pt}
-\indent 6-10”: `r round(sum(trees$stand == i & trees$dbh >= 6 & trees$dbh <= 10 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`% | 11-16”: `r round(sum(trees$stand == i & trees$dbh > 10 & trees$dbh <=16 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`%	| 17-22”: `r round(sum(trees$stand == i & trees$dbh > 16 & trees$dbh <= 22 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`% |	23+”: `r round(sum(trees$stand == i & trees$dbh > 22 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`%  
+\indent 6-10\”: `r round(sum(trees$stand == i & trees$dbh >= 6 & trees$dbh <= 10 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`% | 11-16\”: `r round(sum(trees$stand == i & trees$dbh > 10 & trees$dbh <=16 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`%	| 17-22\”: `r round(sum(trees$stand == i & trees$dbh > 16 & trees$dbh <= 22 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`% |	23\"+: `r round(sum(trees$stand == i & trees$dbh > 22 & trees$live == 1)/sum(trees$stand == i & trees$dbh >= 6 & trees$live == 1)*100)`%  
 
 ```{r}
 if(any(trees$vigor == 5)){

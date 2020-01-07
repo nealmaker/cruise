@@ -34,16 +34,22 @@ if(choice == "process cruise data from an excel sheet"){
   if(report == "VT FMP"){
     render(here("reports", "templates", "fmp-vt", "fmp-vt.Rmd"), 
            params = list(file = cruise))
+    system2('open', args = 'reports/templates/fmp-vt/fmp-vt.pdf', wait = FALSE)
   } 
   
   else if(report == "NY FMP"){
     render(here("reports", "templates", "fmp-ny", "fmp-ny.Rmd"), 
            params = list(file = cruise))
+    system2('open', args = 'reports/templates/fmp-ny/fmp-ny.pdf', wait = FALSE)
   } 
   
   else if(report == "Stand & Stock"){
-    render(here("reports", "templates", "stand-and-stock", "stand-and-stock.Rmd"), 
+    render(here("reports", "templates", "stand-and-stock", 
+                "stand-and-stock-priced.Rmd"), 
            params = list(file = cruise))
+    system2('open', 
+            args = 'reports/templates/stand-and-stock/stand-and-stock-priced.pdf', 
+            wait = FALSE)
   } 
   
   else print("Error: invalid report type selected")

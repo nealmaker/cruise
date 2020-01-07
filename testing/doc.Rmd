@@ -1,0 +1,8 @@
+---
+output:
+  tufte::tufte_handout: default
+---
+
+Here's a simple document with some *strange* symbols:
+
+~`!@#$%^&*()_-+=|\{[]}:;"'?/>.<,
