@@ -56,7 +56,7 @@ mngmt_schd <- paste0("\\begin{marginfigure} \\noindent \\textit{\\LARGE Manageme
 
 \LARGE _`r forestname` Property_   
 \Large _Forest Management Plan_   
-\Large _`r lubridate::today()`_
+\Large _`r format(lubridate::today(), format = "%B %d, %Y")`_
 
 ```{r pbf_logo, fig.margin=TRUE, out.width='30%', out.height='30%', fig.align='center'}
 knitr::include_graphics("C:/Users/Neal/projects/cruise/logo-small.png")

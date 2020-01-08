@@ -98,7 +98,7 @@ trees <- trees %>% fill(plot, stand) %>%
                           "white pine", "other softwood")) %>%
   filter(dbh > 0)
 
-plots <- trees %>% filter(dbh>=4) %>%
+plots <- trees %>% filter(dbh>=6) %>%
   group_by(plot) %>% 
   summarize(stand = stand[1],
             pct_sft = round(sum(live[sft == 1])/sum(live)*100),
