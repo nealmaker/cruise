@@ -260,12 +260,15 @@ kable(temp5, booktabs = T, digits = 0, col.names = c(' ', 'Total', 'Acceptable')
 
 ##Long-term management system
 
-**Even-aged management**^[Leak, W.B., M.Yamasaki, and R. Holleran. 2014. Silvicultural Guide for Northern Hardwoods in the Northeast. USDA For. Serv. Gen. Tech. Rep. NRS-132.] 
+**`r filter(stands, stand == i)$long_term_name`**
 
+`r filter(stands, stand == i)$long_term`
 
 ##Silvicultural prescription
 
-**Shelterwood establishment**^[Leak, W.B., M.Yamasaki, and R. Holleran. 2014. Silvicultural Guide for Northern Hardwoods in the Northeast. USDA For. Serv. Gen. Tech. Rep. NRS-132.]     
-**Year:** 2022
+`r ifelse(!is.na(filter(stands, stand == i)$treatment_name), paste0("**", filter(stands, stand == i)$treatment_name, "**"), "")`    
+`r ifelse(!is.na(filter(stands, stand == i)$treatment_yr), paste("\\noindent __Year:__", filter(stands, stand == i)$treatment_yr), "")`
+
+`r filter(stands, stand == i)$treatment`
 
 \newpage
