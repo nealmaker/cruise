@@ -21,6 +21,37 @@ library(knitr)
 library(kableExtra)
 library(extrafont)
 loadfonts("win", quiet = TRUE)
+
+# Paste together management schedule text:
+temp <- paste0("\\item Area ", stands$stand, ": ", stands$treatment_name, " \n\n")
+years_of_consequence <- c(unique(stands$treatment_yr), (plan_yr + 9))
+years_of_consequence <- years_of_consequence[!is.na(years_of_consequence)]
+years_of_consequence <- years_of_consequence[order(years_of_consequence)]
+
+mngmt <- lapply(years_of_consequence, function(x){
+  if(x %in% stands$treatment_yr){
+    if(x == (plan_yr + 9)){
+      paste0("\\begin{itemize} \\item Reinventory forest \n\n ", 
+             paste(temp[which(stands$treatment_yr == x)], collapse = " "),
+             " \\end{itemize}")
+    }else{
+      paste0("\\begin{itemize} ", 
+             paste(temp[which(stands$treatment_yr == x)], collapse = " "),
+             " \\end{itemize}")
+    }
+  }else{
+    if(x == (plan_yr + 9)){
+      "\\begin{itemize} \\item Reinventory forest \n\n \\end{itemize}"
+    }else {
+      ""
+    }
+  }
+})
+
+mngmt_schd <- paste0("\\vspace{10 pt} \n\n \\noindent \\textit{\\large ",
+                     years_of_consequence, "} \n\n ", mngmt, collapse = " ")
+
+mngmt_schd <- paste0("\\begin{marginfigure} \\noindent \\textit{\\LARGE Management Schedule} \n\n ", mngmt_schd, " \\end{marginfigure}")
 ```
 
 \LARGE _`r forestname` Property_   
@@ -119,23 +150,7 @@ This plan Covers the ten year period from `r if_else(month < 4, year, year+1)` t
 
 #Stand Descriptions & Management Recommendations
 
-\begin{marginfigure}
-\noindent \textit{\LARGE Management Schedule}
-\vspace{10pt}
-
-\noindent \textit{\large 2022}
-
-\begin{itemize}
-  \item Area 1: Group selection harvest  
-\end{itemize}
-
-\vspace{10pt}  
-\noindent \textit{\large `r if_else(month < 4, year+9, year+10)`}  
-
-\begin{itemize}
-  \item Reinventory property
-\end{itemize}
-\end{marginfigure}
+`r mngmt_schd`
 
 Presented below are detailed stand-by-stand descriptions of the forest, the long-term structural, compositional and functional goals for each stand, and the near-term silvicultural treatments or management activities that have been prescribed to advance each stand toward those goals.  The data presented in the following pages was obtained from a field examination of the property in `r lubridate::month(month, label = TRUE, abbr = FALSE)` of `r year`.  General conditions were assessed qualitatively in conjunction with quantitative sampling.  Observational notes and sample summary statistics together provide the basis for the area descriptions and management recommendations. All sampling was done using a systematic sample and variable radius plots. In stands with uneven-aged structures, all trees 6" dbh and larger were measured in each plot. In stands with even-aged structures, all main-canopy trees were measured in each plot.
 

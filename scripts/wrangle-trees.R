@@ -59,6 +59,7 @@ addressline2 <- prop[15,2]
 citystatezip <- prop[16,2]
 watertext <- prop[17,2]
 boundariestext <- prop[18,2]
+plan_yr <- as.numeric(prop[20,2])
 lat <- as.numeric(prop[21,2])
 lon <- as.numeric(prop[22,2])
 baf <- as.numeric(prop[23,2])
@@ -489,14 +490,14 @@ if(any(trees$vigor > 5 | trees$vigor < 1)){
 
 if (priceit == "yes") {
   if ("objectives" %in% ls(envir = .GlobalEnv)) { 
-    save(file, baf, logs, trees, plots, stands,
+    save(file, baf, logs, trees, plots, stands, plan_yr,
          grade_thresholds, property, month, year, forestname,
          town, glacres, gldescrip, span, photo, elevationmin,
          elevationmax, owners, addressline1, addressline2, citystatezip,
          watertext, boundariestext, objectives, soils, trucking, prices,
          file = paste("rda/", property, "-cruise-", year, ".rda", sep = ""))
   } else {
-    save(file, baf, logs, trees, plots, stands,
+    save(file, baf, logs, trees, plots, stands, plan_yr,
          grade_thresholds, property, month, year, forestname,
          town, glacres, gldescrip, span, photo, elevationmin,
          elevationmax, owners, addressline1, addressline2, citystatezip,
@@ -505,14 +506,14 @@ if (priceit == "yes") {
   } 
 } else {
   if ("objectives" %in% ls(envir = .GlobalEnv)) { 
-    save(file, baf, logs, trees, plots, stands,
+    save(file, baf, logs, trees, plots, stands, plan_yr,
          grade_thresholds, property, month, year, forestname,
          town, glacres, gldescrip, span, photo, elevationmin,
          elevationmax, owners, addressline1, addressline2, citystatezip,
          watertext, boundariestext, objectives, soils,
          file = paste("rda/", property, "-cruise-", year, ".rda", sep = ""))
   } else {
-    save(file, baf, logs, trees, plots, stands,
+    save(file, baf, logs, trees, plots, stands, plan_yr,
          grade_thresholds, property, month, year, forestname,
          town, glacres, gldescrip, span, photo, elevationmin,
          elevationmax, owners, addressline1, addressline2, citystatezip,

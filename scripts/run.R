@@ -17,8 +17,10 @@ if(choice == "process cruise data from an excel sheet"){
   
   if(choice == "NY 480a") {
     source(here("scripts", "wrangle-trees-480a.R"))
+  } else if(choice == "VT UVA") {
+    source(here("scripts", "wrangle-trees.R"))
   } else {
-    source(here("scripts", "wrangle-trees.R")) 
+    print("That choice is not operational yet.")
   }
 
 }else if(choice == "generate a report from already processed data"){

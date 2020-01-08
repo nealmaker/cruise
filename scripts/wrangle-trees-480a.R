@@ -65,7 +65,7 @@ citystatezip <- prop[21,2]
 accesstext <- prop[22,2]
 watertext <- prop[23,2]
 boundariestext <- prop[24,2]
-plan_yr <- prop[26,2]
+plan_yr <- as.numeric(prop[26,2])
 lat <- as.numeric(prop[27,2])
 lon <- as.numeric(prop[28,2])
 baf <- as.numeric(prop[29,2])
