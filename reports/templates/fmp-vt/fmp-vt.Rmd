@@ -3,10 +3,13 @@ output:
   tufte::tufte_handout: default
 params:
   file: "C:\\Users\\Neal\\projects\\cruise\\rda\\test-prop-cruise-2019.rda"
+bibliography: ["citations.bib"]
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, error = FALSE, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 3.75)
+
+download.file("https://github.com/nealmaker/bibliography/raw/master/citations.bib", "citations.bib")
 ```
 
 \thispagestyle{empty}
@@ -169,3 +172,5 @@ res <- lapply(stands$stand, function(i) {
 
 cat(unlist(res), sep = '\n')
 ```
+
+#References
