@@ -24,7 +24,7 @@ prop <- readWorksheetFromFile(file, sheet = 1, header = FALSE, endCol = 2)
 
 
 # error for incorrect species codes (before deleting them) ------------------
-if(max((trees %>% filter(!is.na(code)))$code) > 25 | 
+if(max((trees %>% filter(!is.na(code)))$code) > 26 | 
    min((trees %>% filter(!is.na(code)))$code) < 1){
   message("ERROR: tree(s) w/ nonexistant species code(s)")
   quit(save = "ask")

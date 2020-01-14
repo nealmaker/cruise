@@ -267,7 +267,7 @@ temp1 <- trees %>% filter(stand == i, live == 1) %>%
                           include.lowest = T, 
                           right = F)) %>% 
   filter(!is.na(size_class)) %>% 
-  group_by(size_class) %>% 
+  group_by(size_class, .drop = F) %>% #.drop=F keeps empty factors
   summarize(total = n()*baf/plts,
             ags = sum(ags == 1)*baf/plts,
             ugs = total - ags) %>%

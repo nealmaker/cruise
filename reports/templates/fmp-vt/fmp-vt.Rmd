@@ -4,6 +4,7 @@ output:
 params:
   file: "C:\\Users\\Neal\\projects\\cruise\\rda\\test-prop-cruise-2019.rda"
 bibliography: ["citations.bib"]
+link-citations: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -79,7 +80,7 @@ knitr::include_graphics("C:/Users/Neal/projects/cruise/logo-small.png")
 \noindent \textit{\large Owner}
 \newline\indent `r owners`  
 \newline\indent `r addressline1`
-`r ifelse(is.na(addressline2), "", "\newline")`\indent `r if_else(is.na(addressline2), "", addressline2)`
+`r ifelse(is.na(addressline2), "", "\n")`\indent `r if_else(is.na(addressline2), "", addressline2)`
 \newline\indent `r citystatezip`  
 \end{marginfigure}
 
@@ -141,7 +142,7 @@ This forest management plan meets the standards promulgated by the Vermont Depar
 
 #Introduction
 
-This plan Covers the ten year period from `r if_else(month < 4, year, year+1)` to `r if_else(month < 4, year+9, year+10)`. It lays out the near- and medium-term actions that should guide the development of the `r forestname` Forest.  It also qualifies the property for Use Value Appraisal (UVA) and commensurate reduction in property taxes.^[Further information about UVA and current valuations can be found at the Vermont Tax Department's website: https://tax.vermont.gov/property-owners/current-use. \vspace{20pt}]  Owners participating in the Use Value Appraisal program are obliged to manage their property according to the plan and to make any reasonable investments for improvement that the plan recommends.^[UVA management plan standards are determined by the Department of Forests, Parks, & Recreation and are available at https://fpr.vermont.gov/forest/your_woods/use_value_appraisal or through a County Forester.]  Its recommendations were developed in accordance with the principles and practices of scientifically sound forestry, as described in the relevant management guidelines, textbooks and academic journals.
+This plan Covers the ten year period from `r if_else(month < 4, year, year+1)` to `r if_else(month < 4, year+9, year+10)`. It lays out the near- and medium-term actions that should guide the development of the `r forestname` Forest.  It also qualifies the property for Use Value Appraisal (UVA) and commensurate reduction in property taxes.^[Further information about UVA and current valuations can be found at the Vermont Tax Department's website: https://tax.vermont.gov/property-owners/current-use. \vspace{20pt}]  Owners participating in the Use Value Appraisal program are obliged to manage their property according to the plan and to make any reasonable investments for improvement that the plan recommends.^[UVA management plan standards are determined by the Department of Forests, Parks, & Recreation and are available at https://fpr.vermont.gov/forest/your_woods/use_value_appraisal or through a County Forester.]  Its recommendations were developed in accordance with the principles and practices of scientifically sound forestry, as described in the relevant management guidelines, textbooks and academic journals\cite{@halligan_relative_1999}.
 
 #Property Description
 
