@@ -28,7 +28,7 @@
 
 # diameter dist of main spp in a specific stand ----
 
-trees %>% filter(stand == i, live == 1, dbh >= 6) %>%
+trees %>% filter(stand == i, live == 1, include) %>%
   group_by(spp) %>%
   mutate(spp_sum = sum(live)) %>%
   ungroup() %>%
@@ -46,15 +46,62 @@ trees %>% filter(stand == i, live == 1, dbh >= 6) %>%
        subtitle = "for common species")
 ```
 
+> - __Average stocking (with 95% confidence intervals):__   
+\vspace{2pt}
+`r paste0(filter(stands, stand == i)$mean_ba, " sq ft basal area (+/- ", filter(stands, stand == i)$confint_ba, " sq ft)")`   
+`r paste0(filter(stands, stand == i)$qsd, '" quadratic stand diameter (+/- ', filter(stands, stand == i)$confint_qsd, '")')`   
+`r paste0(filter(stands, stand == i)$tpa, " trees per acre (+/- ", filter(stands, stand == i)$confint_tpa, " trees)")`   
+\vspace{8pt}
+```{r results="asis"}
+plts <- stands %>% filter(stand == i) %>% .$plots
+resid <- ifelse(is.na(filter(stands, stand == i)$resid_ba_6_12_16_22), 0, 1)
+
+temp1 <- trees %>% filter(stand == i, live == 1) %>% 
+  mutate(size_class = cut(dbh, c(6, 12, 16, 22, Inf), 
+                          include.lowest = T, 
+                          right = F)) %>% 
+  filter(!is.na(size_class)) %>% 
+  group_by(size_class, .drop = F) %>% #.drop=F keeps empty factors
+  dplyr::summarize(total = n()*baf/plts,
+            ags = sum(ags == 1)*baf/plts,
+            ugs = total - ags) %>%
+  mutate(size_class = c('6-11 in.', '12-15 in.', '16-21 in.', '22+ in.'))
+
+header <- c("Size Class", "Total", "AGS", "UGS")
+cap <- "Current basal area (sq ft/ac) of total growing stock, acceptable growing stock (AGS), and unacceptable growing stock (UGS) by size class."
+
+if (resid == 1) {
+  resids <- as.list(str_split(filter(stands, stand == i)$resid_ba_6_12_16_22, "\\D+"))
+  resids <- as.numeric(resids[[1]])
+  
+  temp1 <- temp1 %>% 
+    mutate(target = resids)
+  
+  header <- c(header, "Target")
+  cap <- "Current (total, acceptable, and unacceptable growing stock) and post-harvest target basal areas (sq ft/ac) by size class."
+}
+
+func <- function(z) if (is.numeric(z)) sum(z) else ''
+sumrow <- as.data.frame(lapply(temp1, func), stringsAsFactors = F)
+sumrow$size_class[1] <- "Total"
+temp1 <- rbind(temp1, sumrow)
+
+kable(temp1, booktabs = T, digits = 0, col.names = header) %>% 
+  kable_styling(position = "left")
+```
+
 ```{r}
 x <- trees %>% 
   filter(stand == i, live == 1, dbh >= 6) %>% 
   group_by(spp) %>% 
-  summarize(spp_sum = sum(live)) %>%
+  dplyr::summarize(spp_sum = sum(live)) %>%
   mutate(pct = spp_sum / sum(spp_sum)) %>%
   select(spp, pct) %>%
   arrange(-pct)
 ```
+
+\vspace{2pt}
+\footnotesize\parbox{200pt}{`r paste(cap)`}\normalsize
 
 > - __Species (% stocking):__   
 \vspace{2pt}
@@ -72,20 +119,20 @@ x <- trees %>%
 ```{r}
 if(any(trees$vigor == 5)){
   dead <- TRUE
-  six <- round((sum(filter(trees, stand == i, dbh >= 6, dbh <= 10)$live == 0)*baf)/
+  six <- round((sum(filter(trees, stand == i, dbh >= 6, dbh < 12)$live == 0)*baf)/
                  (filter(stands, stand == i)$plots), 1)
-  eleven <- round((sum(filter(trees, stand == i, dbh > 10, dbh <= 16)$live == 0)*baf)/
+  twelve <- round((sum(filter(trees, stand == i, dbh >= 12, dbh < 16)$live == 0)*baf)/
                     (filter(stands, stand == i)$plots), 1)
-  seventeen <- round((sum(filter(trees, stand == i, dbh > 17, dbh <= 22)$live == 0)*baf)/
+  sixteen <- round((sum(filter(trees, stand == i, dbh >= 16, dbh < 22)$live == 0)*baf)/
                        (filter(stands, stand == i)$plots), 1)
-  twentythree <- round((sum(filter(trees, stand == i, dbh > 22)$live == 0)*baf)/
+  twentytwo <- round((sum(filter(trees, stand == i, dbh >= 22)$live == 0)*baf)/
                          (filter(stands, stand == i)$plots), 1)
 } else {
   dead <- FALSE
 }
 ```
 
-`r ifelse(dead, paste0('> - __Standing dead wood (sq ft/ac by size class):__   \n \\vspace{2pt} \\indent \\small 6-10": ', six, ' | 11-16”: ', eleven, ' | 17-22”: ', seventeen, ' | 23+”: ', twentythree), "")`
+`r ifelse(dead, paste0('> - __Standing dead wood (sq ft/ac by size class):__   \n \\vspace{2pt} \\indent \\small 6-11": ', six, ' | 12-15”: ', twelve, ' | 16-21”: ', sixteen, ' | 22+”: ', twentytwo), "")`
 
 ##Inventory information
 
@@ -121,7 +168,7 @@ dbhlabsright <- dbhlabsright %>%
 
 curveplot <- plots %>% filter(stand == i) %>%
   ggplot(aes(tpa_live, ba_live)) +
-  geom_abline(slope = .005454*dbhbold^2, col = "dark gray") +
+  geom_abline(slope = .005454*dbhbold^2, col = "gray60") +
   geom_abline(slope = .005454*dbhlight^2, col = "gray") +
   annotate("text", x = dbhlabstop$x, 
            y = dbhlabstop$y, 
@@ -193,21 +240,11 @@ curveplot <- plots %>% filter(stand == i) %>%
                        " stocking guide: ", this_stand$author,
                        ". ", this_stand$source, sep = ""))
 
-# plot w/o curves -----------------
+# plot with a b & c curves -----------
 
-dbhlabstop <- tibble(y = rep(max((plots %>% 
-                                    filter(stand == i))$ba_live)+20, 
-                             times = 8)) %>% 
-  mutate(x = y/(.005454*c(4,6,8,10,12,14,16,20)^2))
-
-dbhlabsright <- tibble(x = rep(max((plots %>%
-                                          filter(stand == i))$tpa_live)+100,
-                               times = 8)) %>%
-  mutate(y = x*.005454*c(4,6,8,10,12,14,16,20)^2)
-  
 curvelessplot <- plots %>% filter(stand == i) %>%
   ggplot(aes(tpa_live, ba_live)) +
-  geom_abline(slope = .005454*dbhbold^2, col = "dark gray") +
+  geom_abline(slope = .005454*dbhbold^2, col = "gray60") +
   geom_abline(slope = .005454*dbhlight^2, col = "gray") +
   annotate("text", x = dbhlabstop$x, 
            y = dbhlabstop$y, 
@@ -219,6 +256,45 @@ curvelessplot <- plots %>% filter(stand == i) %>%
            label = dbhlabs,
            color = "gray55",
            family = "Perpetua") +
+  geom_curve(aes(x = this_stand$ax1,
+                 y = this_stand$ay1,
+                 xend = this_stand$ax2,
+                 yend = this_stand$ay2),
+             curvature = this_stand$acurv,
+             angle = this_stand$aangle,
+             col = "gray70") + 
+  geom_curve(aes(x = this_stand$bx1,
+                 y = this_stand$by1,
+                 xend = this_stand$bx2,
+                 yend = this_stand$by2),
+             curvature = this_stand$bcurv,
+             angle = this_stand$bangle,
+             col = "gray70") + 
+  geom_curve(aes(x = this_stand$cx1,
+                 y = this_stand$cy1,
+                 xend = this_stand$cx2,
+                 yend = this_stand$cy2),
+             curvature = this_stand$ccurv,
+             angle = this_stand$cangle,
+             col = "gray70") +
+  geom_text(aes(this_stand$ax2, 
+                this_stand$ay2, 
+                label = this_stand$alab),
+            nudge_x = this_stand$anudge,
+            family = "Perpetua",
+            col = "gray70") +
+  geom_text(aes(this_stand$bx2, 
+                this_stand$by2, 
+                label = this_stand$blab),
+            nudge_x = this_stand$bnudge,
+            family = "Perpetua",
+            col = "gray70") +
+  geom_text(aes(this_stand$cx2, 
+                this_stand$cy2, 
+                label = this_stand$clab),
+            nudge_x = this_stand$cnudge,
+            family = "Perpetua",
+            col = "gray70") +
   geom_point() +
   geom_point(aes(this_stand$tpa, 
                  this_stand$mean_ba),
@@ -228,71 +304,112 @@ curvelessplot <- plots %>% filter(stand == i) %>%
   theme(text = element_text(family = "Perpetua"), 
         legend.position = "right") +
   scale_x_continuous(name = "trees per acre",
-                     limits = c(min((plots %>% 
-                                           filter(stand == i))$tpa_live)-100,
-                                max((plots %>% 
-                                           filter(stand == i))$tpa_live)+100)) +
+                     limits = c(min(this_stand$cx1, 
+                                    min((plots %>% 
+                                           filter(stand == i))$tpa_live)),
+                                max(this_stand$ax2,
+                                    max((plots %>% 
+                                           filter(stand == i))$tpa_live))+50)) +
   scale_y_continuous(name = "basal area per acre (sq ft)",
-                     limits = c(min((plots %>% 
-                                           filter(stand == i))$ba_live)-20,
-                                max((plots %>% 
-                                           filter(stand == i))$ba_live)+20)) +
-  labs(title = "Stocking chart")
+                     limits = c(min(this_stand$cy2, 
+                                    min((plots %>% 
+                                           filter(stand == i))$ba_live)),
+                                max(this_stand$ay1,
+                                    max((plots %>% 
+                                           filter(stand == i))$ba_live))+5)) +
+  labs(title = "Stocking chart",
+       caption = paste("Reproduced from ", this_stand$name, 
+                       " stocking guide: ", this_stand$author,
+                       ". ", this_stand$source, sep = ""))
+
+# plot w/o curves -----------------
+
+# dbhlabstop <- tibble(y = rep(max((plots %>% 
+#                                     filter(stand == i))$ba_live)+20, 
+#                              times = 8)) %>% 
+#   mutate(x = y/(.005454*c(4,6,8,10,12,14,16,20)^2))
+# 
+# dbhlabsright <- tibble(x = rep(max((plots %>%
+#                                           filter(stand == i))$tpa_live)+100,
+#                                times = 8)) %>%
+#   mutate(y = x*.005454*c(4,6,8,10,12,14,16,20)^2)
+#   
+# curvelessplot_old <- plots %>% filter(stand == i) %>%
+#   ggplot(aes(tpa_live, ba_live)) +
+#   geom_abline(slope = .005454*dbhbold^2, col = "gray60") +
+#   geom_abline(slope = .005454*dbhlight^2, col = "gray") +
+#   annotate("text", x = dbhlabstop$x, 
+#            y = dbhlabstop$y, 
+#            label = dbhlabs,
+#            color = "gray55",
+#            family = "Perpetua") +
+#   annotate("text", x = dbhlabsright$x, 
+#            y = dbhlabsright$y, 
+#            label = dbhlabs,
+#            color = "gray55",
+#            family = "Perpetua") +
+#   geom_curve(aes(x = this_stand$ax1,
+#                  y = this_stand$ay1,
+#                  xend = this_stand$ax2,
+#                  yend = this_stand$ay2),
+#              curvature = this_stand$acurv,
+#              angle = this_stand$aangle,
+#              alpha = .5) + 
+#   geom_curve(aes(x = this_stand$bx1,
+#                  y = this_stand$by1,
+#                  xend = this_stand$bx2,
+#                  yend = this_stand$by2),
+#              curvature = this_stand$bcurv,
+#              angle = this_stand$bangle,
+#              alpha = .5) + 
+#   geom_curve(aes(x = this_stand$cx1,
+#                  y = this_stand$cy1,
+#                  xend = this_stand$cx2,
+#                  yend = this_stand$cy2),
+#              curvature = this_stand$ccurv,
+#              angle = this_stand$cangle,
+#              alpha = .5) +
+#   geom_text(aes(this_stand$ax2, 
+#                 this_stand$ay2, 
+#                 label = this_stand$alab),
+#             nudge_x = this_stand$anudge,
+#             family = "Perpetua",
+#              alpha = .5) +
+#   geom_text(aes(this_stand$bx2, 
+#                 this_stand$by2, 
+#                 label = this_stand$blab),
+#             nudge_x = this_stand$bnudge,
+#             family = "Perpetua",
+#              alpha = .5) +
+#   geom_text(aes(this_stand$cx2, 
+#                 this_stand$cy2, 
+#                 label = this_stand$clab),
+#             nudge_x = this_stand$cnudge,
+#             family = "Perpetua",
+#              alpha = .5) +
+#   geom_point() +
+#   geom_point(aes(this_stand$tpa, 
+#                  this_stand$mean_ba),
+#              size = 3, 
+#              shape = 8, 
+#              stroke = 1.5) +
+#   theme(text = element_text(family = "Perpetua"), 
+#         legend.position = "right") +
+#   scale_x_continuous(name = "trees per acre",
+#                      limits = c(ifelse(min(filter(plots, stand == i)$tpa_live)-100 > 0,
+#                                        min(filter(plots, stand == i)$tpa_live)-100, 0),
+#                                 max(filter(plots, stand == i)$tpa_live)+100)) +
+#   scale_y_continuous(name = "basal area per acre (sq ft)",
+#                      limits = c(ifelse(min(filter(plots, stand == i)$ba_live)-20 > 0,
+#                                        min(filter(plots, stand == i)$ba_live)-20, 0),
+#                                 max(filter(plots, stand == i)$ba_live)+20)) +
+#   labs(title = "Stocking chart",
+#        caption = paste("Reproduced from ", this_stand$name, 
+#                        " stocking guide: ", this_stand$author,
+#                        ". ", this_stand$source, sep = ""))
 
 ifelse(this_stand$structure.1[1] == "Even-aged", print(curveplot),
        print(curvelessplot))
-```
-
-```{r results="asis"}
-temp1 <- stands %>% filter(stand == i)
-temp2 <- c(temp1$mean_ba, temp1$qsd, temp1$tpa)
-temp3 <- c(temp1$ba_ags, temp1$qsd_ags, temp1$tpa_ags)
-temp4 <- temp2 - temp3
-temp4[2] <- sqrt((temp4[1]/temp4[3])/0.005454)
-# temp4 <- c(temp1$ba_inv, temp1$qsd_in, temp1$tpa_inv)
-temp0 <- c('Basal area (sq ft/ac)', 'QSD (in)', 'Stems/ac')
-temp5 <- data.frame(temp0, temp2, temp3, temp4)
-
-kable(temp5, booktabs = T, digits = 0, 
-      col.names = c('Measure', 'Total', 'AGS', 'UGS'), 
-      caption = "Measures of stocking for all live trees (Total), acceptable growing stock (AGS), and unacceptable growing stock (UGS).")
-```
-
-```{r results="asis"}
-plts <- stands %>% filter(stand == i) %>% .$plots
-resid <- ifelse(is.na(filter(stands, stand == i)$resid_ba_6_12_16_22), 0, 1)
-
-temp1 <- trees %>% filter(stand == i, live == 1) %>% 
-  mutate(size_class = cut(dbh, c(6, 12, 16, 22, Inf), 
-                          include.lowest = T, 
-                          right = F)) %>% 
-  filter(!is.na(size_class)) %>% 
-  group_by(size_class, .drop = F) %>% #.drop=F keeps empty factors
-  summarize(total = n()*baf/plts,
-            ags = sum(ags == 1)*baf/plts,
-            ugs = total - ags) %>%
-  mutate(size_class = c('6-11 in.', '12-15 in.', '16-21 in.', '22+ in.'))
-
-header <- c("Size Class", "Total", "AGS", "UGS")
-cap <- "Current basal area (sq ft/ac) of total growing stock, acceptable growing stock, and unacceptable growing stock by size class."
-
-if (resid == 1) {
-  resids <- as.list(str_split(filter(stands, stand == i)$resid_ba_6_12_16_22, "\\D+"))
-  resids <- as.numeric(resids[[1]])
-  
-  temp1 <- temp1 %>% 
-    mutate(target = resids)
-  
-  header <- c(header, "Target")
-  cap <- "Current (total, acceptable, and unacceptable growing stock) and post-harvest target basal areas (sq ft/ac) by size class."
-}
-
-func <- function(z) if (is.numeric(z)) sum(z) else ''
-sumrow <- as.data.frame(lapply(temp1, func), stringsAsFactors = F)
-sumrow$size_class[1] <- "Total"
-temp1 <- rbind(temp1, sumrow)
-
-kable(temp1, booktabs = T, digits = 0, col.names = header, caption = cap)
 ```
 
 ##Long-term management system

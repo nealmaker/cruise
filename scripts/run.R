@@ -1,5 +1,6 @@
 library("here")
 library("rChoiceDialogs")
+library("caret")
 
 options <- c("process cruise data from an excel sheet", 
              "generate a report from already processed data",
@@ -16,9 +17,9 @@ if(choice == "process cruise data from an excel sheet"){
   choice <- rselect.list(options, title = "Property type", graphics = T)
   
   if(choice == "NY 480a") {
-    source(here("scripts", "wrangle-trees-480a.R"))
+    source(here::here("scripts", "wrangle-trees-480a.R"))
   } else if(choice == "VT UVA") {
-    source(here("scripts", "wrangle-trees.R"))
+    source(here::here("scripts", "wrangle-trees.R"))
   } else {
     print("That choice is not operational yet.")
   }
@@ -34,19 +35,19 @@ if(choice == "process cruise data from an excel sheet"){
                          multi = F)
   
   if(report == "VT FMP"){
-    render(here("reports", "templates", "fmp-vt", "fmp-vt.Rmd"), 
+    render(here::here("reports", "templates", "fmp-vt", "fmp-vt.Rmd"), 
            params = list(file = cruise))
     system2('open', args = 'reports/templates/fmp-vt/fmp-vt.pdf', wait = FALSE)
   } 
   
   else if(report == "NY FMP"){
-    render(here("reports", "templates", "fmp-ny", "fmp-ny.Rmd"), 
+    render(here::here("reports", "templates", "fmp-ny", "fmp-ny.Rmd"), 
            params = list(file = cruise))
     system2('open', args = 'reports/templates/fmp-ny/fmp-ny.pdf', wait = FALSE)
   } 
   
   else if(report == "Stand & Stock"){
-    render(here("reports", "templates", "stand-and-stock", 
+    render(here::here("reports", "templates", "stand-and-stock", 
                 "stand-and-stock-priced.Rmd"), 
            params = list(file = cruise))
     system2('open', 

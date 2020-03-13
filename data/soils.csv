@@ -1,59 +1,60 @@
-id,text
-2,__NO ENTRY!!!!!!!!!__
-3,__NO ENTRY!!!!!!!!!__
-4,"__Suny silt loam__ (very deep, poorly drained alluvium on floodplains)"
-9,"__Rifle muck__ (very deep, poorly drained organic soil in saturated basins)"
-14,__NO ENTRY!!!!!!!!!__
-17,"__Cabot silt loam__ (very deep, poorly drained, dense glacial till on toeslopes and drainageways) "
-18,"__Cabot silt loam__ (very deep, poorly drained, very stony, dense glacial till on toeslopes and drainageways) "
-19,__NO ENTRY!!!!!!!!!__
-20,"__Peacham muck__ (very deep, poorly drained organic soil in saturated basins or drainageways)"
-21,__NO ENTRY!!!!!!!!!__
-26,__NO ENTRY!!!!!!!!!__
-33,__NO ENTRY!!!!!!!!!__
-37,__NO ENTRY!!!!!!!!!__
-39,__NO ENTRY!!!!!!!!!__
-41,__NO ENTRY!!!!!!!!!__
-43,"__Salmon very fine sandy loam__ (very deep, well drained soil that was deposited in glacial lakes and now occupies dissected lake plains and terraces)"
-44,__NO ENTRY!!!!!!!!!__
-45,__NO ENTRY!!!!!!!!!__
-55,__NO ENTRY!!!!!!!!!__
-58,__NO ENTRY!!!!!!!!!__
-59,__NO ENTRY!!!!!!!!!__
-60,__NO ENTRY!!!!!!!!!__
-62,__NO ENTRY!!!!!!!!!__
-63,"__Berkshire fine sandy loam__ (very deep, well drained, loose, very stony glacial till on backslopes)"
-64,__NO ENTRY!!!!!!!!!__
-66,"__Vershire-Dummerston complex__ (moderately deep to very deep, well drained, loose, rocky glacial tills on summits, shoulders, and backslopes)"
-67,"__Glover-Vershire complex__ (shallow to moderately deep, excessively drained to well drained, loose, very rocky glacial tills on summits, shoulders, and backslopes)"
-68,__NO ENTRY!!!!!!!!!__
-69,__NO ENTRY!!!!!!!!!__
-71,"__Tunbridge-Lyman complex__ (relatively deep to shallow, well drained to somewhat excessively drained, loose, rocky glacial tills on backslopes, shoulders, and summits)"
-72,"__Tunbridge-Lyman complex__ (relatively deep to shallow, well drained to somewhat excessively drained, loose, very rocky glacial tills on backslopes, shoulders, and summits)"
-76,__NO ENTRY!!!!!!!!!__
-77,__NO ENTRY!!!!!!!!!__
-78,"__Peru gravelly fine sandy loam__ (deep, moderately well drained, dense glacial till on backslopes)"
-79,__NO ENTRY!!!!!!!!!__
-82,__NO ENTRY!!!!!!!!!__
-85,__NO ENTRY!!!!!!!!!__
-86,__NO ENTRY!!!!!!!!!__
-88,__NO ENTRY!!!!!!!!!__
-89,__NO ENTRY!!!!!!!!!__
-90,"__Dummerston fine sandy loam__ (deep, well drainedloose glacial till on backslopes)"
-91,"__Dummerston fine sandy loam__ (deep, well drained, loose, very stony glacial till on backslopes)"
-92,"__Buckland silt loam__ (very deep, moderately well drained, dense glacial till on footslopes)"
-93,__NO ENTRY!!!!!!!!!__
-96,__NO ENTRY!!!!!!!!!__
-98,__NO ENTRY!!!!!!!!!__
-99,__NO ENTRY!!!!!!!!!__
-100,__NO ENTRY!!!!!!!!!__
-102,"__Pits, quarry-dumps, mine complex__ (soils previously disturbed by quarrying; productivity variable)"
-103,__NO ENTRY!!!!!!!!!__
-104,__NO ENTRY!!!!!!!!!__
-116,__NO ENTRY!!!!!!!!!__
-151,__NO ENTRY!!!!!!!!!__
-162,__NO ENTRY!!!!!!!!!__
-163,__NO ENTRY!!!!!!!!!__
-168,__NO ENTRY!!!!!!!!!__
-172,__NO ENTRY!!!!!!!!!__
-0,__Open water__
+id,text,
+2,__NO ENTRY!!!!!!!!!__,
+3,__NO ENTRY!!!!!!!!!__,
+4,"__Suny silt loam__ (very deep, poorly drained alluvium on floodplains)",
+9,"__Rifle muck__ (very deep, poorly drained organic soil in saturated basins)",
+14,__NO ENTRY!!!!!!!!!__,
+17,"__Cabot silt loam__ (very deep, poorly drained, dense glacial till on toeslopes and drainageways) ",
+18,"__Cabot silt loam__ (very deep, poorly drained, very stony, dense glacial till on toeslopes and drainageways) ",
+19,__NO ENTRY!!!!!!!!!__,
+20,"__Peacham muck__ (very deep, poorly drained organic soil in saturated basins or drainageways)",
+21,__NO ENTRY!!!!!!!!!__,
+26,"__Adams loamy fine sand__ (very deep, somewhat excessively drained glacial fluvial deposits on terraces)",
+33,__NO ENTRY!!!!!!!!!__,
+37,__NO ENTRY!!!!!!!!!__,
+39,__NO ENTRY!!!!!!!!!__,
+41,__NO ENTRY!!!!!!!!!__,
+43,"__Salmon very fine sandy loam__ (very deep, well drained soil that was deposited in glacial lakes and now occupies dissected lake plains and terraces)",
+44,__NO ENTRY!!!!!!!!!__,
+45,__NO ENTRY!!!!!!!!!__,
+55,__NO ENTRY!!!!!!!!!__,
+58,__NO ENTRY!!!!!!!!!__,
+59,__NO ENTRY!!!!!!!!!__,
+60,__NO ENTRY!!!!!!!!!__,
+62,__NO ENTRY!!!!!!!!!__,
+63,"__Berkshire fine sandy loam__ (very deep, well drained, loose, very stony glacial till on backslopes)",
+64,__NO ENTRY!!!!!!!!!__,
+66,"__Vershire-Dummerston complex__ (moderately deep to very deep, well drained, loose, rocky glacial tills on summits, shoulders, and backslopes)",
+67,"__Glover-Vershire complex__ (shallow to moderately deep, excessively drained to well drained, loose, very rocky glacial tills on summits, shoulders, and backslopes)",
+68,__NO ENTRY!!!!!!!!!__,
+69,__NO ENTRY!!!!!!!!!__,
+71,"__Tunbridge-Lyman complex__ (relatively deep to shallow, well drained to somewhat excessively drained, loose, rocky glacial tills on backslopes, shoulders, and summits)",
+72,"__Tunbridge-Lyman complex__ (relatively deep to shallow, well drained to somewhat excessively drained, loose, very rocky glacial tills on backslopes, shoulders, and summits)",
+76,"__Berkshire fine sandy loam__ (very deep, well drained, loose glacial till on backslopes)",
+77,"__Peru gravelly fine sandy loam__ (deep, moderately well drained, dense glacial till on backslopes)",
+78,"__Peru gravelly fine sandy loam__ (deep, moderately well drained, dense glacial till on backslopes)",
+79,__NO ENTRY!!!!!!!!!__,
+82,__NO ENTRY!!!!!!!!!__,
+85,__NO ENTRY!!!!!!!!!__,
+86,__NO ENTRY!!!!!!!!!__,
+88,__NO ENTRY!!!!!!!!!__,
+89,__NO ENTRY!!!!!!!!!__,
+90,"__Dummerston fine sandy loam__ (deep, well drainedloose glacial till on backslopes)",
+91,"__Dummerston fine sandy loam__ (deep, well drained, loose, very stony glacial till on backslopes)",
+92,"__Buckland silt loam__ (very deep, moderately well drained, dense glacial till on footslopes)",
+93,__NO ENTRY!!!!!!!!!__,
+96,__NO ENTRY!!!!!!!!!__,
+98,"__Cabot silt loam__ (very deep, poorly drained, extremely bouldery dense glacial till on toeslopes and drainageways) ",
+99,__NO ENTRY!!!!!!!!!__,
+100,__NO ENTRY!!!!!!!!!__,
+102,"__Pits, quarry-dumps, mine complex__ (soils previously disturbed by quarrying; productivity variable)",
+103,__NO ENTRY!!!!!!!!!__,
+104,__NO ENTRY!!!!!!!!!__,
+116,__NO ENTRY!!!!!!!!!__,
+151,__NO ENTRY!!!!!!!!!__,
+162,__NO ENTRY!!!!!!!!!__,
+163,__NO ENTRY!!!!!!!!!__,
+168,"__Hogback-Rawsonville complex__ (shallow to moderately deep, well drained, loose, very rocky glacial tills on backslopes, shoulders, and summits)",
+172,__NO ENTRY!!!!!!!!!__,
+0,__Open water__,
+363,"__Tunbridge-Dixfield complex__ (relatively deep to shallow, well drained to somewhat excessively drained, somewhat dense, very stony glacial tills on backslopes, shoulders, and summits)",Caledonia

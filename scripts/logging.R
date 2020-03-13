@@ -15,7 +15,7 @@ trees <- trees %>%
                             maturity_class == 3 & dbh >= 14 ~ 1,
                             maturity_class == 4 & dbh >= 12 ~ 1,
                             TRUE ~ 0),
-         cut = if_else((mature == 1 | ags == 0) & dbh >= 7, 1, 0))
+         cut = if_else((mature == 1 | ags == 0 | vigor > 2) & dbh >= 6, 1, 0))
 
 
 # get cordwood estimates of trees not represented in logs tibble ------
@@ -73,17 +73,14 @@ plots_residual <- trees %>% filter(cut == 0, dbh >= 4) %>%
             pct_sft = round(sum(live[sft == 1])/sum(live)*100),
             ba_live = baf*sum(live), 
             ba_ags = baf*sum(ags), 
-            ba_inv = baf*sum(inv),
             # ba_crop = baf*sum(crop),
             ba_snags = baf*sum(snag),
             tpa_live = round(sum(tpa[live = 1])),
             tpa_ags = round(sum(tpa[ags == 1])),
-            tpa_inv = round(sum(tpa[inv == 1])),
             # tpa_crop = round(sum(tpa[cond == 1])),
             tpa_snags = round(sum(tpa[snag == 1]))) %>%
   mutate(qsd_live = round(sqrt((ba_live/tpa_live)/0.005454), 1),
          qsd_ags = ifelse(ba_ags > 0, round(sqrt((ba_ags/tpa_ags)/0.005454), 1), 0),
-         qsd_inv = ifelse(ba_inv > 0, round(sqrt((ba_inv/tpa_inv)/0.005454), 1), 0),
          # qsd_crop = ifelse(ba_crop > 0, round(sqrt((ba_crop/tpa_crop)/0.005454), 1), 0),
          qsd_snags = ifelse(ba_snags > 0, round(sqrt((ba_snags/tpa_snags)/0.005454), 1), 0)) %>%
   arrange(stand, plot)
@@ -123,3 +120,38 @@ trees %>% filter(stand == 3, live == 1, cut == 0) %>%
   scale_y_continuous("relative basal area", labels = NULL, breaks = NULL) +
   ggtitle("Diameter distributions", 
           subtitle = "for common species")
+
+
+
+View(trees %>% 
+  filter(stand %in% c(1), live == 1, dbh > 5) %>% 
+  group_by(stand, plot) %>% 
+  summarize(ba_pre = 10*n(), ba_post = 10*sum(cut == 0)))
+
+trees %>% 
+  filter(stand %in% c(2), live ==1, dbh > 5, cut == 0) %>% 
+  mutate(dbh_cut = cut(dbh, c(6, 12, 16, 22, Inf), include.lowest = T, right = F)) %>% 
+  group_by(stand) %>% 
+  mutate(n_plots = length(unique(plot))) %>% 
+  ungroup() %>% 
+  group_by(dbh_cut, stand) %>% 
+  summarize(ba = 10*n()/n_plots[[1]]) %>% 
+  arrange(stand)
+
+
+## For Continuous Cover Irregular Shelterwoods
+
+View(trees %>% 
+  filter(stand == 5, cut == 0) %>% 
+  group_by(stand) %>% 
+  mutate(n_plots = length(unique(plot))) %>% 
+  ungroup() %>% 
+  mutate(size_class = cut(dbh, c(6, 12, 16, 22, Inf), 
+                          include.lowest = T, 
+                          right = F)) %>% 
+  filter(!is.na(size_class)) %>% 
+  group_by(size_class, .drop = F) %>% #.drop=F keeps empty factors
+  dplyr::summarize(total = n()*baf/n_plots[[1]],
+                   ags = sum(ags == 1)*baf/n_plots[[1]],
+                   ugs = total - ags) %>%
+  mutate(size_class = c('6-11 in.', '12-15 in.', '16-21 in.', '22+ in.')))

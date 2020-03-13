@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.7)  7 JAN 2020 15:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.16)  18 FEB 2020 14:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -82,9 +82,9 @@ Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 )
 Class tufte-handout Info: Loading the base class `article'
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2019/10/25 v1.4k Standard LaTeX document class
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2019/10/25 v1.4k Standard LaTeX file (size option)
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
 \c@part=\count87
 \c@section=\count88
@@ -124,7 +124,7 @@ Package: titletoc 2011/12/15 v1.6 TOC entries
 )
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.s
 ty
-Package: hyperref 2019/11/10 v7.00c Hypertext links for LaTeX
+Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetke
 ys.sty
@@ -139,16 +139,8 @@ pe.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 )
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
-Package: hycolor 2019/12/15 v1.9 Color options for hyperref/bookmark (HO)
-
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/xcolor-patc
-h.sty
-Package: xcolor-patch 2019/12/15 xcolor patch
-
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/oberdiek/hopatch.st
-y
-Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
-)))
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxm
 acro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
@@ -165,7 +157,7 @@ Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 \Hy@pagecounter=\count96
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2019/11/10 v7.00c Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
@@ -178,31 +170,27 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count97
-
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/hyperre
-f.cfg
-File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
-)
-Package hyperref Info: Option `unicode' set `true' on input line 4409.
+\pdfmajorversion=\count98
+Package hyperref Info: Option `unicode' set `true' on input line 4421.
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2019/11/10 v7.00c Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `hyperfootnotes' set `false' on input line 4409.
-Package hyperref Info: Hyper figures OFF on input line 4535.
-Package hyperref Info: Link nesting OFF on input line 4540.
-Package hyperref Info: Hyper index ON on input line 4543.
-Package hyperref Info: Plain pages OFF on input line 4550.
-Package hyperref Info: Backreferencing OFF on input line 4555.
+Package hyperref Info: Option `hyperfootnotes' set `false' on input line 4421.
+Package hyperref Info: Hyper figures OFF on input line 4547.
+Package hyperref Info: Link nesting OFF on input line 4552.
+Package hyperref Info: Hyper index ON on input line 4555.
+Package hyperref Info: Plain pages OFF on input line 4562.
+Package hyperref Info: Backreferencing OFF on input line 4567.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4788.
-\c@Hy@tempcnt=\count98
+Package hyperref Info: Bookmarks ON on input line 4800.
+\c@Hy@tempcnt=\count99
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5147.
+LaTeX Info: Redefining \url on input line 5159.
 \XeTeXLinkMargin=\dimen112
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
@@ -213,39 +201,39 @@ calc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count99
+\Fld@menulength=\count100
 \Field@Width=\dimen113
 \Fld@charsize=\dimen114
-Package hyperref Info: Hyper figures OFF on input line 6418.
-Package hyperref Info: Link nesting OFF on input line 6423.
-Package hyperref Info: Hyper index ON on input line 6426.
-Package hyperref Info: backreferencing OFF on input line 6433.
-Package hyperref Info: Link coloring OFF on input line 6438.
-Package hyperref Info: Link coloring with OCG OFF on input line 6443.
-Package hyperref Info: PDF/A mode OFF on input line 6448.
-LaTeX Info: Redefining \ref on input line 6488.
-LaTeX Info: Redefining \pageref on input line 6492.
+Package hyperref Info: Hyper figures OFF on input line 6430.
+Package hyperref Info: Link nesting OFF on input line 6435.
+Package hyperref Info: Hyper index ON on input line 6438.
+Package hyperref Info: backreferencing OFF on input line 6445.
+Package hyperref Info: Link coloring OFF on input line 6450.
+Package hyperref Info: Link coloring with OCG OFF on input line 6455.
+Package hyperref Info: PDF/A mode OFF on input line 6460.
+LaTeX Info: Redefining \ref on input line 6500.
+LaTeX Info: Redefining \pageref on input line 6504.
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/atbegshi/atbegshi
 .sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\Hy@abspage=\count100
-\c@Item=\count101
+\Hy@abspage=\count101
+\c@Item=\count102
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.de
 f
-File: hpdftex.def 2019/11/10 v7.00c Hyperref driver for pdfTeX
+File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/atveryend/atveryend
 .sty
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
 )
-\Fld@listcount=\count102
-\c@bookmark@seq@number=\count103
+\Fld@listcount=\count103
+\c@bookmark@seq@number=\count104
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/reru
 nfilecheck.sty
@@ -285,9 +273,9 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count104
-\Gm@cntv=\count105
-\c@Gm@tempcnt=\count106
+\Gm@cnth=\count105
+\Gm@cntv=\count106
+\c@Gm@tempcnt=\count107
 \Gm@bindingoffset=\dimen115
 \Gm@wd@mp=\dimen116
 \Gm@odd@mp=\dimen117
@@ -301,8 +289,8 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/changepage/changepa
 ge.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count107
-\cp@tempcnt=\count108
+\c@cp@cntr=\count108
+\cp@tempcnt=\count109
 )
 \@tufte@overhang=\skip63
 \@tufte@fullwidth=\skip64
@@ -363,13 +351,13 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip70
 \bibsep=\skip71
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count109
+\c@NAT@ctr=\count110
 )
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/bibentry.sty
 Package: bibentry 2007/10/30 1.5 (PWD)
 )
 No file fmp-ny.bbl.
-\c@@tufte@num@bibkeys=\count110
+\c@@tufte@num@bibkeys=\count111
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/sauerj/optparams.st
 y
@@ -387,646 +375,21 @@ Package: placeins 2005/04/18  v 2.2
 \@tufte@caption@vertical@offset=\skip73
 \@tufte@float@contents@width=\skip74
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/t1enc.def
-File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
+File: t1enc.def 2020/02/11 v2.0o Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
-)) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.st
-y
-Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
-Package textcomp Info: Sub-encoding information:
-(textcomp)               5 = only ISO-Adobe without \textcurrency
-(textcomp)               4 = 5 + \texteuro
-(textcomp)               3 = 4 + \textohm
-(textcomp)               2 = 3 + \textestimated + \textcurrency
-(textcomp)               1 = TS1 - \textcircled - \t
-(textcomp)               0 = TS1 (full)
-(textcomp)             Font families with sub-encoding setting implement
-(textcomp)             only a restricted character set as indicated.
-(textcomp)             Family '?' is the default used for unknown fonts.
-(textcomp)             See the documentation for details.
-Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
-File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
-Now handling font encoding TS1 ...
-... processing UTF-8 mapping file for font encoding TS1
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1enc.dfu
-File: ts1enc.dfu 2019/07/11 v1.2j UTF-8 support for inputenc
-   defining Unicode char U+00A2 (decimal 162)
-   defining Unicode char U+00A3 (decimal 163)
-   defining Unicode char U+00A4 (decimal 164)
-   defining Unicode char U+00A5 (decimal 165)
-   defining Unicode char U+00A6 (decimal 166)
-   defining Unicode char U+00A7 (decimal 167)
-   defining Unicode char U+00A8 (decimal 168)
-   defining Unicode char U+00A9 (decimal 169)
-   defining Unicode char U+00AA (decimal 170)
-   defining Unicode char U+00AC (decimal 172)
-   defining Unicode char U+00AE (decimal 174)
-   defining Unicode char U+00AF (decimal 175)
-   defining Unicode char U+00B0 (decimal 176)
-   defining Unicode char U+00B1 (decimal 177)
-   defining Unicode char U+00B2 (decimal 178)
-   defining Unicode char U+00B3 (decimal 179)
-   defining Unicode char U+00B4 (decimal 180)
-   defining Unicode char U+00B5 (decimal 181)
-   defining Unicode char U+00B6 (decimal 182)
-   defining Unicode char U+00B7 (decimal 183)
-   defining Unicode char U+00B9 (decimal 185)
-   defining Unicode char U+00BA (decimal 186)
-   defining Unicode char U+00BC (decimal 188)
-   defining Unicode char U+00BD (decimal 189)
-   defining Unicode char U+00BE (decimal 190)
-   defining Unicode char U+00D7 (decimal 215)
-   defining Unicode char U+00F7 (decimal 247)
-   defining Unicode char U+0192 (decimal 402)
-   defining Unicode char U+02C7 (decimal 711)
-   defining Unicode char U+02D8 (decimal 728)
-   defining Unicode char U+02DD (decimal 733)
-   defining Unicode char U+0E3F (decimal 3647)
-   defining Unicode char U+2016 (decimal 8214)
-   defining Unicode char U+2020 (decimal 8224)
-   defining Unicode char U+2021 (decimal 8225)
-   defining Unicode char U+2022 (decimal 8226)
-   defining Unicode char U+2030 (decimal 8240)
-   defining Unicode char U+2031 (decimal 8241)
-   defining Unicode char U+203B (decimal 8251)
-   defining Unicode char U+203D (decimal 8253)
-   defining Unicode char U+2044 (decimal 8260)
-   defining Unicode char U+204E (decimal 8270)
-   defining Unicode char U+2052 (decimal 8274)
-   defining Unicode char U+20A1 (decimal 8353)
-   defining Unicode char U+20A4 (decimal 8356)
-   defining Unicode char U+20A6 (decimal 8358)
-   defining Unicode char U+20A9 (decimal 8361)
-   defining Unicode char U+20AB (decimal 8363)
-   defining Unicode char U+20AC (decimal 8364)
-   defining Unicode char U+20B1 (decimal 8369)
-   defining Unicode char U+2103 (decimal 8451)
-   defining Unicode char U+2116 (decimal 8470)
-   defining Unicode char U+2117 (decimal 8471)
-   defining Unicode char U+211E (decimal 8478)
-   defining Unicode char U+2120 (decimal 8480)
-   defining Unicode char U+2122 (decimal 8482)
-   defining Unicode char U+2126 (decimal 8486)
-   defining Unicode char U+2127 (decimal 8487)
-   defining Unicode char U+212E (decimal 8494)
-   defining Unicode char U+2190 (decimal 8592)
-   defining Unicode char U+2191 (decimal 8593)
-   defining Unicode char U+2192 (decimal 8594)
-   defining Unicode char U+2193 (decimal 8595)
-   defining Unicode char U+2329 (decimal 9001)
-   defining Unicode char U+232A (decimal 9002)
-   defining Unicode char U+2422 (decimal 9250)
-   defining Unicode char U+25E6 (decimal 9702)
-   defining Unicode char U+25EF (decimal 9711)
-   defining Unicode char U+266A (decimal 9834)
-   defining Unicode char U+27E8 (decimal 10216)
-   defining Unicode char U+27E9 (decimal 10217)
-   defining Unicode char U+FEFF (decimal 65279)
-))
-LaTeX Info: Redefining \oldstylenums on input line 334.
-Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
-Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
-Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
-Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
-Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
-Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
-Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
-Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
-Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
-Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
-Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
-Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
-Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
-Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
-Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
-Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
-Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
-Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
-Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
-Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
-Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
-Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
-Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
-Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
-
-Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
-Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
-Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
-Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
-Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
-Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
-Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
-Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
-Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
-Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
-Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
-Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
-Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
-Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
-Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
-Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
-Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
-Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
-Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
-Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
-Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
-Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
-Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
-Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
-Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
-Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
-Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
-Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
-Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
-Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
-Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
-Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
-Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
-Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
-Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
-Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
-Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.s
-ty
-Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
-s
-\f@nch@headwidth=\skip75
-\f@nch@O@elh=\skip76
-\f@nch@O@erh=\skip77
-\f@nch@O@olh=\skip78
-\f@nch@O@orh=\skip79
-\f@nch@O@elf=\skip80
-\f@nch@O@erf=\skip81
-\f@nch@O@olf=\skip82
-\f@nch@O@orf=\skip83
-)
-\tufteskipamount=\skip84
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2019/03/01 v1.8w multicolumn formatting (FMi)
-\c@tracingmulticols=\count111
-\mult@box=\box31
-\multicol@leftmargin=\dimen123
-\c@unbalance=\count112
-\c@collectmore=\count113
-\doublecol@number=\count114
-\multicoltolerance=\count115
-\multicolpretolerance=\count116
-\full@width=\dimen124
-\page@free=\dimen125
-\premulticols=\dimen126
-\postmulticols=\dimen127
-\multicolsep=\skip85
-\multicolbaselineskip=\skip86
-\partial@page=\box32
-\last@line=\box33
-\maxbalancingoverflow=\dimen128
-\mult@rightbox=\box34
-\mult@grightbox=\box35
-\mult@gfirstbox=\box36
-\mult@firstbox=\box37
-\@tempa=\box38
-\@tempa=\box39
-\@tempa=\box40
-\@tempa=\box41
-\@tempa=\box42
-\@tempa=\box43
-\@tempa=\box44
-\@tempa=\box45
-\@tempa=\box46
-\@tempa=\box47
-\@tempa=\box48
-\@tempa=\box49
-\@tempa=\box50
-\@tempa=\box51
-\@tempa=\box52
-\@tempa=\box53
-\@tempa=\box54
-\c@minrows=\count117
-\c@columnbadness=\count118
-\c@finalcolumnbadness=\count119
-\last@try=\dimen129
-\multicolovershoot=\dimen130
-\multicolundershoot=\dimen131
-\mult@nat@firstbox=\box55
-\colbreak@box=\box56
-\mc@col@check@num=\count120
-)))
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.st
-y
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
-
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.s
-ty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks19
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2019/11/16 v2.17d AMS math features
-\@mathmargin=\skip87
-For additional information on amsmath, use the `?' option.
-
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01 AMS text
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks20
-\ex@=\dimen132
-)) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.s
-ty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen133
-) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.st
-y
-Package: amsopn 2016/03/08 v2.02 operator names
-)
-\inf@bad=\count121
-LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count122
-\leftroot@=\count123
-LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count124
-\DOTSCASE@=\count125
-LaTeX Info: Redefining \ldots on input line 486.
-LaTeX Info: Redefining \dots on input line 489.
-LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box57
-\strutbox@=\box58
-\big@size=\dimen134
-LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count126
-\c@MaxMatrixCols=\count127
-\dotsspace@=\muskip11
-\c@parentequation=\count128
-\dspbrk@lvl=\count129
-\tag@help=\toks21
-\row@=\count130
-\column@=\count131
-\maxfields@=\count132
-\andhelp@=\toks22
-\eqnshift@=\dimen135
-\alignsep@=\dimen136
-\tagshift@=\dimen137
-\tagwidth@=\dimen138
-\totwidth@=\dimen139
-\lineht@=\dimen140
-\@envbody=\toks23
-\multlinegap=\skip88
-\multlinetaggap=\skip89
-\mathdisplay@stack=\toks24
-LaTeX Info: Redefining \[ on input line 2858.
-LaTeX Info: Redefining \] on input line 2859.
-) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fixltx2e.sty
-Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
-Applying: [2015/01/01] Old fixltx2e package on input line 46.
-
-Package fixltx2e Warning: fixltx2e is not required with releases after 2015
-(fixltx2e)                All fixes are now in the LaTeX kernel.
-(fixltx2e)                See the latexrelease package for details.
-
-Already applied: [0000/00/00] Old fixltx2e package on input line 53.
-) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/t1enc.def
-File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
-)) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.st
-y
-Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks25
-\inpenc@posthook=\toks26
-)
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.s
-ty
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
-
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.s
-ty
-Package: graphics 2019/11/01 v1.3d Standard LaTeX Graphics (DPC,SPQR)
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphi
-cs.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 105.
-)
-\Gin@req@height=\dimen141
-\Gin@req@width=\dimen142
-)
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.s
-ty
-Package: booktabs 2019/10/08 v1.6180339 publication quality tables
-\heavyrulewidth=\dimen143
-\lightrulewidth=\dimen144
-\cmidrulewidth=\dimen145
-\belowrulesep=\dimen146
-\belowbottomsep=\dimen147
-\aboverulesep=\dimen148
-\abovetopsep=\dimen149
-\cmidrulesep=\dimen150
-\cmidrulekern=\dimen151
-\defaultaddspace=\dimen152
-\@cmidla=\count133
-\@cmidlb=\count134
-\@aboverulesep=\dimen153
-\@belowrulesep=\dimen154
-\@thisruleclass=\count135
-\@lastruleclass=\count136
-\@thisrulewidth=\dimen155
-) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/units/units.sty
-Package: units 1998/08/04 v0.9b Typesetting units
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/units/nicefrac.sty
-Package: nicefrac 1998/08/04 v0.9b Nice fractions
-\L@UnitsRaiseDisplaystyle=\skip90
-\L@UnitsRaiseTextstyle=\skip91
-\L@UnitsRaiseScriptstyle=\skip92
-))
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
-\LTleft=\skip93
-\LTright=\skip94
-\LTpre=\skip95
-\LTpost=\skip96
-\LTchunksize=\count137
-\LTcapwidth=\dimen156
-\LT@head=\box59
-\LT@firsthead=\box60
-\LT@foot=\box61
-\LT@lastfoot=\box62
-\LT@cols=\count138
-\LT@rows=\count139
-\c@LT@tables=\count140
-\c@LT@chunks=\count141
-\LT@p@ftn=\toks27
-) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box63
-\UL@hyphenbox=\box64
-\UL@skip=\skip97
-\UL@hook=\toks28
-\UL@height=\dimen157
-\UL@pe=\count142
-\UL@pixel=\dimen158
-\ULC@box=\box65
-Package: ulem 2012/05/18
-\ULdepth=\dimen159
-)
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/morefloats/morefloa
-ts.sty
-Package: morefloats 2015/07/22 v1.0h Raise limit of unprocessed floats (HMM)
-Package morefloats Info: Maximum number of possible floats asked for: 36
-(morefloats)             (i.e. 18 more floats).
-(morefloats)             LaTeX might run out of memory before this
-(morefloats)             (in which case it will notify you).
-) (./fmp-ny.aux)
-\openout1 = `fmp-ny.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 6
-9.
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 69.
-\AtBeginShipoutBox=\box66
-Package hyperref Info: Link coloring OFF on input line 69.
-
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.st
-y
-Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
-
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.s
-ty
-Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-)
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/ge
-ttitlestring.sty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-)
-\c@section@level=\count143
-)
-LaTeX Info: Redefining \ref on input line 69.
-LaTeX Info: Redefining \pageref on input line 69.
-LaTeX Info: Redefining \nameref on input line 69.
-(./fmp-ny.out) (./fmp-ny.out)
-\@outlinefile=\write3
-\openout3 = `fmp-ny.out'.
-
-ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 69.
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: letterpaper
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside asymmetric 
-* h-part:(L,W,R)=(72.26999pt, 312.0pt, 230.02501pt)
-* v-part:(T,H,B)=(72.26999pt, 616.0pt, 106.7pt)
-* \paperwidth=614.295pt
-* \paperheight=794.96999pt
-* \textwidth=312.0pt
-* \textheight=616.0pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-42.0pt
-* \headheight=14.0pt
-* \headsep=28.0pt
-* \topskip=10.0pt
-* \footskip=30.0pt
-* \marginparwidth=144.0pt
-* \marginparsep=24.0pt
-* \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstop
-df-base.sty
-Package: epstopdf-base 2019-12-09 v2.10 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopd
-f-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-\langwohyphens=\language3
-<C:/Users/Neal/projects/cruise/logo-name-small.png, id=28, 433.62pt x 101.37875
-pt>
-File: C:/Users/Neal/projects/cruise/logo-name-small.png Graphic file (type png)
-
-<use C:/Users/Neal/projects/cruise/logo-name-small.png>
-Package pdftex.def Info: C:/Users/Neal/projects/cruise/logo-name-small.png  use
-d on input line 125.
-(pdftex.def)             Requested size: 155.99721pt x 36.47156pt.
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 136.
-
-[1
-
-{c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex
-.map} <c:/Users/Neal/projects/cruise/logo-name-small.png (PNG copy)>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 146
-.
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 146
-.
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-46.
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-
-LaTeX Warning: Marginpar on page 1 moved.
-
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 189.
-
-[1]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 225.
-
-[2]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 261.
-
-[3]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 262.
-
-[4]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 325.
-
-[5]
-<fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf, id=69, 144.54pt x 433.62pt>
-File: fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
-<use fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf>
-Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf  used 
-on input line 390.
-(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 450.
-
-[6 <./fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf>]
-<fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf, id=88, 361.35pt x 271.0125pt>
-
-File: fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
-<use fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf>
-Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf  used 
-on input line 453.
-(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 453--454
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 458--458
-[]\T1/cmr/m/n/9 Table 1: Mea-sures of stock-ing for all live trees (to-tal) and
- ac-cept-able
- []
-
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 478.
-
-[7 <./fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf>]
-
-Package bibentry Warning: You have used \nobibliography* 
-(bibentry)                without a following \bibliography.
-(bibentry)                You may not be able to run BibTeX.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 482.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 482.
-(./fmp-ny.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 482.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 482.
-Package rerunfilecheck Info: File `fmp-ny.out' has not changed.
-(rerunfilecheck)             Checksum: 0AD7F8963D2939E9EB51A9958BABA211;1089.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 482.
- ) 
+! Undefined control sequence.
+l.115 \xdef\@fontenc@load@list{\@fontenc@load@list
+                                                   
 Here is how much of TeX's memory you used:
- 13334 strings out of 494107
- 192479 string characters out of 6172297
- 284479 words of memory out of 5000000
- 17126 multiletter control sequences out of 15000+600000
- 20280 words of font info for 56 fonts, out of 8000000 for 9000
+ 10434 strings out of 494106
+ 151752 string characters out of 6172282
+ 239533 words of memory out of 5000000
+ 14421 multiletter control sequences out of 15000+600000
+ 4403 words of font info for 15 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 52i,11n,51p,443b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
- <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
-0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappe
-n/ec/tcrm0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfou
-r/jknappen/ec/ecti1095.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts
-/pk/ljfour/jknappen/ec/ectt0800.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-
-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> <c:/Users/Neal/Documents/.TinyT
-eX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> <c:/Users/Neal/Documen
-ts/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> <c:/Users/Nea
-l/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> <c:/
-Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.60
-0pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ec
-rm1000.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknap
-pen/ec/ecrm1440.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecrm2074.600pk>
-Output written on fmp-ny.pdf (8 pages, 163883 bytes).
-PDF statistics:
- 493 PDF objects out of 1000 (max. 8388607)
- 132 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 64 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 47i,0n,48p,240b,39s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+!  ==> Fatal error occurred, no output PDF file produced!

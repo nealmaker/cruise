@@ -31,7 +31,7 @@ if(max((trees %>% filter(!is.na(code)))$code) > 26 |
 } 
 
 # load height model & misc functions
-load("../big-rdas/ht-model-op.rda")
+load("../big-rdas/old-ht-model-op.rda")
 source(here("scripts", "height.R"))
 source(here("scripts", "pbal.R"))
 source(here("scripts", "dib.R"))
@@ -66,11 +66,28 @@ baf <- as.numeric(prop[23,2])
 
 
 ###############################
+## Wrangle qualitative stand data
+###############################
+
+stands_raw <- stands_raw %>% 
+  mutate(stand = as.character(stand),
+         acres_calc = as.numeric(acres_calc),
+         acres_legal = as.numeric(acres_legal)) %>%
+  select(-type_code) %>%
+  mutate(stand = as.character(stand),
+         structure.1 = case_when(structure == 1 ~ "Even-aged",
+                                 structure == 2 ~ "Two-aged",
+                                 structure == 3 ~ "Uneven-aged")) %>% 
+  filter(!is.na(stand))
+
+
+###############################
 ## Make tree, plot & stand dfs
 ###############################
 
 trees <- trees %>% fill(plot, stand) %>% 
   filter(!is.na(spp)) %>% select(-(code)) %>%
+  left_join(select(stands_raw, stand, structure), by = "stand") %>% 
   mutate(logs = as.character(logs),
          stand = as.numeric(stand),
          stand = round(stand),
@@ -78,8 +95,10 @@ trees <- trees %>% fill(plot, stand) %>%
          vigor = ifelse(is.na(vigor), 2, vigor),
          cut = ifelse(is.na(cut), 0, cut),
          cr = as.numeric(cr)*10,
+         cr = if_else(is.na(cr), 30, cr),
          tpa = baf/(0.005454*dbh^2), 
          live = if_else(vigor == 5, 0, 1),
+         include = structure == 1 | dbh >= 6,
          # crop = if_else(cond == 1, 1, 0), Depreciate crop trees?
          # inv = if_else(cond %in% c(1:2), 1, 0), Depreciate investment grade?
          ags = if_else(vigor %in% c(1:3) & 
@@ -90,9 +109,10 @@ trees <- trees %>% fill(plot, stand) %>%
          sft = spp %in% c("fir", "cedar", "hemlock", "red pine",
                           "scots pine", "spruce", "tamarack",
                           "white pine", "other softwood")) %>%
-  filter(dbh > 0)
+  filter(dbh > 0) %>% 
+  select(-structure)
 
-plots <- trees %>% filter(dbh>=6) %>%
+plots <- trees %>% filter(include) %>%
   group_by(plot) %>% 
   summarize(stand = stand[1],
             pct_sft = round(sum(live[sft == 1])/sum(live)*100),
@@ -128,29 +148,16 @@ if(fix_plots == "yes"){
 stands <- plots %>% 
   group_by(stand) %>%
   summarise(plots = n(),
-            mean_ba = round(mean(ba_live), digits = 1),
+            mean_ba = round(mean(ba_live), digits = 0),
             confint_ba = round(qnorm(.975)*sd(ba_live)/sqrt(n())),
             tpa = round(mean(tpa_live)),
+            confint_tpa = round(qnorm(.975)*sd(tpa_live)/sqrt(n())),
+            confint_qsd = round(qnorm(.975)*sd(qsd_live)/sqrt(n()), digits = 1),
             ba_ags = round(mean(ba_ags)),
             tpa_ags = round(mean(tpa_ags))) %>%
   mutate(qsd = round(sqrt((mean_ba/tpa)/.005454), digits = 1),
          qsd_ags = round(sqrt((ba_ags/tpa_ags)/.005454), digits = 1))
 
-
-###############################
-## Add qualitative data to stands
-###############################
-
-stands_raw <- stands_raw %>% 
-  mutate(stand = as.character(stand),
-         acres_calc = as.numeric(acres_calc),
-         acres_legal = as.numeric(acres_legal)) %>%
-  select(-type_code) %>%
-  mutate(stand = as.character(stand),
-         structure.1 = case_when(structure == 1 ~ "Even-aged",
-                                 structure == 2 ~ "Two-aged",
-                                 structure == 3 ~ "Uneven-aged")) %>% 
-  filter(!is.na(stand))
 
 stands <- stands %>% full_join(stands_raw)
 
@@ -333,9 +340,10 @@ stands <- stands %>%
 ## Add prices
 ###############################
 
-priceit <- rselect.list(yn, 
-                        title = "Add prices?",
-                        graphics = T)
+priceit <- 
+  rChoiceDialogs::rselect.list(yn, 
+                               title = "Add prices?",
+                               graphics = T)
 
 if(priceit == "yes"){
   
@@ -522,4 +530,4 @@ if (priceit == "yes") {
   } 
 }
 
-            
+

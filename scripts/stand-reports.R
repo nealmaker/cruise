@@ -120,21 +120,21 @@ temp5 <- data.frame(temp0, ttotal, tags, tinv)
 temp5
 
 #diam table
-n_plots <- sum(plots$stand == 1)
+n_plots <- sum(plots$stand == 2)
 
-trees %>% filter(stand == 1, live == 1) %>%
+trees %>% filter(stand == 2, live == 1) %>%
   mutate(size_class = factor(case_when(dbh<6 ~ "saplings", 
-                                dbh<=10 ~ "poles", 
-                                dbh<=16 ~ "small sawtimber",
+                                dbh<12 ~ "poles", 
+                                dbh<16 ~ "small sawtimber",
                                 TRUE ~ "large sawtimber"), 
                              levels = c("saplings", 
                                         "poles", 
                                         "small sawtimber", 
                                         "large sawtimber"))) %>%
-  select(live, inv, ags, size_class) %>%
+  select(live, ags, size_class) %>%
   filter(size_class != "saplings") %>%
   group_by(size_class) %>%
-  summarize(total = n()*10/n_plots, ags = sum(ags)*10/n_plots, inv = sum(inv)*10/n_plots)
+  summarize(total = n()*10/n_plots, ags = sum(ags)*10/n_plots)
 
 
 
