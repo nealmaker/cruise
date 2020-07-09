@@ -67,7 +67,7 @@ mngmt_schd <- paste0("\\begin{marginfigure} \\noindent \\textit{\\LARGE Manageme
 \begin{marginfigure}
 \hspace{2pt}\newline\vspace{80pt}
 \noindent \textit{\large Effective date of plan}  
-\newline\indent April 1, `r if_else(month < 4, year, year+1)`  
+\newline\indent April 1, `r plan_yr`  
 \end{marginfigure}
 
 \begin{marginfigure}
@@ -170,7 +170,7 @@ Presented below are detailed stand-by-stand descriptions of the forest, the long
 
 When contractors are used to implement silvicultural prescriptions, they should be highly skilled, properly equipped, fully insured, and closely supervised.  A professional forester should prepare and administer commercial treatments, and logging operations should be timed to coincide with favorable weather conditions (working on wet soils only when they are frozen, for instance) and favorable timber markets.  Use Value Appraisal program guidelines allow any management activities prescribed in this plan to be carried out up to three years before or after the date indicated.  Landowners in the Use Value Appraisal program must file a Forest Management Activity Report with the County Forester by February 1^st^ if any commercial logging occurred in the previous year. 
 
-The property should be reinventoried in `r if_else(month < 4, year+9, year+10)` and the findings brought to bear on a reassessment of the goals and strategies proposed in this plan, leading to a formal management plan update.  At any point over the course of this management period, this plan may be updated to incorporate new information and to reflect any new thoughts, concerns or considerations on the part of the landowner or the foresters helping to manage the land.
+The property should be reinventoried in `r plan_yr + 9` and the findings brought to bear on a reassessment of the goals and strategies proposed in this plan, leading to a formal management plan update.  At any point over the course of this management period, this plan may be updated to incorporate new information and to reflect any new thoughts, concerns or considerations on the part of the landowner or the foresters helping to manage the land.
 
 \newpage
 

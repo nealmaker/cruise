@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.1)  12 MAR 2020 20:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.1)  9 JUL 2020 12:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -739,7 +739,7 @@ LaTeX Warning: Marginpar on page 1 moved.
 
 LaTeX Warning: Marginpar on page 1 moved.
 
-<C:/Users/Neal/projects/cruise/logo-small-gray80.png, id=44, 209.28188pt x 289.
+<C:/Users/Neal/projects/cruise/logo-small-gray80.png, id=32, 209.28188pt x 289.
 08pt>
 File: C:/Users/Neal/projects/cruise/logo-small-gray80.png Graphic file (type pn
 g)
@@ -768,286 +768,167 @@ LaTeX Warning: Marginpar on page 2 moved.
 
 LaTeX Warning: Marginpar on page 2 moved.
 
-<C:/Users/Neal/projects/cruise/maple.png, id=59, 289.08pt x 474.46826pt>
+<C:/Users/Neal/projects/cruise/maple.png, id=47, 289.08pt x 474.46826pt>
 File: C:/Users/Neal/projects/cruise/maple.png Graphic file (type png)
 <use C:/Users/Neal/projects/cruise/maple.png>
 Package pdftex.def Info: C:/Users/Neal/projects/cruise/maple.png  used on input
- line 225.
+ line 226.
 (pdftex.def)             Requested size: 100.79575pt x 165.43651pt.
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 240.
+This message occurred on input line 241.
 
 [2 <c:/Users/Neal/projects/cruise/maple.png (PNG copy)>]
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 307.
+This message occurred on input line 298.
 
 [3]
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 329.
+This message occurred on input line 352.
 
 [4]
-<fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf, id=82, 144.54pt x 433.62pt>
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 353.
+
+[5]
+<fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf, id=75, 144.54pt x 433.62pt>
 File: fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 <use fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf  used 
-on input line 388.
+on input line 422.
 (pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 418--418
-[]\T1/cmr/m/n/8 Current basal area (sq ft/ac) of to-tal grow-ing stock,
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+[]\T1/cmr/m/n/8 Current (to-tal, ac-cept-able, and un-ac-cept-able grow-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 418--418
-\T1/cmr/m/n/8 ac-cept-able grow-ing stock (AGS), and un-ac-cept-able
+Underfull \hbox (badness 10000) in paragraph at lines 452--452
+\T1/cmr/m/n/8 stock) and post-harvest tar-get basal ar-eas (sq ft/ac)
  []
 
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 457.
+This message occurred on input line 463.
 
-[5 <./fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf>]
-<fmp-vt_files/figure-latex/unnamed-chunk-6-1.pdf, id=101, 361.35pt x 271.0125pt
->
+[6 <./fmp-vt_files/figure-latex/unnamed-chunk-2-1.pdf>]
+<fmp-vt_files/figure-latex/unnamed-chunk-6-1.pdf, id=94, 361.35pt x 271.0125pt>
+
 File: fmp-vt_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use fmp-vt_files/figure-latex/unnamed-chunk-6-1.pdf>
 Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-6-1.pdf  used 
-on input line 460.
+on input line 503.
 (pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
 
  []
 
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 489.
+This message occurred on input line 537.
 
-[6 <./fmp-vt_files/figure-latex/unnamed-chunk-6-1.pdf>]
-<fmp-vt_files/figure-latex/unnamed-chunk-7-1.pdf, id=118, 144.54pt x 433.62pt>
+[7 <./fmp-vt_files/figure-latex/unnamed-chunk-6-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 565.
+
+[8]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 572.
+
+[9]
+<fmp-vt_files/figure-latex/unnamed-chunk-7-1.pdf, id=125, 144.54pt x 433.62pt>
 File: fmp-vt_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 <use fmp-vt_files/figure-latex/unnamed-chunk-7-1.pdf>
 Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-7-1.pdf  used 
-on input line 556.
+on input line 641.
 (pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 586--586
+Underfull \hbox (badness 10000) in paragraph at lines 671--671
 []\T1/cmr/m/n/8 Current basal area (sq ft/ac) of to-tal grow-ing stock,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 586--586
+Underfull \hbox (badness 10000) in paragraph at lines 671--671
 \T1/cmr/m/n/8 ac-cept-able grow-ing stock (AGS), and un-ac-cept-able
  []
 
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 604.
+This message occurred on input line 681.
 
-[7 <./fmp-vt_files/figure-latex/unnamed-chunk-7-1.pdf>]
-<fmp-vt_files/figure-latex/unnamed-chunk-11-1.pdf, id=135, 361.35pt x 271.0125p
+[10 <./fmp-vt_files/figure-latex/unnamed-chunk-7-1.pdf>]
+<fmp-vt_files/figure-latex/unnamed-chunk-11-1.pdf, id=141, 361.35pt x 271.0125p
 t>
 File: fmp-vt_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 <use fmp-vt_files/figure-latex/unnamed-chunk-11-1.pdf>
 Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-11-1.pdf  used
- on input line 629.
+ on input line 715.
 (pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
+Underfull \hbox (badness 10000) in paragraph at lines 715--716
 
  []
 
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 653.
+This message occurred on input line 737.
 
-[8 <./fmp-vt_files/figure-latex/unnamed-chunk-11-1.pdf>]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 653.
-
-[9]
-<fmp-vt_files/figure-latex/unnamed-chunk-12-1.pdf, id=156, 144.54pt x 433.62pt>
-
-File: fmp-vt_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
-<use fmp-vt_files/figure-latex/unnamed-chunk-12-1.pdf>
-Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-12-1.pdf  used
- on input line 721.
-(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 751--751
-[]\T1/cmr/m/n/8 Current basal area (sq ft/ac) of to-tal grow-ing stock,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 751--751
-\T1/cmr/m/n/8 ac-cept-able grow-ing stock (AGS), and un-ac-cept-able
- []
-
+[11 <./fmp-vt_files/figure-latex/unnamed-chunk-11-1.pdf>]
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 760.
-
-[10 <./fmp-vt_files/figure-latex/unnamed-chunk-12-1.pdf>]
-<fmp-vt_files/figure-latex/unnamed-chunk-16-1.pdf, id=172, 361.35pt x 271.0125p
-t>
-File: fmp-vt_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
-<use fmp-vt_files/figure-latex/unnamed-chunk-16-1.pdf>
-Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-16-1.pdf  used
- on input line 796.
-(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 796--797
-
- []
-
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 818.
-
-[11 <./fmp-vt_files/figure-latex/unnamed-chunk-16-1.pdf>]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 825.
+This message occurred on input line 738.
 
 [12]
-<fmp-vt_files/figure-latex/unnamed-chunk-17-1.pdf, id=194, 144.54pt x 433.62pt>
-
-File: fmp-vt_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
-<use fmp-vt_files/figure-latex/unnamed-chunk-17-1.pdf>
-Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-17-1.pdf  used
- on input line 887.
-(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 917--917
-[]\T1/cmr/m/n/8 Current basal area (sq ft/ac) of to-tal grow-ing stock,
+Overfull \hbox (23.13892pt too wide) in paragraph at lines 760--764
+\T1/cmr/m/n/10 and With-out Deer Brows-ing.'' \T1/cmr/m/it/10 Forests \T1/cmr/m
+/n/10 6 (12): 344--59. doi:[]10.3390/f6020344[].  
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 917--917
-\T1/cmr/m/n/8 ac-cept-able grow-ing stock (AGS), and un-ac-cept-able
- []
-
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 944.
-
-[13 <./fmp-vt_files/figure-latex/unnamed-chunk-17-1.pdf>]
-<fmp-vt_files/figure-latex/unnamed-chunk-21-1.pdf, id=211, 361.35pt x 271.0125p
-t>
-File: fmp-vt_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file (type pdf)
-<use fmp-vt_files/figure-latex/unnamed-chunk-21-1.pdf>
-Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-21-1.pdf  used
- on input line 962.
-(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 962--963
-
- []
-
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 986.
-
-[14 <./fmp-vt_files/figure-latex/unnamed-chunk-21-1.pdf>]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 992.
-
-[15]
-<fmp-vt_files/figure-latex/unnamed-chunk-22-1.pdf, id=229, 144.54pt x 433.62pt>
-
-File: fmp-vt_files/figure-latex/unnamed-chunk-22-1.pdf Graphic file (type pdf)
-<use fmp-vt_files/figure-latex/unnamed-chunk-22-1.pdf>
-Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-22-1.pdf  used
- on input line 1058.
-(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1088
-[]\T1/cmr/m/n/8 Current basal area (sq ft/ac) of to-tal grow-ing stock,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1088
-\T1/cmr/m/n/8 ac-cept-able grow-ing stock (AGS), and un-ac-cept-able
- []
-
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 1099.
-
-[16 <./fmp-vt_files/figure-latex/unnamed-chunk-22-1.pdf>]
-<fmp-vt_files/figure-latex/unnamed-chunk-26-1.pdf, id=245, 361.35pt x 271.0125p
-t>
-File: fmp-vt_files/figure-latex/unnamed-chunk-26-1.pdf Graphic file (type pdf)
-<use fmp-vt_files/figure-latex/unnamed-chunk-26-1.pdf>
-Package pdftex.def Info: fmp-vt_files/figure-latex/unnamed-chunk-26-1.pdf  used
- on input line 1138.
-(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1138--1139
-
- []
-
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 1157.
-
-[17 <./fmp-vt_files/figure-latex/unnamed-chunk-26-1.pdf>]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 1178.
-
-[18]
 
 Package bibentry Warning: You have used \nobibliography* 
 (bibentry)                without a following \bibliography.
 (bibentry)                You may not be able to run BibTeX.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1217.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 767.
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 1217.
+This message occurred on input line 767.
 
-[19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1217.
+[13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 767.
 (./fmp-vt.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1217.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1217.
-
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 767.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 767.
 Package rerunfilecheck Info: File `fmp-vt.out' has not changed.
-(rerunfilecheck)             Checksum: 713AC0FA698F23ED5DA38430BBCFF5A8;1355.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1217.
+(rerunfilecheck)             Checksum: 698759E9D666E88A34D1F30F93EF8636;1120.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 767.
  ) 
 Here is how much of TeX's memory you used:
- 13013 strings out of 482913
- 191624 string characters out of 5957764
- 465741 words of memory out of 5000000
- 27927 multiletter control sequences out of 15000+600000
+ 12917 strings out of 482913
+ 188609 string characters out of 5957764
+ 463596 words of memory out of 5000000
+ 27862 multiletter control sequences out of 15000+600000
  551652 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 47i,12n,51p,446b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,11n,51p,443b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
  <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti
 1000.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappe
 n/ec/ecbx1000.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfou
@@ -1064,10 +945,10 @@ pen/ec/ecrm0800.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljf
 our/jknappen/ec/ecti1095.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fon
 ts/pk/ljfour/jknappen/ec/ecti1200.600pk> <c:/Users/Neal/Documents/.TinyTeX/texm
 f-var/fonts/pk/ljfour/jknappen/ec/ecti1440.600pk>
-Output written on fmp-vt.pdf (19 pages, 959473 bytes).
+Output written on fmp-vt.pdf (13 pages, 860601 bytes).
 PDF statistics:
- 771 PDF objects out of 1000 (max. 8388607)
- 291 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 622 PDF objects out of 1000 (max. 8388607)
+ 198 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 87 words of extra memory for PDF output out of 10000 (max. 10000000)
 
