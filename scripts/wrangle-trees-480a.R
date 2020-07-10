@@ -186,7 +186,8 @@ trees <- trees %>%
 
 trees <- trees %>% 
   mutate(lat = lat,
-         lon = lon) %>% 
+         lon = lon,
+         elev = (elevationmax + elevationmin) / 2) %>% 
   left_join(select(stands, stand, mean_ba, site_class, type),
             by = "stand") %>% 
   rename(ba = mean_ba,
@@ -198,7 +199,7 @@ trees <- trees %>%
          forest_type = 
            factor(forest_type,
                   levels = 
-                    levels(ht_model_op$trainingData$forest_type_s)), 
+                    levels(ht_model_op$trainingData$forest_type)), 
          site_class = case_when(site_class == 4 ~ 4,
                                 site_class == 5 ~ 5,
                                 site_class == 6 ~ 6,
@@ -207,9 +208,9 @@ trees <- trees %>%
                                 site_class == "II" ~ 5,
                                 site_class == "III" ~ 6,
                                 site_class == "IV" ~ 7,
-                                TRUE ~ 5),
-         ht = height(spp, dbh, forest_type, cr, ba, 
-                     bal, lat, lon, site_class))
+                                TRUE ~ 5))
+trees <- trees %>% 
+  mutate(ht = predict(ht_model_op, newdata = trees))
 
 
 # add primary key to trees df -------------------------------------------------

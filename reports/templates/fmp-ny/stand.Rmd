@@ -2,7 +2,6 @@
 `r (stands %>% filter(stand == i))$type`    
 \noindent `r sprintf("%.2f", (stands %>% filter(stand == i))$acres_legal)` acres total   
 \noindent `r sprintf("%.2f", ifelse(!is.na((stands %>% filter(stand == i))$ineligible_wetlands), (stands %>% filter(stand == i))$ineligible_wetlands, 0))` acres ineligible wetlands   
-\noindent `r sprintf("%.2f", ifelse(!is.na((stands %>% filter(stand == i))$ineligible_roads_landings), (stands %>% filter(stand == i))$ineligible_roads_landings, 0))` acres ineligible roads and landings     
 
 ##Site-specific information
 
@@ -20,6 +19,19 @@
 > - __Stand history:__   
 \vspace{2pt}
 `r (stands %>% filter(stand == i))$history` 
+
+```{r results="asis"}
+temp1 <- stands %>% filter(stand == i)
+temp2 <- c(temp1$mean_ba, temp1$qsd, temp1$tpa)
+temp3 <- c(temp1$ba_ags, temp1$qsd_ags, temp1$tpa_ags)
+# temp4 <- c(temp1$ba_inv, temp1$qsd_in, temp1$tpa_inv)
+temp0 <- c('Basal area (sqft/ac)', 'QSD (in)', 'Stems/ac')
+temp5 <- data.frame(temp0, temp2, temp3)
+
+kable(temp5, booktabs = T, digits = 0, col.names = c(' ', 'Total', 'Acceptable'), 
+      caption = "Measures of stocking for all live trees (total) and acceptable 
+      growing stock.")
+```
 
 ##Current forest information
 
@@ -248,19 +260,6 @@ curvelessplot <- plots %>% filter(stand == i) %>%
 
 ifelse(this_stand$structure.1[1] == "Even-aged", print(curveplot),
        print(curvelessplot))
-```
-
-```{r results="asis"}
-temp1 <- stands %>% filter(stand == i)
-temp2 <- c(temp1$mean_ba, temp1$qsd, temp1$tpa)
-temp3 <- c(temp1$ba_ags, temp1$qsd_ags, temp1$tpa_ags)
-# temp4 <- c(temp1$ba_inv, temp1$qsd_in, temp1$tpa_inv)
-temp0 <- c('Basal area (sqft/ac)', 'QSD (in)', 'Stems/ac')
-temp5 <- data.frame(temp0, temp2, temp3)
-
-kable(temp5, booktabs = T, digits = 0, col.names = c(' ', 'Total', 'Acceptable'), 
-      caption = "Measures of stocking for all live trees (total) and acceptable 
-      growing stock.")
 ```
 
 ##Silvicultural prescription
