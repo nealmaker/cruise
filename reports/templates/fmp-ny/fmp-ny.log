@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.16)  18 FEB 2020 14:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.1)  10 JUL 2020 08:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **fmp-ny.tex
 (./fmp-ny.tex
-LaTeX2e <2019-10-01> patch level 3
-
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-02-25>
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tufte-latex/tufte-h
 andout.cls
 Document Class: tufte-handout 2015/06/21 v3.5.2 Tufte-handout class
@@ -22,28 +22,28 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 ex
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.
 tex
-\XKV@toks=\toks14
-\XKV@tempa@toks=\toks15
+\XKV@toks=\toks15
+\XKV@tempa@toks=\toks16
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.te
 x))
-\XKV@depth=\count80
+\XKV@depth=\count167
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xifthen/xifthen.sty
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count81
-\calc@Bcount=\count82
-\calc@Adimen=\dimen102
-\calc@Bdimen=\dimen103
-\calc@Askip=\skip41
-\calc@Bskip=\skip42
+\calc@Acount=\count168
+\calc@Bcount=\count169
+\calc@Adimen=\dimen134
+\calc@Bdimen=\dimen135
+\calc@Askip=\skip47
+\calc@Bskip=\skip48
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count83
-\calc@Cskip=\skip43
+\calc@Ccount=\count170
+\calc@Cskip=\skip49
 ) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
@@ -76,9 +76,9 @@ Package pdftexcmds Info: \pdfdraftmode found.
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 )
-\hw@charcount=\count84
-\hw@wordcount=\count85
-\hw@maxprintline=\count86
+\hw@charcount=\count171
+\hw@wordcount=\count172
+\hw@maxprintline=\count173
 )
 Class tufte-handout Info: Loading the base class `article'
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -86,17 +86,17 @@ Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
-\c@part=\count87
-\c@section=\count88
-\c@subsection=\count89
-\c@subsubsection=\count90
-\c@paragraph=\count91
-\c@subparagraph=\count92
-\c@figure=\count93
-\c@table=\count94
-\abovecaptionskip=\skip44
-\belowcaptionskip=\skip45
-\bibindent=\dimen104
+\c@part=\count174
+\c@section=\count175
+\c@subsection=\count176
+\c@subsubsection=\count177
+\c@paragraph=\count178
+\c@subparagraph=\count179
+\c@figure=\count180
+\c@table=\count181
+\abovecaptionskip=\skip50
+\belowcaptionskip=\skip51
+\bibindent=\dimen136
 ) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
 )
@@ -106,21 +106,21 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/titlesec/titlesec.s
 ty
-Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
-\ttl@box=\box27
-\beforetitleunit=\skip46
-\aftertitleunit=\skip47
-\ttl@plus=\dimen105
-\ttl@minus=\dimen106
-\ttl@toksa=\toks16
-\titlewidth=\dimen107
-\titlewidthlast=\dimen108
-\titlewidthfirst=\dimen109
+Package: titlesec 2019/10/16 v2.13 Sectioning titles
+\ttl@box=\box45
+\beforetitleunit=\skip52
+\aftertitleunit=\skip53
+\ttl@plus=\dimen137
+\ttl@minus=\dimen138
+\ttl@toksa=\toks17
+\titlewidth=\dimen139
+\titlewidthlast=\dimen140
+\titlewidthfirst=\dimen141
 )
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/titlesec/titletoc.s
 ty
-Package: titletoc 2011/12/15 v1.6 TOC entries
-\ttl@leftsep=\dimen110
+Package: titletoc 2019/10/16 v2.13 TOC entries
+\ttl@leftsep=\dimen142
 )
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.s
 ty
@@ -152,9 +152,9 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 .sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
-\@linkdim=\dimen111
-\Hy@linkcounter=\count95
-\Hy@pagecounter=\count96
+\@linkdim=\dimen143
+\Hy@linkcounter=\count182
+\Hy@pagecounter=\count183
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
@@ -169,8 +169,8 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 .sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count97
-\pdfmajorversion=\count98
+\Hy@SavedSpaceFactor=\count184
+\pdfmajorversion=\count185
 Package hyperref Info: Option `unicode' set `true' on input line 4421.
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
@@ -185,13 +185,13 @@ Package hyperref Info: Plain pages OFF on input line 4562.
 Package hyperref Info: Backreferencing OFF on input line 4567.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4800.
-\c@Hy@tempcnt=\count99
+\c@Hy@tempcnt=\count186
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip10
+\Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5159.
-\XeTeXLinkMargin=\dimen112
+\XeTeXLinkMargin=\dimen144
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -201,9 +201,9 @@ calc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count100
-\Field@Width=\dimen113
-\Fld@charsize=\dimen114
+\Fld@menulength=\count187
+\Field@Width=\dimen145
+\Fld@charsize=\dimen146
 Package hyperref Info: Hyper figures OFF on input line 6430.
 Package hyperref Info: Link nesting OFF on input line 6435.
 Package hyperref Info: Hyper index ON on input line 6438.
@@ -218,8 +218,8 @@ LaTeX Info: Redefining \pageref on input line 6504.
 .sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\Hy@abspage=\count101
-\c@Item=\count102
+\Hy@abspage=\count188
+\c@Item=\count189
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -232,8 +232,8 @@ File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
 )
-\Fld@listcount=\count103
-\c@bookmark@seq@number=\count104
+\Fld@listcount=\count190
+\c@bookmark@seq@number=\count191
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/reru
 nfilecheck.sty
@@ -246,26 +246,28 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
-\Hy@SectionHShift=\skip48
-) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/ms/ragged2e.sty
-Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+\Hy@SectionHShift=\skip54
+)
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/ragged2e/ragged2e.s
+ty
+Package: ragged2e 2019/07/28 v2.2 ragged2e Package (MS)
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/ms/everysel.sty
 Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 )
-\CenteringLeftskip=\skip49
-\RaggedLeftLeftskip=\skip50
-\RaggedRightLeftskip=\skip51
-\CenteringRightskip=\skip52
-\RaggedLeftRightskip=\skip53
-\RaggedRightRightskip=\skip54
-\CenteringParfillskip=\skip55
-\RaggedLeftParfillskip=\skip56
-\RaggedRightParfillskip=\skip57
-\JustifyingParfillskip=\skip58
-\CenteringParindent=\skip59
-\RaggedLeftParindent=\skip60
-\RaggedRightParindent=\skip61
-\JustifyingParindent=\skip62
+\CenteringLeftskip=\skip55
+\RaggedLeftLeftskip=\skip56
+\RaggedRightLeftskip=\skip57
+\CenteringRightskip=\skip58
+\RaggedLeftRightskip=\skip59
+\RaggedRightRightskip=\skip60
+\CenteringParfillskip=\skip61
+\RaggedLeftParfillskip=\skip62
+\RaggedRightParfillskip=\skip63
+\JustifyingParfillskip=\skip64
+\CenteringParindent=\skip65
+\RaggedLeftParindent=\skip66
+\RaggedRightParindent=\skip67
+\JustifyingParindent=\skip68
 )
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geometry.s
 ty
@@ -273,41 +275,41 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count105
-\Gm@cntv=\count106
-\c@Gm@tempcnt=\count107
-\Gm@bindingoffset=\dimen115
-\Gm@wd@mp=\dimen116
-\Gm@odd@mp=\dimen117
-\Gm@even@mp=\dimen118
-\Gm@layoutwidth=\dimen119
-\Gm@layoutheight=\dimen120
-\Gm@layouthoffset=\dimen121
-\Gm@layoutvoffset=\dimen122
-\Gm@dimlist=\toks17
+\Gm@cnth=\count192
+\Gm@cntv=\count193
+\c@Gm@tempcnt=\count194
+\Gm@bindingoffset=\dimen147
+\Gm@wd@mp=\dimen148
+\Gm@odd@mp=\dimen149
+\Gm@even@mp=\dimen150
+\Gm@layoutwidth=\dimen151
+\Gm@layoutheight=\dimen152
+\Gm@layouthoffset=\dimen153
+\Gm@layoutvoffset=\dimen154
+\Gm@dimlist=\toks18
 )
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/changepage/changepa
 ge.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count108
-\cp@tempcnt=\count109
+\c@cp@cntr=\count195
+\cp@tempcnt=\count196
 )
-\@tufte@overhang=\skip63
-\@tufte@fullwidth=\skip64
-\@tufte@caption@fill=\skip65
+\@tufte@overhang=\skip69
+\@tufte@fullwidth=\skip70
+\@tufte@caption@fill=\skip71
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/paralist/paralist.s
 ty
 Package: paralist 2017/01/22 v2.7 Extended list environments
-\pltopsep=\skip66
-\plpartopsep=\skip67
-\plitemsep=\skip68
-\plparsep=\skip69
-\pl@lab=\toks18
+\pltopsep=\skip72
+\plpartopsep=\skip73
+\plitemsep=\skip74
+\plparsep=\skip75
+\pl@lab=\toks19
 )
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/textcase/textcase.s
 ty
-Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
+Package: textcase 2019/09/14 v1.00 Text only upper/lower case changing (DPC)
 )
 
 Class tufte-handout Warning: Couldn't locate `soul' package
@@ -348,48 +350,575 @@ File: svgnam.def 2016/05/11 v2.12 Predefined colors according to SVG 1.1 (UK)
 )) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbib.st
 y
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip70
-\bibsep=\skip71
+\bibhang=\skip76
+\bibsep=\skip77
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count110
+\c@NAT@ctr=\count197
 )
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/bibentry.sty
 Package: bibentry 2007/10/30 1.5 (PWD)
 )
 No file fmp-ny.bbl.
-\c@@tufte@num@bibkeys=\count111
+\c@@tufte@num@bibkeys=\count198
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/sauerj/optparams.st
 y
 Package: optparams 2004/08/14 v0.9 multiple optional parameters in macros
 )
-\@tufte@sidenote@vertical@offset=\skip72
+\@tufte@sidenote@vertical@offset=\skip78
 
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/placeins/placeins.s
 ty
 Package: placeins 2005/04/18  v 2.2
 )
-\@tufte@margin@floatbox=\box28
-\@tufte@figure@box=\box29
-\@tufte@caption@box=\box30
-\@tufte@caption@vertical@offset=\skip73
-\@tufte@float@contents@width=\skip74
+\@tufte@margin@floatbox=\box46
+\@tufte@figure@box=\box47
+\@tufte@caption@box=\box48
+\@tufte@caption@vertical@offset=\skip79
+\@tufte@float@contents@width=\skip80
 (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
-(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/t1enc.def
-File: t1enc.def 2020/02/11 v2.0o Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
-! Undefined control sequence.
-l.115 \xdef\@fontenc@load@list{\@fontenc@load@list
-                                                   
-Here is how much of TeX's memory you used:
- 10434 strings out of 494106
- 151752 string characters out of 6172282
- 239533 words of memory out of 5000000
- 14421 multiletter control sequences out of 15000+600000
- 4403 words of font info for 15 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 47i,0n,48p,240b,39s stack positions out of 5000i,500n,10000p,200000b,80000s
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.s
+ty
+Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip81
+\f@nch@O@elh=\skip82
+\f@nch@O@erh=\skip83
+\f@nch@O@olh=\skip84
+\f@nch@O@orh=\skip85
+\f@nch@O@elf=\skip86
+\f@nch@O@erf=\skip87
+\f@nch@O@olf=\skip88
+\f@nch@O@orf=\skip89
+)
+\tufteskipamount=\skip90
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count199
+\mult@box=\box49
+\multicol@leftmargin=\dimen155
+\c@unbalance=\count266
+\c@collectmore=\count267
+\doublecol@number=\count268
+\multicoltolerance=\count269
+\multicolpretolerance=\count270
+\full@width=\dimen156
+\page@free=\dimen157
+\premulticols=\dimen158
+\postmulticols=\dimen159
+\multicolsep=\skip91
+\multicolbaselineskip=\skip92
+\partial@page=\box50
+\last@line=\box51
+\maxbalancingoverflow=\dimen160
+\mult@rightbox=\box52
+\mult@grightbox=\box53
+\mult@gfirstbox=\box54
+\mult@firstbox=\box55
+\@tempa=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\c@minrows=\count271
+\c@columnbadness=\count272
+\c@finalcolumnbadness=\count273
+\last@try=\dimen161
+\multicolovershoot=\dimen162
+\multicolundershoot=\dimen163
+\mult@nat@firstbox=\box93
+\colbreak@box=\box94
+\mc@col@check@num=\count274
+)))
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.st
+y
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-!  ==> Fatal error occurred, no output PDF file produced!
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.s
+ty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks20
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip93
+For additional information on amsmath, use the `?' option.
+
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen164
+)) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.s
+ty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen165
+) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.st
+y
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count275
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count276
+\leftroot@=\count277
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count278
+\DOTSCASE@=\count279
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box95
+\strutbox@=\box96
+\big@size=\dimen166
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count280
+\c@MaxMatrixCols=\count281
+\dotsspace@=\muskip17
+\c@parentequation=\count282
+\dspbrk@lvl=\count283
+\tag@help=\toks22
+\row@=\count284
+\column@=\count285
+\maxfields@=\count286
+\andhelp@=\toks23
+\eqnshift@=\dimen167
+\alignsep@=\dimen168
+\tagshift@=\dimen169
+\tagwidth@=\dimen170
+\totwidth@=\dimen171
+\lineht@=\dimen172
+\@envbody=\toks24
+\multlinegap=\skip94
+\multlinetaggap=\skip95
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fixltx2e.sty
+Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
+Applying: [2015/01/01] Old fixltx2e package on input line 46.
+
+Package fixltx2e Warning: fixltx2e is not required with releases after 2015
+(fixltx2e)                All fixes are now in the LaTeX kernel.
+(fixltx2e)                See the latexrelease package for details.
+
+Already applied: [0000/00/00] Old fixltx2e package on input line 53.
+) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks26
+\inpenc@posthook=\toks27
+)
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.s
+ty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.s
+ty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphi
+cs.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+)
+\Gin@req@height=\dimen173
+\Gin@req@width=\dimen174
+)
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.s
+ty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen175
+\lightrulewidth=\dimen176
+\cmidrulewidth=\dimen177
+\belowrulesep=\dimen178
+\belowbottomsep=\dimen179
+\aboverulesep=\dimen180
+\abovetopsep=\dimen181
+\cmidrulesep=\dimen182
+\cmidrulekern=\dimen183
+\defaultaddspace=\dimen184
+\@cmidla=\count287
+\@cmidlb=\count288
+\@aboverulesep=\dimen185
+\@belowrulesep=\dimen186
+\@thisruleclass=\count289
+\@lastruleclass=\count290
+\@thisrulewidth=\dimen187
+) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/units/units.sty
+Package: units 1998/08/04 v0.9b Typesetting units
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/units/nicefrac.sty
+Package: nicefrac 1998/08/04 v0.9b Nice fractions
+\L@UnitsRaiseDisplaystyle=\skip96
+\L@UnitsRaiseTextstyle=\skip97
+\L@UnitsRaiseScriptstyle=\skip98
+))
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+\LTleft=\skip99
+\LTright=\skip100
+\LTpre=\skip101
+\LTpost=\skip102
+\LTchunksize=\count291
+\LTcapwidth=\dimen188
+\LT@head=\box97
+\LT@firsthead=\box98
+\LT@foot=\box99
+\LT@lastfoot=\box100
+\LT@cols=\count292
+\LT@rows=\count293
+\c@LT@tables=\count294
+\c@LT@chunks=\count295
+\LT@p@ftn=\toks28
+) (c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box101
+\UL@hyphenbox=\box102
+\UL@skip=\skip103
+\UL@hook=\toks29
+\UL@height=\dimen189
+\UL@pe=\count296
+\UL@pixel=\dimen190
+\ULC@box=\box103
+Package: ulem 2019/11/18
+\ULdepth=\dimen191
+)
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/morefloats/morefloa
+ts.sty
+Package: morefloats 2015/07/22 v1.0h Raise limit of unprocessed floats (HMM)
+Package morefloats Info: Maximum number of possible floats asked for: 36
+(morefloats)             (i.e. 18 more floats).
+(morefloats)             LaTeX might run out of memory before this
+(morefloats)             (in which case it will notify you).
+)
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend
+-pdfmode.def
+File: l3backend-pdfmode.def 2020-02-23 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count297
+\l__pdf_internal_box=\box104
+) (./fmp-ny.aux)
+\openout1 = `fmp-ny.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+\AtBeginShipoutBox=\box105
+Package hyperref Info: Link coloring OFF on input line 69.
+
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.st
+y
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.s
+ty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/ge
+ttitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count298
+)
+LaTeX Info: Redefining \ref on input line 69.
+LaTeX Info: Redefining \pageref on input line 69.
+LaTeX Info: Redefining \nameref on input line 69.
+(./fmp-ny.out) (./fmp-ny.out)
+\@outlinefile=\write3
+\openout3 = `fmp-ny.out'.
+
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 69.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside asymmetric 
+* h-part:(L,W,R)=(72.26999pt, 312.0pt, 230.02501pt)
+* v-part:(T,H,B)=(72.26999pt, 616.0pt, 106.7pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=312.0pt
+* \textheight=616.0pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-42.0pt
+* \headheight=14.0pt
+* \headsep=28.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=144.0pt
+* \marginparsep=24.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstop
+df-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopd
+f-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\langwohyphens=\language5
+<C:/Users/Neal/projects/cruise/logo-name-small.png, id=32, 433.62pt x 101.37875
+pt>
+File: C:/Users/Neal/projects/cruise/logo-name-small.png Graphic file (type png)
+
+<use C:/Users/Neal/projects/cruise/logo-name-small.png>
+Package pdftex.def Info: C:/Users/Neal/projects/cruise/logo-name-small.png  use
+d on input line 115.
+(pdftex.def)             Requested size: 155.99721pt x 36.47156pt.
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 126.
+
+[1
+
+{c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex
+.map} <c:/Users/Neal/projects/cruise/logo-name-small.png (PNG copy)>]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 136
+.
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 136
+.
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
+36.
+(c:/Users/Neal/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+
+LaTeX Warning: Marginpar on page 1 moved.
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 179.
+
+[1]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 227.
+
+[2]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 246.
+
+[3]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 310.
+
+[4]
+<fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf, id=68, 144.54pt x 433.62pt>
+File: fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+<use fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf  used 
+on input line 383.
+(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 419.
+
+[5 <./fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf>]
+<fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf, id=86, 361.35pt x 271.0125pt>
+
+File: fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+<use fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf>
+Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf  used 
+on input line 454.
+(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
+[]\T1/cmr/m/n/9 Table 1: Mea-sures of stock-ing for all live trees (to-tal) and
+ ac-cept-able
+ []
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 497.
+
+[6 <./fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 498.
+
+[7]
+<fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf, id=106, 144.54pt x 433.62pt>
+File: fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+<use fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf>
+Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf  used 
+on input line 569.
+(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 616.
+
+[8 <./fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf>]
+<fmp-ny_files/figure-latex/unnamed-chunk-10-1.pdf, id=122, 361.35pt x 271.0125p
+t>
+File: fmp-ny_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
+<use fmp-ny_files/figure-latex/unnamed-chunk-10-1.pdf>
+Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-10-1.pdf  used
+ on input line 640.
+(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 640--641
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 645--645
+[]\T1/cmr/m/n/9 Table 2: Mea-sures of stock-ing for all live trees (to-tal) and
+ ac-cept-able
+ []
+
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 683.
+
+[9 <./fmp-ny_files/figure-latex/unnamed-chunk-10-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 684.
+
+[10]
+
+Package bibentry Warning: You have used \nobibliography* 
+(bibentry)                without a following \bibliography.
+(bibentry)                You may not be able to run BibTeX.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 688.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 688.
+(./fmp-ny.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 688.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 688.
+Package rerunfilecheck Info: File `fmp-ny.out' has not changed.
+(rerunfilecheck)             Checksum: CAC2C592F5E13B8B1A07155A9DA42970;1167.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 688.
+ ) 
+Here is how much of TeX's memory you used:
+ 12972 strings out of 482913
+ 188945 string characters out of 5957764
+ 461273 words of memory out of 5000000
+ 27929 multiletter control sequences out of 15000+600000
+ 548978 words of font info for 66 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 47i,11n,51p,443b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm
+0600.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecbx0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfou
+r/jknappen/ec/tcrm0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts
+/pk/ljfour/jknappen/ec/ecti1095.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-
+var/fonts/pk/ljfour/jknappen/ec/ectt0800.600pk> <c:/Users/Neal/Documents/.TinyT
+eX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> <c:/Users/Neal/Documen
+ts/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> <c:/Users/Nea
+l/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> <c:/
+Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.60
+0pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ec
+rm0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknap
+pen/ec/ecrm1000.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljf
+our/jknappen/ec/ecrm1440.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ecrm2074.600pk>
+Output written on fmp-ny.pdf (11 pages, 192876 bytes).
+PDF statistics:
+ 538 PDF objects out of 1000 (max. 8388607)
+ 168 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 82 words of extra memory for PDF output out of 10000 (max. 10000000)
+
