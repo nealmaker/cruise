@@ -3,7 +3,7 @@
 
 stumpage <- Vectorize(function(roadside, volume){
   rdsd <- roadside/volume
-  stump <- (rdsd-70)*.5
+  stump <- (rdsd-40)*.5
   
   if(stump > 0) {
     return(stump*volume)
