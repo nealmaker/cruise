@@ -53,7 +53,11 @@ library("kableExtra")
 
 \vspace{16pt}
 
+<<<<<<< HEAD
 \Large `r if(exists("jurisdiction")) paste0("Town of ", str_trim(str_split(jurisdiction, ",")[[1]][[1]]), ", ", str_trim(str_split(jurisdiction, ",")[[1]][[2]]), " County, New York") else if(exists("town")) paste0(town, ", Vermont")`
+=======
+\Large Town of `r str_trim(str_split(jurisdiction, ",")[[1]][[1]])`, `r str_trim(str_split(jurisdiction, ",")[[1]][[2]])` County NY
+>>>>>>> d3a3137c9e9b9e57de1d322b1a2a805115123f78
 
 \vspace{120pt}
 
