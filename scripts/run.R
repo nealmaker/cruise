@@ -17,7 +17,7 @@ if(choice == "process cruise data from an excel sheet"){
   choice <- rselect.list(options, title = "Property type", graphics = T)
   
   if(choice == "NY 480a") {
-    source(here::here("scripts", "wrangle-trees-480a.R"))
+    source("scripts/wrangle-trees-480a.R")
   } else if(choice == "VT UVA") {
     source(here::here("scripts", "wrangle-trees.R"))
   } else {

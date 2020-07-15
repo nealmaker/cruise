@@ -1,4 +1,4 @@
-price_coeffs <- read_csv(here("data", "price-coefficients.csv"), 
+price_coeffs <- read_csv("data/price-coefficients.csv", 
                          col_names = TRUE) %>%
   mutate(spp_grp = as.factor(spp_grp))
 
