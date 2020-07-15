@@ -84,7 +84,7 @@ Deed (Liber/Pages): `r deed`
 
 \vspace{10pt}
 
-Original certication date: `r format(date(orig_cert), format = "%m/%d/%Y")`
+Original certication date: `r orig_cert`
 
 \vspace{60pt}
 
@@ -110,7 +110,7 @@ This plan covers the fifteen year period from `r year` to `r year+15`. It lays o
 
 #Property Description
 
-The `r forestname` forest represents a well-managed resource positioned to continue generating value on a sustainable basis. `r capitalize(numbers2words(100*sum(stands$acres_legal)/glacres))` percent of the `r glacres` acre property is productive forestland to be managed according to this plan. The property is located `r ifelse(str_detect(jurisdiction, "Adirondack Park") | str_detect(jurisdiction, "adirondack park"), "in the Adirondack Park ", "")`in the Town of `r str_split(jurisdiction, ", ", simplify = T)[[1]]`, `r str_split(jurisdiction, ", ", simplify = T)[[2]]` County, New York. `r accesstext` Property-wide, elevations range from `r elevationmin` to `r elevationmax` feet above mean sea level. `r watertext` `r boundariestext` Soils, forest health, and other pertinent topics are discussed in the individual stand area descriptions that follow.
+`r capitalize(numbers2words(100*sum(stands$acres_legal)/glacres))` percent of the `r glacres` acre `r forestname` property is productive forestland to be managed according to this plan. The property is located `r ifelse(str_detect(jurisdiction, "Adirondack Park") | str_detect(jurisdiction, "adirondack park"), "in the Adirondack Park ", "")`in the Town of `r str_split(jurisdiction, ", ", simplify = T)[[1]]`, `r str_split(jurisdiction, ", ", simplify = T)[[2]]` County, New York. `r accesstext` Property-wide, elevations range from `r elevationmin` to `r elevationmax` feet above mean sea level. `r watertext` `r boundariestext` Soils, forest health, and other pertinent topics are discussed in the individual stand area descriptions that follow.
 
 #Principles, Goals & Strategies For Forest Management
 

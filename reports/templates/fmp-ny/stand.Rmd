@@ -20,24 +20,6 @@
 \vspace{2pt}
 `r (stands %>% filter(stand == i))$history` 
 
-```{r results="asis"}
-temp1 <- stands %>% filter(stand == i)
-temp2 <- c(temp1$mean_ba, temp1$qsd, temp1$tpa)
-temp3 <- c(temp1$ba_ags, temp1$qsd_ags, temp1$tpa_ags)
-# temp4 <- c(temp1$ba_inv, temp1$qsd_in, temp1$tpa_inv)
-temp0 <- c('Basal area (sqft/ac)', 'QSD (in)', 'Stems/ac')
-temp5 <- data.frame(temp0, temp2, temp3)
-
-kable(temp5, booktabs = T, digits = 0, col.names = c(' ', 'Total', 'Acceptable'), 
-      caption = "Measures of stocking for all live trees (total) and acceptable 
-      growing stock.")
-```
-
-##Current forest information
-
-> - __Age Class Structure:__   
-\vspace{2pt}
-`r (stands %>% filter(stand == i))$structure.1`  
 ```{r fig.margin=TRUE, fig.width=2, fig.height=6, fig.cap="Distributions are approximated with kernel density estimation. Common species are those that account for at least 8 percent of the total stocking and areas under each curve represent species basal areas."}
 
 # diameter dist of main spp in a specific stand ----
@@ -59,6 +41,25 @@ trees %>% filter(stand == i, live == 1, dbh >= 6) %>%
   labs(title = "Diameter distributions", 
        subtitle = "for common species")
 ```
+
+##Current forest information
+
+```{r results="asis"}
+temp1 <- stands %>% filter(stand == i)
+temp2 <- c(temp1$mean_ba, temp1$qsd, temp1$tpa)
+temp3 <- c(temp1$ba_ags, temp1$qsd_ags, temp1$tpa_ags)
+# temp4 <- c(temp1$ba_inv, temp1$qsd_in, temp1$tpa_inv)
+temp0 <- c('Basal area (sqft/ac)', 'QSD (in)', 'Stems/ac')
+temp5 <- data.frame(temp0, temp2, temp3)
+
+kable(temp5, booktabs = T, digits = 0, col.names = c(' ', 'Total', 'Acceptable'), 
+      caption = "Measures of stocking for all live trees (total) and acceptable 
+      growing stock.")
+```
+
+> - __Age Class Structure:__   
+\vspace{2pt}
+`r (stands %>% filter(stand == i))$structure.1`  
 
 ```{r}
 x <- trees %>% 
@@ -194,9 +195,13 @@ curveplot <- plots %>% filter(stand == i) %>%
   theme(text = element_text(family = "Perpetua"), 
         legend.position = "right") +
   scale_x_continuous(name = "trees per acre",
-                     limits = c(min(this_stand$cx1, 
-                                    min((plots %>% 
-                                           filter(stand == i))$tpa_live)),
+                     limits = c(ifelse(min(this_stand$cx1, 
+                                           min((plots %>% 
+                                                  filter(stand == i))$tpa_live)) > 0,
+                                    min(this_stand$cx1, 
+                                           min((plots %>% 
+                                                  filter(stand == i))$tpa_live)),
+                                    0),
                                 max(this_stand$ax2,
                                     max((plots %>% 
                                            filter(stand == i))$tpa_live))+50)) +

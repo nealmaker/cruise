@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.1)  10 JUL 2020 08:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.1)  10 JUL 2020 11:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -773,53 +773,35 @@ LaTeX Warning: Marginpar on page 1 moved.
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 179.
+This message occurred on input line 175.
 
 [1]
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 227.
+This message occurred on input line 220.
 
 [2]
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 246.
+This message occurred on input line 239.
 
 [3]
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 310.
+This message occurred on input line 303.
 
 [4]
 <fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf, id=68, 144.54pt x 433.62pt>
 File: fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 <use fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf  used 
-on input line 383.
+on input line 365.
 (pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
 
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 419.
-
-[5 <./fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf>]
-<fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf, id=86, 361.35pt x 271.0125pt>
-
-File: fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
-<use fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf>
-Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf  used 
-on input line 454.
-(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--455
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
+Underfull \hbox (badness 10000) in paragraph at lines 373--373
 []\T1/cmr/m/n/9 Table 1: Mea-sures of stock-ing for all live trees (to-tal) and
  ac-cept-able
  []
@@ -827,41 +809,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 459--459
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 497.
+This message occurred on input line 405.
 
-[6 <./fmp-ny_files/figure-latex/unnamed-chunk-5-1.pdf>]
+[5 <./fmp-ny_files/figure-latex/unnamed-chunk-2-1.pdf>]
+<fmp-ny_files/figure-latex/unnamed-chunk-6-1.pdf, id=87, 361.35pt x 271.0125pt>
 
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 498.
-
-[7]
-<fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf, id=106, 144.54pt x 433.62pt>
-File: fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
-<use fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf>
-Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf  used 
-on input line 569.
-(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 616.
-
-[8 <./fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf>]
-<fmp-ny_files/figure-latex/unnamed-chunk-10-1.pdf, id=122, 361.35pt x 271.0125p
-t>
-File: fmp-ny_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
-<use fmp-ny_files/figure-latex/unnamed-chunk-10-1.pdf>
-Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-10-1.pdf  used
- on input line 640.
+File: fmp-ny_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
+<use fmp-ny_files/figure-latex/unnamed-chunk-6-1.pdf>
+Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-6-1.pdf  used 
+on input line 452.
 (pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 640--641
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 645--645
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 478.
+
+[6 <./fmp-ny_files/figure-latex/unnamed-chunk-6-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 479.
+
+[7]
+<fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf, id=105, 144.54pt x 433.62pt>
+File: fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+<use fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf>
+Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf  used 
+on input line 539.
+(pdftex.def)             Requested size: 144.00809pt x 432.02435pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 547--547
 []\T1/cmr/m/n/9 Table 2: Mea-sures of stock-ing for all live trees (to-tal) and
  ac-cept-able
  []
@@ -869,13 +851,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 645--645
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 683.
+This message occurred on input line 587.
 
-[9 <./fmp-ny_files/figure-latex/unnamed-chunk-10-1.pdf>]
+[8 <./fmp-ny_files/figure-latex/unnamed-chunk-7-1.pdf>]
+<fmp-ny_files/figure-latex/unnamed-chunk-11-1.pdf, id=122, 361.35pt x 271.0125p
+t>
+File: fmp-ny_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
+<use fmp-ny_files/figure-latex/unnamed-chunk-11-1.pdf>
+Package pdftex.def Info: fmp-ny_files/figure-latex/unnamed-chunk-11-1.pdf  used
+ on input line 626.
+(pdftex.def)             Requested size: 312.00105pt x 234.00078pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 626--627
+
+ []
+
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 684.
+This message occurred on input line 652.
+
+[9 <./fmp-ny_files/figure-latex/unnamed-chunk-11-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 653.
 
 [10]
 
@@ -883,42 +883,41 @@ Package bibentry Warning: You have used \nobibliography*
 (bibentry)                without a following \bibliography.
 (bibentry)                You may not be able to run BibTeX.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 688.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 688.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 657.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 657.
 (./fmp-ny.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 688.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 688.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 657.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 657.
 Package rerunfilecheck Info: File `fmp-ny.out' has not changed.
 (rerunfilecheck)             Checksum: CAC2C592F5E13B8B1A07155A9DA42970;1167.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 688.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 657.
  ) 
 Here is how much of TeX's memory you used:
  12972 strings out of 482913
  188945 string characters out of 5957764
- 461273 words of memory out of 5000000
+ 460270 words of memory out of 5000000
  27929 multiletter control sequences out of 15000+600000
  548978 words of font info for 66 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 47i,11n,51p,443b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
- <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm
-0600.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappe
-n/ec/ecbx0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfou
-r/jknappen/ec/tcrm0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts
-/pk/ljfour/jknappen/ec/ecti1095.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-
-var/fonts/pk/ljfour/jknappen/ec/ectt0800.600pk> <c:/Users/Neal/Documents/.TinyT
-eX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> <c:/Users/Neal/Documen
-ts/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> <c:/Users/Nea
-l/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> <c:/
-Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.60
+ 47i,12n,51p,441b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
+0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappe
+n/ec/tcrm0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfou
+r/jknappen/ec/ecti1095.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts
+/pk/ljfour/jknappen/ec/ectt0800.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-
+var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> <c:/Users/Neal/Documents/.TinyT
+eX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> <c:/Users/Neal/Documen
+ts/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> <c:/Users/Nea
+l/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> <c:/
+Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.60
 0pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ec
-rm0900.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknap
-pen/ec/ecrm1000.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecrm1440.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fon
-ts/pk/ljfour/jknappen/ec/ecrm2074.600pk>
-Output written on fmp-ny.pdf (11 pages, 192876 bytes).
+rm1000.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljfour/jknap
+pen/ec/ecrm1440.600pk> <c:/Users/Neal/Documents/.TinyTeX/texmf-var/fonts/pk/ljf
+our/jknappen/ec/ecrm2074.600pk>
+Output written on fmp-ny.pdf (11 pages, 191517 bytes).
 PDF statistics:
- 538 PDF objects out of 1000 (max. 8388607)
- 168 compressed objects within 2 object streams
+ 531 PDF objects out of 1000 (max. 8388607)
+ 164 compressed objects within 2 object streams
  31 named destinations out of 1000 (max. 500000)
  82 words of extra memory for PDF output out of 10000 (max. 10000000)
 

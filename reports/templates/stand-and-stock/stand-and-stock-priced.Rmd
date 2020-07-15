@@ -1,8 +1,24 @@
 ---
 output: pdf_document
 classoption: landscape
+params:
+  file: "C:\\Users\\Neal\\projects\\cruise\\rda\\test-prop-cruise-2019.rda"
 header-includes:
-    - \usepackage{caption}
+ \usepackage{float}
+ \usepackage{caption}
+ \usepackage{booktabs}
+ \usepackage{longtable}
+ \usepackage{array}
+ \usepackage{multirow}
+ \usepackage{wrapfig}
+ \usepackage{colortbl}
+ \usepackage{pdflscape}
+ \usepackage{tabu}
+ \usepackage{threeparttable}
+ \usepackage{threeparttablex}
+ \usepackage[normalem]{ulem}
+ \usepackage{makecell}
+ \usepackage{xcolor}
 ---
 
 ```{r setup, include=FALSE}
@@ -14,7 +30,7 @@ func <- function(z) if (is.numeric(z)) sum(z, na.rm = T) else ''
 ```
 
 ```{r}
-load("C:/Users/Neal/projects/cruise/rda/Two-dog-cruise-2019.rda")
+load(params$file)
 library("tidyverse")
 library("knitr")
 library("kableExtra")
@@ -37,11 +53,11 @@ library("kableExtra")
 
 \vspace{16pt}
 
-\Large Town of Harrietstown, Franklin County, New York
+\Large `r if(exists("jurisdiction")) paste0("Town of ", str_trim(str_split(jurisdiction, ",")[[1]][[1]]), ", ", str_trim(str_split(jurisdiction, ",")[[1]][[2]]), " County, New York") else if(exists("town")) paste0(town, ", Vermont")`
 
 \vspace{120pt}
 
-\large Prepared December, 2019 by:
+\large Prepared `r format(lubridate::today(), format = "%B %d, %Y")` by:
 
 \vspace{20pt}
 

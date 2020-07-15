@@ -32,10 +32,10 @@ if(max((trees %>% filter(!is.na(code)))$code) > 25 |
 
 # load height model & misc functions
 load("../big-rdas/ht-model-op.rda")
-source(here("scripts", "height.R"))
-source(here("scripts", "pbal.R"))
-source(here("scripts", "dib.R"))
-source(here("scripts", "get-roadside.R"))
+# source(here("scripts", "height.R"))
+source("scripts/pbal.R")
+source("scripts/dib.R")
+source("scripts/get-roadside.R")
 
 
 ###############################
@@ -100,7 +100,7 @@ trees <- trees %>% fill(plot, stand) %>%
 
 plots <- trees %>% filter(dbh>=6) %>%
   group_by(plot) %>% 
-  summarize(stand = stand[1],
+  dplyr::summarize(stand = stand[1],
             pct_sft = round(sum(live[sft == 1])/sum(live)*100),
             ba_live = baf*sum(live), 
             ba_ags = baf*sum(ags), 
@@ -304,7 +304,7 @@ plots <- plots %>%
   left_join((logs %>% 
                filter(grade %in% c(0, 1, 2, 3, 5)) %>%
                group_by(plot, grade) %>% 
-               summarize(volume = sum(vol_ac)) %>% 
+               dplyr::summarize(volume = sum(vol_ac)) %>% 
                # to keep grades that aren't represented:
                merge(data.frame(plot = c(9999999, 9999999, 9999999, 9999999, 9999999), 
                                 grade = c(0, 1, 2, 3, 5), 
@@ -327,7 +327,7 @@ plots <- plots %>%
 stands <- stands %>% 
   left_join((plots %>% 
                group_by(stand) %>%
-               summarize(veneer_vol = round(mean(veneer_vol)),
+               dplyr::summarize(veneer_vol = round(mean(veneer_vol)),
                          saw_vol = round(mean(saw_vol)),
                          tie_vol = round(mean(tie_vol)),
                          cord_vol = round(mean(cord_vol), 1)) %>%
@@ -357,7 +357,7 @@ if(priceit == "yes"){
     }
   }
   
-  load(here("data", "prices.rda"))
+  load("data/prices.rda")
   
   edit_prices <- rselect.list(yn,
                               title = "Update price table?",
@@ -365,10 +365,10 @@ if(priceit == "yes"){
   
   if(edit_prices == "yes"){
     fix(prices)
-    save(prices, file = here("data", "prices.rda"))
+    save(prices, file = "data/prices.rda")
   }
   
-  source(here("scripts", "stumpage.R"))
+  source("scripts/stumpage.R")
   
   logs <- logs %>% 
     filter(grade < 6) %>% 
@@ -377,7 +377,7 @@ if(priceit == "yes"){
            stump_log = stumpage(roadside_log, vol_log))
   
   trees <- trees %>% 
-    left_join(summarize(group_by(logs, tree), 
+    left_join(dplyr::summarize(group_by(logs, tree), 
                         vol = sum(vol_log),
                         roadside = sum(roadside_log),
                         stumpage = sum(stump_log))) %>% 
@@ -386,11 +386,11 @@ if(priceit == "yes"){
            stumpage = ifelse(is.na(stumpage), 0, stumpage))
   
   plots <- plots %>% 
-    left_join(summarize(group_by(trees, plot),
+    left_join(dplyr::summarize(group_by(trees, plot),
                         stump_ac = sum(stumpage * tpa)))
   
   stands <- stands %>% 
-    left_join(summarize(group_by(plots, stand),
+    left_join(dplyr::summarize(group_by(plots, stand),
                         stump_ac = mean(stump_ac))) %>% 
     mutate(stump_total = stump_ac * acres_calc)
 }
@@ -477,10 +477,11 @@ if(min(trees$dbh) < 1){
   quit(save = "ask")
 }
 
-if(any(trees$dbh %% 1 != 0)){
-  message("ERROR: tree(s) w/ fractional dbh")
-  quit(save = "ask")
-}
+# This prevents use on simulated data
+# if(any(trees$dbh %% 1 != 0)){
+#   message("ERROR: tree(s) w/ fractional dbh")
+#   quit(save = "ask")
+# }
 
 if(any(is.na(trees$logs))){
   message("ERROR: tree(s) w/ blank 'logs' field")
